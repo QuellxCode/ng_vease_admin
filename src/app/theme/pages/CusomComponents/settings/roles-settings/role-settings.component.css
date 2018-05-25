@@ -1,0 +1,15 @@
+app-role-settings{
+    width: 100% !important;
+}
+:host
+{
+    width: 100% !important;
+}
+.form-group label {
+    font-size: 12px !important; 
+   }
+
+
+   app-role-settings {
+    width: 100% !important;
+}

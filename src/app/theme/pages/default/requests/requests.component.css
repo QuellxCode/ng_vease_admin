@@ -1,0 +1,12 @@
+.m-portlet .m-portlet__head {
+    border-bottom: 1px solid #ebedf2;
+}
+
+.mcol {
+    height: 100%;
+}
+
+m-widget4 m-widget4__item {
+    cursor: grab;
+    cursor: -webkit-grab;
+}

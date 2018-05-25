@@ -1,0 +1,45 @@
+.m-nav .m-nav__item a .m-nav__link-text
+{
+    font-size:14px;
+}
+
+
+.form-group label {
+     font-size: 12px !important; 
+    }
+
+.permissionsTableStaff th , permissionsTableStaff td
+{
+    font-size: 12px;
+    font-weight: 500;
+}
+.permissionsTableStaff tbody tr td:nth-child(2)
+{
+    text-align: center;
+
+}
+app-staff-settings{
+    width: 100% !important;
+}
+:host
+{
+    width: 100% !important;
+}
+.m-content
+{
+    padding: 10px 30px 45px 30px;
+}
+.m-tabs .m-nav .m-nav__item a
+{
+    padding: 3px 21px;
+}
+
+.MembersTableViewEdit tbody tr td:nth-child(1)
+{
+    text-align: center;
+}
+.MembersTableViewEdit tbody tr td:nth-child(1) img
+{
+    
+width:45px ; height:45px;border-radius: 50%;
+}

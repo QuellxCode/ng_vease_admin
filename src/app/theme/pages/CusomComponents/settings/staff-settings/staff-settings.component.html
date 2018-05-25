@@ -1,0 +1,438 @@
+
+
+<div class="m-content">
+<div class="row" >
+<div class="col-md-12">
+
+<div class="m-portlet m-portlet--space">
+	
+		<div class="m-portlet__body">
+			<div class="row" [class.d-none]="!isDisplayStaffEditAndSee">
+				<div class="col-xl-3">
+					<div class="m-tabs" data-tabs="true" data-tabs-contents="#m_sections">
+						<ul class="m-nav m-nav--active-bg m-nav--active-bg-padding-lg m-nav--font-lg m-nav--font-bold m--margin-bottom-20 m--margin-top-10 m--margin-right-40" id="m_nav" role="tablist">
+						
+							<li><button class="btn btn-link" (click)="isDisplayStaffEditAndSee=false;" style="margin-top: -35px;"><i class="fa fa-chevron-left"></i> Back</button></li>
+							
+							<li class="m-nav__item">
+								<a class="m-nav__link m-tabs__item m-tabs__item--active" data-tab-target="#m_section_1" href="#" ng-reflect-href="#">
+									<span class="m-nav__link-text">
+										Profile
+									</span>
+								</a>
+							</li>
+							<li class="m-nav__item">
+								<a class="m-nav__link m-tabs__item" data-tab-target="#m_section_2" href="#" ng-reflect-href="#">
+									<span class="m-nav__link-text">
+										Permissions
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-9">
+					<div class="m-tabs-content" id="m_sections">
+						
+						<div class="m-tabs-content__item m-tabs-content__item--active" id="m_section_1">
+						
+                            <div class="row">
+                                <div class="col-md-10 offset-md-1">
+									
+                                       <h6 class="text-center">Profile Information</h6>
+                                       
+                                       <div class="form-group m-form__group">
+                                            <label for="input1">
+                                                First Name:
+                                            </label>
+                                            <input aria-describedby="input1" class="form-control form-control-sm m-input" id="exampleInputEmail1" placeholder="First Name" type="text">
+                                        </div>
+
+
+                                        <div class="form-group m-form__group">
+                                                <label for="input2">
+                                                    Last Name:
+                                                </label>
+                                                <input aria-describedby="input2" class="form-control form-control-sm m-input" id="exampleInputEmail1" placeholder="Last Name" type="text">
+                                            </div>
+
+
+                                            <div class="form-group m-form__group">
+                                                    <label for="label3">
+                                                        Date Of Birth:
+                                                    </label>
+                                                    <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" id="label3" placeholder="DOB" type="text">
+                                                </div>
+
+
+
+                                                <div class="form-group m-form__group">
+                                                        <label for="label3">
+                                                            Facebook:
+                                                        </label>
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" id="label4" placeholder="Facebook Link" type="text">
+                                                    </div>
+
+                                                    <div class="form-group m-form__group">
+                                                            <label for="label3">
+                                                                Twitter:
+                                                            </label>
+                                                            <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" id="label4" placeholder="Facebook Link" type="text">
+                                                        </div>
+
+                                                        <div class="form-group m-form__group">
+                                                                <label for="label3">
+                                                                    Instagram:
+                                                                </label>
+                                                                <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" id="label4" placeholder="Instagram Link" type="text">
+                                                        </div>
+
+                                                        <div class="form-group m-form__group">
+                                                                <label for="label3">
+                                                                    Linkedin:
+                                                                </label>
+                                                                <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" id="label4" placeholder="Linkedin Link" type="text">
+                                                        </div>
+
+
+                                                        <div class="form-group m-form__group">
+                                                                <label for="label3">
+                                                                   Address:
+                                                                </label>
+                                                                <textarea class="form-control m-input"  rows="3"></textarea>  </div>
+
+                                                        <div class="form-group m-form__group">
+                                                                <label for="exampleTextarea">
+                                                                    Description:
+                                                                </label>
+                                                                <textarea class="form-control m-input"  rows="3"></textarea>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group">
+                                                                    <label for="exampleTextarea">
+                                                                        Contact Number:
+                                                                    </label>
+                                                            <input class="form-control-sm form-control m-input" id="example-tel-input" type="tel" value="1-(555)-555-5555">
+                                                            </div>
+
+
+                                                            <div class="m-form__group form-group">
+                                                                    <label>
+                                                                        Memmber Departments
+                                                                    </label>
+                                                                    <div class="m-checkbox-list">
+                                                                        <label class="m-checkbox m-checkbox--square">
+                                                                            <input type="checkbox">
+                                                                            Support
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-checkbox m-checkbox--square">
+                                                                            <input checked="checked" type="checkbox">
+                                                                            Administrator
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-checkbox m-checkbox--square">
+                                                                            <input type="checkbox">
+                                                                            Sales
+                                                                            <span></span>
+                                                                        </label>
+                                                                    </div>
+                                                                   
+                                                                </div>
+
+
+                                                                <div class="form-group m-form__group">
+                                                                        <label for="exampleInputEmail1">
+                                                                            File Browser
+                                                                        </label>
+                                                                        <div></div>
+                                                                        <div class="custom-file">
+                                                                            <input class="custom-file-input" id="customFile" type="file">
+                                                                            <label class="custom-file-label" for="customFile">
+                                                                                Choose file
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+
+                                </div>
+                            </div>
+						</div>
+						                      
+						<div class="m-tabs-content__item" id="m_section_2">
+							<h6 class="text-center">
+								Permissions
+							</h6>
+							<div class="form-group m-form__group">
+									<label>
+										Role
+									</label>
+									<select class="form-control m-input form-control-sm">
+										<option>
+											Employee
+										</option>
+										<option>
+											Customer
+										</option>
+										<option>
+											Developer
+										</option>
+										<option>
+											Management
+										</option>
+										<option>
+											HR
+										</option>
+									</select>
+								</div>
+							<table class="table table-bordered permissionsTableStaff">
+									<thead>
+									  <tr>
+										<th scope="col">Permissions</th>
+										<th scope="col">View (Global)</th>
+										<th scope="col">View (Own)</th>
+										<th scope="col">Create</th>
+										<th scope="col">Edit</th>
+										<th scope="col">Delete</th>
+									  </tr>
+									</thead>
+									<tbody>
+									  <tr>
+										<th scope="row">Contracts</th>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input checked="checked" name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input checked="checked" name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+
+											<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+													<label>
+														<input checked="checked" name="" type="checkbox">
+														<span></span>
+													</label>
+												</span></td>
+
+												<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+														<label>
+															<input  name="" type="checkbox">
+															<span></span>
+														</label>
+													</span></td>
+									  </tr>
+									  <tr>
+										<th scope="row">Credit Notes</th>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input  name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input checked="checked" name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+
+											<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+													<label>
+														<input  name="" type="checkbox">
+														<span></span>
+													</label>
+												</span></td>
+
+												<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+														<label>
+															<input checked="checked" name="" type="checkbox">
+															<span></span>
+														</label>
+													</span></td>
+									  </tr>
+									  <tr>
+										<th scope="row">Customers</th>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input checked="checked" name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input checked="checked" name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+												<label>
+													<input name="" type="checkbox">
+													<span></span>
+												</label>
+											</span></td>
+
+											<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+													<label>
+														<input  name="" type="checkbox">
+														<span></span>
+													</label>
+												</span></td>
+
+												<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+														<label>
+															<input  name="" type="checkbox">
+															<span></span>
+														</label>
+													</span></td>
+									  </tr>
+
+									  <tr>
+											<th scope="row">Estimates</th>
+											<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+													<label>
+														<input checked="checked" name="" type="checkbox">
+														<span></span>
+													</label>
+												</span></td>
+											<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+													<label>
+														<input checked="checked" name="" type="checkbox">
+														<span></span>
+													</label>
+												</span></td>
+											<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+													<label>
+														<input checked="checked" name="" type="checkbox">
+														<span></span>
+													</label>
+												</span></td>
+	
+												<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+														<label>
+															<input checked="checked" name="" type="checkbox">
+															<span></span>
+														</label>
+													</span></td>
+	
+													<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+															<label>
+																<input checked="checked" name="" type="checkbox">
+																<span></span>
+															</label>
+														</span></td>
+										  </tr>
+									</tbody>
+								  </table>
+							
+						</div>
+						                    
+						
+						
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row" [class.d-none]="isDisplayStaffEditAndSee">
+				<div class="col-md-12">
+				<button class="btn btn-link" style="margin-top:-25px;" (click)="isDisplayStaffEditAndSee = !isDisplayStaffEditAndSee;"><i class="fa fa-user-plus"></i> New Member Staff </button>
+				<table class="table table-bordered MembersTableViewEdit">
+						<thead>
+						  <tr>
+							 <th></th>
+							<th scope="col">Staff Member</th>
+							<th scope="col">Email</th>
+							<th scope="col">Last Login</th>
+							<th scope="col">Active</th>
+							<th scope="col" colspan="2">Actions</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td><img src="./assets/app/media/img/users/user2.jpg" ></td>
+							<td>Ahmed</td>
+							<td>admin@email.com</td>
+							<td>24/05/2018  - 2:15 PM</td>
+							<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+								<label><input  name="" type="checkbox"><span></span></label></span></td>
+								<td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+										Edit
+									</button></td>
+
+									<td><button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+											Default
+										</button></td>
+						  </tr>
+						  <tr>
+								<td><img src="./assets/app/media/img/users/user3.jpg" ></td>
+								<td>Jane</td>
+								<td>admin@example.com</td>
+								<td>24/05/2018  - 3:30 PM</td>
+								<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+									<label><input  name="" type="checkbox"><span></span></label></span></td>
+								<td><button class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
+										Edit
+									</button></td>
+
+									<td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
+											Default
+										</button></td>
+							  </tr>
+							  <tr>
+									<td><img src="./assets/app/media/img/users/user5.jpg" ></td>
+									<td>Jane</td>
+									<td>admin@example.com</td>
+									<td>24/05/2018  - 3:30 PM</td>
+									<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+										<label><input  name="" type="checkbox"><span></span></label></span></td>
+										<td><button class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
+												Edit
+											</button></td>
+		
+											<td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
+													Default
+												</button></td>
+								  </tr>
+
+								  <tr>
+										<td><img src="./assets/app/media/img/users/user4.jpg" ></td>
+										<td>Jane</td>
+										<td>admin@example.com</td>
+										<td>24/05/2018  - 3:30 PM</td>
+										<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+											<label><input  name="" type="checkbox"><span></span></label></span></td>
+											<td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+													Edit
+												</button></td>
+			
+												<td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
+														Default
+													</button></td>
+									  </tr>
+						</tbody>
+					  </table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+</div>
+</div>

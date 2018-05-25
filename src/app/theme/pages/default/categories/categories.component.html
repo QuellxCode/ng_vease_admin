@@ -1,0 +1,883 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="" style="padding: 14px 10px 5px 30px;margin-bottom: -18px;" >
+	<div class="d-flex align-items-center">
+		<div class="mr-auto row" style="width:100%;">
+
+			<div class="col-md-6">
+					<h3 class="m-subheader__title" style="display:inline-block">
+							Categories
+							
+							<small><a (click)="adjustRadiusMap()" id="adjustRadius"  style="cursor:pointer;">
+									<i class="fa fa-map-marker"></i>
+								</a></small>
+							<small><a  style="cursor:pointer;">
+								<i class="fa fa-bar-chart" ></i>
+							</a></small>
+							<small><a style="cursor:pointer;">
+								<i class="fa fa-search"></i>
+							</a></small>
+						</h3>
+
+						<div class="form-group m-form__group" style="display:inline-block ; margin-left:3px; ">
+							
+							<select class="form-control m-input" style="display:inline-block ; margin-left:3px; background-color: #F2F3F8;border: 0px;border-bottom: 1px solid darkgrey;border-bottom-width: 2px;border-radius: 0px;padding-left: 0px;">
+								<option>
+									Food
+								</option>
+								<option>
+									Cars
+								</option>
+								
+								<option>
+									Electronics
+								</option>
+								<option>
+									IT
+								</option>
+								<option>
+									Others
+								</option>
+							</select>
+						</div>
+			</div>
+
+
+			<div class="col-md-3 offset-md-3">
+				
+					<button  class="btn btn-link pull-right" data-toggle="modal" data-target="#addSubcategoryModal"><i class="fa fa-plus"></i> Add Sub-category</button>
+
+			</div>
+
+		
+
+		
+
+			<!--div class="col-md-4">
+					<div class="form-group m-form__group" style="display:inline-block; margin-left:8px; margin-top: -15px;">
+							<label>
+								Search Shop/ Business:
+							</label>
+							<input class="form-control" type="text">
+					</div>
+
+			</div-->
+
+			<!--div class="col-md-2">
+				<button class="btn btn-primary" style="margin-top: 10px;margin-left: 8px;">Search</button>
+
+			</div-->
+			
+		</div>
+
+		
+		
+	</div>
+	
+</div>
+<hr class="customhr" />
+
+
+<!-- END: Subheader -->
+<div class="m-content">
+	<!--Begin::Section-->
+	
+
+
+<div class="row justify-content-md-center servicesListForm" style="padding: 0px 10px;">
+	
+	<div class="m-portlet m-portlet--full-height">
+		
+				<div class="m-portlet__body">
+					<div class="row">
+                    <div class="col-md-4">
+
+
+							<div class="form-group m-form__group">
+								
+									<select class="form-control m-input">
+										<option>
+										    All
+										</option>
+										<option>
+											Hair
+										</option>
+										
+										<option>
+											Health
+										</option>
+										<option>
+											Shopping
+										</option>
+										<option>
+											Electronics
+										</option>
+										<option>
+											Cleaning
+										</option>
+									</select>
+								</div>
+
+								<div class="form-group m-form__group">
+										<label >
+											Sort By
+										</label>
+										<select class="form-control m-input">
+											<option>
+												Recommendations
+											</option>
+											<option>
+												Price Low To High
+											</option>
+											
+											<option>
+												Price High To Low
+											</option>
+											<option>
+												Rating
+											</option>
+											<option>
+												Comments
+											</option>
+										
+										</select>
+									</div>
+
+
+							<div class="form-group m-form__group">
+									<label >
+										Search Shop/ Business Name:
+									</label>
+									<input class="form-control"  type="text">
+								</div>
+
+								<div class="form-group m-form__group">
+										<label>
+											Select The Date:
+										</label>
+										<input class="form-control"  type="date">
+									</div>
+
+
+									<div class="form-group m-form__group">
+											<label >
+												Select The Time:
+											</label>
+											<select class="form-control">
+												<option>Any Time</option>
+												<option>08-09AM</option>
+												<option>09-10AM</option>
+												<option>10-11AM</option>
+												<option>11-12PM</option>
+												<option>12-01PM</option>
+												<option>01-02PM</option>
+												<option>02-03PM</option>
+											</select>
+										</div>
+
+
+
+										<div class="form-group m-form__group">
+												<label >
+													Select Location
+												</label>
+												<input class="form-control"  type="text">
+											</div>
+
+
+											<div class="m-form__group form-group">
+													<label for="">
+														Budget
+													</label>
+													<div class="m-radio-list">
+														<label class="m-radio">
+															<input name="example_1" type="radio" >
+															Any
+															<span></span>
+														</label>
+														<label class="m-radio">
+															<input name="example_1" type="radio" >
+															$0 - $30
+															<span></span>
+														</label>
+													
+														<label class="m-radio">
+															<input name="example_1" type="radio">
+															$30 - $60
+															<span></span>
+														</label>
+
+
+														<label class="m-radio">
+																<input name="example_1" type="radio">
+																$60 - $120
+																<span></span>
+															</label>
+													</div>
+												</div>
+
+								
+
+                    </div>
+
+					<div class="col-md-8">
+					<div class="m-widget3">
+						<div class="m-widget3__item">
+							<div class="m-widget3__header">
+								
+								<div class="m-widget3__user-img">
+										<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+												<input class="chkboxes" type="checkbox">
+												<span></span>
+										</label>
+									<img alt="" class="m-widget3__img personimage" src="assets/app/media/img/fruits.jpg">
+								</div>
+								<div class="m-widget3__info">
+									<span class="m-widget3__username">
+											Fruits
+									</span>
+								
+									
+									<br>
+						
+									<!--span class="m-widget3__time personappartmentno">
+											<i class="fa fa-th"></i> Manager
+										</span>
+										<br>
+									<span class="m-widget3__time personappartmentno">
+										<i class="fa fa-clock-o"></i> 6:00 - 23:00
+									</span>
+									<br>
+									<span class="m-widget3__time personappartmentno">
+											<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+									</span-->
+
+								</div>
+								
+							</div>
+							<div class="m-widget3__body">
+									<div class="row services-categories">
+											<div class="col-md-12 category-list">
+												<h6 class="service-heading">Subcategories</h6>
+												<div class="row service-item">
+													<div class="col-md-12">
+														Bananana
+													</div>
+													<div class="col-md-12">
+														<hr>
+													</div>
+				
+												</div>
+												
+				
+												<div class="row service-item">
+														<div class="col-md-12">
+															Apple
+														</div>
+														<div class="col-sm-12">
+															<hr>
+														</div>
+					
+													</div>
+													
+													<div class="row service-item">
+														<div class="col-md-12">
+															Orange
+														</div>	
+														<div class="col-sm-12">
+															<hr>
+														</div>
+						
+													</div>
+														
+						
+														<div class="row service-item">
+															<div class="col-md-12">
+																Watermelon
+															</div>	
+															<div class="col-sm-12">
+																<hr>
+															</div>
+							
+															</div>		
+															
+											</div>
+				
+				
+				
+										
+											
+										</div>
+							</div>
+						</div>
+						<div class="m-widget3__item">
+								<div class="m-widget3__header">
+										<div class="m-widget3__user-img">
+												<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+														<input class="chkboxes" type="checkbox">
+														<span></span>
+												</label>
+											<img alt="" class="m-widget3__img personimage" src="assets/app/media/img/cars.png">
+										</div>
+									<div class="m-widget3__info">
+										<span class="m-widget3__username">
+												Cars
+										</span>
+									</div>
+								<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;" ><i class="la la-comments"></i> Message</a>
+								</div>
+								<div class="m-widget3__body">
+										<div class="row services-categories">
+												<div class="col-md-12 category-list">
+													<h6 class="service-heading">Subcategories</h6>
+													<div class="row service-item">
+														<div class="col-md-12">
+															Mercedes
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+					
+													</div>
+													
+					
+													<div class="row service-item">
+															<div class="col-md-12">
+																BMW
+															</div>
+															<div class="col-sm-12">
+																<hr>
+															</div>
+						
+														</div>
+														
+														<div class="row service-item">
+															<div class="col-md-12">
+																Jaguar
+															</div>	
+															<div class="col-sm-12">
+																<hr>
+															</div>
+							
+														</div>
+															
+							
+															<div class="row service-item">
+																<div class="col-md-12">
+																	Suzuki
+																</div>	
+																<div class="col-sm-12">
+																	<hr>
+																</div>
+								
+																</div>		
+																
+												</div>
+					
+					
+					
+											
+												
+											</div>
+								</div>
+							</div>
+							<!-- div class="m-widget3__item">
+									<div class="m-widget3__header">
+										<div class="m-widget3__user-img">
+											<img alt="" class="m-widget3__img personimage" src="./assets/app/media/img/users/100_2.jpg">
+										</div>
+										<div class="m-widget3__info">
+											<span class="m-widget3__username">
+												Jane Clinic
+											</span>
+											<br>
+											<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-th"></i>Health
+												</span>
+												<br>
+												
+											
+											
+											<span class="m-widget3__time personappartmentno">
+												<i class="fa fa-clock-o"></i> 6:00 - 23:00
+											</span>
+											<br>
+											<span class="m-widget3__time personappartmentno">
+												<i class="fa fa-money"></i> $60 - $200
+											</span>
+											<br>
+											<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+											</span>
+		
+										</div>
+									<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;" ><i class="la la-comments"></i> Message</a>
+									</div>
+									<div class="m-widget3__body">
+											<div class="row services-categories">
+													<div class="col-md-12 category-list">
+														<h6 class="service-heading">Checkup Services</h6>
+														<div class="row service-item">
+																<div class="col-md-6">
+																	Fever
+																</div>
+																<div class="col-md-3">
+																		<span class="m--font-success">
+																				$60.50
+																		</span>
+																</div>
+																<div class="col-md-3">
+																		<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+																</div>
+																<div class="col-md-12">
+																	<hr>
+																</div>
+							
+															</div>
+															<div class="row service-item">
+																	<div class="col-md-6">
+																			Dental
+																	</div>
+																	<div class="col-md-3">
+																			<span class="m--font-success">
+																					$100.00
+																			</span>
+																	</div>
+																	<div class="col-md-3">
+																			<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+																	</div>
+																	<div class="col-md-12">
+																		<hr>
+																	</div>
+								
+																</div>
+																<div class="row service-item">
+																		<div class="col-md-6">
+																				Overall Body
+																		</div>
+																		<div class="col-md-3">
+																				<span class="m--font-success">
+																						$200
+																				</span>
+																		</div>
+																		<div class="col-md-3">
+																				<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+																		</div>
+																		<div class="col-md-12">
+																			<hr>
+																		</div>
+									
+																	</div>
+													</div>
+												</div>
+									</div>
+								</div>
+								<div class="m-widget3__item">
+										<div class="m-widget3__header">
+											<div class="m-widget3__user-img">
+												<img alt="" class="m-widget3__img personimage" src=".assets/app/media/img/users/100_2.jpg">
+											</div>
+											<div class="m-widget3__info">
+												<span class="m-widget3__username">
+														Chris Shining
+												</span>
+												
+												<br>
+												<span class="m-widget3__time personappartmentno">
+														<i class="fa fa-th"></i>Cleaning
+													</span>
+												
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-clock-o"></i> 8:00 - 18:00
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-money"></i> $120 - $160
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+														<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+												</span>
+			
+											</div>
+											<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;" ><i class="la la-comments"></i> Message</a>
+										</div>
+										<div class="m-widget3__body">
+											<div class="row services-categories">
+												<div class="col-md-12 category-list">
+													<h6 class="service-heading">Room Cleaning</h6>
+													<div class="row service-item">
+														<div class="col-md-6">
+																One Room With Bath
+														</div>
+														<div class="col-md-3">
+																<span class="m--font-success">
+																		$120.00
+																</span>
+														</div>
+														<div class="col-md-3">
+																<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+					
+													</div>
+													
+					
+													<div class="row service-item">
+															<div class="col-md-6">
+																	Multiple Rooms With Baths
+															</div>
+															<div class="col-md-3">
+																	<span class="m--font-success">
+																			$260
+																	</span>
+															</div>
+															<div class="col-md-3">
+																	<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+															</div>
+															<div class="col-md-12">
+																<hr>
+															</div>
+						
+														</div>
+														
+														<div class="row service-item">
+																<div class="col-md-6">
+																	One Room Office with Bath
+																</div>
+																<div class="col-md-3">
+																		<span class="m--font-success">
+																				$500.00
+																		</span>
+																</div>
+																<div class="col-md-3">
+																		<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+																</div>
+																<div class="col-md-12">
+																	<hr>
+																</div>
+							
+															</div>
+															
+							
+															<div class="row service-item">
+																	<div class="col-md-6">
+																		Multi Room Office with Baths
+																	</div>
+																	<div class="col-md-3">
+																			<span class="m--font-success">
+																					$800.00
+																			</span>
+																	</div>
+																	<div class="col-md-3">
+																			<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+																	</div>
+																	<div class="col-md-12">
+																		<hr>
+																	</div>
+								
+																</div>	
+																
+												</div>
+												
+											</div>	
+										</div>
+									</div-->
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+
+
+</div>
+
+
+
+</div>
+
+<!-- Support Ticket Modal Start-->
+<div aria-labelledby="supportModalLabel" class="modal fade show" id="c_modal_broadcast" role="dialog" tabindex="-1">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="supportModalLabel">
+						Broadcast Service Request
+					</h5>
+					<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+							<span aria-hidden="true">
+								×
+							</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label class="form-control-label" for="broadcast-recipient-name">
+								Recipient:
+							</label>
+							<input class="form-control" id="broadcast-recipient-name" type="text">
+						</div>
+
+						<div class="form-group">
+								<label class="form-control-label" for="broadcast-category-name">
+									Service Category:
+								</label>
+								<select class="form-control" id="broadcast-category-name" type="text">
+									<option>Food</option>
+									<option>Shipping</option>
+									<option>Clothing</option>
+									<option>Games &amp; Fitness</option>
+								</select>
+							</div>
+
+
+							
+
+							<div class="form-group">
+									<label class="form-control-label" for="broadcast-subcategory-name">
+										Service Sub-Category:
+									</label>
+									<select class="form-control" id="broadcast-subcategory-name" type="text">
+										<option>Sea Food</option>
+										<option>Air Cargo</option>
+										<option>Clothing</option>
+										<option>Video Games</option>
+									</select>
+								</div>
+
+
+								<div class="form-group">
+										<label class="form-control-label" for="broadcast-contact-number">
+											Contact Number:
+										</label>
+										<input class="form-control" id="broadcast-contact-number" type="text">
+								</div>
+
+
+						<div class="form-group">
+							<label class="form-control-label" for="support-message-text">
+								Message:
+							</label>
+							<textarea class="form-control" id="support-message-text"></textarea>
+						</div>
+
+
+					
+
+							
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" data-dismiss="modal" type="button">
+						Close
+					</button>
+					<button class="btn btn-primary" type="button">
+						Submit
+					</button>
+				</div>
+			</div>
+		</div>
+       </div>
+	
+	<!-- Support Ticket Modal Ends-->
+
+
+	
+
+<div aria-labelledby="bookingModalLabel" class="modal fade" id="addBookingModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">
+						Make A Booking
+					</h5>
+					<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+						<span aria-hidden="true">
+							×
+						</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+            <div class="row">
+				    <div class="col-md-12">
+						<img alt="" src="./assets/app/media/img/users/user4.jpg" />
+						<img alt="" src="./assets/app/media/img/users/user2.jpg" />
+						<img alt="" src="./assets/app/media/img/users/user3.jpg" />
+					</div>
+					<!--div class="col-md-12">
+						<mwl-calendar-month-view [viewDate]="viewDate" style="width: 100%;"></mwl-calendar-month-view>
+					</div-->
+					
+                <!--div class="col-md-6">
+                        <h4>Booking</h4>
+                        <div class="form-group m-form__group">
+                                <label for="BookingServiceName">
+                                    Service Name:
+                                </label>
+                                <input class="form-control" id="BookingServiceName" type="text">
+                        </div>
+
+
+                        <div class="form-group m-form__group">
+                                <label for="BookingStaffMember">
+                                    Staff Member:
+                                </label>
+                                <input class="form-control" id="BookingStaffMember" type="text">
+                            </div>
+
+
+                            <div class="form-group m-form__group">
+                                    <label for="BookingQuantity">
+                                        Quantity:
+                                    </label>
+                                    <input class="form-control" id="BookingQuantity" type="text">
+                                </div>
+
+
+                                <div class="form-group m-form__group">
+                                        <label for="BookingAmount">
+                                            Amount:
+                                        </label>
+                                        <input class="form-control" id="BookingAmount" type="text">
+                                    </div>
+
+                                    <div class="form-group m-form__group row">
+                                            <label class="col-12 col-form-label" for="example-datetime-local-input">
+                                                Time Period
+                                            </label>
+                                            <div class="col-12">
+                                                <input class="form-control m-input" id="example-datetime-local-input" type="datetime-local" value="2011-08-19T13:45:00">
+                                            </div>
+                                        </div>
+                </div>
+
+                <div class="col-md-6">
+                        <h4>Customer</h4>
+
+                        <div class="form-group m-form__group">
+                                <label for="bookingcustomerNameField">
+                                    Name:
+                                </label>
+                                <input class="form-control" id="bookingcustomerNameField" type="text">
+                            </div>
+
+                            <div class="form-group m-form__group">
+                                    <label for="bookingcustomerEmailField">
+                                        Email:
+                                    </label>
+                                    <input class="form-control" id="bookingcustomerEmailField" type="text">
+                                </div>
+
+                                <div class="form-group m-form__group">
+                                        <label for="bookingcustomerPhoneField">
+                                            Phone:
+                                        </label>
+                                        <input class="form-control" id="bookingcustomerPhoneField" type="text">
+                                    </div>
+                        
+                     <div class="form-group m-form__group">
+                            <label for="addressFieldBooking">
+                                Address:
+                            </label>
+                            <input class="form-control" id="addressFieldBooking" type="text">
+                        </div>
+
+
+                        <div class="m-form__group form-group">
+                                <div class="m-radio-list">
+                                    <label class="m-radio">
+                                        <input name="example_1" type="radio" value="1">
+                                        Payment In Person
+                                        <span></span>
+                                    </label>
+                                    <label class="m-radio">
+                                        <input name="example_1" type="radio" value="2">
+                                        Payment With Credit Card
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                </div>
+            </div-->
+                   
+                    
+        
+                    
+                    
+                    
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" data-dismiss="modal" type="button">
+						Close
+					</button>
+					<button class="btn btn-primary" type="button">
+						Make Booking
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+	<div aria-labelledby="exampleModalLabel" class="modal fade" id="addSubcategoryModal" role="dialog" tabindex="999">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							Service Provider Radius Adjustment
+						</h5>
+						<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+							<span aria-hidden="true">
+								×
+							</span>
+						</button>
+					</div>
+					<div class="modal-body">
+							<div class="form-group">
+									<label class="form-control-label" for="broadcast-category-name">
+										Parent Category:
+									</label>
+									<select class="form-control" id="broadcast-category-name" type="text">
+										<option>Food</option>
+										<option>Car</option>
+										<option>Clothing</option>
+										<option>Games &amp; Fitness</option>
+									</select>
+								</div>
+
+
+								<div class="form-group">
+										<label class="form-control-label" for="broadcast-recipient-name">
+											Category Name:
+										</label>
+										<input class="form-control" id="broadcast-recipient-name" type="text">
+									</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" data-dismiss="modal" type="button">
+							Add Category
+						</button>
+						<button class="btn btn-secondary" data-dismiss="modal" type="button">
+							Close
+						</button>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	<!-- Modals End-->
