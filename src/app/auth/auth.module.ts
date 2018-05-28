@@ -24,7 +24,7 @@ import { fakeBackendProvider } from './_helpers/index';
     imports: [
         CommonModule,
         FormsModule,
-         HttpModule,   //-------- OLD
+        HttpModule,   //-------- OLD
         // HttpClientModule,
         AuthRoutingModule,
     ],
@@ -34,9 +34,9 @@ import { fakeBackendProvider } from './_helpers/index';
         AuthenticationService,
         UserService,
         // api backend simulation
-            fakeBackendProvider,
-            MockBackend,
-            BaseRequestOptions,
+        fakeBackendProvider,
+        MockBackend,
+        BaseRequestOptions,
     ],
     entryComponents: [AlertComponent],
 })

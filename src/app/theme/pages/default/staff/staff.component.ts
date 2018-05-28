@@ -23,8 +23,8 @@ import {
 
   Calendar And Map Components Not Installed Yet
  */
- 
-  
+
+
 
 @Component({
     selector: "app-staff",
@@ -35,33 +35,31 @@ import {
 export class StaffComponent implements OnInit, AfterViewInit {
 
     //@ViewChild(AgmMap) agmMap: AgmMap;
-    isGridView=true;
-    viewName= "List View";
+    isGridView = true;
+    viewName = "List View";
     isDisplayDetail = false;
     viewDate: Date = new Date();
 
- 
+
     constructor(private _script: ScriptLoaderService) {
 
     }
     ngOnInit() {
 
     }
-    ngAfterViewInit() 
-    {
-        
-            this._script.loadScripts('app-staff',
-            ['//www.amcharts.com/lib/3/plugins/tools/polarScatter/polarScatter.min.js',
-            '//www.amcharts.com/lib/3/plugins/export/export.min.js',
-            'assets/app/js/staff.js']);
+    ngAfterViewInit() {
 
-          
-        
+        this._script.loadScripts('app-staff',
+            ['//www.amcharts.com/lib/3/plugins/tools/polarScatter/polarScatter.min.js',
+                '//www.amcharts.com/lib/3/plugins/export/export.min.js',
+                'assets/app/js/staff.js']);
+
+
+
 
     }
-    
-    adjustRadiusMap()
-    {
+
+    adjustRadiusMap() {
         /*
         setTimeout(() => {
             this.agmMap.triggerResize();
@@ -69,22 +67,19 @@ export class StaffComponent implements OnInit, AfterViewInit {
     */
     }
 
-   
-    
-    changeView()
-    {
-        this.isGridView=!this.isGridView;
-        if(this.isGridView)
-        {
-            this.viewName= "List View";
+
+
+    changeView() {
+        this.isGridView = !this.isGridView;
+        if (this.isGridView) {
+            this.viewName = "List View";
         }
-        else
-        {
-            this.viewName= "Grid View";
+        else {
+            this.viewName = "Grid View";
         }
     }
 
-    
-    
+
+
 
 }

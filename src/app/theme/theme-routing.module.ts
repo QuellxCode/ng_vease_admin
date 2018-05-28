@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ThemeComponent } from './theme.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/_guards/auth.guard';
-import {WizardComponent} from "../components/wizard/wizard.component";
+import { WizardComponent } from "../components/wizard/wizard.component";
 import { StaffComponent } from './pages/default/staff/staff.component';
 import { StaffSettingsComponent } from './pages/CusomComponents/settings/staff-settings/staff-settings.component';
 
@@ -17,8 +17,8 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/blank\/blank.module#BlankModule"
             },
             {
-                 "path": "dashboard",
-                 "loadChildren": ".\/pages\/default\/index\/index.module#IndexModule"
+                "path": "dashboard",
+                "loadChildren": ".\/pages\/default\/index\/index.module#IndexModule"
             },
             {
                 "path": "requests",
@@ -41,23 +41,23 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/categories\/categories.module#CategoriesModule"
             }
         ]
-        
+
     },
-     {
+    {
         "path": "index",
         component: WizardComponent,
         "canActivate": [AuthGuard]
-     },
-     {
-         "path": "",
-         component: ThemeComponent,
-         "canActivate": [AuthGuard],
-         "children": [
-             {
-                 "path": "settings",
-                 "loadChildren": ".\/pages\/CusomComponents\/settings\/overview-settings\/overview-settings.module#OverViewSettingsModule"
-             }]
-     },
+    },
+    {
+        "path": "",
+        component: ThemeComponent,
+        "canActivate": [AuthGuard],
+        "children": [
+            {
+                "path": "settings",
+                "loadChildren": ".\/pages\/CusomComponents\/settings\/overview-settings\/overview-settings.module#OverViewSettingsModule"
+            }]
+    },
     {
         "path": "",
         component: ThemeComponent,

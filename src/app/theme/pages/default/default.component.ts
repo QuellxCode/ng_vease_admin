@@ -11,8 +11,7 @@ import { ScriptLoaderService } from '../../../_services/script-loader.service';
 export class DefaultComponent implements OnInit {
 
 
-    constructor() 
-    {
+    constructor() {
 
     }
     ngOnInit() {

@@ -19,10 +19,10 @@ export class RolesSettingsComponent implements OnInit, AfterViewInit {
 
     }
     ngAfterViewInit() {
-        
+
 
     }
 
-    
+
 
 }

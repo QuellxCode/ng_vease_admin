@@ -23,8 +23,8 @@ import {
 
   Calendar And Map Components Not Installed Yet
  */
- 
-  
+
+
 
 @Component({
     selector: "app-categories",
@@ -37,28 +37,26 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
     //@ViewChild(AgmMap) agmMap: AgmMap;
     viewDate: Date = new Date();
 
- 
+
     constructor(private _script: ScriptLoaderService) {
 
     }
     ngOnInit() {
 
     }
-    ngAfterViewInit() 
-    {
-        
-            this._script.loadScripts('app-categories',
-            ['//www.amcharts.com/lib/3/plugins/tools/polarScatter/polarScatter.min.js',
-            '//www.amcharts.com/lib/3/plugins/export/export.min.js',
-            'assets/app/js/staff.js']);
+    ngAfterViewInit() {
 
-          
-        
+        this._script.loadScripts('app-categories',
+            ['//www.amcharts.com/lib/3/plugins/tools/polarScatter/polarScatter.min.js',
+                '//www.amcharts.com/lib/3/plugins/export/export.min.js',
+                'assets/app/js/staff.js']);
+
+
+
 
     }
-    
-    adjustRadiusMap()
-    {
+
+    adjustRadiusMap() {
         /*
         setTimeout(() => {
             this.agmMap.triggerResize();
@@ -66,8 +64,8 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
     */
     }
 
-   
-    
-   
+
+
+
 
 }

@@ -1,10 +1,10 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ScriptLoaderService } from '../../_services/script-loader.service';
 
 @Component({
-  selector: 'app-wizard',
-  templateUrl: './wizard.component.html',
-  styles: []
+    selector: 'app-wizard',
+    templateUrl: './wizard.component.html',
+    styles: []
 })
 export class WizardComponent implements OnInit, AfterViewInit {
 

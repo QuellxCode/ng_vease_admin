@@ -1,4 +1,4 @@
-import { NgModule  } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { StaffComponent } from './staff.component';
@@ -32,6 +32,6 @@ const routes: Routes = [
     ]
 })
 export class StaffModule {
-    
+
 
 }
