@@ -19,3 +19,30 @@
        margin-bottom: 10px;
        margin-top: 20px;
    }
+
+   .list-group-item
+   {
+       border: none;
+   }
+ .m-content
+ {
+     padding:0px !important;
+ }
+ .m-portlet
+ {
+    margin: 0px;
+    padding: 0px;
+ }
+
+ .ghostWhiteColorSideBar
+ {
+     background-color: ghostwhite;
+ }
+ .ghostWhiteColorSideBar
+ {
+    padding:15px 25px;
+ }
+ .changingColumnRight
+ {
+     padding-top: 18px; 
+ }

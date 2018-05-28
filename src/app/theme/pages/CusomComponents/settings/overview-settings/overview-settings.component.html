@@ -1,116 +1,1245 @@
 
-<div class="m-content">
-<div class="row">
-        <div class="col-lg-4">
-                <div class="m-portlet">
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <span class="m-portlet__head-icon">
-                                        <i class="flaticon-multimedia"></i>
-                                    </span>
-                                    <h4 class="m-portlet__head-text">
-                                        General
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-portlet__body" style="padding:0px;">
-                                <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><a href="#">Company Information</a></li>
-                                        <li class="list-group-item"><a href="#">Localization</a></li>
-                                        <li class="list-group-item"><a href="#">Email</a></li>
-                                        <li class="list-group-item"><a href="#">Finance</a></li>
-                                        <li class="list-group-item"><a href="#">Subscriptions</a></li>
-                                        <li class="list-group-item"><a href="#">Customers</a></li>
-                                        <li class="list-group-item"><a href="#">Tasks</a></li>
-                                        <li class="list-group-item"><a href="#">Calendar</a></li>
-                                        <li class="list-group-item"><a href="#">Leads</a></li>
-                                      </ul>
-                        </div>
-                    
-                    </div>
-           </div>
-        
-           <div class="col-lg-8">
-                <div class="m-portlet">
-                        <div class="m-portlet__head text-center">
+<div class="m-content" >
 
-                           <img src="./assets/app/media/img/logos/vease_logo.png" class="logoImageInfoForm">
-                           <h4 class="m-portlet__head-text">
-                                Company Details
-                            </h4>
+<div class="m-portlet" >
+    <div class="m-portlet__body" style="padding:0px;">
+        <div class="row">
+        <div class="col-lg-3 ghostWhiteColorSideBar">
+ <div class="nav flex-column nav-pills" aria-orientation="vertical">
+        <a class="nav-link active" data-toggle="pill" href="#general" role="tab" aria-controls="v-pills-home" aria-selected="true">General</a>
+        <a class="nav-link" data-toggle="pill" href="#company-information" role="tab">Company Information</a>
+        <a class="nav-link" data-toggle="pill" href="#calendar-tab" role="tab">Calendar</a>
+        <a class="nav-link" data-toggle="pill" href="#finance-tab" role="tab">Finance</a>
+        <a class="nav-link" data-toggle="pill" href="#support-tab" role="tab">Support</a>
+        <a class="nav-link" data-toggle="pill" href="#payment-tab" role="tab">Payment</a>
+        <a class="nav-link" data-toggle="pill" href="#tags-tab" role="tab">Tags</a>
+                 
+                                       
+                                       
+                                     
+</div>
+        </div>
+
+        <div class="col-lg-8 changingColumnRight">
+                <div class="tab-content">
+                        <div class="tab-pane active" id="general">
+                                <div class=" text-center">   
+                                        <img src="./assets/app/media/img/logos/vease_logo.png" class="logoImageInfoForm">
+                                        <a href="#" style="display: inherit;text-align: center;margin: 0 auto;margin-top: -10px;margin-bottom: 20px;">
+                                            <i class="fa fa-plus"></i> Upload Image
+                                        </a>
+                                            <h4 class="m-portlet__head-text">
+                                                 Company Details
+                                             </h4>
+                                         </div>
+                                            <div class="form-group m-form__group">
+                                                    <label for="exampleInputEmail1">
+                                                        Company Name:
+                                                    </label>
+                                                    <input class="form-control m-input" type="text" placeholder="veaze.com">
+                                            </div>
+                            
+                                            <div class="form-group m-form__group">
+                                                    <label for="exampleInputEmail1">
+                                                        Company Main Domain:
+                                                    </label>
+                                                    <input class="form-control m-input" type="text" placeholder="www.veaze.com">
+                                            </div>
+                            
+                                         
+                                                    <div class="form-group m-form__group">
+                                                            <label for="exampleInputEmail1">
+                                                                Allowed File Type:
+                                                            </label>
+                                                            <input class="form-control m-input" type="text" placeholder=".jpg, .png , .jpeg, .gif">
+                                                    </div>
+                            
+                                                 
                         </div>
-                        <div class="m-portlet__body">
+                        <div class="tab-pane fade" id="company-information">
                                 <div class="form-group m-form__group">
-                                        <label for="exampleInputEmail1">
+                                        <label>
                                             Company Name:
                                         </label>
-                                        <input class="form-control m-input" type="text" placeholder="veaze.com">
+                                        <input class="form-control m-input" placeholder="veaze.com" type="text">
                                 </div>
 
                                 <div class="form-group m-form__group">
-                                        <label for="exampleInputEmail1">
-                                            Company Main Domain:
+                                        <label>
+                                            Country:
                                         </label>
-                                        <input class="form-control m-input" type="text" placeholder="www.veaze.com">
+                                        <select class="form-control m-input"  type="text">
+                                        <option selected>USA</option>
+                                        <option >Pakistan</option>
+                                        <option >India</option>
+                                        <option >Russia</option>
+                                        <option >Saudia Arabia</option>
+                                        <option >UAE</option>
+                                        </select>
                                 </div>
 
-                                <div class="m-form__group form-group">
-                                        <label for="">
-                                            RTL Admin Area (Right To Left)
+                                <div class="form-group m-form__group">
+                                        <label>
+                                            State:
                                         </label>
-                                        <div class="m-radio-inline">
-                                            <label class="m-radio">
-                                                <input name="example_3" type="radio" value="1">
-                                                Yes
-                                                <span></span>
-                                            </label>
-                                            <label class="m-radio">
-                                                <input name="example_3" checked type="radio" value="2">
-                                                No
-                                                <span></span>
-                                            </label>
-                                           
-                                        </div>
+                                        <input class="form-control m-input" placeholder="e.g. USA" type="text">
+                                </div>
+
+
+                                <div class="form-group m-form__group">
+                                        <label>
+                                            City:
+                                        </label>
+                                        <input class="form-control m-input" placeholder="e.g. Chicago" type="text">
+                                </div>
+
+                                <div class="form-group m-form__group">
+                                        <label>
+                                            Address:
+                                        </label>
+                                        <input class="form-control m-input" placeholder="Office No, Street etc."  type="text">
+                                </div>
+
+
+                                <div class="form-group m-form__group">
+                                        <label>
+                                            Phone:
+                                        </label>
+                                        <input class="form-control m-input"  type="text">
+                                </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="calendar-tab">
+                                <div class="m-form__group form-group">
+                                <select class="form-control m-input" type="text">
+                                        <option>Developer</option>
+                                        <option>Operator</option>
+                                        <option  selected>Admin</option>
+                                        <option>User</option>
+                                      
+                                    </select>
+                                </div>
+
+
+                                <h6>
+                                     Show On Calendar
+                                </h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                            <div class="m-form__group form-group">
+                                                    <label for="">
+                                                        Hide Notified Reminders From Calendars
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio">
+                                                            <input checked checkedname="example_3" type="radio" value="1">
+                                                            Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio">
+                                                            <input name="example_3" type="radio" value="2">
+                                                            No
+                                                            <span></span>
+                                                        </label>
+                                                      
+                                                    </div>
+                                                    
+                                                </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <div class="m-form__group form-group">
+                                                    <label for="">
+                                                        Invoices
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio">
+                                                            <input name="example_4" type="radio" value="1">
+                                                            Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio">
+                                                            <input name="example_4" checked type="radio" value="2">
+                                                            No
+                                                            <span></span>
+                                                        </label>
+                                                      
+                                                    </div>
+                                                    
+                                                </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <div class="m-form__group form-group">
+                                                    <label for="">
+                                                        Lead Reminders
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio">
+                                                            <input checked name="example_5" type="radio" value="1">
+                                                            Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio">
+                                                            <input name="example_5" type="radio" value="2">
+                                                            No
+                                                            <span></span>
+                                                        </label>
+                                                      
+                                                    </div>
+                                                    
+                                                </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <div class="m-form__group form-group">
+                                                    <label for="">
+                                                        Estimates
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio">
+                                                            <input checked name="example_6" type="radio" value="1">
+                                                            Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio">
+                                                            <input name="example_6" type="radio" value="2">
+                                                            No
+                                                            <span></span>
+                                                        </label>
+                                                      
+                                                    </div>
+                                                    
+                                                </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <div class="m-form__group form-group">
+                                                    <label for="">
+                                                        Customer Reminders
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio">
+                                                            <input checked name="example_7" type="radio" value="1">
+                                                            Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio">
+                                                            <input  checked name="example_7" type="radio" value="2">
+                                                            No
+                                                            <span></span>
+                                                        </label>
+                                                      
+                                                    </div>
+                                                    
+                                                </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="m-form__group form-group">
+                                                    <label for="">
+                                                        Proposals
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio">
+                                                            <input checked name="example_8" type="radio" value="1">
+                                                            Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio">
+                                                            <input name="example_8" type="radio" value="2">
+                                                            No
+                                                            <span></span>
+                                                        </label>
+                                                      
+                                                    </div>
+                                                    
+                                                </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="m-form__group form-group">
+                                                    <label for="">
+                                                        Estimate Reminders
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio">
+                                                            <input checked name="example_9" type="radio" value="1">
+                                                            Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio">
+                                                            <input name="example_9" type="radio" value="2">
+                                                            No
+                                                            <span></span>
+                                                        </label>
+                                                      
+                                                    </div>
+                                                    
+                                                </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="m-form__group form-group">
+                                                    <label for="">
+                                                        Contracts
+                                                    </label>
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio">
+                                                            <input checked name="example_10" type="radio" value="1">
+                                                            Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio">
+                                                            <input name="example_10" type="radio" value="2">
+                                                            No
+                                                            <span></span>
+                                                        </label>
+                                                      
+                                                    </div>
+                                                    
+                                                </div>
+                                    </div>
+                                </div>
+
+
+                        </div>
+
+                        <div class="tab-pane fade" id="finance-tab">
+                                <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                          <a class="nav-link active" href="#general_finance" role="tab" data-toggle="tab">General</a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="#invoices_finance" role="tab" data-toggle="tab">Invoices</a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="#credit_notes_finance" role="tab" data-toggle="tab">Credit Notes</a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="#estimates_finance" role="tab" data-toggle="tab">Estimates</a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="#proposal_finance" role="tab" data-toggle="tab">Proposals</a>
+                                        </li>
+                                        
+
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="general_finance">
+                                        <h6>
+                                             General Settings
+                                        </h6>
+                                        <div class="row">
+                                                <div class="col-md-6">
+                                                        <div class="form-group m-form__group">
+                                                                <label>
+                                                                    Decimal Separator:
+                                                                </label>
+                                                                <select class="form-control m-input"  type="text">
+                                                                <option selected>.</option>
+                                                                <option >-</option>
+                                                                <option >|</option>
+                                                                <option >||</option>
+                                                                <option >,</option>
+                                                                <option >_</option>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                            <div class="form-group m-form__group">
+                                                                    <label>
+                                                                        Thousand Separator:
+                                                                    </label>
+                                                                    <select class="form-control m-input"  type="text">
+                                                                    <option >.</option>
+                                                                    <option >-</option>
+                                                                    <option >|</option>
+                                                                    <option >||</option>
+                                                                    <option selected>,</option>
+                                                                    <option >_</option>
+                                                                    </select>
+                                                            </div>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                            <div class="form-group m-form__group">
+                                                                    <label>
+                                                                        Currency Placement:
+                                                                    </label>
+                                                                    <div class="m-radio-inline">
+                                                                            <label class="m-radio">
+                                                                                <input name="example_10" type="radio" value="1">
+                                                                                Before Amount ($23.00)
+                                                                                <span></span>
+                                                                            </label>
+                                                                            <label class="m-radio">
+                                                                                <input name="example_10" type="radio" value="2">
+                                                                                After Amount (23.00$)
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                   </div>
+
+
+                                                   <div class="form-group m-form__group">
+                                                        <label>
+                                                          Show Tax Per Item:
+                                                        </label>
+                                                        <div class="m-radio-inline">
+                                                                <label class="m-radio">
+                                                                    <input name="example_11" type="radio" value="1">
+                                                                    Yes
+                                                                    <span></span>
+                                                                </label>
+                                                                <label class="m-radio">
+                                                                    <input name="example_11" type="radio" value="2">
+                                                                    No
+                                                                    <span></span>
+                                                                </label>
+                                                            </div>
+                                                </div>
+
+
+                                                <div class="form-group m-form__group">
+                                                        <label >
+                                                            Default Tax:
+                                                        </label>
+                                                        <input class="form-control m-input" placeholder="No Tax" type="text">
+                                                </div>
+
+                                        
+
+                                        
+
+                                    </div>
+                                    <div class="tab-pane " id="invoices_finance">
+                                            <div class="row">
+                                                    <div class="col-md-6">
+                                                            <div class="form-group m-form__group">
+                                                                    <label>
+                                                                        Invoice Number Prefix:
+                                                                    </label>
+                                                                    <select class="form-control m-input" type="text">
+                                                                    <option selected="">INV</option>
+                                                                    <option>ENV</option>
+                                                                    <option>ABC</option>
+                                                                    <option>INVC</option>
+                                                                    <option>IC</option>
+                                                                    <option>I</option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                                <div class="form-group m-form__group">
+                                                                        <label>
+                                                                           Next Invoice Number:
+                                                                        </label>
+                                                                        <select class="form-control m-input" type="text">
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                        <option>3</option>
+                                                                        <option>4</option>
+                                                                        <option selected="">5</option>
+                                                                        <option>6</option>
+                                                                        </select>
+                                                                </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group m-form__group">
+                                                                        <label>
+                                                                           invoice Due After Days:
+                                                                        </label>
+                                                                        <select class="form-control m-input" type="text">
+                                                                        <option selected>30</option>
+                                                                        <option>20</option>
+                                                                        <option>15</option>
+                                                                        <option>10</option>
+                                                                        <option >5</option>
+                                                                        <option>1</option>
+                                                                        </select>
+                                                                </div>
+                                                        </div>
+    
+                                                        
+                                                            
+                                                       </div>
+
+
+                                                       <div class="form-group m-form__group">
+                                                            <label>
+                                                              Require Client To Be Logged In To View Invoice:
+                                                            </label>
+                                                            <div class="m-radio-inline">
+                                                                    <label class="m-radio">
+                                                                        <input name="example_12" type="radio" value="1">
+                                                                        Yes
+                                                                        <span></span>
+                                                                    </label>
+                                                                    <label class="m-radio">
+                                                                        <input name="example_12" type="radio" value="2">
+                                                                        No
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                    </div>
+                                    </div>
+
+                                    <div class="tab-pane " id="credit_notes_finance">
+                                            <div class="row">
+                                                    <div class="col-md-6">
+                                                            <div class="form-group m-form__group">
+                                                                    <label>
+                                                                        Credit Note Number Prefix:
+                                                                    </label>
+                                                                    <select class="form-control m-input" type="text">
+                                                                    <option selected="">CN-</option>
+                                                                    <option>ENV-</option>
+                                                                    <option>ABC-</option>
+                                                                    <option>INVC-</option>
+                                                                    <option>IC-</option>
+                                                                    <option>I-</option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                                <div class="form-group m-form__group">
+                                                                        <label>
+                                                                           Next Credit Note Number:
+                                                                        </label>
+                                                                        <select class="form-control m-input" type="text">
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                        <option>3</option>
+                                                                        <option>4</option>
+                                                                        <option selected="">5</option>
+                                                                        <option>6</option>
+                                                                        </select>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label>
+                                                                             Decrement Credit Note Number On Delete:
+                                                                            </label>
+                                                                            <div class="m-radio-inline">
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_12" checked type="radio" value="1">
+                                                                                        Yes
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_12" type="radio" value="2">
+                                                                                        No
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                    </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label>
+                                                                             Show Project Name On Credit Note:
+                                                                            </label>
+                                                                            <div class="m-radio-inline">
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_13" type="radio" value="1">
+                                                                                        Yes
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_13" checked type="radio" value="2">
+                                                                                        No
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                    </div>
+
+                                                                    
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label for="exampleTextarea">
+                                                                                Predefined Client Note:
+                                                                            </label>
+                                                                            <textarea class="form-control m-input" rows="3" cols="10"></textarea>
+                                                                        </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label for="exampleTextarea">
+                                                                                Predefined Terms &amp; Conditions:
+                                                                            </label>
+                                                                            <textarea class="form-control m-input" rows="3" cols="10"></textarea>
+                                                                        </div>
+                                                            </div>
+
+
+                                                         
+
+                            
+                                                       </div>
+                                                         
+
+                                                      
+                                    </div>
+
+                                    <div class="tab-pane " id="estimates_finance">
+                                            <div class="row">
+                                                    <div class="col-md-6">
+                                                            <div class="form-group m-form__group">
+                                                                    <label>
+                                                                        Credit Note Number Prefix:
+                                                                    </label>
+                                                                    <select class="form-control m-input" type="text">
+                                                                    <option selected="">EST-</option>
+                                                                    <option>EET-</option>
+                                                                    <option>ET-</option>
+                                                                    <option>ETT-</option>
+                                                                    <option>TTE-</option>
+                                                                    <option>ESTT-</option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                                <div class="form-group m-form__group">
+                                                                        <label>
+                                                                           Next Estimate Number:
+                                                                        </label>
+                                                                        <select class="form-control m-input" type="text">
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                        <option>3</option>
+                                                                        <option>4</option>
+                                                                        <option selected="">5</option>
+                                                                        <option>6</option>
+                                                                        </select>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label>
+                                                                             Decrement Estimate Number On Delete:
+                                                                            </label>
+                                                                            <div class="m-radio-inline">
+                                                                                    <label class="m-radio">
+                                                                                        <input checked="" name="example_14" type="radio" value="1">
+                                                                                        Yes
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_14" type="radio" value="2">
+                                                                                        No
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                    </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label>
+                                                                             Require Client To Be Logged In To View Estimate:
+                                                                            </label>
+                                                                            <div class="m-radio-inline">
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_15" type="radio" value="1">
+                                                                                        Yes
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                    <label class="m-radio">
+                                                                                        <input checked="" name="example_15" type="radio" value="2">
+                                                                                        No
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                    </div>
+
+                                                                    
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label>
+                                                                             Show sale agent on estimate:
+                                                                            </label>
+                                                                            <div class="m-radio-inline">
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_17" type="radio" value="1">
+                                                                                        Yes
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                    <label class="m-radio">
+                                                                                        <input checked="" name="example_17" type="radio" value="2">
+                                                                                        No
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                    </div>
+
+                                                                    
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label>
+                                                                             Allow staff members to view estmates when they are assigned to:
+                                                                            </label>
+                                                                            <div class="m-radio-inline">
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_17" type="radio" value="1">
+                                                                                        Yes
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                    <label class="m-radio">
+                                                                                        <input checked="" name="example_17" type="radio" value="2">
+                                                                                        No
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                    </div>
+
+                                                                    
+                                                            </div>
+
+                                                         
+
+                            
+                                                       </div>
+                                    </div>
+
+                                    <div class="tab-pane " id="proposal_finance">
+                                            <div class="row">
+                                                    <div class="col-md-6">
+                                                            <div class="form-group m-form__group">
+                                                                    <label>
+                                                                        Proposal Number Prefix:
+                                                                    </label>
+                                                                    <select class="form-control m-input" type="text">
+                                                                    <option selected="">PRO-</option>
+                                                                    <option>PRE-</option>
+                                                                    <option>PRA-</option>
+                                                                    <option>PAR-</option>
+                                                                    <option>PAE-</option>
+                                                                    <option>PROP-</option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                                <div class="form-group m-form__group">
+                                                                        <label>
+                                                                            Proposal Due After Days:
+                                                                        </label>
+                                                                        <select class="form-control m-input" type="text">
+                                                                        <option selected="">30</option>
+                                                                        <option>40</option>
+                                                                        <option>100</option>
+                                                                        <option>200</option>
+                                                                        <option>300</option>
+                                                                        <option>360</option>
+                                                                        </select>
+                                                                </div>
+                                                            </div>
+                                                      
+
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label>
+                                                                             Exclude proposals with draft status from customers area 
+                                                                            </label>
+                                                                            <div class="m-radio-inline">
+                                                                                    <label class="m-radio">
+                                                                                        <input checked="" name="example_18" type="radio" value="1">
+                                                                                        Yes
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_18" type="radio" value="2">
+                                                                                        No
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                    </div>
+                                                            </div>
+
+                                                         
+
+                                                           
+
+                                                            <div class="col-md-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label>
+                                                                             Allow staff members to view estmates when they are assigned to:
+                                                                            </label>
+                                                                            <div class="m-radio-inline">
+                                                                                    <label class="m-radio">
+                                                                                        <input name="example_19" type="radio" value="1">
+                                                                                        Yes
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                    <label class="m-radio">
+                                                                                        <input checked="" name="example_19" type="radio" value="2">
+                                                                                        No
+                                                                                        <span></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                    </div>
+
+                                                                    
+                                                            </div>
+
+                                                            <div class="col-sm-6">
+                                                                    <div class="form-group m-form__group">
+                                                                            <label for="exampleTextarea">
+                                                                                Proposal Info Format (HTML &amp; PDF)
+                                                                            </label>
+                                                                            <textarea class="form-control m-input" cols="10" rows="3">{proposal to} &#13;&#10; {Address} &#13;&#10; {city} {state}</textarea>
+                                                                        </div>
+                                                            </div>
+
+                                                         
+
+                            
+                                                       </div>
                                     </div>
 
 
-                                    <div class="m-form__group form-group">
-                                            <label for="">
-                                                RTL Customers Area (Right To Left)
-                                            </label>
-                                            <div class="m-radio-inline">
-                                                <label class="m-radio" >
-                                                    <input name="example_4" checked type="radio" value="1">
-                                                    Yes
-                                                    <span></span>
-                                                </label>
-                                                <label class="m-radio">
-                                                    <input name="example_4" type="radio" value="2">
-                                                    No
-                                                    <span></span>
-                                                </label>
-                                               
+                                   
+
+                                </div>
+
+                        </div>
+
+
+                        <div class="tab-pane" id="support-tab">
+                                <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                          <a class="nav-link active" data-toggle="tab" href="#general_support" role="tab" >General</a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link" data-toggle="tab" href="#emailpiping_support" role="tab" >Email Piping</a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#ticket_support" role="tab">Ticket Form</a>
+                                        </li>
+
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="general_support">
+                                            <div class="row">
+                                                  
+                                                    <div class="col-md-6">
+                                                            <div class="m-form__group form-group">
+                                                                    <label for="">
+                                                                        Use Services
+                                                                    </label>
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio">
+                                                                            <input checked="" name="example_20" type="radio" value="1">
+                                                                            Yes
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio">
+                                                                            <input name="example_20" type="radio" value="2">
+                                                                            No
+                                                                            <span></span>
+                                                                        </label>
+                                                                      
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                            <div class="m-form__group form-group">
+                                                                    <label for="">
+                                                                        Allow staff to acces only ticket that belong to department
+                                                                    </label>
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio">
+                                                                            <input checked="" name="example_21" type="radio" value="1">
+                                                                            Yes
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio">
+                                                                            <input name="example_21" type="radio" value="2">
+                                                                            No
+                                                                            <span></span>
+                                                                        </label>
+                                                                      
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                            <div class="m-form__group form-group">
+                                                                    <label for="">
+                                                                       Recieve notification on new ticket opened
+                                                                    </label>
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio">
+                                                                            <input checked="" name="example_22" type="radio" value="1">
+                                                                            Yes
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio">
+                                                                            <input checked="" name="example_22" type="radio" value="2">
+                                                                            No
+                                                                            <span></span>
+                                                                        </label>
+                                                                      
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                    </div>
+                
+                                                    <div class="col-md-6">
+                                                            <div class="m-form__group form-group">
+                                                                    <label for="">
+                                                                        Allow staff members to open tickets for all contacts
+                                                                    </label>
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio">
+                                                                            <input checked="" name="example_23" type="radio" value="1">
+                                                                            Yes
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio">
+                                                                            <input name="example_23" type="radio" value="2">
+                                                                            No
+                                                                            <span></span>
+                                                                        </label>
+                                                                      
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                    </div>
+                
+                                                    <div class="col-md-6">
+                                                            <div class="m-form__group form-group">
+                                                                    <label for="">
+                                                                        All tickets for non staff members
+                                                                    </label>
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio">
+                                                                            <input checked="" name="example_24" type="radio" value="1">
+                                                                            Yes
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio">
+                                                                            <input name="example_24" type="radio" value="2">
+                                                                            No
+                                                                            <span></span>
+                                                                        </label>
+                                                                      
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                    </div>
+                
+                                                    <div class="col-md-6">
+                                                            <div class="m-form__group form-group">
+                                                                    <label for="">
+                                                                        Ticket reply order
+                                                                    </label>
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio">
+                                                                            <input checked="" name="example_25" type="radio" value="1">
+                                                                            Ascending
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio">
+                                                                            <input name="example_25" type="radio" value="2">
+                                                                            Descending
+                                                                            <span></span>
+                                                                        </label>
+                                                                      
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                    </div>
+                                                </div>
+                                    </div>
+
+
+                                    <div class="tab-pane active" id="emailpiping_support">
+                                        <div class="row">
+                                                <div class="col-md-6">
+                                                        <div class="m-form__group form-group">
+                                                                <label for="">
+                                                                    All tickets for non staff members
+                                                                </label>
+                                                                <div class="m-radio-inline">
+                                                                    <label class="m-radio">
+                                                                        <input checked="" name="example_26" type="radio" value="1">
+                                                                        Yes
+                                                                        <span></span>
+                                                                    </label>
+                                                                    <label class="m-radio">
+                                                                        <input name="example_26" type="radio" value="2">
+                                                                        No
+                                                                        <span></span>
+                                                                    </label>
+                                                                  
+                                                                </div>
+                                                                
+                                                            </div>
+                                                </div>
+            
+                                                <div class="col-md-6">
+                                                        <div class="m-form__group form-group">
+                                                                <label for="">
+                                                                    Ticket reply order
+                                                                </label>
+                                                                <div class="m-radio-inline">
+                                                                    <label class="m-radio">
+                                                                        <input checked="" name="example_27" type="radio" value="1">
+                                                                        Ascending
+                                                                        <span></span>
+                                                                    </label>
+                                                                    <label class="m-radio">
+                                                                        <input name="example_27" type="radio" value="2">
+                                                                        Descending
+                                                                        <span></span>
+                                                                    </label>
+                                                                  
+                                                                </div>
+                                                                
+                                                            </div>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane" id="ticket_support">
+                                        <p class="text-danger">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane" id="payment-tab">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                            <li class="nav-item">
+                                              <a class="nav-link active" href="#general_payment" role="tab" data-toggle="tab">General</a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link" href="#paypal_payment" role="tab" data-toggle="tab">Paypal</a>
+                                            </li>
+                                           
+                                        </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="general_payment">
+                                           <div class="row">
+                                                <div class="col-md-6">
+                                                        <div class="m-form__group form-group">
+                                                                <label for="">
+                                                                   Recieve notification when customer pay invoice
+                                                                </label>
+                                                                <div class="m-radio-inline">
+                                                                    <label class="m-radio">
+                                                                        <input checked="" name="example_28" type="radio" value="1">
+                                                                        Yes
+                                                                        <span></span>
+                                                                    </label>
+                                                                    <label class="m-radio">
+                                                                        <input name="example_28" type="radio" value="2">
+                                                                        No
+                                                                        <span></span>
+                                                                    </label>
+                                                                  
+                                                                </div>
+                                                                
+                                                            </div>
+                                                </div>
+            
+                                                <div class="col-md-6">
+                                                        <div class="m-form__group form-group">
+                                                                <label for="">
+                                                                    Allow customer to modify the amount to pay
+                                                                </label>
+                                                                <div class="m-radio-inline">
+                                                                    <label class="m-radio">
+                                                                        <input checked="" name="example_29" type="radio" value="1">
+                                                                        Yes
+                                                                        <span></span>
+                                                                    </label>
+                                                                    <label class="m-radio">
+                                                                        <input name="example_29" type="radio" value="2">
+                                                                        No
+                                                                        <span></span>
+                                                                    </label>
+                                                                  
+                                                                </div>
+                                                                
+                                                            </div>
+                                                </div>
+                                           </div>
+
+                                        </div>
+
+                                        <div class="tab-pane" id="paypal_payment">
+                                                <div class="m-form__group form-group">
+                                                        <label for="">
+                                                            Active
+                                                        </label>
+                                                        <div class="m-radio-inline">
+                                                            <label class="m-radio">
+                                                                <input checked="" name="example_30" type="radio" value="1">
+                                                                Yes
+                                                                <span></span>
+                                                            </label>
+                                                            <label class="m-radio">
+                                                                <input name="example_30" type="radio" value="2">
+                                                                No
+                                                                <span></span>
+                                                            </label>
+                                                          
+                                                        </div>
+                                                        
+                                                    </div>
+
+
+                                                    <div class="form-group m-form__group">
+                                                            <label>
+                                                                Label:
+                                                            </label>
+                                                            <input class="form-control m-input" placeholder="PayPal" type="text">
+                                                    </div>
+
+
+                                                    <div class="form-group m-form__group">
+                                                            <label>
+                                                                PayPal API Username:
+                                                            </label>
+                                                            <input class="form-control m-input" placeholder="PayPal API Username" type="text">
+                                                    </div>
+
+                                                    <div class="form-group m-form__group">
+                                                            <label>
+                                                                PayPal API Password:
+                                                            </label>
+                                                            <input class="form-control m-input" placeholder="PayPal API Password" type="text">
+                                                    </div>
+
+                                                    <div class="form-group m-form__group">
+                                                            <label>
+                                                                API Signarure:
+                                                            </label>
+                                                            <input class="form-control m-input" placeholder="API Signarure" type="text">
+                                                    </div>
+
+                                                    <div class="form-group m-form__group">
+                                                            <label>
+                                                                    Gateway Dashboard Payment Description:
+                                                            </label>
+                                                            <textarea class="form-control m-input" >Invoice Number</textarea>
+                                                    </div>
+
+                                                    <div class="form-group m-form__group">
+                                                            <label>
+                                                                Currencies (comma separated):
+                                                            </label>
+                                                            <input class="form-control m-input" placeholder="USD, PKR, IND" type="text">
+                                                    </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="tab-pane" id="tags-tab">
+                                    <div class="form-group m-form__group">
+                                            <div class="input-group">
+                                                <input class="form-control" value="AirDrop" type="text">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-secondary" type="button">
+                                                        <i class="fa fa-times fa-2x"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
 
 
                                         <div class="form-group m-form__group">
-                                                <label for="exampleInputEmail1">
-                                                    Allowed File Type:
-                                                </label>
-                                                <input class="form-control m-input" type="text" placeholder=".jpg, .png , .jpeg, .gif">
-                                        </div>
+                                                <div class="input-group">
+                                                    <input class="form-control" value="Content Consumption" type="text">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-secondary" type="button">
+                                                            <i class="fa fa-times fa-2x"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                        <button class="btn btn-primary pull-right" style="margin-bottom:14px;">
-                                                Save
-                                            </button>
-                        </div>
-                    
-                    </div>
-            </div>
-        
+
+                                            <div class="form-group m-form__group">
+                                                    <div class="input-group">
+                                                        <input class="form-control" value="Content Creation" type="text">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-secondary" type="button">
+                                                                <i class="fa fa-times fa-2x"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group m-form__group">
+                                                        <div class="input-group">
+                                                            <input class="form-control" value="Content Discovery" type="text">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-secondary" type="button">
+                                                                    <i class="fa fa-times fa-2x"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group m-form__group">
+                                                            <div class="input-group">
+                                                                <input class="form-control" value="Driving ICO Sales" type="text">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-secondary" type="button">
+                                                                        <i class="fa fa-times fa-2x"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group m-form__group">
+                                                                <div class="input-group">
+                                                                    <input class="form-control" value="ICO Lead Generation" type="text">
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-secondary" type="button">
+                                                                            <i class="fa fa-times fa-2x"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                            </div>
+
+                            
+                        <button class="btn btn-primary pull-right" style="margin-bottom:14px;">
+                                Save
+                            </button>
+                </div>
+             
+        </div>
+        </div>
+    </div>
+
 
 </div>
+
 </div>

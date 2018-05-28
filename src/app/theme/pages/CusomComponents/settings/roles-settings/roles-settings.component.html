@@ -1,12 +1,72 @@
 
-<div class="m-content">
+<div class="m-content  full-height-element" >
 
 	<!--Begin::Section-->
-	<div class="row">
-		<div class="col-xl-12">
+	<div class="row  full-height-element">
+
+			<div class="col-xl-12  full-height-element" *ngIf="!isRoleAddViewOpen">
+					<div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  full-height-element" >
+							<div class="m-portlet__body">
+									<button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link"><i class="fa fa-user-plus" ></i> Add New Role </button>
+								<table class="table table-bordered RolesTableViewEdit">
+										<tr>
+											   <th  scope="col">Role</th>
+											   <th  scope="col">Member Count</th>
+											   <th  colspan="2" scope="col">Actions</th>
+										</tr>
+										<tr>
+												<td>DB Admin</td>
+												<td>2</td>
+												<td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+														Edit
+													</button>
+												</td>
+												<td>
+														<button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+																Delete
+															</button>
+												</td>
+										 </tr>
+
+
+										 <tr>
+												<td>Administrator</td>
+												<td>4</td>
+												<td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+														Edit
+													</button>
+												</td>
+												<td>
+														<button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+																Delete
+															</button>
+												</td>
+										 </tr>
+
+										 <tr>
+												<td>Marketer</td>
+												<td>3</td>
+												<td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+														Edit
+													</button>
+												</td>
+												<td>
+														<button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+																Delete
+															</button>
+												</td>
+										 </tr>
+
+								</table>
+							</div>
+					</div>
+			</div>
+
+		<div class="col-xl-12 full-height-element"  *ngIf="isRoleAddViewOpen">
 			<!--begin:: Widgets/Top Products-->
-			<div class="m-portlet m-portlet--bordered-semi m-portlet--full-height" style="padding-bottom: 30px;">
-				<div class="m-portlet__body">
+			<div class="m-portlet m-portlet--bordered-semi m-portlet--full-height full-height-element" style="padding-bottom: 30px;">
+				<div class="m-portlet__body full-height-element">
+						<button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
 					<div class="form-group m-form__group">
 						<label>
 							Role Name:

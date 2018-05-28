@@ -6,12 +6,13 @@ import { ScriptLoaderService } from '../../../../../_services/script-loader.serv
 @Component({
     selector: "app-role-settings",
     templateUrl: "./roles-settings.component.html",
-    styleUrls: [],
+    styleUrls: ["./role-settings.component.css"],
     encapsulation: ViewEncapsulation.None
 })
 export class RolesSettingsComponent implements OnInit, AfterViewInit {
 
-
+    isRoleAddViewOpen = false;
+   
     constructor(private _script: ScriptLoaderService) {
 
     }
