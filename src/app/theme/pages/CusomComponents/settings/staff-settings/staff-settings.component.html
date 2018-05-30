@@ -4,7 +4,7 @@
 <div class="row" >
 <div class="col-md-12">
 
-<div class="m-portlet m-portlet--space">
+<div class="m-portlet m-portlet--space" style="background-color:#F2F3F8; box-shadow:none;">
 	
 		<div class="m-portlet__body">
 			<div class="row" [class.d-none]="!isDisplayStaffEditAndSee">
@@ -351,7 +351,7 @@
 
 			<div class="row" [class.d-none]="isDisplayStaffEditAndSee">
 				<div class="col-md-12">
-				<button class="btn btn-link" style="margin-top:-25px;" (click)="isDisplayStaffEditAndSee = !isDisplayStaffEditAndSee;"><i class="fa fa-user-plus"></i> New Member Staff </button>
+				<button class="btn btn-default" style="margin-top:-25px;" (click)="isDisplayStaffEditAndSee = !isDisplayStaffEditAndSee;"><i class="fa fa-user-plus"></i> New Member Staff </button>
 				<table class="table table-bordered MembersTableViewEdit">
 						<thead>
 						  <tr>
@@ -376,7 +376,7 @@
 									</button></td>
 
 									<td><button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-											Default
+											Delete
 										</button></td>
 						  </tr>
 						  <tr>
@@ -391,7 +391,7 @@
 									</button></td>
 
 									<td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
-											Default
+											Delete
 										</button></td>
 							  </tr>
 							  <tr>
@@ -406,7 +406,7 @@
 											</button></td>
 		
 											<td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
-													Default
+													Delete
 												</button></td>
 								  </tr>
 

@@ -13,6 +13,7 @@ app-role-settings{
    app-role-settings {
     width: 100% !important;
 }
+/*
 .m-body .m-content
  {
      padding:0px !important;
@@ -25,4 +26,10 @@ app-role-settings{
  .full-height-element
  {
      height:99.95% !important;
+ }
+ */
+ .greyBackground
+ {
+    background-color: #F2F3F8;
+    box-shadow: none;
  }

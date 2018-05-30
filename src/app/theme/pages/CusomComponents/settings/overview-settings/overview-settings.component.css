@@ -26,12 +26,16 @@
    }
  .m-content
  {
-     padding:0px !important;
+     /*padding:0px !important;*/
  }
  .m-portlet
  {
+     /*
     margin: 0px;
     padding: 0px;
+    */
+    background-color: #F2F3F8;
+    box-shadow:none;
  }
 
  .ghostWhiteColorSideBar
@@ -46,3 +50,33 @@
  {
      padding-top: 18px; 
  }
+ .nav-link
+ {
+     border: none;
+ }
+ .nav-link.active
+ {
+     border: 0px;
+     border-bottom: 1px solid grey;
+ }
+ .tab-content .nav-link 
+ {
+     background-color:#F2F3F8;
+ } 
+ .m-content{
+     padding:0px;
+     height:100%;
+ }
+
+.m-portlet__body
+{
+    height: 100%;
+}
+.m-portlet
+{
+    margin: 0px;
+}
+.full-height
+{
+    height:100%;
+}
