@@ -4,7 +4,7 @@ import { ScriptLoaderService } from '../../_services/script-loader.service';
 @Component({
     selector: 'app-wizard',
     templateUrl: './wizard.component.html',
-    styles: []
+    styleUrls: ['./wizard.component.css']
 })
 export class WizardComponent implements OnInit, AfterViewInit {
 

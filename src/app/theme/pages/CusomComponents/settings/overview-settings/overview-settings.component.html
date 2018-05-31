@@ -4,15 +4,13 @@
 <div class="m-portlet" >
     <div class="m-portlet__body" style="padding:0px;">
         <div class="row full-height">
-        <div class="col-lg-3 ghostWhiteColorSideBar">
+        <div class="col-lg-2 ghostWhiteColorSideBar">
  <div class="nav flex-column nav-pills" aria-orientation="vertical">
         <a class="nav-link active" data-toggle="pill" href="#general" role="tab" aria-controls="v-pills-home" aria-selected="true">General</a>
-        <a class="nav-link" data-toggle="pill" href="#company-information" role="tab">Company Information</a>
-        <a class="nav-link" data-toggle="pill" href="#calendar-tab" role="tab">Calendar</a>
+        <!--a class="nav-link" data-toggle="pill" href="#calendar-tab" role="tab">Calendar</a-->
         <a class="nav-link" data-toggle="pill" href="#finance-tab" role="tab">Finance</a>
         <a class="nav-link" data-toggle="pill" href="#support-tab" role="tab">Dispute</a>
         <a class="nav-link" data-toggle="pill" href="#payment-tab" role="tab">Payment</a>
-        <a class="nav-link" data-toggle="pill" href="#tags-tab" role="tab">Tags</a>
                  
                                        
                                        
@@ -20,7 +18,7 @@
 </div>
         </div>
 
-        <div class="col-lg-8 changingColumnRight">
+        <div class="col-lg-10 changingColumnRight">
                 <div class="tab-content">
                         <div class="tab-pane active" id="general">
                                 <ul class="nav nav-tabs" role="tablist">
@@ -28,26 +26,123 @@
                                           <a class="nav-link active" href="#company_info" role="tab" data-toggle="tab">Info</a>
                                         </li>
                                         <li class="nav-item">
-                                          <a class="nav-link" href="#company_location" role="tab" data-toggle="tab">Locations(s)</a>
+                                          <a class="nav-link" href="#company_location" role="tab" data-toggle="tab">Location(s)</a>
                                         </li>
-                                </ul> 
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="#company_timings" role="tab" data-toggle="tab" id="timingsandcalendar">Timings &amp; Calendar</a>
+                                        </li>
+                                    </ul> 
                                 <div class="tab-content">
                                         <div class="tab-pane active" id="company_info">
                                             
-                                <div class=" text-center">   
+                                <div>   
                                         <img src="./assets/app/media/img/logos/vease_logo.png" class="logoImageInfoForm">
-                                        <a href="#" style="display: inherit;text-align: center;margin: 0 auto;margin-top: -10px;margin-bottom: 20px;">
+                                        <a href="#" style="display: inherit;;margin: 0 auto;margin-top: -10px;margin-bottom: 0px;">
                                             <i class="fa fa-plus"></i> Upload Image
                                         </a>
-                                            <h4 class="m-portlet__head-text">
+                                        <label >
+                                                Allowed File Type: jpg , gif , png 
+                                        </label>
+                                            <h6 style="margin-top:15px;" class="m-portlet__head-text">
                                                  Company Details
-                                             </h4>
+                                             </h6>
                                          </div>
                                             <div class="form-group m-form__group">
                                                     <label for="exampleInputEmail1">
                                                         Company Name:
                                                     </label>
                                                     <input class="form-control m-input" type="text" placeholder="Veaze">
+                                            </div>
+
+                                            <div class="form-group m-form__group">
+                                                    <label for="exampleInputEmail1">
+                                                        Company Timezone:
+                                                    </label>
+                                                    <select class="form-control m-input">
+                                                           
+                                                            <option value="Etc/GMT+12">(GMT-12:00) International Date Line West</option>
+                                                            <option value="Pacific/Midway">(GMT-11:00) Midway Island, Samoa</option>
+                                                            <option value="Pacific/Honolulu">(GMT-10:00) Hawaii</option>
+                                                            <option value="US/Alaska">(GMT-09:00) Alaska</option>
+                                                            <option value="America/Los_Angeles">(GMT-08:00) Pacific Time (US & Canada)</option>
+                                                            <option value="America/Tijuana">(GMT-08:00) Tijuana, Baja California</option>
+                                                            <option value="US/Arizona">(GMT-07:00) Arizona</option>
+                                                            <option value="America/Chihuahua">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+                                                            <option value="US/Mountain">(GMT-07:00) Mountain Time (US & Canada)</option>
+                                                            <option value="America/Managua">(GMT-06:00) Central America</option>
+                                                            <option value="US/Central">(GMT-06:00) Central Time (US & Canada)</option>
+                                                            <option value="America/Mexico_City">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+                                                            <option value="Canada/Saskatchewan">(GMT-06:00) Saskatchewan</option>
+                                                            <option value="America/Bogota">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
+                                                            <option value="US/Eastern">(GMT-05:00) Eastern Time (US & Canada)</option>
+                                                            <option value="US/East-Indiana">(GMT-05:00) Indiana (East)</option>
+                                                            <option value="Canada/Atlantic">(GMT-04:00) Atlantic Time (Canada)</option>
+                                                            <option value="America/Caracas">(GMT-04:00) Caracas, La Paz</option>
+                                                            <option value="America/Manaus">(GMT-04:00) Manaus</option>
+                                                            <option value="America/Santiago">(GMT-04:00) Santiago</option>
+                                                            <option value="Canada/Newfoundland">(GMT-03:30) Newfoundland</option>
+                                                            <option value="America/Sao_Paulo">(GMT-03:00) Brasilia</option>
+                                                            <option value="America/Argentina/Buenos_Aires">(GMT-03:00) Buenos Aires, Georgetown</option>
+                                                            <option value="America/Godthab">(GMT-03:00) Greenland</option>
+                                                            <option value="America/Montevideo">(GMT-03:00) Montevideo</option>
+                                                            <option value="America/Noronha">(GMT-02:00) Mid-Atlantic</option>
+                                                            <option value="Atlantic/Cape_Verde">(GMT-01:00) Cape Verde Is.</option>
+                                                            <option value="Atlantic/Azores">(GMT-01:00) Azores</option>
+                                                            <option value="Africa/Casablanca">(GMT+00:00) Casablanca, Monrovia, Reykjavik</option>
+                                                            <option value="Etc/Greenwich">(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+                                                            <option value="Europe/Amsterdam">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+                                                            <option value="Europe/Belgrade">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+                                                            <option value="Europe/Brussels">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+                                                            <option value="Europe/Sarajevo">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+                                                            <option value="Africa/Lagos">(GMT+01:00) West Central Africa</option>
+                                                            <option value="Asia/Amman">(GMT+02:00) Amman</option>
+                                                            <option value="Europe/Athens">(GMT+02:00) Athens, Bucharest, Istanbul</option>
+                                                            <option value="Asia/Beirut">(GMT+02:00) Beirut</option>
+                                                            <option value="Africa/Cairo">(GMT+02:00) Cairo</option>
+                                                            <option value="Africa/Harare">(GMT+02:00) Harare, Pretoria</option>
+                                                            <option value="Europe/Helsinki">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+                                                            <option value="Asia/Jerusalem">(GMT+02:00) Jerusalem</option>
+                                                            <option value="Europe/Minsk">(GMT+02:00) Minsk</option>
+                                                            <option value="Africa/Windhoek">(GMT+02:00) Windhoek</option>
+                                                            <option value="Asia/Kuwait">(GMT+03:00) Kuwait, Riyadh, Baghdad</option>
+                                                            <option value="Europe/Moscow">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
+                                                            <option value="Africa/Nairobi">(GMT+03:00) Nairobi</option>
+                                                            <option value="Asia/Tbilisi">(GMT+03:00) Tbilisi</option>
+                                                            <option value="Asia/Tehran">(GMT+03:30) Tehran</option>
+                                                            <option value="Asia/Muscat">(GMT+04:00) Abu Dhabi, Muscat</option>
+                                                            <option value="Asia/Baku">(GMT+04:00) Baku</option>
+                                                            <option value="Asia/Yerevan">(GMT+04:00) Yerevan</option>
+                                                            <option value="Asia/Kabul">(GMT+04:30) Kabul</option>
+                                                            <option value="Asia/Yekaterinburg">(GMT+05:00) Yekaterinburg</option>
+                                                            <option value="Asia/Karachi">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+                                                            <option value="Asia/Calcutta">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+                                                            <option value="Asia/Calcutta">(GMT+05:30) Sri Jayawardenapura</option>
+                                                            <option value="Asia/Katmandu">(GMT+05:45) Kathmandu</option>
+                                                            <option value="Asia/Almaty">(GMT+06:00) Almaty, Novosibirsk</option>
+                                                            <option value="Asia/Dhaka">(GMT+06:00) Astana, Dhaka</option>
+                                                            <option value="Asia/Rangoon">(GMT+06:30) Yangon (Rangoon)</option>
+                                                            <option value="Asia/Bangkok">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+                                                            <option value="Asia/Krasnoyarsk">(GMT+07:00) Krasnoyarsk</option>
+                                                            <option value="Asia/Hong_Kong">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+                                                            <option value="Asia/Kuala_Lumpur">(GMT+08:00) Kuala Lumpur, Singapore</option>
+                                                            <option value="Asia/Irkutsk">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
+                                                            <option value="Australia/Perth">(GMT+08:00) Perth</option>
+                                                            <option value="Asia/Taipei">(GMT+08:00) Taipei</option>
+                                                            <option value="Asia/Tokyo">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+                                                            <option value="Asia/Seoul">(GMT+09:00) Seoul</option>
+                                                            <option value="Asia/Yakutsk">(GMT+09:00) Yakutsk</option>
+                                                            <option value="Australia/Adelaide">(GMT+09:30) Adelaide</option>
+                                                            <option value="Australia/Darwin">(GMT+09:30) Darwin</option>
+                                                            <option value="Australia/Brisbane">(GMT+10:00) Brisbane</option>
+                                                            <option value="Australia/Canberra">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+                                                            <option value="Australia/Hobart">(GMT+10:00) Hobart</option>
+                                                            <option value="Pacific/Guam">(GMT+10:00) Guam, Port Moresby</option>
+                                                            <option value="Asia/Vladivostok">(GMT+10:00) Vladivostok</option>
+                                                            <option value="Asia/Magadan">(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>
+                                                            <option value="Pacific/Auckland">(GMT+12:00) Auckland, Wellington</option>
+                                                            <option value="Pacific/Fiji">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+                                                            <option value="Pacific/Tongatapu">(GMT+13:00) Nuku'alofa</option>
+                                                         </select>
                                             </div>
                             
                                             <div class="form-group m-form__group">
@@ -56,88 +151,220 @@
                                                     </label>
                                                     <input class="form-control m-input" type="text" placeholder="www.veaze.com">
                                             </div>
+
+
+                                            <div class="form-group m-form__group">
+                                                <label>
+                                                    Country:
+                                                </label>
+                                                <select class="form-control m-input"  type="text">
+                                                <option selected>USA</option>
+                                                <option >Pakistan</option>
+                                                <option >India</option>
+                                                <option >Russia</option>
+                                                <option >Saudia Arabia</option>
+                                                <option >UAE</option>
+                                                </select>
+                                        </div>
+        
+                                        <div class="form-group m-form__group">
+                                                <label>
+                                                    State:
+                                                </label>
+                                                <input class="form-control m-input" placeholder="e.g. USA" type="text">
+                                        </div>
+        
+        
+                                        <div class="form-group m-form__group">
+                                                <label>
+                                                    City:
+                                                </label>
+                                                <input class="form-control m-input" placeholder="e.g. Chicago" type="text">
+                                        </div>
+        
+                                        <div class="form-group m-form__group">
+                                                <label>
+                                                    Address:
+                                                </label>
+                                                <input class="form-control m-input" placeholder="Office No, Street etc."  type="text">
+                                        </div>
+        
+        
+                                        <div class="form-group m-form__group">
+                                                <label>
+                                                    Phone:
+                                                </label>
+                                                <input class="form-control m-input"  type="text">
+                                        </div>
                             
                                          
-                                                    <div class="form-group m-form__group">
-                                                            <label for="exampleInputEmail1">
-                                                                Allowed File Type:
-                                                            </label>
-                                                            <input class="form-control m-input" type="text" placeholder=".jpg, .png , .jpeg, .gif">
-                                                    </div>
                                         </div> 
-                                        <div class="tab-pane active" id="company_location">
-                                                <h6 class="text-muted" style="font-weight:400;">
+                                        <div class="tab-pane" id="company_location">
+                                                <!--h6 class="text-muted" style="font-weight:400;">
                                                         Company Type: Multi-location        
-                                                     </h6>
-                                                <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>
-                                                                    #
-                                                                </th>
-                                                                <th>
-                                                                    Location
-                                                                </th>
-                                                                <th>
-                                                                    No. Of Employees
-                                                                </th>
-                                                                <th>
-                                                                        Timings
-                                                                    </th>
-                                                                
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                               
-                                                            <tr>
-                                                                <th scope="row">
-                                                                    1
-                                                                </th>
-                                                                <td>
-                                                                    The Park, Misssissaga , Canada
-                                                                </td>
-                                                                <td>
-                                                                300      
-                                                                </td>
+                                                     </h6-->
+                                            <div class="row" *ngIf="!enterLocationFormDisplay">
+                                                <div class="col-md-12">
+                                                        <button  class="btn btn-default" (click)="enterLocationFormDisplay=!enterLocationFormDisplay"><i class="fa fa-plus"></i> Add Location</button>
+                                                        <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>
+                                                                            #
+                                                                        </th>
+                                                                        <th>
+                                                                            Location Name
+                                                                        </th>
+                                                                        <th>
+                                                                            Location Address
+                                                                        </th>
+                                                                        <th colspan="2">
+                                                                                Actions
+                                                                            </th>
+                                                                        
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                       
+                                                                    <tr>
+                                                                        <th scope="row">
+                                                                            1
+                                                                        </th>
+                                                                        <td>
+                                                                                Our Main Office
+                                                                            </td>
+                                                                        <td>
+                                                                            The Park, Misssissaga , Canada
+                                                                        </td>
+                                                                        <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button" disabled>
+                                                                                Edit
+                                                                            </button>
+                                                                        </td>
+                                                                        
+                                                                        <td> Default Location
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <th scope="row">
+                                                                                2
+                                                                            </th>
+                                                                            <td>
+                                                                                Second Office Location
+                                                                            </td>
+                                                                            <td>
+                                                                                    The Lake , Paris , France	
+                                                                            </td>
+                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                    Edit
+                                                                                </button>
+                                                                            </td>
+                                                                            
+                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
+                                                                                    Delete
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr *ngFor="let location of locations">
+                                                                                <th scope="row">
+                                                                                    {{location.locnumber}}
+                                                                                </th>
+                                                                                <td>
+                                                                                    {{location.name}}
+                                                                                </td>
+                                                                                <td>
+                                                                                        {{location.address}}		
+                                                                                </td>
+                                                                                <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                        Edit
+                                                                                    </button>
+                                                                                </td>
+                                                                                
+                                                                                <td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
+                                                                                        Delete
+                                                                                    </button>
+                                                                                </td>
+                                                                            </tr>
+                                                                </tbody>
+                                                            </table>
+                                                </div>
+                                            </div>
+                                            
+                                                <div class="row"  *ngIf="enterLocationFormDisplay" >
+                                                    <div class="col-md-12">
+                                                        <button class="btn btn-link" style="padding-left:0px;" (click)="enterLocationFormDisplay=!enterLocationFormDisplay"><i class="fa fa-chevron-circle-left"></i> Back</button>
+                                                        <div  class="form-group m-form__group">
+                                                                <label >
+                                                                    Location Number:
+                                                                </label>
+                                                                <input class="form-control m-input" placeholder="Enter Location Number" type="number" #locationnumber>
+                                                        </div>
 
-                                                                <td>
-                                                                  3:00 am - 11:00 pm      
-                                                                </td>
-                                                               
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">
-                                                                    2
-                                                                </th>
-                                                                <td>
-                                                                    The Lake , Paris , France
-                                                                </td>
-                                                                <td>
-                                                                    100
-                                                                </td>
-                                                                
-                                                                <td>
-                                                                        4:00 pm - 11:00 pm      
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">
-                                                                    3
-                                                                </th>
-                                                                <td>
-                                                                    The Lake , Mississafa , France
-                                                                </td>
-                                                                <td>
-                                                                    150
-                                                                </td>
-                                                                
-                                                                <td>
-                                                                        1:00 pm - 9:00 pm      
-                                                                </td>
-                                                              
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                        <div  class="form-group m-form__group">
+                                                                    <label >
+                                                                        Location Name:
+                                                                    </label>
+                                                                    <input class="form-control m-input" placeholder="Enter Location Name" type="text" #locationname>
+                                                            </div>
+
+                                                            <div  class="form-group m-form__group">
+                                                                    <label >
+                                                                        Location Address:
+                                                                    </label>
+                                                                    <textarea class="form-control" rows="3" type="text" #locationaddress placeholder="Enter Location Address..."> </textarea>
+                                                            </div>
+
+                                                            <button  class="btn btn-primary" style="margin-bottom:14px;" (click)="addLocation(locationnumber.value , locationname.value, locationaddress.value)">
+                                                                 Save Location
+                                                            </button>
+                                                    </div>
+                                                </div>
+                                             
+                                        </div>
+                                        <div class="tab-pane fade" id="company_timings">
+
+                                            <div class="row">
+                                                    <div class="col-sm-12">
+                                                            <h6>Location</h6>
+                                                            <div  class="m-form__group form-group">
+                                                                    <select class="form-control m-input" type="text">
+                                                                            <option >Main Location</option>
+                                                                            <option >Second Location</option>
+                                                                            <option >Third Location</option>
+                                                                            <option >Last Location</option>
+                                                                          
+                                                                        </select>
+                                                                    </div>
+                                                    </div>
+                                            </div>
+                                                <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <h6>Timings</h6>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                             <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>   
+                                                        </div>
+                                                        <div class="col-sm-1" style="padding-top:50px;">
+                                                            To
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                             <ngb-timepicker [(ngModel)]="time2"></ngb-timepicker>   
+                                                        </div>
+                                                 </div>
+
+                                                 <div class="row" style="margin-top:25px;">
+                                                        <div class="col-md-12">
+                                                        <h6>Calendar</h6>
+                                                        </div>
+                                                     <div class="col-md-12">
+                                                            <div id="m_calendar">
+
+                                                            </div>
+                                                     </div>
+                                                 </div>
+                                            
+                                           
+                                           
+
                                         </div>
                                 </div>
 
@@ -146,60 +373,8 @@
                             
                                                  
                         </div>
-                        <div class="tab-pane fade" id="company-information">
-                                <div class="form-group m-form__group">
-                                        <label>
-                                            Company Name:
-                                        </label>
-                                        <input class="form-control m-input" placeholder="Veaze" type="text">
-                                </div>
-
-                                <div class="form-group m-form__group">
-                                        <label>
-                                            Country:
-                                        </label>
-                                        <select class="form-control m-input"  type="text">
-                                        <option selected>USA</option>
-                                        <option >Pakistan</option>
-                                        <option >India</option>
-                                        <option >Russia</option>
-                                        <option >Saudia Arabia</option>
-                                        <option >UAE</option>
-                                        </select>
-                                </div>
-
-                                <div class="form-group m-form__group">
-                                        <label>
-                                            State:
-                                        </label>
-                                        <input class="form-control m-input" placeholder="e.g. USA" type="text">
-                                </div>
-
-
-                                <div class="form-group m-form__group">
-                                        <label>
-                                            City:
-                                        </label>
-                                        <input class="form-control m-input" placeholder="e.g. Chicago" type="text">
-                                </div>
-
-                                <div class="form-group m-form__group">
-                                        <label>
-                                            Address:
-                                        </label>
-                                        <input class="form-control m-input" placeholder="Office No, Street etc."  type="text">
-                                </div>
-
-
-                                <div class="form-group m-form__group">
-                                        <label>
-                                            Phone:
-                                        </label>
-                                        <input class="form-control m-input"  type="text">
-                                </div>
-
-                        </div>
-                        <div class="tab-pane fade" id="calendar-tab">
+                        
+                        <!--div class="tab-pane fade" id="calendar-tab">
                                 <div class="m-form__group form-group">
                                 <select class="form-control m-input" type="text">
                                         <option>Developer</option>
@@ -389,7 +564,7 @@
                                 </div>
 
 
-                        </div>
+                        </div-->
 
                         <div class="tab-pane fade" id="finance-tab">
                                <ul class="nav nav-tabs" role="tablist">
@@ -399,15 +574,7 @@
                                         <li class="nav-item">
                                           <a class="nav-link" href="#invoices_finance" role="tab" data-toggle="tab">Invoices</a>
                                         </li>
-                                        <li class="nav-item">
-                                          <a class="nav-link" href="#credit_notes_finance" role="tab" data-toggle="tab">Credit Notes</a>
-                                        </li>
-                                        <li class="nav-item">
-                                          <a class="nav-link" href="#estimates_finance" role="tab" data-toggle="tab">Estimates</a>
-                                        </li> 
-                                        <li class="nav-item">
-                                                <a class="nav-link" href="#proposal_finance" role="tab" data-toggle="tab">Proposals</a>
-                                        </li>
+                                     
                                         
 
                                 </ul>
@@ -576,331 +743,6 @@
                                                     </div>
                                     </div>
 
-                                    <div class="tab-pane " id="credit_notes_finance">
-                                            <div class="row">
-                                                    <div class="col-md-6">
-                                                            <div class="form-group m-form__group">
-                                                                    <label>
-                                                                        Credit Note Number Prefix:
-                                                                    </label>
-                                                                    <select class="form-control m-input" type="text">
-                                                                    <option selected="">CN-</option>
-                                                                    <option>ENV-</option>
-                                                                    <option>ABC-</option>
-                                                                    <option>INVC-</option>
-                                                                    <option>IC-</option>
-                                                                    <option>I-</option>
-                                                                    </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                                <div class="form-group m-form__group">
-                                                                        <label>
-                                                                           Next Credit Note Number:
-                                                                        </label>
-                                                                        <select class="form-control m-input" type="text">
-                                                                        <option>1</option>
-                                                                        <option>2</option>
-                                                                        <option>3</option>
-                                                                        <option>4</option>
-                                                                        <option selected="">5</option>
-                                                                        <option>6</option>
-                                                                        </select>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label>
-                                                                             Decrement Credit Note Number On Delete:
-                                                                            </label>
-                                                                            <div class="m-radio-inline">
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_12" checked type="radio" value="1">
-                                                                                        Yes
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_12" type="radio" value="2">
-                                                                                        No
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label>
-                                                                             Show Project Name On Credit Note:
-                                                                            </label>
-                                                                            <div class="m-radio-inline">
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_13" type="radio" value="1">
-                                                                                        Yes
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_13" checked type="radio" value="2">
-                                                                                        No
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                    </div>
-
-                                                                    
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label for="exampleTextarea">
-                                                                                Predefined Client Note:
-                                                                            </label>
-                                                                            <textarea class="form-control m-input" rows="3" cols="10"></textarea>
-                                                                        </div>
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label for="exampleTextarea">
-                                                                                Predefined Terms &amp; Conditions:
-                                                                            </label>
-                                                                            <textarea class="form-control m-input" rows="3" cols="10"></textarea>
-                                                                        </div>
-                                                            </div>
-
-
-                                                         
-
-                            
-                                                       </div>
-                                                         
-
-                                                      
-                                    </div>
-
-                                    <div class="tab-pane " id="estimates_finance">
-                                            <div class="row">
-                                                    <div class="col-md-6">
-                                                            <div class="form-group m-form__group">
-                                                                    <label>
-                                                                        Credit Note Number Prefix:
-                                                                    </label>
-                                                                    <select class="form-control m-input" type="text">
-                                                                    <option selected="">EST-</option>
-                                                                    <option>EET-</option>
-                                                                    <option>ET-</option>
-                                                                    <option>ETT-</option>
-                                                                    <option>TTE-</option>
-                                                                    <option>ESTT-</option>
-                                                                    </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                                <div class="form-group m-form__group">
-                                                                        <label>
-                                                                           Next Estimate Number:
-                                                                        </label>
-                                                                        <select class="form-control m-input" type="text">
-                                                                        <option>1</option>
-                                                                        <option>2</option>
-                                                                        <option>3</option>
-                                                                        <option>4</option>
-                                                                        <option selected="">5</option>
-                                                                        <option>6</option>
-                                                                        </select>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label>
-                                                                             Decrement Estimate Number On Delete:
-                                                                            </label>
-                                                                            <div class="m-radio-inline">
-                                                                                    <label class="m-radio">
-                                                                                        <input checked="" name="example_14" type="radio" value="1">
-                                                                                        Yes
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_14" type="radio" value="2">
-                                                                                        No
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                    </div>
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label>
-                                                                             Require Client To Be Logged In To View Estimate:
-                                                                            </label>
-                                                                            <div class="m-radio-inline">
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_15" type="radio" value="1">
-                                                                                        Yes
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                    <label class="m-radio">
-                                                                                        <input checked="" name="example_15" type="radio" value="2">
-                                                                                        No
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                    </div>
-
-                                                                    
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label>
-                                                                             Show sale agent on estimate:
-                                                                            </label>
-                                                                            <div class="m-radio-inline">
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_17" type="radio" value="1">
-                                                                                        Yes
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                    <label class="m-radio">
-                                                                                        <input checked="" name="example_17" type="radio" value="2">
-                                                                                        No
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                    </div>
-
-                                                                    
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label>
-                                                                             Allow staff members to view estmates when they are assigned to:
-                                                                            </label>
-                                                                            <div class="m-radio-inline">
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_17" type="radio" value="1">
-                                                                                        Yes
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                    <label class="m-radio">
-                                                                                        <input checked="" name="example_17" type="radio" value="2">
-                                                                                        No
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                    </div>
-
-                                                                    
-                                                            </div>
-
-                                                         
-
-                            
-                                                       </div>
-                                    </div>
-
-                                    <div class="tab-pane " id="proposal_finance">
-                                            <div class="row">
-                                                    <div class="col-md-6">
-                                                            <div class="form-group m-form__group">
-                                                                    <label>
-                                                                        Proposal Number Prefix:
-                                                                    </label>
-                                                                    <select class="form-control m-input" type="text">
-                                                                    <option selected="">PRO-</option>
-                                                                    <option>PRE-</option>
-                                                                    <option>PRA-</option>
-                                                                    <option>PAR-</option>
-                                                                    <option>PAE-</option>
-                                                                    <option>PROP-</option>
-                                                                    </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                                <div class="form-group m-form__group">
-                                                                        <label>
-                                                                            Proposal Due After Days:
-                                                                        </label>
-                                                                        <select class="form-control m-input" type="text">
-                                                                        <option selected="">30</option>
-                                                                        <option>40</option>
-                                                                        <option>100</option>
-                                                                        <option>200</option>
-                                                                        <option>300</option>
-                                                                        <option>360</option>
-                                                                        </select>
-                                                                </div>
-                                                            </div>
-                                                      
-
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label>
-                                                                             Exclude proposals with draft status from customers area 
-                                                                            </label>
-                                                                            <div class="m-radio-inline">
-                                                                                    <label class="m-radio">
-                                                                                        <input checked="" name="example_18" type="radio" value="1">
-                                                                                        Yes
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_18" type="radio" value="2">
-                                                                                        No
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                    </div>
-                                                            </div>
-
-                                                         
-
-                                                           
-
-                                                            <div class="col-md-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label>
-                                                                             Allow staff members to view estmates when they are assigned to:
-                                                                            </label>
-                                                                            <div class="m-radio-inline">
-                                                                                    <label class="m-radio">
-                                                                                        <input name="example_19" type="radio" value="1">
-                                                                                        Yes
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                    <label class="m-radio">
-                                                                                        <input checked="" name="example_19" type="radio" value="2">
-                                                                                        No
-                                                                                        <span></span>
-                                                                                    </label>
-                                                                                </div>
-                                                                    </div>
-
-                                                                    
-                                                            </div>
-
-                                                            <div class="col-sm-6">
-                                                                    <div class="form-group m-form__group">
-                                                                            <label for="exampleTextarea">
-                                                                                Proposal Info Format (HTML &amp; PDF)
-                                                                            </label>
-                                                                            <textarea class="form-control m-input" cols="10" rows="3">{proposal to} &#13;&#10; {Address} &#13;&#10; {city} {state}</textarea>
-                                                                        </div>
-                                                            </div>
-
-                                                         
-
-                            
-                                                       </div>
-                                    </div>
 
 
                                    
@@ -1404,83 +1246,10 @@
                                     </div>
                             </div>
 
-                            <div class="tab-pane" id="tags-tab">
-                                    <div class="form-group m-form__group">
-                                            <div class="input-group">
-                                                <input class="form-control" value="AirDrop" type="text">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-secondary" type="button">
-                                                        <i class="fa fa-times fa-2x"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group m-form__group">
-                                                <div class="input-group">
-                                                    <input class="form-control" value="Content Consumption" type="text">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-secondary" type="button">
-                                                            <i class="fa fa-times fa-2x"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group m-form__group">
-                                                    <div class="input-group">
-                                                        <input class="form-control" value="Content Creation" type="text">
-                                                        <div class="input-group-append">
-                                                            <button class="btn btn-secondary" type="button">
-                                                                <i class="fa fa-times fa-2x"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group m-form__group">
-                                                        <div class="input-group">
-                                                            <input class="form-control" value="Content Discovery" type="text">
-                                                            <div class="input-group-append">
-                                                                <button class="btn btn-secondary" type="button">
-                                                                    <i class="fa fa-times fa-2x"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group m-form__group">
-                                                            <div class="input-group">
-                                                                <input class="form-control" value="Driving ICO Sales" type="text">
-                                                                <div class="input-group-append">
-                                                                    <button class="btn btn-secondary" type="button">
-                                                                        <i class="fa fa-times fa-2x"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="form-group m-form__group">
-                                                                <div class="input-group">
-                                                                    <input class="form-control" value="ICO Lead Generation" type="text">
-                                                                    <div class="input-group-append">
-                                                                        <button class="btn btn-secondary" type="button">
-                                                                            <i class="fa fa-times fa-2x"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                            </div>
+                            
 
                             
-                        <button class="btn btn-primary pull-right" style="margin-bottom:14px;">
-                                Save
-                            </button>
+             
                 </div>
              
         </div>

@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutModule } from '../../../../layouts/layout.module';
 import { SettingsComponent } from '../settings.component';
 import { OverViewSettingsComponent } from './overview-settings.component';
+import { FormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 const routes: Routes = [
     {
@@ -20,7 +23,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes), LayoutModule
+        CommonModule, RouterModule.forChild(routes), LayoutModule, FormsModule ,NgbModule
     ], exports: [
         RouterModule,
     ], declarations: [
