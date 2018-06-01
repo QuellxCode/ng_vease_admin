@@ -10,7 +10,7 @@ export class OverViewSettingsComponent implements OnInit {
     time = {hour: 13, minute: 30};
     time2 = {hour: 20, minute: 50};
     locations = [{
-        locnumber:3,
+        number:3,
         name: '3rd Location',
         address: 'Missisaaga The Canaada'
     }];
@@ -21,7 +21,7 @@ export class OverViewSettingsComponent implements OnInit {
 
     addLocation(thenumber : number, name: string , address:string )
     {
-        this.locations.push({locnumber: thenumber,
+        this.locations.push({number: thenumber,
             name: name,
             address : address
         });
@@ -33,7 +33,7 @@ export class OverViewSettingsComponent implements OnInit {
 
     ngAfterViewInit() {
         this._script.loadScripts('app-overview-settings',
-            ['assets/app/js/dashboard.js']);
+            ['assets/app/js/overview-settings.js']);
 
     }
 
