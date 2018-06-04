@@ -11,6 +11,8 @@
         <a class="nav-link" data-toggle="pill" href="#finance-tab" role="tab">Finance</a>
         <a class="nav-link" data-toggle="pill" href="#support-tab" role="tab">Dispute</a>
         <a class="nav-link" data-toggle="pill" href="#payment-tab" role="tab">Payment</a>
+        <a class="nav-link" data-toggle="pill" href="#taxes-tab" role="tab">Taxes</a>
+        <a class="nav-link" data-toggle="pill" href="#pricing-tab" role="tab">Pricing</a>
                  
                                        
                                        
@@ -212,7 +214,7 @@
                                                      </h6-->
                                             <div class="row" *ngIf="!enterLocationFormDisplay">
                                                 <div class="col-md-12">
-                                                        <button  class="btn btn-default" (click)="enterLocationFormDisplay=!enterLocationFormDisplay"><i class="fa fa-plus"></i> Add Location</button>
+                                                        <button  class="btn btn-default" (click)="enterLocationFormDisplay=!enterLocationFormDisplay; "><i class="fa fa-plus"></i> Add Location</button>
                                                         <table class="table">
                                                                 <thead>
                                                                     <tr>
@@ -233,47 +235,10 @@
                                                                 </thead>
                                                                 <tbody>
                                                                        
-                                                                    <tr>
-                                                                        <th scope="row">
-                                                                            1
-                                                                        </th>
-                                                                        <td>
-                                                                                Our Main Office
-                                                                            </td>
-                                                                        <td>
-                                                                            The Park, Misssissaga , Canada
-                                                                        </td>
-                                                                        <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button" disabled>
-                                                                                Edit
-                                                                            </button>
-                                                                        </td>
-                                                                        
-                                                                        <td> Default Location
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                            <th scope="row">
-                                                                                2
-                                                                            </th>
-                                                                            <td>
-                                                                                Second Office Location
-                                                                            </td>
-                                                                            <td>
-                                                                                    The Lake , Paris , France	
-                                                                            </td>
-                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-                                                                                    Edit
-                                                                                </button>
-                                                                            </td>
-                                                                            
-                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
-                                                                                    Delete
-                                                                                </button>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr *ngFor="let location of locations">
+                                                                  
+                                                                        <tr *ngFor="let location of locations; let i=index;">
                                                                                 <th scope="row">
-                                                                                    {{location.locnumber}}
+                                                                                    {{location.number}}
                                                                                 </th>
                                                                                 <td>
                                                                                     {{location.name}}
@@ -281,12 +246,12 @@
                                                                                 <td>
                                                                                         {{location.address}}		
                                                                                 </td>
-                                                                                <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                <td><button (click)="editLocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                         Edit
                                                                                     </button>
                                                                                 </td>
                                                                                 
-                                                                                <td><button class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
+                                                                                <td><button (click)="deletelocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
                                                                                         Delete
                                                                                     </button>
                                                                                 </td>
@@ -298,26 +263,26 @@
                                             
                                                 <div class="row"  *ngIf="enterLocationFormDisplay" >
                                                     <div class="col-md-12">
-                                                        <button class="btn btn-link" style="padding-left:0px;" (click)="enterLocationFormDisplay=!enterLocationFormDisplay"><i class="fa fa-chevron-circle-left"></i> Back</button>
+                                                        <button class="btn btn-link" style="padding-left:0px;" (click)="enterLocationFormDisplay=!enterLocationFormDisplay; editLocationIndex=undefined;"><i class="fa fa-chevron-circle-left"></i> Back</button>
                                                         <div  class="form-group m-form__group">
                                                                 <label >
                                                                     Location Number:
                                                                 </label>
-                                                                <input class="form-control m-input" placeholder="Enter Location Number" type="number" #locationnumber>
+                                                                <input class="form-control m-input" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].number : ''" placeholder="Enter Location Number" type="number" #locationnumber>
                                                         </div>
 
                                                         <div  class="form-group m-form__group">
                                                                     <label >
                                                                         Location Name:
                                                                     </label>
-                                                                    <input class="form-control m-input" placeholder="Enter Location Name" type="text" #locationname>
+                                                                    <input class="form-control m-input" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].name : ''" placeholder="Enter Location Name" type="text" #locationname>
                                                             </div>
 
                                                             <div  class="form-group m-form__group">
                                                                     <label >
                                                                         Location Address:
                                                                     </label>
-                                                                    <textarea class="form-control" rows="3" type="text" #locationaddress placeholder="Enter Location Address..."> </textarea>
+                                                                    <textarea class="form-control" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].address : ''" rows="3" type="text" #locationaddress placeholder="Enter Location Address..."> </textarea>
                                                             </div>
 
                                                             <button  class="btn btn-primary" style="margin-bottom:14px;" (click)="addLocation(locationnumber.value , locationname.value, locationaddress.value)">
@@ -386,47 +351,28 @@
                                                                                     <tbody>
                                                                                         <tr>
                                                                                            <th scope="col">Schedules</th>
+                                                                                           <th scope="col">Day</th>
+                                                                                           <th scope="col">Max Hours/Day</th>
                                                                                               <th colspan="2" scope="col">Actions</th>
                                                                                     </tr>
-                                                                                    <tr>
-                                                                                            <td>St. Mary</td>
-                                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+
+                                                                                 
+                                                                                    <tr *ngFor="let schedule of schedules; let i=index;">
+                                                                                            <td>{{schedule.name}}</td>
+                                                                                            <td>{{schedule.day}}</td>
+                                                                                            <td>{{schedule.hoursPerDay}}</td>
+                                                                                            <td><button (click)="editSchedule(i)"  class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                                     Edit
                                                                                                 </button>
                                                                                             </td>
                                                                                             <td>
-                                                                                                    <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+                                                                                                    <button (click)="deleteSchedule(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
                                                                                                             Delete
                                                                                                         </button>
                                                                                             </td>
                                                                                      </tr>
                                             
                                             
-                                                                                     <tr>
-                                                                                            <td>The Valley</td>
-                                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-                                                                                                    Edit
-                                                                                                </button>
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                    <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-                                                                                                            Delete
-                                                                                                        </button>
-                                                                                            </td>
-                                                                                     </tr>
-                                            
-                                                                                     <tr>
-                                                                                            <td>SA 102 Street</td>
-                                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-                                                                                                    Edit
-                                                                                                </button>
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                    <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-                                                                                                            Delete
-                                                                                                        </button>
-                                                                                            </td>
-                                                                                     </tr>
                                             
                                                                             </tbody></table>
                                                                         </div>
@@ -440,20 +386,20 @@
                                             <div class="row" *ngIf="isDisplayScheduleEditAndSee">
                                             <div class="col-md-12">    
 
-                                            <button class="btn btn-link"  (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
+                                            <button class="btn btn-link"  (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee; editScheduleIndex=false;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
 
                                             <div class="form-group m-form__group">
                                                         <label >
                                                             Day:
                                                         </label>
-                                                        <select  class="form-control m-input" type="text">
-                                                        <option  selected="">Mon</option>
-                                                        <option >Tue</option>
-                                                        <option >Wed</option>
-                                                        <option >Thur</option>
-                                                        <option >Fri</option>
-                                                        <option >Sat</option>
-                                                        <option >Sun</option>
+                                                        <select [value]="(editScheduleIndex!=undefined) ? schedules[editScheduleIndex].day : 'Mon'"  class="form-control m-input" type="text" #scheduleDay>
+                                                        <option value="Mon"  selected="">Mon</option>
+                                                        <option value="Tue">Tue</option>
+                                                        <option value="Wed">Wed</option>
+                                                        <option value="Thur">Thur</option>
+                                                        <option value="Fri">Fri</option>
+                                                        <option value="Sat">Sat</option>
+                                                        <option value="Sun">Sun</option>
                                                         </select>
                                                 </div>
 
@@ -461,14 +407,14 @@
                                                         <label >
                                                             Schedule Name:
                                                         </label>
-                                                        <input  class="form-control m-input" placeholder="Schedule Name" type="text">
+                                                        <input [value]="(editScheduleIndex!=undefined) ? schedules[editScheduleIndex].name : ''"  class="form-control m-input" placeholder="Schedule Name" type="text" #scheduleName>
                                                 </div>
 
                                                 <div  class="form-group m-form__group">
                                                         <label >
                                                            Max Hours/Day:
                                                         </label>
-                                                        <input  class="form-control m-input" min="0" max="24" type="number">
+                                                        <input [value]="(editScheduleIndex!=undefined) ? schedules[editScheduleIndex].hoursPerDay : ''"  class="form-control m-input" min="0" max="24" type="number" #scheduleHours>
                                                 </div>
 
 
@@ -487,6 +433,10 @@
                                                         <input  class="form-control m-input" placeholder="000.12.128"  type="text">
                                                 </div>
 
+                                                <button class="btn btn-primary" style="margin-bottom:14px;" (click)="addSchedule(scheduleDay.value, scheduleName.value, scheduleHours.value)" >
+                                                    Save Schedule
+                                               </button>
+
                                         </div>
                                                 </div>
                                         </div>
@@ -502,49 +452,31 @@
                                                                                 <button class="btn btn-default" (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee"><i class="fa fa-user-plus"></i> Add New Shift </button>
                                                                             <table class="table table-bordered">
                                                                                     <tbody>
-                                                                                        <tr>
-                                                                                           <th scope="col">Shift Name</th>
-                                                                                           <th scope="col">Shift Timing</th>
-                                                                                           <th scope="col">Break</th>
-                                                                                           <th scope="col">Position</th>
-                                                                                           <th scope="col">Schedule</th>
-                                                                                              <th colspan="2" scope="col">Actions</th>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                            <td>Morning</td>
-                                                                                            <td>11:00am - 7:00pm</td>
-                                                                                            <td>1 Hour(s)</td>
-                                                                                            <td>No Position</td>
-                                                                                            <td>St Mary</td>
-                                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-                                                                                                    Edit
-                                                                                                </button>
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                    <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-                                                                                                            Delete
-                                                                                                        </button>
-                                                                                            </td>
-                                                                                     </tr>
-                                            
-                                            
-                                                                                     <tr>
-                                                                                        <td>Evening</td>
-                                                                                        <td>7:00pm - 7:00am</td>
-                                                                                        <td>0.5 Hour(s)</td>
-                                                                                        <td>No Position</td>
-                                                                                        <td>St Mary</td>
-                                                                                        <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                 
+
+
+                                                                                 <tr *ngFor="let shift of shifts; let i =index;">
+                                                                                        <td>{{shift.shiftName}}</td>
+                                                                                        <td>{{shift.timingStart}} - {{shift.timingEnd}}</td>
+                                                                                        <td>{{shift.break}} Hour(s)</td>
+                                                                                        <td>{{shift.position}}</td>
+                                                                                        <td>{{shift.schedule}}</td>
+                                                                                        <td><button (click)="editShift(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                                 Edit
                                                                                             </button>
                                                                                         </td>
                                                                                         <td>
-                                                                                                <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-                                                                                                        Delete
-                                                                                                    </button>
+                                                                                        <button (click)="deleteShift(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+                                                                                                Delete
+                                                                                        </button>
                                                                                         </td>
                                                                                  </tr>
+
+
+                                                                                 
                                                                             </tbody></table>
+
+                                                                            
                                                                         </div>
                                                                 </div>
                                                         </div>
@@ -556,15 +488,21 @@
                                             <div class="row" *ngIf="isDisplayShiftsEditAndSee">
                                             <div class="col-md-12">    
 
-                                            <button class="btn btn-link"  (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
+                                            <button class="btn btn-link"  (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee; editShiftIndex=undefined;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
 
+                                            <div class="form-group m-form__group">
+                                                    <label >
+                                                        Shift Name:
+                                                    </label>
+                                                    <input [value]="(editShiftIndex!=undefined) ? shifts[editShiftIndex].shiftName : ''"  class="form-control m-input" placeholder="Schedule Name" type="text" #shiftName>
+                                            </div>
 
                                             <div class="row">
                                                     <div class="col-sm-12">
                                                         <label>Timings</label>
                                                     </div>
                                                     <div class="col-sm-3">
-                                                         <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>   
+                                                         <ngb-timepicker  [(ngModel)]="time"></ngb-timepicker>   
                                                     </div>
                                                     <div class="col-sm-1" style="padding-top:50px;">
                                                         To
@@ -581,11 +519,12 @@
                                                     <label >
                                                             Position:
                                                     </label>
-                                                <select  class="form-control m-input" type="text">
-                                                        <option >Manager HR</option>
-                                                        <option >DB Admin</option>
-                                                        <option >Marketer</option>
-                                                        <option >Other</option>
+                                                <select [value]="(editShiftIndex!=undefined) ? shifts[editShiftIndex].position : ''" class="form-control m-input" type="text" #shiftPosition>
+                                                        <option value="No Position">No Position</option>
+                                                        <option value="Manager HR">Manager HR</option>
+                                                        <option value="DB Admin">DB Admin</option>
+                                                        <option value="Marketer">Marketer</option>
+                                                        <option value="Other">Other</option>
                                                       
                                                     </select>
                                                 </div>
@@ -594,7 +533,7 @@
                                                         <label >
                                                            Unpaid Break:
                                                         </label>
-                                                        <input  class="form-control m-input" min="0" max="24" type="number">
+                                                        <input [value]="(editShiftIndex!=undefined) ? shifts[editShiftIndex].break : ''"  class="form-control m-input" min="0" max="24" type="number" #shiftBreak>
                                                 </div>
 
 
@@ -602,11 +541,11 @@
                                                         <label >
                                                                 Schedule:
                                                         </label>
-                                                    <select  class="form-control m-input" type="text">
-                                                            <option >All Schedule</option>
-                                                            <option >ST. Mary</option>
-                                                            <option >902 St.3</option>
-                                                            <option >No Schedule</option>
+                                                    <select [value]="(editShiftIndex!=undefined) ? shifts[editShiftIndex].schedule : ''" class="form-control m-input" type="text" #shiftSchedule>
+                                                            <option value="All Schedule">All Schedule</option>
+                                                            <option value="ST. Mary">ST. Mary</option>
+                                                            <option value="902 St.3">902 St.3</option>
+                                                            <option value="No Schedule">No Schedule</option>
                                                           
                                                         </select>
                                                     </div>
@@ -618,6 +557,11 @@
                                                             </label>
                                                             <textarea  class="form-control m-input" rows="3"></textarea>
                                                         </div>
+
+
+                                                        <button  class="btn btn-primary" style="margin-bottom:14px;" (click)="addShift(shiftName.value,shiftPosition.value, shiftBreak.value, shiftSchedule.value)">
+                                                                Save Shift
+                                                           </button>
 
                                         </div>
                                                 </div>
@@ -1404,7 +1348,7 @@
                                                         </label>
                                                         <input class="form-control m-input" placeholder=" API Password" type="text">
                                                 </div>
-
+                                                <a class="nav-link" data-toggle="pill" href="#payment-tab" role="tab">Payment</a>
                                                 <div class="form-group m-form__group">
                                                         <label>
                                                             API Signarure:
@@ -1501,6 +1445,229 @@
 
                                     </div>
                             </div>
+
+
+
+                            <!-- Taxes -->
+                            <div class="tab-pane" id="taxes-tab">
+                                <div class="col-xl-12" *ngIf="!isRoleAddViewOpen">
+                                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
+                                            <div class="m-portlet__body">
+                                                    <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-default"><i class="fa fa-plus" ></i> Add Tax </button>
+                                               <!-- <ul>
+                                                   <li *ngFor="let t of taxesServices.getTaxes()">
+                                                       <span>{{t.username}}</span>
+                                                       <span>{{t.percentage}}</span>
+                                                       <span>{{t.jurisdiction}}</span>
+
+                                                   </li>
+                                               </ul> -->
+
+                                               <table class="table table-bordered RolesTableViewEdit">
+                                                    <tr>
+                                                           <th  scope="col">Username</th>
+                                                           <th  scope="col">Percentage</th>
+                                                           <th  scope="col">Jurisdiction</th>
+                                                           <th  colspan="2" scope="col">Actions</th>
+                                                    </tr>
+                                                    <tr *ngFor="let t of taxesServices.getTaxes()">
+                                                            <td>{{t.username}}</td>
+                                                            <td>{{t.percentage}}</td>
+                                                            <td>{{t.jurisdiction}}</td>
+                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" (click)="onEdit(t.id)" data-toggle="modal" data-target="#myModal" type="button">
+                                                                    Edit
+                                                                </button>
+                                                            </td>
+                                                            <td>
+                                                                    <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax()" type="button">
+                                                                            Delete
+                                                                        </button>
+                                                            </td>
+                                                     </tr>
+                                            </table>
+                                            </div>
+                                    </div>
+                            </div>
+                            <div class="col-xl-12 "  *ngIf="isRoleAddViewOpen">
+                                    <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
+                                <form [formGroup]="servicesForm" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                               <div class="col-md-6">
+                                    <div class="form-group">
+                                            <label for="name" class="form-control-label">Name</label>
+                                            <input type="text" class="form-control" placeholder="Jhon Doe"  formControlName="username">
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="percentage" class="form-control-label">Percentage</label>
+                                                <input type="number" class="form-control" placeholder="13"  formControlName="percentage">
+                                            </div>
+                               </div>
+                               <div class="col-md-6">
+                                    <div class="form-group">
+                                            <label for="">Enable / Disable</label><br>
+                                            <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+                                                    <label>
+                                                        <input  name="" type="checkbox">
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="">Jurisdiction</label><br>
+                                            <select class="form-control"
+                                            name="category"
+                                            id="create-services-name"
+                                            type="number"
+                                            formControlName="category"
+                                            >
+                                             <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
+                                           </select>
+                               </div>
+                            </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit" style="margin-bottom:14px;">
+                                    Save
+                                </button>
+                            </form>
+
+
+                </div>
+                <!-- This is edit portion -->
+
+
+                <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+              <h4 class="modal-title">Update Taxes</h4>
+            </div>
+            <form [formGroup]="servicesForm" (ngSubmit)="onEdit()">
+            <div class="modal-body">
+                            <div class="row">
+                       <div class="col-md-6">
+                            <div class="form-group">
+                                    <label for="name" class="form-control-label">Name</label>
+                                    <input type="text" class="form-control" placeholder="Jhon Doe"  formControlName="username">
+                                </div>
+                                <div class="form-group">
+                                        <label for="percentage" class="form-control-label">Percentage</label>
+                                        <input type="number" class="form-control" placeholder="13"  formControlName="percentage">
+                                    </div>
+                       </div>
+                       <div class="col-md-6">
+                            <div class="form-group">
+                                    <label for="">Enable / Disable</label><br>
+                                    <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+                                            <label>
+                                                <input  name="" type="checkbox">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                            </div>
+                            <div class="form-group">
+                                    <label for="">Jurisdiction</label><br>
+                                    <select class="form-control"
+                                    name="category"
+                                    id="create-services-name"
+                                    type="number"
+                                    formControlName="category"
+                                    >
+                                     <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
+                                   </select>
+                       </div>
+                    </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" (click)="onUpdate()" type="submit">
+                            Update
+                        </button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </form>
+          </div>
+        </div>
+      </div>
+                <!-- <div *ngIf="edit==true" >
+                    <h1>this is edit portion</h1>
+                        <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
+                        <form [formGroup]="servicesForm" (ngSubmit)="onEdit()">
+                            <div class="row">
+                       <div class="col-md-6">
+                            <div class="form-group">
+                                    <label for="name" class="form-control-label">Name</label>
+                                    <input type="text" class="form-control" placeholder="Jhon Doe"  formControlName="username">
+                                </div>
+                                <div class="form-group">
+                                        <label for="percentage" class="form-control-label">Percentage</label>
+                                        <input type="number" class="form-control" placeholder="13"  formControlName="percentage">
+                                    </div>
+                       </div>
+                       <div class="col-md-6">
+                            <div class="form-group">
+                                    <label for="">Enable / Disable</label><br>
+                                    <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+                                            <label>
+                                                <input  name="" type="checkbox">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                            </div>
+                            <div class="form-group">
+                                    <label for="">Jurisdiction</label><br>
+                                    <select class="form-control"
+                                    name="category"
+                                    id="create-services-name"
+                                    type="number"
+                                    formControlName="category"
+                                    >
+                                     <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
+                                   </select>
+                       </div>
+                    </div>
+                    </div>
+                    <button class="btn btn-primary" (click)="onUpdate()" type="submit" style="margin-bottom:14px;">
+                            Update
+                        </button>
+                    </form>
+                </div> -->
+        </div>
+
+        <!-- this is pricing -->
+        <div class="tab-pane" id="pricing-tab">
+                <table class="table table-bordered RolesTableViewEdit">
+                        <tr>
+                               <th  scope="col">Catagories</th>
+                               <th  scope="col">Prices</th>
+                               <!-- <th  scope="col">Jurisdiction</th> -->
+                               <!-- <th  colspan="2" scope="col">Prices</th> -->
+                        </tr>
+                        <tr>
+                                <td>Adults</td>
+                                <td>$25</td>
+                                <!-- <td>{{t.jurisdiction}}</td>
+                                <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" (click)="onEdit(t.id)" type="button">
+                                        Edit
+                                    </button>
+                                </tds>
+                                <td>
+                                        <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax()" type="button">
+                                                Delete
+                                            </button>
+                                </td> -->
+                         </tr>
+                         <tr>
+                           <td>Kids</td>
+                            <td>$15</td>
+                         </tr>
+                </table>
+        </div>
+
+
+                            
 
                             
 

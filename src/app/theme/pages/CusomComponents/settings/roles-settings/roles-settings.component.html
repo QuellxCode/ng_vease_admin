@@ -14,49 +14,19 @@
 											   <th  scope="col">Member Count</th>
 											   <th  colspan="2" scope="col">Actions</th>
 										</tr>
-										<tr>
-												<td>DB Admin</td>
-												<td>2</td>
-												<td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+										<tr *ngFor="let role of roles; let i =index">
+												<td>{{role.roleName}}</td>
+												<td>{{role.memberCount}}</td>
+												<td><button (click)="editRole(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
 														Edit
 													</button>
 												</td>
 												<td>
-														<button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+														<button (click)="deleteRole(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
 																Delete
 															</button>
 												</td>
 										 </tr>
-
-
-										 <tr>
-												<td>Administrator</td>
-												<td>4</td>
-												<td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-														Edit
-													</button>
-												</td>
-												<td>
-														<button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-																Delete
-															</button>
-												</td>
-										 </tr>
-
-										 <tr>
-												<td>Marketer</td>
-												<td>3</td>
-												<td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-														Edit
-													</button>
-												</td>
-												<td>
-														<button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-																Delete
-															</button>
-												</td>
-										 </tr>
-
 								</table>
 							</div>
 					</div>
@@ -66,12 +36,12 @@
 			<!--begin:: Widgets/Top Products-->
 			<div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground" style="padding-bottom: 30px;">
 				<div class="m-portlet__body full-height-element">
-						<button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
+						<button (click)="isRoleAddViewOpen=!isRoleAddViewOpen; editRoleIndex=undefined;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
 					<div class="form-group m-form__group">
 						<label>
 							Role Name:
 						</label>
-						<input class="form-control form-control-sm m-input" placeholder="Large input" type="email">
+						<input [value]="(editRoleIndex!=undefined) ? roles[editRoleIndex].roleName : ''" class="form-control form-control-sm m-input" placeholder="Role Name" type="text" #roleName>
 					</div>
 
 					<table class="table table-bordered permissionsTableStaff">
@@ -230,7 +200,7 @@
 						</tbody>
 					  </table>
 
-					  <button class="btn btn-primary pull-right" type="reset" style="margin-bottom:14px;">
+					  <button class="btn btn-primary pull-right" (click)="saveRole(roleName.value)" type="reset" style="margin-bottom:14px;">
 							Save
 						</button>
 
