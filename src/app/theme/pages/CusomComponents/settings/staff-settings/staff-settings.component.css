@@ -43,3 +43,25 @@ app-staff-settings{
     
 width:45px ; height:45px;border-radius: 50%;
 }
+.m-content
+{
+    padding: 0px;
+
+}
+.content .m-portlet.m-portlet--space
+{
+    padding-left: 0px;
+}
+.m-portlet.m-portlet--space
+{
+    padding-left:0px;
+}
+.ghostWhiteColorSideBar
+{
+    background-color: ghostwhite;
+    padding: 15px 25px;
+}
+.m-content , .full-height
+{
+    height:100%;
+}

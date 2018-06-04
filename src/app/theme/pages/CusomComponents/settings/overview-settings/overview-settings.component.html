@@ -31,6 +31,13 @@
                                         <li class="nav-item">
                                                 <a class="nav-link" href="#company_timings" role="tab" data-toggle="tab" id="timingsandcalendar">Timings &amp; Calendar</a>
                                         </li>
+                                         <li class="nav-item">
+                                                <a class="nav-link" href="#company_schedule" role="tab" data-toggle="tab">Company Schedule</a>
+                                        </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="#company_shifts" role="tab" data-toggle="tab">Company Shifts</a>
+                                        </li>
+                                        
                                     </ul> 
                                 <div class="tab-content">
                                         <div class="tab-pane active" id="company_info">
@@ -322,6 +329,8 @@
                                         </div>
                                         <div class="tab-pane fade" id="company_timings">
 
+                                            
+
                                             <div class="row">
                                                     <div class="col-sm-12">
                                                             <h6>Location</h6>
@@ -365,6 +374,253 @@
                                            
                                            
 
+                                        </div>
+                                        <div class="tab-pane" id="company_schedule">
+                                                <div class="row " *ngIf="!isDisplayScheduleEditAndSee">
+
+                                               <div class="col-xl-12" >
+                                                                <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
+                                                                        <div class="m-portlet__body">
+                                                                                <button class="btn btn-default" (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee"><i class="fa fa-user-plus"></i> Add New Schedule </button>
+                                                                            <table class="table table-bordered RolesTableViewEdit">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                           <th scope="col">Schedules</th>
+                                                                                              <th colspan="2" scope="col">Actions</th>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                            <td>St. Mary</td>
+                                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                                    Edit
+                                                                                                </button>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                    <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+                                                                                                            Delete
+                                                                                                        </button>
+                                                                                            </td>
+                                                                                     </tr>
+                                            
+                                            
+                                                                                     <tr>
+                                                                                            <td>The Valley</td>
+                                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                                    Edit
+                                                                                                </button>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                    <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+                                                                                                            Delete
+                                                                                                        </button>
+                                                                                            </td>
+                                                                                     </tr>
+                                            
+                                                                                     <tr>
+                                                                                            <td>SA 102 Street</td>
+                                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                                    Edit
+                                                                                                </button>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                    <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+                                                                                                            Delete
+                                                                                                        </button>
+                                                                                            </td>
+                                                                                     </tr>
+                                            
+                                                                            </tbody></table>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                            
+                                                
+                                            
+                                                </div>
+
+                                            <div class="row" *ngIf="isDisplayScheduleEditAndSee">
+                                            <div class="col-md-12">    
+
+                                            <button class="btn btn-link"  (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
+
+                                            <div class="form-group m-form__group">
+                                                        <label >
+                                                            Day:
+                                                        </label>
+                                                        <select  class="form-control m-input" type="text">
+                                                        <option  selected="">Mon</option>
+                                                        <option >Tue</option>
+                                                        <option >Wed</option>
+                                                        <option >Thur</option>
+                                                        <option >Fri</option>
+                                                        <option >Sat</option>
+                                                        <option >Sun</option>
+                                                        </select>
+                                                </div>
+
+                                                <div  class="form-group m-form__group">
+                                                        <label >
+                                                            Schedule Name:
+                                                        </label>
+                                                        <input  class="form-control m-input" placeholder="Schedule Name" type="text">
+                                                </div>
+
+                                                <div  class="form-group m-form__group">
+                                                        <label >
+                                                           Max Hours/Day:
+                                                        </label>
+                                                        <input  class="form-control m-input" min="0" max="24" type="number">
+                                                </div>
+
+
+                                                <div  class="form-group m-form__group">
+                                                        <label >
+                                                            Address:
+                                                        </label>
+                                                        <input  class="form-control m-input"  type="text">
+                                                </div>
+
+
+                                                <div  class="form-group m-form__group">
+                                                        <label >
+                                                           IP Address:
+                                                        </label>
+                                                        <input  class="form-control m-input" placeholder="000.12.128"  type="text">
+                                                </div>
+
+                                        </div>
+                                                </div>
+                                        </div>
+
+
+
+                                        <div class="tab-pane" id="company_shifts">
+                                                <div class="row " *ngIf="!isDisplayShiftsEditAndSee">
+
+                                               <div class="col-xl-12" >
+                                                                <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
+                                                                        <div class="m-portlet__body">
+                                                                                <button class="btn btn-default" (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee"><i class="fa fa-user-plus"></i> Add New Shift </button>
+                                                                            <table class="table table-bordered">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                           <th scope="col">Shift Name</th>
+                                                                                           <th scope="col">Shift Timing</th>
+                                                                                           <th scope="col">Break</th>
+                                                                                           <th scope="col">Position</th>
+                                                                                           <th scope="col">Schedule</th>
+                                                                                              <th colspan="2" scope="col">Actions</th>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                            <td>Morning</td>
+                                                                                            <td>11:00am - 7:00pm</td>
+                                                                                            <td>1 Hour(s)</td>
+                                                                                            <td>No Position</td>
+                                                                                            <td>St Mary</td>
+                                                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                                    Edit
+                                                                                                </button>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                    <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+                                                                                                            Delete
+                                                                                                        </button>
+                                                                                            </td>
+                                                                                     </tr>
+                                            
+                                            
+                                                                                     <tr>
+                                                                                        <td>Evening</td>
+                                                                                        <td>7:00pm - 7:00am</td>
+                                                                                        <td>0.5 Hour(s)</td>
+                                                                                        <td>No Position</td>
+                                                                                        <td>St Mary</td>
+                                                                                        <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                                Edit
+                                                                                            </button>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                                <button class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
+                                                                                                        Delete
+                                                                                                    </button>
+                                                                                        </td>
+                                                                                 </tr>
+                                                                            </tbody></table>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                            
+                                                
+                                            
+                                                </div>
+
+                                            <div class="row" *ngIf="isDisplayShiftsEditAndSee">
+                                            <div class="col-md-12">    
+
+                                            <button class="btn btn-link"  (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
+
+
+                                            <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label>Timings</label>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                         <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>   
+                                                    </div>
+                                                    <div class="col-sm-1" style="padding-top:50px;">
+                                                        To
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                         <ngb-timepicker [(ngModel)]="time2"></ngb-timepicker>   
+                                                    </div>
+                                             </div>
+
+                                             
+                                            
+
+                                            <div  class="m-form__group form-group">
+                                                    <label >
+                                                            Position:
+                                                    </label>
+                                                <select  class="form-control m-input" type="text">
+                                                        <option >Manager HR</option>
+                                                        <option >DB Admin</option>
+                                                        <option >Marketer</option>
+                                                        <option >Other</option>
+                                                      
+                                                    </select>
+                                                </div>
+
+                                                <div  class="form-group m-form__group">
+                                                        <label >
+                                                           Unpaid Break:
+                                                        </label>
+                                                        <input  class="form-control m-input" min="0" max="24" type="number">
+                                                </div>
+
+
+                                                <div  class="m-form__group form-group">
+                                                        <label >
+                                                                Schedule:
+                                                        </label>
+                                                    <select  class="form-control m-input" type="text">
+                                                            <option >All Schedule</option>
+                                                            <option >ST. Mary</option>
+                                                            <option >902 St.3</option>
+                                                            <option >No Schedule</option>
+                                                          
+                                                        </select>
+                                                    </div>
+
+
+                                                    <div  class="form-group m-form__group">
+                                                            <label  for="">
+                                                                Notes:
+                                                            </label>
+                                                            <textarea  class="form-control m-input" rows="3"></textarea>
+                                                        </div>
+
+                                        </div>
+                                                </div>
                                         </div>
                                 </div>
 

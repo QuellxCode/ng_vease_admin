@@ -33,7 +33,7 @@
                         <!-- Here you can put a message or alert -->
                     </div>
                     <!--end: Message container -->  				<!--begin: Form Wizard Head -->
-                    <div class="m-wizard__head m-portlet__padding-x">
+                    <div class="m-wizard__head m-portlet__padding-x" style="margin:0px;">
                         <!--begin: Form Wizard Progress -->
                         <div class="m-wizard__progress">
                             <div class="progress">
@@ -104,14 +104,14 @@
                         <!-- 						1) Use m-form--label-align-left class to alight the form input lables to the right 						2) Use m-form--state class to highlight input control borders on form validation 					-->
                         <form class="m-form m-form--label-align-left- m-form--state-" id="m_form">
                             <!--begin: Form Body -->
-                            <div class="m-portlet__body">
+                            <div class="m-portlet__body" style="padding-top:-0px;">
                                 <!--begin: Form Wizard Step 1-->
                                 <div class="m-wizard__form-step m-wizard__form-step--current" id="m_wizard_form_step_1">
                                     <div class="row">
                                         <div class="col-xl-8 offset-xl-2">
                                             <div class="m-form__section m-form__section--first">
                                                 <div class="col-md-12 text-center">
-                                                    <img src="./assets/app/media/img/users/300_2.jpg" style="width:200px; height:200px;">
+                                                    <img src="./assets/app/media/img/users/300_2.jpg" style="width:130px; height:130px;">
                                                 </div>
 
                                                 <div class="m-form__heading">
@@ -979,14 +979,32 @@
                                                         </div>
                                                 </div>
                                                 <div class="col-md-12 socialmediaiconssection">
-                                                        <a href="#" class="fa fa-facebook"></a>
-                                                        <a href="#" class="fa fa-twitter"></a>
-                                                        <a href="#" class="fa fa-linkedin"></a>
-                                                        <a href="#" class="fa fa-yahoo"></a>
-                                                        <a href="#" class="fa fa-youtube"></a>
-                                                        <a href="#" class="fa fa-google"></a>
-                                                        <a href="#" class="fa fa-skype"></a>
-                                                        <a href="#" class="fa fa-medium"></a>
+                                                        <a href="#" class="fa fa-facebook" (click)="isUrlFormOpen=true"></a>
+                                                        <a href="#" class="fa fa-twitter" (click)="isUrlFormOpen=true"></a>
+                                                        <a href="#" class="fa fa-linkedin" (click)="isUrlFormOpen=true"></a>
+                                                        <a href="#" class="fa fa-yahoo" (click)="isUrlFormOpen=true"></a>
+                                                        <a href="#" class="fa fa-youtube" (click)="isUrlFormOpen=true"></a>
+                                                        <a href="#" class="fa fa-google" (click)="isUrlFormOpen=true"></a>
+                                                        <a href="#" class="fa fa-skype" (click)="isUrlFormOpen=true"></a>
+                                                        <a href="#" class="fa fa-medium" (click)="isUrlFormOpen=true"></a>
+                                                </div>
+
+                                                <div class="col-md-6" *ngIf="isUrlFormOpen">
+                                                        <div class="form-group m-form__group">
+                                                              
+                                                                
+                                                                    <input class="form-control m-input" name="name" placeholder="" type="text" value="Enter URL">
+                                                                    <span class="m-form__help">
+                                                                        Enter The URL Here
+                                                                    </span>
+                                                                
+                                                            </div>
+                                                            <button class="btn btn-primary"  (click)="isUrlFormOpen=false"> Save URL
+                                                            </button>
+
+                                                            <button style="margin-left:10px;" class="btn btn-default"  (click)="isUrlFormOpen=false"> Close
+                                                                </button>
+
                                                 </div>
 
                                             </div>
@@ -1001,7 +1019,7 @@
                                         <div class="col-xl-8 offset-xl-2">
                                             <div class="m-form__section m-form__section--first">
                                                     <div class="col-md-12 text-center">
-                                                            <img src="./assets/app/media/img/logos/vease_logo.png" style="width:200px; height:200px;">
+                                                            <img src="./assets/app/media/img/logos/vease_logo.png" style="width:130px; height:130px;">
                                                         </div>
                                                 <div class="m-form__heading">
                                                     <h3 class="m-form__heading-title">
@@ -1099,88 +1117,48 @@
                                                    </div>
                                                    <div class="col-md-6">
                                                         <div  class="m-form__section">
+                                                            <div  class="m-form__section">
                                                                 <div  class="m-form__heading">
                                                                     <h3  class="m-form__heading-title">
-                                                                        Shipping Information
+                                                                        Shippping Information
                                                                     </h3>
                                                                 </div>
-                                                                <div  class="form-group m-form__group">
-                                                                    <div  class="row">
-                                                                        <div  class="col-lg-6">
-                                                                            <label  class="m-option">
-                                                                                <span  class="m-option__control">
-                                                                                    <span  class="m-radio m-radio--state-brand">
-                                                                                        <input  name="billing_delivery" type="radio" value="">
-                                                                                        <span ></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                                <span  class="m-option__label">
-                                                                                    <span  class="m-option__head">
-                                                                                        <span  class="m-option__title">
-                                                                                            Standart Delevery
-                                                                                        </span>
-                                                                                        <span  class="m-option__focus">
-                                                                                            Free
-                                                                                        </span>
-                                                                                    </span>
-                                                                                    <span  class="m-option__body">
-                                                                                        Estimated 14-20 Day Shipping  														(&nbsp;Duties end taxes may be due  														upon delivery&nbsp;)
-                                                                                    </span>
-                                                                                </span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div  class="col-lg-6">
-                                                                            <label  class="m-option">
-                                                                                <span  class="m-option__control">
-                                                                                    <span  class="m-radio m-radio--state-brand">
-                                                                                        <input  name="billing_delivery" checked type="radio" value="">
-                                                                                        <span ></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                                <span  class="m-option__label">
-                                                                                    <span  class="m-option__head">
-                                                                                        <span  class="m-option__title">
-                                                                                            Fast Delevery
-                                                                                        </span>
-                                                                                        <span  class="m-option__focus">
-                                                                                            $&nbsp;8.00
-                                                                                        </span>
-                                                                                    </span>
-                                                                                    <span  class="m-option__body">
-                                                                                        Estimated 2-5 Day Shipping 														(&nbsp;Duties end taxes may be due 														upon delivery&nbsp;)
-                                                                                    </span>
-                                                                                </span>
-                                                                            </label>
-                                                                        </div>
-
-                                                                        <div  class="col-lg-6">
-                                                                                <label  class="m-option">
-                                                                                    <span  class="m-option__control">
-                                                                                        <span  class="m-radio m-radio--state-brand">
-                                                                                            <input  name="billing_delivery" type="radio" value="">
-                                                                                            <span ></span>
-                                                                                        </span>
-                                                                                    </span>
-                                                                                    <span  class="m-option__label">
-                                                                                        <span  class="m-option__head">
-                                                                                            <span  class="m-option__title">
-                                                                                                Fast Delevery
-                                                                                            </span>
-                                                                                            <span  class="m-option__focus">
-                                                                                                $&nbsp;8.00
-                                                                                            </span>
-                                                                                        </span>
-                                                                                        <span  class="m-option__body">
-                                                                                            Estimated 2-5 Day Shipping 														(&nbsp;Duties end taxes may be due 														upon delivery&nbsp;)
-                                                                                        </span>
-                                                                                    </span>
-                                                                                </label>
-                                                                            </div>
-                                                                    </div>
-                                                                    <div  class="m-form__help">
-                                                                        
+                                                                <div  class="form-group m-form__group row">
+                                                                    <div  class="col-lg-12">
+                                                                        <label  class="form-control-label">
+                                                                            * Address 1:
+                                                                        </label>
+                                                                        <input  class="form-control m-input" name="billing_address_1" placeholder="" type="text" value="Headquarters 1120 N Street Sacramento 916-654-5266" aria-describedby="billing_address_1-error" aria-invalid="false">
                                                                     </div>
                                                                 </div>
+                                                                <div  class="form-group m-form__group row">
+                                                                    <div  class="col-lg-12">
+                                                                        <label  class="form-control-label">
+                                                                            Address 2:
+                                                                        </label>
+                                                                        <input  class="form-control m-input" name="billing_address_2" placeholder="" type="text" value="P.O. Box 942873 Sacramento, CA 94273-0001">
+                                                                    </div>
+                                                                </div>
+                                                                <div  class="form-group m-form__group row">
+                                                                    <div  class="col-lg-12">
+                                                                        <label  class="form-control-label">
+                                                                            * City:
+                                                                        </label>
+                                                                        <input  class="form-control m-input" name="billing_city" placeholder="" type="text" value="Polo Alto">
+                                                                    </div>
+                                                                   
+                                                                </div>
+
+                                                                <div class="form-group m-form__group row">
+                                                                      
+                                                                            <div  class="col-lg-12">
+                                                                                <label  class="form-control-label">
+                                                                                    * ZIP:
+                                                                                </label>
+                                                                                <input  class="form-control m-input" name="billing_zip" placeholder="" type="text" value="34890">
+                                                                            </div>
+                                                                </div>
+                                                            </div>
                                                             </div>
                                                     </div>
                                                </div>
@@ -1196,14 +1174,32 @@
                                                             </div>
                                                     </div>
                                                     <div class="col-md-12 socialmediaiconssection">
-                                                            <a href="#" class="fa fa-facebook"></a>
-                                                            <a href="#" class="fa fa-twitter"></a>
-                                                            <a href="#" class="fa fa-linkedin"></a>
-                                                            <a href="#" class="fa fa-yahoo"></a>
-                                                            <a href="#" class="fa fa-youtube"></a>
-                                                            <a href="#" class="fa fa-google"></a>
-                                                            <a href="#" class="fa fa-skype"></a>
-                                                            <a href="#" class="fa fa-medium"></a>
+                                                            <a href="#" class="fa fa-facebook" (click)="isCompanyUrlFormOpen=true"></a>
+                                                            <a href="#" class="fa fa-twitter" (click)="isCompanyUrlFormOpen=true"></a>
+                                                            <a href="#" class="fa fa-linkedin" (click)="isCompanyUrlFormOpen=true"></a>
+                                                            <a href="#" class="fa fa-yahoo" (click)="isCompanyUrlFormOpen=true"></a>
+                                                            <a href="#" class="fa fa-youtube" (click)="isCompanyUrlFormOpen=true"></a>
+                                                            <a href="#" class="fa fa-google" (click)="isCompanyUrlFormOpen=true"></a>
+                                                            <a href="#" class="fa fa-skype" (click)="isCompanyUrlFormOpen=true"></a>
+                                                            <a href="#" class="fa fa-medium" (click)="isCompanyUrlFormOpen=true"></a>
+                                                    </div>
+
+                                                    <div class="col-md-6" *ngIf="isCompanyUrlFormOpen">
+                                                            <div class="form-group m-form__group">
+                                                                  
+                                                                    
+                                                                        <input class="form-control m-input" name="name" placeholder="" type="text" value="Enter URL">
+                                                                        <span class="m-form__help">
+                                                                            Enter The URL Here
+                                                                        </span>
+                                                                    
+                                                                </div>
+                                                                <button class="btn btn-primary" (click)="isCompanyUrlFormOpen=false"> Save URL
+                                                                </button>
+
+                                                                <button style="margin-left:10px;" class="btn btn-default" (click)="isCompanyUrlFormOpen=false"> Close
+                                                                    </button>
+
                                                     </div>
     
                                                 </div>

@@ -15,6 +15,12 @@ export class OverViewSettingsComponent implements OnInit {
         address: 'Missisaaga The Canaada'
     }];
     enterLocationFormDisplay= false;
+
+
+   
+    isDisplayScheduleEditAndSee = false;
+    isDisplayShiftsEditAndSee = false;
+    
     constructor(private _script: ScriptLoaderService) {
     }
 

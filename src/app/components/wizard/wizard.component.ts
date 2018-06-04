@@ -8,6 +8,8 @@ import { ScriptLoaderService } from '../../_services/script-loader.service';
 })
 export class WizardComponent implements OnInit, AfterViewInit {
 
+    isUrlFormOpen = false;
+    isCompanyUrlFormOpen = false;
     constructor(private _script: ScriptLoaderService) {
 
     }

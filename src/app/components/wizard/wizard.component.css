@@ -35,3 +35,7 @@
    {
        color:green;
    }
+   .m-wizard__form-step
+   {
+       margin-top: 15px;
+   }
