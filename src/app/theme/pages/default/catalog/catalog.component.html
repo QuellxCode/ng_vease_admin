@@ -1,0 +1,991 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="" style="padding: 14px 10px 5px 30px;margin-bottom: -18px;" >
+	<div class="d-flex align-items-center">
+		<div class="mr-auto row" style="width:100%;">
+
+			<div class="col-md-6">
+					<h3 class="m-subheader__title" style="display:inline-block">
+							Catalog
+							
+							<small><a (click)="adjustRadiusMap()" id="adjustRadius"  style="cursor:pointer;">
+									<i class="fa fa-map-marker"></i>
+								</a></small>
+							<small><a  style="cursor:pointer;">
+								<i class="fa fa-bar-chart" ></i>
+							</a></small>
+							<small><a style="cursor:pointer;">
+								<i class="fa fa-search"></i>
+							</a></small>
+						</h3>
+
+						<!--div class="form-group m-form__group" style="display:inline-block ; margin-left:3px; ">
+							
+							<select class="form-control m-input" style="display:inline-block ; margin-left:3px; background-color: #F2F3F8;border: 0px;border-bottom: 1px solid darkgrey;border-bottom-width: 2px;border-radius: 0px;padding-left: 0px;">
+								<option>
+									Food
+								</option>
+								<option>
+									Cars
+								</option>
+								
+								<option>
+									Electronics
+								</option>
+								<option>
+									IT
+								</option>
+								<option>
+									Others
+								</option>
+							</select>
+						</div-->
+			</div>
+
+
+			<div class="col-md-3 offset-md-1">
+				
+					<button  class="btn btn-link pull-right" (click)="isServiceFormShown=true"><i class="fa fa-plus"></i> Add New Serivce</button>
+
+			</div>
+
+			<div class="col-md-2">
+				
+					<button  class="btn btn-link pull-right" ><i class="fa fa-plus"></i> Add Bundle</button>
+
+			</div>
+		
+
+		
+
+			<!--div class="col-md-4">
+					<div class="form-group m-form__group" style="display:inline-block; margin-left:8px; margin-top: -15px;">
+							<label>
+								Search Shop/ Business:
+							</label>
+							<input class="form-control" type="text">
+					</div>
+
+			</div-->
+
+			<!--div class="col-md-2">
+				<button class="btn btn-primary" style="margin-top: 10px;margin-left: 8px;">Search</button>
+
+			</div-->
+			
+		</div>
+
+		
+		
+	</div>
+	
+</div>
+<hr class="customhr" />
+
+
+<!-- END: Subheader -->
+<div class="m-content">
+	<!--Begin::Section-->
+	
+
+<div class="row " >
+
+	<div class="col-md-12">
+			<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active show" data-toggle="tab" href="#m_tabs_services" ng-reflect-href="#m_tabs_services">
+							Services
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#m_tabs_bundles" ng-reflect-href="#m_tabs_bundles">
+							Bundles
+						</a>
+					</li>
+				
+				</ul>
+
+				<div class="tab-content">
+						<div class="tab-pane active" id="m_tabs_services" role="tabpanel">
+			
+			
+							<div class="row" *ngIf="!isServiceFormShown">
+									<table  class="table table-bordered servicesCatalogTable">
+											<thead >
+											  <tr >
+												 <th ></th>
+												<th  scope="col">Service</th>
+												<th  scope="col">Service Type </th>
+												<th  scope="col">Purchase Date</th>
+												<th  scope="col">Expiry Date</th>
+												<th  scope="col">Order</th>
+												<th  scope="col">Supplier</th>
+												<th  scope="col">Amount</th>
+												<th  scope="col">Status</th>
+												<th  colspan="2" scope="col">Actions</th>
+											  </tr>
+											</thead>
+											<tbody >
+											<tr *ngFor="let service of services">
+															<td ><img  src="{{service.pic}}"></td>
+															<td >{{service.serviceName}}</td>
+															<td >{{service.serviceType}}</td>
+															<td >{{service.purchaseDate}}</td>
+															<td >{{service.expiryDate}}</td>
+															<td>{{service.order}}</td>
+															<td>{{service.supplier}}</td>
+															<td>${{service.amount}}</td>
+															<td>{{service.status}}</td>
+															
+															<td ><button  class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
+																	Edit
+																</button></td>
+							
+																<td ><button  class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
+																	Delete
+																	</button></td>
+													</tr>
+											</tbody>
+										  </table>
+							</div>
+			
+			
+							<div class="row"  *ngIf="isServiceFormShown">
+									<div class="col-md-12">
+			
+			
+										<button class="btn btn-link" (click)="isServiceFormShown=!isServiceFormShown" style="padding:0px;"><i class="fa fa-chevron-left"></i> Back</button>
+
+
+										<ul class="nav nav-tabs" role="tablist">
+												<li class="nav-item">
+													<a class="nav-link active show" data-toggle="tab" href="#serviceform_newcatalog" ng-reflect-href="#serviceform_newcatalog">
+														1. New Catalog Item
+													</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" data-toggle="tab" href="#serviceform_tasks" ng-reflect-href="#serviceform_tasks">
+														2. Tasks
+													</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" data-toggle="tab" href="#serviceform_location" ng-reflect-href="#serviceform_location">
+														3. Location
+													</a>
+												</li>
+											
+											</ul>
+
+
+											<div class="tab-content">
+													<div class="tab-pane active row" id="serviceform_newcatalog" role="tabpanel">
+
+															<div class="form-group m-form__group">
+																	<label>Service Group</label>
+																	<select [(ngModel)]="serviceGroup" class="form-control m-input m-input--square">
+																			<option value="Personal">
+																					Personal
+																				</option>
+																				<option value="Auto">
+																					Auto
+																				</option>
+																				
+																				<option value="Health">
+																					Health
+																				</option>
+																	</select>
+															</div>
+												
+												
+															<div class="form-group m-form__group" *ngIf="(serviceGroup=='Personal')">
+																	<label>Personal Categories:</label>
+																	<select class="form-control m-input m-input--square">
+																			<option value="Makeup">
+																					Makeup
+																				</option>
+																				<option value="Nail Technician">
+																					Nail Technician
+																				</option>
+																				
+																				<option value="Hair Stylists">
+																					Hair Stylists
+																				</option>
+												
+																				<option value="Eyelash Extensions">
+																						Eyelash Extensions
+																				</option>
+												
+																				<option value="Barber">
+																						Barber
+																				</option>
+																	</select>
+															</div>
+												
+												
+												
+															<div class="form-group m-form__group" *ngIf="(serviceGroup=='Auto')">
+																	<label>Personal Categories:</label>
+																	<select class="form-control m-input m-input--square">
+																			<option value="Car Dealing">
+																					Car Dealing
+																				</option>
+																				<option value="Car Wash">
+																					Car Wash
+																				</option>
+																				
+																	</select>
+															</div>
+												
+												
+															<div class="form-group m-form__group" *ngIf="(serviceGroup=='Health')">
+																	<label>Personal Categories:</label>
+																	<select class="form-control m-input m-input--square" >
+																			<option value="Personal Trainer">
+																					Personal Trainer
+																				</option>
+																				<option value="Yoga Instruction">
+																						Yoga Instruction
+																				</option>
+																				
+																	</select>
+															</div>
+							
+							
+							
+															<div class="form-group m-form__group" >
+																	<label>Service Frequency:</label>
+																	<select class="form-control m-input m-input--square" >
+																			<option value="1">
+																					1
+																				</option>
+																				<option value="2">
+																						2
+																				</option>
+																				<option value="3+">
+																						3+
+																				</option>
+																				<option value="5+">
+																						5+
+																				</option>
+																				<option value="10+">
+																						10+
+																				</option>
+																				
+																	</select>
+															</div>
+							
+															<div class="form-group m-form__group">
+																	<label>
+																		Estimated Price
+																	</label>
+																	<input placeholder="Estimated Price" class="form-control m-input m-input--square"  type="text">
+																
+															</div>
+							
+							
+															<div class="form-group m-form__group" >
+																	<label>Currency:</label>
+																	<select class="form-control m-input m-input--square" >
+																			<option value="USD">
+																					USD
+																				</option>
+																				<option value="CAD">
+																						CAD
+																				</option>
+																				<option value="PKR">
+																						PKR
+																				</option>
+																				<option value="IND">
+																						IND
+																				</option>
+																				
+																	</select>
+															</div>
+					
+															
+															<div class="form-group m-form__group">
+																	<label >
+																		Description
+																	</label>
+																	<textarea class="form-control m-input"  rows="3"></textarea>
+															</div>
+			
+															
+													</div>
+
+													<div class="tab-pane" id="serviceform_tasks" role="serviceform_tasks">
+															<table class="table m-table m-table--head-bg-success">
+																	<thead>
+																		<tr>
+																			<th>
+																				Name
+																			</th>
+																			<th>
+																				Date Start
+																			</th>
+																			<th>
+																				Due Date
+																			</th>
+																			<th>
+																				Status
+																			</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																			<th scope="row">
+																				Looper
+																			</th>
+																			<td>
+																				18/3/2017	
+																			</td>
+																			<td>
+																				18/10/2017	
+																			</td>
+																			<td>
+																				Approved
+																			</td>
+																		</tr>
+																	
+																	</tbody>
+																</table>
+													
+													</div>
+
+													<div class="tab-pane" id="serviceform_location" role="serviceform_tasks">
+															<div class="form-group m-form__group">
+																	<label>
+																		Street Address:
+																	</label>
+																	<input class="form-control m-input m-input--square" placeholder="Estimated Price" type="text">
+																
+															</div>
+
+															<div class="form-group m-form__group">
+																	<label>
+																		City
+																	</label>
+																	<input class="form-control m-input m-input--square" placeholder="City" type="text">
+																
+															</div>
+															<div class="form-group m-form__group">
+																	<label>
+																		Country
+																	</label>
+																	<input class="form-control m-input m-input--square" placeholder="Country" type="text">
+																
+															</div>
+													
+													</div>
+											</div>
+							
+								
+											
+			
+											
+								
+								
+									</div>
+										
+								
+								</div >
+			
+			
+								
+						</div>
+						<div class="tab-pane" id="m_tabs_bundles" role="tabpanel">
+							It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						</div>
+					</div>
+	</div>
+
+	
+
+</div>
+
+
+
+
+<!--div class="row justify-content-md-center servicesListForm" style="padding: 0px 10px;">
+	
+	<div class="m-portlet m-portlet--full-height">
+		
+				<div class="m-portlet__body">
+					<div class="row">
+                    <div class="col-md-4">
+
+
+							<div class="form-group m-form__group">
+								
+									<select class="form-control m-input">
+										<option>
+										    All
+										</option>
+										<option>
+											Hair
+										</option>
+										
+										<option>
+											Health
+										</option>
+										<option>
+											Shopping
+										</option>
+										<option>
+											Electronics
+										</option>
+										<option>
+											Cleaning
+										</option>
+									</select>
+								</div>
+
+								<div class="form-group m-form__group">
+										<label >
+											Sort By
+										</label>
+										<select class="form-control m-input">
+											<option>
+												Recommendations
+											</option>
+											<option>
+												Price Low To High
+											</option>
+											
+											<option>
+												Price High To Low
+											</option>
+											<option>
+												Rating
+											</option>
+											<option>
+												Comments
+											</option>
+										
+										</select>
+									</div>
+
+
+							<div class="form-group m-form__group">
+									<label >
+										Search Shop/ Business Name:
+									</label>
+									<input class="form-control"  type="text">
+								</div>
+
+								<div class="form-group m-form__group">
+										<label>
+											Select The Date:
+										</label>
+										<input class="form-control"  type="date">
+									</div>
+
+
+									<div class="form-group m-form__group">
+											<label >
+												Select The Time:
+											</label>
+											<select class="form-control">
+												<option>Any Time</option>
+												<option>08-09AM</option>
+												<option>09-10AM</option>
+												<option>10-11AM</option>
+												<option>11-12PM</option>
+												<option>12-01PM</option>
+												<option>01-02PM</option>
+												<option>02-03PM</option>
+											</select>
+										</div>
+
+
+
+										<div class="form-group m-form__group">
+												<label >
+													Select Location
+												</label>
+												<input class="form-control"  type="text">
+											</div>
+
+
+											<div class="m-form__group form-group">
+													<label for="">
+														Budget
+													</label>
+													<div class="m-radio-list">
+														<label class="m-radio">
+															<input name="example_1" type="radio" >
+															Any
+															<span></span>
+														</label>
+														<label class="m-radio">
+															<input name="example_1" type="radio" >
+															$0 - $30
+															<span></span>
+														</label>
+													
+														<label class="m-radio">
+															<input name="example_1" type="radio">
+															$30 - $60
+															<span></span>
+														</label>
+
+
+														<label class="m-radio">
+																<input name="example_1" type="radio">
+																$60 - $120
+																<span></span>
+															</label>
+													</div>
+												</div>
+
+								
+
+                    </div>
+
+					<div class="col-md-8">
+					<div class="m-widget3">
+						<div class="m-widget3__item">
+							<div class="m-widget3__header">
+								
+								<div class="m-widget3__user-img">
+										<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+												<input class="chkboxes" type="checkbox">
+												<span></span>
+										</label>
+									<img alt="" class="m-widget3__img personimage" src="assets/app/media/img/fruits.jpg">
+								</div>
+								<div class="m-widget3__info">
+									<span class="m-widget3__username">
+											Fruits
+									</span>
+								
+									
+									<br>
+						
+
+								</div>
+								
+							</div>
+							<div class="m-widget3__body">
+									<div class="row services-categories">
+											<div class="col-md-12 category-list">
+												<h6 class="service-heading">Subcategories</h6>
+												<div class="row service-item">
+													<div class="col-md-12">
+														Bananana
+													</div>
+													<div class="col-md-12">
+														<hr>
+													</div>
+				
+												</div>
+												
+				
+												<div class="row service-item">
+														<div class="col-md-12">
+															Apple
+														</div>
+														<div class="col-sm-12">
+															<hr>
+														</div>
+					
+													</div>
+													
+													<div class="row service-item">
+														<div class="col-md-12">
+															Orange
+														</div>	
+														<div class="col-sm-12">
+															<hr>
+														</div>
+						
+													</div>
+														
+						
+														<div class="row service-item">
+															<div class="col-md-12">
+																Watermelon
+															</div>	
+															<div class="col-sm-12">
+																<hr>
+															</div>
+							
+															</div>		
+															
+											</div>
+				
+				
+				
+										
+											
+										</div>
+							</div>
+						</div>
+						<div class="m-widget3__item">
+								<div class="m-widget3__header">
+										<div class="m-widget3__user-img">
+												<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+														<input class="chkboxes" type="checkbox">
+														<span></span>
+												</label>
+											<img alt="" class="m-widget3__img personimage" src="assets/app/media/img/cars.png">
+										</div>
+									<div class="m-widget3__info">
+										<span class="m-widget3__username">
+												Cars
+										</span>
+									</div>
+								<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;" ><i class="la la-comments"></i> Message</a>
+								</div>
+								<div class="m-widget3__body">
+										<div class="row services-categories">
+												<div class="col-md-12 category-list">
+													<h6 class="service-heading">Subcategories</h6>
+													<div class="row service-item">
+														<div class="col-md-12">
+															Mercedes
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+					
+													</div>
+													
+					
+													<div class="row service-item">
+															<div class="col-md-12">
+																BMW
+															</div>
+															<div class="col-sm-12">
+																<hr>
+															</div>
+						
+														</div>
+														
+														<div class="row service-item">
+															<div class="col-md-12">
+																Jaguar
+															</div>	
+															<div class="col-sm-12">
+																<hr>
+															</div>
+							
+														</div>
+															
+							
+															<div class="row service-item">
+																<div class="col-md-12">
+																	Suzuki
+																</div>	
+																<div class="col-sm-12">
+																	<hr>
+																</div>
+								
+																</div>		
+																
+												</div>
+					
+					
+					
+											
+												
+											</div>
+								</div>
+							</div>
+					
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+
+
+</div-->
+
+
+
+</div>
+
+<!-- Support Ticket Modal Start-->
+<div aria-labelledby="supportModalLabel" class="modal fade show" id="c_modal_broadcast" role="dialog" tabindex="-1">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="supportModalLabel">
+						Broadcast Service Request
+					</h5>
+					<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+							<span aria-hidden="true">
+								×
+							</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label class="form-control-label" for="broadcast-recipient-name">
+								Recipient:
+							</label>
+							<input class="form-control" id="broadcast-recipient-name" type="text">
+						</div>
+
+						<div class="form-group">
+								<label class="form-control-label" for="broadcast-category-name">
+									Service Category:
+								</label>
+								<select class="form-control" id="broadcast-category-name" type="text">
+									<option>Food</option>
+									<option>Shipping</option>
+									<option>Clothing</option>
+									<option>Games &amp; Fitness</option>
+								</select>
+							</div>
+
+
+							
+
+							<div class="form-group">
+									<label class="form-control-label" for="broadcast-subcategory-name">
+										Service Sub-Category:
+									</label>
+									<select class="form-control" id="broadcast-subcategory-name" type="text">
+										<option>Sea Food</option>
+										<option>Air Cargo</option>
+										<option>Clothing</option>
+										<option>Video Games</option>
+									</select>
+								</div>
+
+
+								<div class="form-group">
+										<label class="form-control-label" for="broadcast-contact-number">
+											Contact Number:
+										</label>
+										<input class="form-control" id="broadcast-contact-number" type="text">
+								</div>
+
+
+						<div class="form-group">
+							<label class="form-control-label" for="support-message-text">
+								Message:
+							</label>
+							<textarea class="form-control" id="support-message-text"></textarea>
+						</div>
+
+
+					
+
+							
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" data-dismiss="modal" type="button">
+						Close
+					</button>
+					<button class="btn btn-primary" type="button">
+						Submit
+					</button>
+				</div>
+			</div>
+		</div>
+       </div>
+	
+	<!-- Support Ticket Modal Ends-->
+
+
+	
+
+<div aria-labelledby="bookingModalLabel" class="modal fade" id="addBookingModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">
+						Make A Booking
+					</h5>
+					<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+						<span aria-hidden="true">
+							×
+						</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+            <div class="row">
+				    <div class="col-md-12">
+						<img alt="" src="./assets/app/media/img/users/user4.jpg" />
+						<img alt="" src="./assets/app/media/img/users/user2.jpg" />
+						<img alt="" src="./assets/app/media/img/users/user3.jpg" />
+					</div>
+					<!--div class="col-md-12">
+						<mwl-calendar-month-view [viewDate]="viewDate" style="width: 100%;"></mwl-calendar-month-view>
+					</div-->
+					
+                <!--div class="col-md-6">
+                        <h4>Booking</h4>
+                        <div class="form-group m-form__group">
+                                <label for="BookingServiceName">
+                                    Service Name:
+                                </label>
+                                <input class="form-control" id="BookingServiceName" type="text">
+                        </div>
+
+
+                        <div class="form-group m-form__group">
+                                <label for="BookingStaffMember">
+                                    Staff Member:
+                                </label>
+                                <input class="form-control" id="BookingStaffMember" type="text">
+                            </div>
+
+
+                            <div class="form-group m-form__group">
+                                    <label for="BookingQuantity">
+                                        Quantity:
+                                    </label>
+                                    <input class="form-control" id="BookingQuantity" type="text">
+                                </div>
+
+
+                                <div class="form-group m-form__group">
+                                        <label for="BookingAmount">
+                                            Amount:
+                                        </label>
+                                        <input class="form-control" id="BookingAmount" type="text">
+                                    </div>
+
+                                    <div class="form-group m-form__group row">
+                                            <label class="col-12 col-form-label" for="example-datetime-local-input">
+                                                Time Period
+                                            </label>
+                                            <div class="col-12">
+                                                <input class="form-control m-input" id="example-datetime-local-input" type="datetime-local" value="2011-08-19T13:45:00">
+                                            </div>
+                                        </div>
+                </div>
+
+                <div class="col-md-6">
+                        <h4>Customer</h4>
+
+                        <div class="form-group m-form__group">
+                                <label for="bookingcustomerNameField">
+                                    Name:
+                                </label>
+                                <input class="form-control" id="bookingcustomerNameField" type="text">
+                            </div>
+
+                            <div class="form-group m-form__group">
+                                    <label for="bookingcustomerEmailField">
+                                        Email:
+                                    </label>
+                                    <input class="form-control" id="bookingcustomerEmailField" type="text">
+                                </div>
+
+                                <div class="form-group m-form__group">
+                                        <label for="bookingcustomerPhoneField">
+                                            Phone:
+                                        </label>
+                                        <input class="form-control" id="bookingcustomerPhoneField" type="text">
+                                    </div>
+                        
+                     <div class="form-group m-form__group">
+                            <label for="addressFieldBooking">
+                                Address:
+                            </label>
+                            <input class="form-control" id="addressFieldBooking" type="text">
+                        </div>
+
+
+                        <div class="m-form__group form-group">
+                                <div class="m-radio-list">
+                                    <label class="m-radio">
+                                        <input name="example_1" type="radio" value="1">
+                                        Payment In Person
+                                        <span></span>
+                                    </label>
+                                    <label class="m-radio">
+                                        <input name="example_1" type="radio" value="2">
+                                        Payment With Credit Card
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                </div>
+            </div-->
+                   
+                    
+        
+                    
+                    
+                    
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" data-dismiss="modal" type="button">
+						Close
+					</button>
+					<button class="btn btn-primary" type="button">
+						Make Booking
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+	<div aria-labelledby="exampleModalLabel" class="modal fade" id="addSubcategoryModal" role="dialog" tabindex="999">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							Service Provider Radius Adjustment
+						</h5>
+						<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+							<span aria-hidden="true">
+								×
+							</span>
+						</button>
+					</div>
+					<div class="modal-body">
+							<div class="form-group">
+									<label class="form-control-label" for="broadcast-category-name">
+										Parent Category:
+									</label>
+									<select class="form-control" id="broadcast-category-name" type="text">
+										<option>Food</option>
+										<option>Car</option>
+										<option>Clothing</option>
+										<option>Games &amp; Fitness</option>
+									</select>
+								</div>
+
+
+								<div class="form-group">
+										<label class="form-control-label" for="broadcast-recipient-name">
+											Category Name:
+										</label>
+										<input class="form-control" id="broadcast-recipient-name" type="text">
+									</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" data-dismiss="modal" type="button">
+							Add Category
+						</button>
+						<button class="btn btn-secondary" data-dismiss="modal" type="button">
+							Close
+						</button>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	<!-- Modals End-->

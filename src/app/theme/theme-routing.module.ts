@@ -33,8 +33,8 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/staff\/staff.module#StaffModule"
             },
             {
-                "path": "categories",
-                "loadChildren": ".\/pages\/default\/categories\/categories.module#CategoriesModule"
+                "path": "catalog",
+                "loadChildren": ".\/pages\/default\/catalog\/catalog.module#CatalogModule"
             }
         ]
 
