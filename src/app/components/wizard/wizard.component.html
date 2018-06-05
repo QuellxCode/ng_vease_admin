@@ -167,7 +167,8 @@
                                                         * Address Line 1:
                                                     </label>
                                                     <div class="col-xl-9 col-lg-9">
-                                                        <input type="text" name="address1" class="form-control m-input" placeholder="" value="Headquarters 1120 N Street Sacramento 916-654-5266">
+                                                            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+                                                        <!-- <input type="text" name="address1" class="form-control m-input" placeholder="" value="Headquarters 1120 N Street Sacramento 916-654-5266"> -->
                                                         <span class="m-form__help">
 															Street address, P.O. box, company name, c/o
 														</span>
@@ -179,8 +180,8 @@
                                                         * City:
                                                     </label>
                                                     <div class="col-xl-9 col-lg-9">
-                                                            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-                                                        <!-- <input type="text" name="city" class="form-control m-input" placeholder="" value="Polo Alto"> -->
+                                                            <!-- <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"> -->
+                                                        <input type="text" name="city" class="form-control m-input" placeholder="" value="{{clientMainCity}}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row">
@@ -188,9 +189,17 @@
                                                         * State:
                                                     </label>
                                                     <div class="col-xl-9 col-lg-9">
-                                                        <input type="text" name="state" class="form-control m-input" placeholder="" value="California">
+                                                        <input type="text" name="state" class="form-control m-input" placeholder="" value="{{clientState}}">
                                                     </div>
                                                 </div>
+                                                <div class="form-group m-form__group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            * Country:
+                                                        </label>
+                                                        <div class="col-xl-9 col-lg-9">
+                                                            <input type="text" name="country" class="form-control m-input" placeholder="" value="{{clientCountry}}">
+                                                        </div>
+                                                    </div>
 
                                                 <div class="form-group m-form__group row">
                                                         <label class="col-xl-3 col-lg-3 col-form-label">
@@ -209,19 +218,19 @@
                                                                 <input type="password" name="password" class="form-control m-input" placeholder="">
                                                             </div>
                                                         </div>
-                                                <div class="form-group m-form__group row">
+                                                <div class="form-group m-form__group row" class="country">
                                                     <label class="col-xl-3 col-lg-3 col-form-label">
                                                         * Country:
                                                     </label>
                                                     <div class="col-xl-9 col-lg-9">
                                                         <select name="country" class="form-control m-input">
-                                                                <option value="{{countryCode}}" selected>
+                                                                <!-- <option value selected>
                                                                         {{country}}
-                                                                    </option>
-                                                            <option value="AF">
+                                                                    </option> -->
+                                                            <option value="AF" selected>
                                                                 Afghanistan
                                                             </option>
-                                                            <option value="AX">
+                                                            <!-- <option value="AX">
                                                                 Åland Islands
                                                             </option>
                                                             <option value="AL">
@@ -923,7 +932,7 @@
                                                             <option value="GB">
                                                                 United Kingdom
                                                             </option>
-                                                            <option value="US" selected>
+                                                            <option value="US">
                                                                 United States
                                                             </option>
                                                             <option value="UM">
@@ -964,12 +973,12 @@
                                                             </option>
                                                             <option value="ZW">
                                                                 Zimbabwe
-                                                            </option>
+                                                            </option> -->
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="m-separator m-separator--dashed m-separator--lg"></div>
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -1081,18 +1090,20 @@
                                                                 </div>
                                                                 <div  class="form-group m-form__group row">
                                                                     <div  class="col-lg-12">
-                                                                        <label  class="form-control-label">
-                                                                            * Address 1:
+                                                                        <label  class="form-control-label billAddressing">
+                                                                            * Address:
                                                                         </label>
-                                                                        <input  class="form-control m-input" name="billing_address_1" placeholder="" type="text" value="Headquarters 1120 N Street Sacramento 916-654-5266" aria-describedby="billing_address_1-error" aria-invalid="false">
+                                                            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #company [formControl]="companyForm" [(ngModel)]="companyAddressModel">
+                                                                        <!-- <input  class="form-control m-input" name="billing_address_1" placeholder="" type="text" value="Headquarters 1120 N Street Sacramento 916-654-5266" aria-describedby="billing_address_1-error" aria-invalid="false"> -->
                                                                     </div>
                                                                 </div>
                                                                 <div  class="form-group m-form__group row">
                                                                     <div  class="col-lg-12">
                                                                         <label  class="form-control-label">
-                                                                            Address 2:
+                                                                            State/Province
                                                                         </label>
-                                                                        <input  class="form-control m-input" name="billing_address_2" placeholder="" type="text" value="P.O. Box 942873 Sacramento, CA 94273-0001">
+                                                            <!-- <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #company [formControl]="companyForm"> -->
+                                                                        <input  class="form-control m-input" name="billing_address_2" placeholder="" type="text" value="{{companyState}}">
                                                                     </div>
                                                                 </div>
                                                                 <div  class="form-group m-form__group row">
@@ -1100,9 +1111,8 @@
                                                                         <label  class="form-control-label">
                                                                             * City:
                                                                         </label>
-                                                                        <input  class="form-control m-input" name="billing_city" placeholder="" type="text" value="Polo Alto">
+                                                                        <input  class="form-control m-input" name="billing_city" placeholder="" type="text" value="{{companyMainCity}}">
                                                                     </div>
-                                                                   
                                                                 </div>
 
                                                                 <div class="form-group m-form__group row">
@@ -1111,33 +1121,55 @@
                                                                                 <label  class="form-control-label">
                                                                                     * ZIP:
                                                                                 </label>
-                                                                                <input  class="form-control m-input" name="billing_zip" placeholder="" type="text" value="34890">
+                                                                                <input  class="form-control m-input" name="billing_zip" placeholder="" type="text" value="">
                                                                             </div>
                                                                 </div>
                                                             </div>
                                                    </div>
                                                    <div class="col-md-6">
+                                                        <!-- <div class="checkbox checkbox-info mt-o pt-0">
+                                                                <input id="checkbox4" type="checkbox" (change)="yourfunc($event)" >
+                                                                <label for="checkbox4">
+                                                                    Same as Billing Info
+                                                                </label>
+                                                            </div> -->
                                                         <div  class="m-form__section">
                                                             <div  class="m-form__section">
                                                                 <div  class="m-form__heading">
-                                                                    <h3  class="m-form__heading-title">
-                                                                        Shippping Information
-                                                                    </h3>
+                                                                    
+                                                                            <h3  class="m-form__heading-title">
+                                                                                    Shipping Information
+                                                                                </h3>
+                                                                    
                                                                 </div>
+                                                                <div class="row">
+                                                                        <!-- <input class="m-checkbox-inline" id="checkbox4" type="checkbox" (change)="yourfunc($event)" >
+                                                                        <p> <small class="text-muted">  Same as Billing Info</small> </p>
+                                                                        <li>
+                                                                                <label for="checkid"  style="word-wrap:break-word">
+                                                                                   <input id="checkid"  type="checkbox" value="test" />testdata
+                                                                                </label>
+                                                                           </li> -->
+                                                                           <label class="m-checkbox m-checkbox--solid m-checkbox--brand shipping_checkbox">
+                                                                                <input name="account_communication[]" type="checkbox" type="checkbox" (change)="yourfunc($event)">
+                                                                                Same as Billing Info
+                                                                                <span></span>
+                                                                            </label>
+                                                                    </div>
                                                                 <div  class="form-group m-form__group row">
                                                                     <div  class="col-lg-12">
                                                                         <label  class="form-control-label">
-                                                                            * Address 1:
+                                                                            * Address:
                                                                         </label>
-                                                                        <input  class="form-control m-input" name="billing_address_1" placeholder="" type="text" value="Headquarters 1120 N Street Sacramento 916-654-5266" aria-describedby="billing_address_1-error" aria-invalid="false">
+                                                                        <input  class="form-control m-input" name="billing_address_1" placeholder="" type="text"  aria-describedby="billing_address_1-error" aria-invalid="false" value="{{billAddress}}">
                                                                     </div>
                                                                 </div>
                                                                 <div  class="form-group m-form__group row">
                                                                     <div  class="col-lg-12">
                                                                         <label  class="form-control-label">
-                                                                            Address 2:
+                                                                            State/Province:
                                                                         </label>
-                                                                        <input  class="form-control m-input" name="billing_address_2" placeholder="" type="text" value="P.O. Box 942873 Sacramento, CA 94273-0001">
+                                                                        <input  class="form-control m-input" name="billing_address_2" placeholder="" type="text" value="{{billState}}">
                                                                     </div>
                                                                 </div>
                                                                 <div  class="form-group m-form__group row">
@@ -1145,7 +1177,7 @@
                                                                         <label  class="form-control-label">
                                                                             * City:
                                                                         </label>
-                                                                        <input  class="form-control m-input" name="billing_city" placeholder="" type="text" value="Polo Alto">
+                                                                        <input  class="form-control m-input" name="billing_city" placeholder="" type="text" value="Polo Alto" value="{{billCity}}">
                                                                     </div>
                                                                    
                                                                 </div>
@@ -1156,7 +1188,7 @@
                                                                                 <label  class="form-control-label">
                                                                                     * ZIP:
                                                                                 </label>
-                                                                                <input  class="form-control m-input" name="billing_zip" placeholder="" type="text" value="34890">
+                                                                                <input  class="form-control m-input" name="billing_zip" placeholder="" type="text" value="">
                                                                             </div>
                                                                 </div>
                                                             </div>
@@ -1542,3 +1574,10 @@
         </div-->
     </div>
 </div>
+
+
+
+
+
+
+

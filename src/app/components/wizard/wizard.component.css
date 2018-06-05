@@ -39,3 +39,18 @@
    {
        margin-top: 15px;
    }
+   .country {
+       display: none;
+   }
+   [type="checkbox"]
+{
+    vertical-align:middle;
+}
+
+.shipping_checkbox {
+    margin-left: 15px;
+}
+
+.billAddressing{
+    padding-top: 33px;
+}

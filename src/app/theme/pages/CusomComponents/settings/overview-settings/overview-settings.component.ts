@@ -79,9 +79,27 @@ export class OverViewSettingsComponent implements OnInit {
     ];
 
 
+
+    pricing = [
+        {
+            serviceName: 'Hair Cutting',
+            categoryName:"Adults",
+            price: 25
+        },
+        {
+            serviceName: 'Hair Cutting',
+            categoryName:"Kids",
+            price: 15
+        }
+        ];
+
+
     enterLocationFormDisplay= false;
     isDisplayScheduleEditAndSee = false;
     isDisplayShiftsEditAndSee = false;    
+    isRoleAddViewOpen = false;
+    isPricingAddEditOpen = false;
+    isTaxAddViewOpen = false;
     edit = false
 
 
@@ -89,7 +107,8 @@ export class OverViewSettingsComponent implements OnInit {
     editLocationIndex = undefined;
     editScheduleIndex = undefined;
     editShiftIndex = undefined;
-
+    editPricingIndex=undefined;
+    editTaxIndex=undefined;
 
 
     public latitude: number;
@@ -99,7 +118,7 @@ export class OverViewSettingsComponent implements OnInit {
     public zoom: number;
     @ViewChild('search') public searchElementRef: ElementRef;
     
-    constructor(private _script: ScriptLoaderService,  private taxesServices: TaxesService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+    constructor(private _script: ScriptLoaderService, private taxesServices: TaxesService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
     
     }
 
@@ -210,6 +229,47 @@ export class OverViewSettingsComponent implements OnInit {
     {
         this.shifts.splice(ShiftIndex, 1);
     }
+
+
+    addPricing(pricingService, pricingCategory, pricingPrice)
+    {
+        if(this.editPricingIndex!=undefined)
+        {
+            this.pricing[this.editPricingIndex].serviceName = pricingService;
+            this.pricing[this.editPricingIndex].categoryName = pricingCategory;
+            this.pricing[this.editPricingIndex].price = pricingPrice;
+            this.editShiftIndex=undefined;
+        }
+        else
+        {
+            this.pricing.push({
+                serviceName: pricingService,
+                categoryName: pricingCategory,
+                price: pricingPrice
+            });
+        }
+        
+        this.isPricingAddEditOpen = false;
+    }
+
+    editPricing(PricingIndex)
+    {
+        this.isPricingAddEditOpen = true;
+        this.editPricingIndex = PricingIndex; 
+    }
+
+    deletePricing(PricingIndex)
+    {
+        this.pricing.splice(PricingIndex, 1);
+    }
+
+
+
+    onEditTax(taxID)
+    {
+        this.editTaxIndex = taxID;
+        this.isTaxAddViewOpen = true;
+    }
     ngOnInit() {
         this.servicesForm = new FormGroup({
             'username': new FormControl(null, Validators.required),
@@ -263,19 +323,33 @@ export class OverViewSettingsComponent implements OnInit {
     }
 
 
-    onSubmit() {
+    onSubmit(name , percentage, category) {
         // console.log(this.servicesForm.value.username + ' ' + this.servicesForm.value.percentage);
-        this.taxesServices.addtax(this.servicesForm.value.username, this.servicesForm.value.percentage, this.servicesForm.value.category);
+        
+        if(this.editTaxIndex!=undefined)
+        {
+            console.log(this.taxesServices.getTaxes()[this.editTaxIndex-1]);
+            this.taxesServices.getTaxes()[this.editTaxIndex-1].username = this.servicesForm.value.username;
+            this.taxesServices.getTaxes()[this.editTaxIndex-1].percentage = this.servicesForm.value.percentage;
+            this.taxesServices.getTaxes()[this.editTaxIndex-1].jurisdiction = this.servicesForm.value.category;
+        }
+        else
+        {
+            this.taxesServices.addtax(name , percentage, category);
+        }
+        
         this.servicesForm.reset();
+        this.isTaxAddViewOpen = false;
+        
       }
 
       removeTax(tax) {
           this.taxesServices.removeTax(tax)
       }
         private id: number;
-      onEdit(id) {
+      onEdit() {
           this.edit = true;
-          this.id = id;
+        //   this.id = id;
       }
 
       onUpdate() {

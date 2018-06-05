@@ -386,7 +386,7 @@
                                             <div class="row" *ngIf="isDisplayScheduleEditAndSee">
                                             <div class="col-md-12">    
 
-                                            <button class="btn btn-link"  (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee; editScheduleIndex=false;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
+                                            <button class="btn btn-link"  (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee; editScheduleIndex=undefined;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
 
                                             <div class="form-group m-form__group">
                                                         <label >
@@ -1450,36 +1450,29 @@
 
                             <!-- Taxes -->
                             <div class="tab-pane" id="taxes-tab">
-                                <div class="col-xl-12" *ngIf="!isRoleAddViewOpen">
+                                <div class="col-xl-12" *ngIf="!isTaxAddViewOpen">
                                     <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
                                             <div class="m-portlet__body">
-                                                    <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-default"><i class="fa fa-plus" ></i> Add Tax </button>
-                                               <!-- <ul>
-                                                   <li *ngFor="let t of taxesServices.getTaxes()">
-                                                       <span>{{t.username}}</span>
-                                                       <span>{{t.percentage}}</span>
-                                                       <span>{{t.jurisdiction}}</span>
+                                                    <button (click)="isTaxAddViewOpen=!isTaxAddViewOpen;" class="btn btn-default"><i class="fa fa-plus" ></i> Add Tax </button>
+                                          
 
-                                                   </li>
-                                               </ul> -->
-
-                                               <table class="table table-bordered RolesTableViewEdit">
+                                               <table class="table table-bordered">
                                                     <tr>
                                                            <th  scope="col">Username</th>
                                                            <th  scope="col">Percentage</th>
                                                            <th  scope="col">Jurisdiction</th>
                                                            <th  colspan="2" scope="col">Actions</th>
                                                     </tr>
-                                                    <tr *ngFor="let t of taxesServices.getTaxes()">
+                                                    <tr *ngFor="let t of taxesServices.getTaxes(); let i = index;">
                                                             <td>{{t.username}}</td>
                                                             <td>{{t.percentage}}</td>
                                                             <td>{{t.jurisdiction}}</td>
-                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" (click)="onEdit(t.id)" data-toggle="modal" data-target="#myModal" type="button">
+                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" (click)="onEditTax(t.id);  editPricingIndex=undefined">
                                                                     Edit
                                                                 </button>
                                                             </td>
                                                             <td>
-                                                                    <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax()" type="button">
+                                                                    <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax(t.id)" type="button">
                                                                             Delete
                                                                         </button>
                                                             </td>
@@ -1488,18 +1481,18 @@
                                             </div>
                                     </div>
                             </div>
-                            <div class="col-xl-12 "  *ngIf="isRoleAddViewOpen">
-                                    <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
-                                <form [formGroup]="servicesForm" (ngSubmit)="onSubmit()">
+                            <div class="col-xl-12 "  *ngIf="isTaxAddViewOpen">
+                                    <button (click)="isTaxAddViewOpen=!isTaxAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
+                                <form>
                                     <div class="row">
                                <div class="col-md-6">
                                     <div class="form-group">
                                             <label for="name" class="form-control-label">Name</label>
-                                            <input type="text" class="form-control" placeholder="Jhon Doe"  formControlName="username">
+                                            <input type="text"  [value]="(editTaxIndex!=undefined) ? taxesServices.getTaxes()[editTaxIndex].username : ''" class="form-control" placeholder="Jhon Doe"  #nameTax>
                                         </div>
                                         <div class="form-group">
                                                 <label for="percentage" class="form-control-label">Percentage</label>
-                                                <input type="number" class="form-control" placeholder="13"  formControlName="percentage">
+                                                <input type="number" [value]="(editTaxIndex!=undefined) ? taxesServices.getTaxes()[editTaxIndex].percentage : ''" class="form-control" placeholder="13"  #percentageTax>
                                             </div>
                                </div>
                                <div class="col-md-6">
@@ -1518,14 +1511,15 @@
                                             name="category"
                                             id="create-services-name"
                                             type="number"
-                                            formControlName="category"
+                                            #categoryTax
+                                           
                                             >
                                              <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
                                            </select>
                                </div>
                             </div>
                             </div>
-                            <button class="btn btn-primary" type="submit" style="margin-bottom:14px;">
+                            <button class="btn btn-primary" (click)="onSubmit(nameTax.value, percentageTax.value , categoryTax.value)" style="margin-bottom:14px;">
                                     Save
                                 </button>
                             </form>
@@ -1544,7 +1538,7 @@
               <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
               <h4 class="modal-title">Update Taxes</h4>
             </div>
-            <form [formGroup]="servicesForm" (ngSubmit)="onEdit()">
+            <form [formGroup]="servicesForm"  (ngSubmit)="onEdit()" >
             <div class="modal-body">
                             <div class="row">
                        <div class="col-md-6">
@@ -1591,79 +1585,83 @@
           </div>
         </div>
       </div>
-                <!-- <div *ngIf="edit==true" >
-                    <h1>this is edit portion</h1>
-                        <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
-                        <form [formGroup]="servicesForm" (ngSubmit)="onEdit()">
-                            <div class="row">
-                       <div class="col-md-6">
-                            <div class="form-group">
-                                    <label for="name" class="form-control-label">Name</label>
-                                    <input type="text" class="form-control" placeholder="Jhon Doe"  formControlName="username">
-                                </div>
-                                <div class="form-group">
-                                        <label for="percentage" class="form-control-label">Percentage</label>
-                                        <input type="number" class="form-control" placeholder="13"  formControlName="percentage">
-                                    </div>
-                       </div>
-                       <div class="col-md-6">
-                            <div class="form-group">
-                                    <label for="">Enable / Disable</label><br>
-                                    <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input  name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                            </div>
-                            <div class="form-group">
-                                    <label for="">Jurisdiction</label><br>
-                                    <select class="form-control"
-                                    name="category"
-                                    id="create-services-name"
-                                    type="number"
-                                    formControlName="category"
-                                    >
-                                     <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
-                                   </select>
-                       </div>
-                    </div>
-                    </div>
-                    <button class="btn btn-primary" (click)="onUpdate()" type="submit" style="margin-bottom:14px;">
-                            Update
-                        </button>
-                    </form>
-                </div> -->
+   
         </div>
 
         <!-- this is pricing -->
         <div class="tab-pane" id="pricing-tab">
-                <table class="table table-bordered RolesTableViewEdit">
-                        <tr>
-                               <th  scope="col">Catagories</th>
-                               <th  scope="col">Prices</th>
-                               <!-- <th  scope="col">Jurisdiction</th> -->
-                               <!-- <th  colspan="2" scope="col">Prices</th> -->
-                        </tr>
-                        <tr>
-                                <td>Adults</td>
-                                <td>$25</td>
-                                <!-- <td>{{t.jurisdiction}}</td>
-                                <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" (click)="onEdit(t.id)" type="button">
-                                        Edit
-                                    </button>
-                                </tds>
-                                <td>
-                                        <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax()" type="button">
-                                                Delete
+                
+                <div class="row" *ngIf="!isPricingAddEditOpen">
+                    <div class="col-sm-12">
+                            <button (click)="isPricingAddEditOpen=!isPricingAddEditOpen; editPricingIndex=undefined;" class="btn btn-default"><i class="fa fa-plus"></i> Add Price </button>
+                            <table class="table table-bordered RolesTableViewEdit">
+                                    <tr>
+                                           <th>Service</th>
+                                           <th  scope="col">Categories</th>
+                                           <th  scope="col">Prices</th>
+                                           <th colspan="2"  scope="col">Actions</th>
+                                           <!-- <th  scope="col">Jurisdiction</th> -->
+                                           <!-- <th  colspan="2" scope="col">Prices</th> -->
+                                    </tr>
+            
+            
+                                    <tr *ngFor="let pricingItem of pricing; let i = index;">
+                                        <td>{{pricingItem.serviceName}}</td>
+                                        <td>{{pricingItem.categoryName}}</td>
+                                        <td>${{pricingItem.price}}</td>
+                                        <td><button (click)="editPricing(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning"  type="button">
+                                                Edit
                                             </button>
-                                </td> -->
-                         </tr>
-                         <tr>
-                           <td>Kids</td>
-                            <td>$15</td>
-                         </tr>
-                </table>
+                                        </td>
+                                        <td>
+                                                <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="deletePricing(i)"  type="button">
+                                                        Delete
+                                                    </button>
+                                        </td>
+                                    </tr>
+                                    
+                                  
+                            </table>
+                    </div>
+                </div>
+
+
+                <div class="row" *ngIf="isPricingAddEditOpen">
+                        <div class="col-md-12">    
+
+                        <button class="btn btn-link"  (click)="isPricingAddEditOpen=!isPricingAddEditOpen; editPricingIndex=undefined;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back </button>
+
+                       
+
+                            <div  class="form-group m-form__group">
+                                    <label >
+                                        Service Name:
+                                    </label>
+                                    <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].serviceName : ''"  class="form-control m-input" placeholder="Service Name" type="text" #pricingService>
+                            </div>
+
+
+                            <div  class="form-group m-form__group">
+                                    <label >
+                                        Category:
+                                    </label>
+                                    <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].categoryName : ''"  class="form-control m-input" placeholder="Category Name" type="text" #pricingCategory>
+                            </div>
+
+                            <div  class="form-group m-form__group">
+                                    <label >
+                                       Price:
+                                    </label>
+                                    <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].price : ''"  class="form-control m-input" min="0"  type="number" #pricingPrice>
+                            </div>
+
+                            <button class="btn btn-primary" style="margin-bottom:14px;" (click)="addPricing(pricingService.value, pricingCategory.value, pricingPrice.value)" >
+                                Save Pricing
+                           </button>
+
+                    </div>
+                            </div>
+               
         </div>
 
 
