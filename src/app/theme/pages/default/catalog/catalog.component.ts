@@ -43,37 +43,34 @@ export class CatalogComponent implements OnInit, AfterViewInit {
 
     services = [
         {
-            pic: "./assets/app/media/img/users/user2.jpg",
-            serviceName: 'The Service',
-            serviceType:'Service',
-            purchaseDate: '12/03/2017',
-            expiryDate: '19/4/2017',
-            order: 'Service',
-            supplier: 'ABC Company',
-            amount:100,
+            pic: "./assets/app/media/img/logos/Makeup-icon.png",
+            serviceName: 'bridal make-up',
+            serviceCategory: 'Make-up',
+            serviceSubCategory: 'Personal',
+            serviceDescription:'Good quality makeup for bride in a very low cost ',
+            Active: false,
+            price:100,
             status:'Approved'
         },
 
         {
-            pic: "./assets/app/media/img/users/user2.jpg",
-            serviceName: 'The Service 2',
-            serviceType:'Service',
-            purchaseDate: '12/03/2017',
-            expiryDate: '19/4/2017',
-            order: 'Service',
-            supplier: 'XYZ Company',
-            amount:200,
-            status:'Rejected'
+            pic: "./assets/app/media/img/logos/hair.png",
+            serviceName: 'simple style',
+            serviceCategory: 'Hair Stylists',
+            serviceSubCategory: 'Personal',
+            serviceDescription:'Good quality makeup for bride in a very low cost ',
+            Active: true,
+            price:100,
+            status:'Approved'
         },
         {
-            pic: "./assets/app/media/img/users/user2.jpg",
-            serviceName: 'The Service 3',
-            serviceType:'Service',
-            purchaseDate: '12/03/2017',
-            expiryDate: '19/4/2017',
-            order: 'Service',
-            supplier: 'UVW Company',
-            amount:200,
+            pic: "./assets/app/media/img/logos/car.png",
+            serviceName: 'Simple car wash',
+            serviceCategory: 'Car Wash',
+            serviceSubCategory: 'AUTO',
+            serviceDescription:'Good quality makeup for bride in a very low cost ',
+            Active: true,
+            price:100,
             status:'Approved'
         }
     ];

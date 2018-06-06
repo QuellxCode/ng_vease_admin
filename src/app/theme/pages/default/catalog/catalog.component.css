@@ -2,3 +2,24 @@
 {
     width:40px;
 }
+
+.nav.nav-tabs .nav-link 
+{
+    background-color: transparent;
+    border: none;
+}
+
+
+.nav.nav-tabs .nav-link.active
+{
+    border-bottom: 1px solid darkgray;
+} 
+.uploadButtons
+{
+    margin-top: 40px;
+}
+.uploadButtons button
+{
+    display:block;
+    color:gray;
+}
