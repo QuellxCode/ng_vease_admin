@@ -1,21 +1,11 @@
 <!-- BEGIN: Subheader -->
-<div class="m-subheader" appunwraptag="" style="padding: 14px 10px 5px 30px;margin-bottom: -18px;" >
+<div class="m-subheader" appunwraptag="" >
 	<div class="d-flex align-items-center">
 		<div class="mr-auto row" style="width:80%;">
 
 			<div class="col-md-6">
 					<h3 class="m-subheader__title" style="display:inline-block">
 							Catalog
-							
-							<small><a (click)="adjustRadiusMap()" id="adjustRadius"  style="cursor:pointer;">
-									<i class="fa fa-map-marker"></i>
-								</a></small>
-							<small><a  style="cursor:pointer;">
-								<i class="fa fa-bar-chart" ></i>
-							</a></small>
-							<small><a style="cursor:pointer;">
-								<i class="fa fa-search"></i>
-							</a></small>
 						</h3>
 
 						
@@ -26,15 +16,38 @@
 		</div>
 
 
+
+
      
-		<button *ngIf="!this.isServiceFormShown;"  class="btn btn-link pull-right" (click)="isServiceFormShown=true"><i class="fa fa-plus"></i> Add New Serivce</button>
-		<button *ngIf="!this.isServiceFormShown;"  class="btn btn-link pull-right" ><i class="fa fa-plus"></i> Add Bundle</button>
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown;"  class="btn btn-link pull-right" (click)="isServiceFormShown=true"><i class="fa fa-plus"></i> Add New Serivce</a>
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown;"  class="btn btn-link pull-right" ><i class="fa fa-plus"></i> Add Bundle</a>
 
 
 		
 		
 	</div>
 	
+</div>
+<div class="m-subheader breadcrumsubheader">
+	
+		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+			
+				<li class="m-nav__item">
+					<a class="m-nav__link" href="" ng-reflect-href="">
+						<span class="m-nav__link-text">
+							Catalog
+						</span>
+					</a>
+				</li>
+			</ul>
 </div>
 <hr class="customhr" />
 
@@ -73,10 +86,9 @@
 												<th  scope="col">Service Name </th>
 												<th  scope="col">Category</th>
 												<th  scope="col">Sub Category</th>
-												<th  scope="col">Description</th>
-												<th  scope="col">Active</th>
+												<th  scope="col" class="descTable">Description</th>
 												<th  scope="col">Price</th>
-												<th  scope="col">Status</th>
+												<th  scope="col">Active</th>
 												<th  colspan="2" scope="col">Actions</th>
 											  </tr>
 											</thead>
@@ -87,14 +99,15 @@
 															<td >{{service.serviceCategory}}</td>
 															<td >{{service.serviceSubCategory}}</td>
 															<td >{{service.serviceDescription}}</td>
+															<td>{{service.price}}</td>
 															<td>
-																	<span class="m-switch m-switch--outline m-switch--success">
+																	<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
 																			<label>
 																				<input [checked]="service.Active" name="" type="checkbox">
 																				<span></span>
 																			</label>
 																		</span>
-															<td>{{service.price}}</td>
+															
 															
 															<td ><button  class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
 																	Edit
@@ -136,17 +149,17 @@
 			<ul class="nav nav-tabs" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active show" data-toggle="tab" href="#serviceform_newcatalog" ng-reflect-href="#serviceform_newcatalog">
-							1. New Catalog Item
+							New Catalog Item
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#serviceform_tasks" ng-reflect-href="#serviceform_tasks">
-							2. List
+							List
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#serviceform_location" ng-reflect-href="#serviceform_location">
-							3. Location
+							Location
 						</a>
 					</li>
 				
@@ -255,6 +268,9 @@
 												<textarea class="form-control m-input"  rows="3" #catalogServiceDescription></textarea>
 										</div>
 
+
+									
+										
 								</div>
 
 							
@@ -314,8 +330,13 @@
 										<button class="btn btn-link"><i class="fa fa-file-image-o"></i> Upload images</button>
 										<button class="btn btn-link"><i class="fa fa-video-camera"></i> Link videos via urls</button>
 										</div>
+
+										
 		
 								</div>
+
+
+								
 
 
 							
@@ -344,7 +365,7 @@
 						</div>
 
 						<div class="tab-pane" id="serviceform_tasks" role="serviceform_tasks">
-								<button class="btn btn-default " data-toggle="modal" data-target="#addListItemModal"><i class="fa fa-plus"></i> Add New Item</button>
+								<button class="btn btn-default " style="float: right;margin-bottom: 8px;" data-toggle="modal" data-target="#addListItemModal"><i class="fa fa-plus"></i> Add New Item</button>
 								
 								<table class="table table-bordered">
 										<thead>
@@ -373,7 +394,7 @@
 												</td>
 												<td>
 
-														<span class="m-switch m-switch--outline m-switch--success">
+														<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon" >
 																<label>
 																	<input name="" type="checkbox" [checked]="theItem.approved">
 																	<span></span>
@@ -392,7 +413,9 @@
 										
 										</tbody>
 									</table>
-						
+
+
+								
 						</div>
 
 						<div class="tab-pane" id="serviceform_location" role="serviceform_tasks">
