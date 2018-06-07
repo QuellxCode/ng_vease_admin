@@ -10,3 +10,6 @@ m-widget4 m-widget4__item {
     cursor: grab;
     cursor: -webkit-grab;
 }
+.m-content {
+    padding: 0px 30px !important;
+}

@@ -41,7 +41,9 @@ app-staff-settings{
 .MembersTableViewEdit tbody tr td:nth-child(1) img
 {
     
-width:45px ; height:45px;border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 .m-content
 {

@@ -375,3 +375,10 @@ font-size:10px;
     margin-left:2px;
     font-size: 0.8rem;
 }
+ .m-content {
+    padding: 0px 30px !important;
+}
+.breadcrumsubheader
+{
+    padding: 0px 30px;
+}

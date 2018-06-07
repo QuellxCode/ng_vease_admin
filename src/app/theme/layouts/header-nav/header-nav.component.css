@@ -1,0 +1,33 @@
+.m-grid__item.m-header
+{
+    /*height:10% !important; */
+    height:55px;
+}
+
+.m-container.m-container--fluid.m-container--full-height
+{
+    box-shadow: 2px 2px 10px 2px #cacaca;
+}
+
+
+.m-stack.m-stack--ver.m-stack--desktop
+{
+    box-shadow: none;
+    background-color: transparent;
+}
+#m_header_nav
+{
+    box-shadow: none;
+}
+.m-topbar__nav.m-nav.m-nav--inline
+{
+    margin-top: -5px;
+}
+.m-topbar .m-topbar__nav.m-nav > .m-nav__item {
+    padding: 0 7px;
+}
+
+.m-topbar .m-topbar__nav.m-nav > .m-nav__item > .m-nav__link .m-topbar__userpic img
+{
+    max-width: 30px !important;
+}
