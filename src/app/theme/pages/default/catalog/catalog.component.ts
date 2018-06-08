@@ -40,8 +40,12 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     //@ViewChild(AgmMap) agmMap: AgmMap;
     viewDate: Date = new Date();
     isServiceFormShown = false;
-    editItemIndex= undefined;
     
+    isBundleFormShown = false;
+    editItemIndex= undefined;
+    editCatalogIndex = undefined;
+    editBundleIndex = undefined;
+
     serviceGroup = "Health";
 
     listItems = [
@@ -83,6 +87,27 @@ export class CatalogComponent implements OnInit, AfterViewInit {
         }
     ];
 
+
+    bundles = [
+        {
+            bundleName : "The First Bundle",
+            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            noOfItems: 5
+        },
+
+        {
+            bundleName : "The Second Bundle",
+            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            noOfItems: 1
+        },
+
+        {
+            bundleName : "The Bundle",
+            description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            noOfItems: 3
+        }
+    ];
+
    
 
 
@@ -111,8 +136,6 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     }
 
 
-
-
     addCatalog(catalogServiceName , catalogServiceDescription , catalogServicePrice)
     {
         let selected="";
@@ -130,26 +153,83 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             selected = this.autoSubCategorySelect.nativeElement.value ;
         }
 
-        this.services.push({
-            pic: "./assets/app/media/img/logos/file.png",
-            serviceName: catalogServiceName,
-            serviceCategory: this.serviceGroup,
-            serviceSubCategory: selected,
-            serviceDescription: catalogServiceDescription,
-            Active: true,
-            price:catalogServicePrice
-        });
+        if(this.editCatalogIndex!=undefined)
+        {
+            this.services[this.editCatalogIndex].serviceName = catalogServiceName;
+            this.services[this.editCatalogIndex].serviceCategory = this.serviceGroup;
+            this.services[this.editCatalogIndex].serviceDescription = catalogServiceDescription;
+            this.services[this.editCatalogIndex].serviceSubCategory = selected;
+            this.services[this.editCatalogIndex].price = catalogServicePrice;
+            this.editCatalogIndex = undefined;
+        }
+        else
+        {
+            this.services.push({
+                pic: "./assets/app/media/img/logos/file.png",
+                serviceName: catalogServiceName,
+                serviceCategory: this.serviceGroup,
+                serviceSubCategory: selected,
+                serviceDescription: catalogServiceDescription,
+                Active: true,
+                price:catalogServicePrice
+            });
+        }
+      
 
         this.isServiceFormShown = false;
      
+    }
+    editCatalog(catalogIndex)
+    {
+        this.editCatalogIndex = catalogIndex;
+        this.isServiceFormShown = true;
     }
     deleteCatalog(catalogIndex)
     {
         this.services.splice(catalogIndex  , 1);
     }
 
+
+    saveBundle(name , thedescription , quantity)
+    {
+
+        if(this.editBundleIndex!=undefined)
+        {
+            this.bundles[this.editBundleIndex].bundleName = name;
+            this.bundles[this.editBundleIndex].description = thedescription;
+            this.bundles[this.editBundleIndex].noOfItems = quantity;
+            this.editBundleIndex = undefined;
+        }
+        else
+        {
+            this.bundles.push({
+                bundleName : name,
+                description: thedescription,
+                noOfItems: quantity
+            });
+        }
+
+        
+        this.isBundleFormShown = false;
+    }
+
+    editBundle(bundleIndex)
+    {
+        this.editBundleIndex = bundleIndex;
+        this.isBundleFormShown = true;
+    }
+
+    deleteBundle(bundleIndex)
+    {
+        this.bundles.splice(bundleIndex , 1);
+    }
+
     constructor(private _script: ScriptLoaderService) {
 
+
+
+
+      
 
 
 
@@ -165,8 +245,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
 
         this._script.loadScripts('app-catalog',
             ['//www.amcharts.com/lib/3/plugins/tools/polarScatter/polarScatter.min.js',
-                '//www.amcharts.com/lib/3/plugins/export/export.min.js',
-                'assets/app/js/staff.js']);
+                '//www.amcharts.com/lib/3/plugins/export/export.min.js', 'assets/app/js/catalogtable.js']);
 
 
 

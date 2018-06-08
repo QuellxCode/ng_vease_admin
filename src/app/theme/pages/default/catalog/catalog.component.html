@@ -19,8 +19,8 @@
 
 
      
-		<a href="javascript:;" *ngIf="!this.isServiceFormShown;"  class="btn btn-link pull-right" (click)="isServiceFormShown=true"><i class="fa fa-plus"></i> Add New Serivce</a>
-		<a href="javascript:;" *ngIf="!this.isServiceFormShown;"  class="btn btn-link pull-right" ><i class="fa fa-plus"></i> Add Bundle</a>
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isServiceFormShown=true; isBundleFormShown=false;"><i class="fa fa-plus"></i> Add New Serivce</a>
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isBundleFormShown=true; isServiceFormShown=false;"><i class="fa fa-plus"></i> Add Bundle</a>
 
 
 		
@@ -53,11 +53,14 @@
 
 
 <!-- END: Subheader -->
-<div class="m-content">
+<div class="m-content" style="padding:0px;">
 	<!--Begin::Section-->
 	
-
-<div class="row " *ngIf="!isServiceFormShown">
+	<div class="m-portlet m-portlet--mobile">
+			
+	<div class="m-portlet__body">
+			
+<div class="row " *ngIf="!isServiceFormShown && !isBundleFormShown">
 
 	<div class="col-md-12">
 			<ul class="nav nav-tabs" role="tablist">
@@ -76,9 +79,13 @@
 
 				<div class="tab-content">
 						<div class="tab-pane active" id="m_tabs_services" role="tabpanel">
-			
+
+
+
+								
 			
 							<div class="row" *ngIf="!isServiceFormShown">
+								<div class="table-responsive">
 									<table  class="table table-bordered servicesCatalogTable">
 											<thead >
 											  <tr >
@@ -89,7 +96,7 @@
 												<th  scope="col" class="descTable">Description</th>
 												<th  scope="col">Price</th>
 												<th  scope="col">Active</th>
-												<th  colspan="2" scope="col">Actions</th>
+												<th  scope="col">Actions</th>
 											  </tr>
 											</thead>
 											<tbody >
@@ -109,26 +116,81 @@
 																		</span>
 															
 															
-															<td ><button  class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
+															<!--td ><button  class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
 																	Edit
 																</button></td>
 							
 																<td ><button  (click)="deleteCatalog(i)"  class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
 																	Delete
-																	</button></td>
+																	</button></td-->
+
+
+																	<td>
+																			<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View details">
+																					<i class="la la-ellipsis-h"></i>
+																				</a>
+																				<a href="javascript:" (click)="editCatalog(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
+																					<i class="la la-edit"></i>
+																				</a>
+																				<a href="javascript:" (click)="deleteCatalog(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+																					<i class="la la-trash"></i>
+																				</a>
+																	</td>
 													</tr>
 											</tbody>
 										  </table>
+								</div>
+
+										
+										  <!--div class="m_datatable" id="m_datatable">
+											
+										  </div-->
 							</div>
 			
-			
+						
+
 							
 			
 			
 								
 						</div>
 						<div class="tab-pane" id="m_tabs_bundles" role="tabpanel">
-							It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+								<div class="table-responsive">
+										<table  class="table table-bordered bundlesCatalogTable">
+												<thead >
+														<tr >
+														  
+														  <th  scope="col">Bundle Name </th>
+														  <th  scope="col" class="bundledesc">Description</th>
+														  <th  scope="col">Items</th>
+														  <th> Actions</th>
+														</tr>
+													  </thead>
+													  <tbody>
+														  <tr *ngFor="let bundle of bundles; let i =index">
+															  <td>{{bundle.bundleName}}</td>
+															  <td>{{bundle.description}}</td>
+															  <td>{{bundle.noOfItems}}</td>
+															  <td>
+																	<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View details">
+																			<i class="la la-ellipsis-h"></i>
+																		</a>
+																		<a href="javascript:" (click)="editBundle(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
+																			<i class="la la-edit"></i>
+																		</a>
+																		<a href="javascript:" (click)="deleteBundle(i)"   class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+																			<i class="la la-trash"></i>
+																		</a>
+															</td>
+															  
+														  </tr>
+														 
+
+													  </tbody>
+
+										</table>
+								</div>
+						
 						</div>
 					</div>
 	</div>
@@ -138,12 +200,58 @@
 </div>
 
 
+<div class="row"  *ngIf="isBundleFormShown">
+<div class="col-md-12">
+		<button class="btn btn-link" (click)="isBundleFormShown=!isBundleFormShown;  this.editCatalogIndex = undefined;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
+		<div class="row">
+         <div class="col-md-6">
+				<div class="form-group m-form__group">
+						<label>
+							Bundle Name
+						</label>
+						<input class="form-control m-input m-input--square" [value]="(editBundleIndex!=undefined) ? bundles[editBundleIndex].bundleName : ''" placeholder="Bundle Name" type="text" #bundleName>
+					
+				</div>
+
+				<div class="form-group m-form__group">
+						<label>
+							Bundle Description
+						</label>
+						<textarea class="form-control m-input" rows="3" #bundleDescritpion></textarea>
+				</div>
+
+				 </div>
+
+		 <div class="col-md-6">
+				<div class="form-group m-form__group">
+						<label>
+							Quantity
+						</label>
+						<input class="form-control m-input m-input--square" placeholder="Bundle Quantityss" type="number" #bundleNumber>
+					
+						
+				</div>
+		 </div>
+		 <div class="col-md-12">
+				<button class="btn btn-primary" (click)="saveBundle(bundleName.value , bundleDescritpion.value , bundleNumber.value); isBundleFormShown=false;">Save</button>
+		 </div>
+
+		</div>
+		
+		
+		
+		
+</div>	
+
+</div>
+
+
 
 <div class="row"  *ngIf="isServiceFormShown">
 		<div class="col-md-12">
 
 
-			<button class="btn btn-link" (click)="isServiceFormShown=!isServiceFormShown" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
+			<button class="btn btn-link" (click)="isServiceFormShown=!isServiceFormShown; editCatalogIndex = undefined" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
 
 
 			<ul class="nav nav-tabs" role="tablist">
@@ -256,7 +364,7 @@
 												<label>
 													Service Name
 												</label>
-												<input placeholder="Service Name" class="form-control m-input m-input--square"  type="text" #catalogServiceName>
+												<input placeholder="Service Name" class="form-control m-input m-input--square"   type="text" #catalogServiceName [value]="(editCatalogIndex!=undefined) ? services[editCatalogIndex].serviceName : ''"   />
 											
 										</div>
 
@@ -267,6 +375,9 @@
 												</label>
 												<textarea class="form-control m-input"  rows="3" #catalogServiceDescription></textarea>
 										</div>
+
+										<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value);">Save</button>
+
 
 
 									
@@ -479,7 +590,12 @@
 
 
 
+	
 
+
+
+</div>
+</div>
 </div>
 
 

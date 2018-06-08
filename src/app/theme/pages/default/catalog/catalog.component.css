@@ -39,3 +39,15 @@
 {
     padding: 0px 30px;
 }
+
+
+.m_datatable .m--img-rounded
+{
+    width:25px;
+    height:25px;
+}
+
+.bundledesc
+{
+    width:55%;
+}
