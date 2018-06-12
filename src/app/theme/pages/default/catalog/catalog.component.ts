@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { Helpers } from '../../../../helpers';
 import { ScriptLoaderService } from '../../../../_services/script-loader.service';
 /*
@@ -34,12 +34,27 @@ import {
 })
 export class CatalogComponent implements OnInit, AfterViewInit {
 
+    @ViewChild('personalSubCategory') PersonalSubCategorySelect: ElementRef;
+    @ViewChild('autoSubCategory') autoSubCategorySelect: ElementRef;
+    @ViewChild('healthSubCategory') healthSubCategorySelect: ElementRef;
     //@ViewChild(AgmMap) agmMap: AgmMap;
     viewDate: Date = new Date();
     isServiceFormShown = false;
+ 
+    isBundleFormShown = false;
+    editItemIndex= undefined;
+    editCatalogIndex = undefined;
+    editBundleIndex = undefined;
 
     serviceGroup = "Health";
 
+    listItems = [
+        { 
+            itemName: "Looper",
+            itemDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ipsum quis neque",
+            approved: true
+       }
+    ];
 
     services = [
         {
@@ -49,8 +64,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             serviceSubCategory: 'Personal',
             serviceDescription: 'Good quality makeup for bride in a very low cost ',
             Active: false,
-            price: 100,
-            status: 'Approved'
+            price:100
         },
 
         {
@@ -60,22 +74,220 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             serviceSubCategory: 'Personal',
             serviceDescription: 'Good quality makeup for bride in a very low cost ',
             Active: true,
-            price: 100,
-            status: 'Approved'
+            price:200
+
         },
         {
             pic: "./assets/app/media/img/logos/car.png",
             serviceName: 'Simple car wash',
             serviceCategory: 'Car Wash',
-            serviceSubCategory: 'AUTO',
-            serviceDescription: 'Good quality makeup for bride in a very low cost ',
+            serviceSubCategory: 'Auto',
+            serviceDescription:'Good quality makeup for bride in a very low cost ',
             Active: true,
-            price: 100,
-            status: 'Approved'
+            price:333
         }
     ];
+
+
+    bundles = [
+        {
+            bundleName : "The First Bundle",
+            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            noOfItems: 5
+        },
+
+        {
+            bundleName : "The Second Bundle",
+            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            noOfItems: 1
+        },
+
+        {
+            bundleName : "The Bundle",
+            description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            noOfItems: 3
+        }
+    ];
+
+
+    BundlesOfServices = 
+    [
+
+    ];
+
+     tempBundle :number = 0;
+     isGrossTotal = false;
+
+   
+
+
+
+
+    createNewBundle()
+    {
+        this.tempBundle= 0;
+        this.BundlesOfServices = [];
+        this.isGrossTotal = false;
+    }
+    addAnItem(itemName , description)
+    {
+       if(this.editItemIndex!=undefined)
+       {
+        this.listItems[this.editItemIndex].itemName = itemName;
+        this.listItems[this.editItemIndex].itemDescription = description;
+        this.editItemIndex=undefined;
+       } 
+       else
+       {
+        this.listItems.push({itemName:itemName , itemDescription: description, approved:false}); 
+       }
+    }
+    editAnItem(itemIndex)
+    {
+        this.editItemIndex = itemIndex;
+    }
+    deleteAnItem(itemIndex)
+    {
+        this.listItems.splice(itemIndex ,1);
+    }
+
+
+    addCatalog(catalogServiceName , catalogServiceDescription , catalogServicePrice)
+    {
+        let selected="";
+        if(this.serviceGroup=="Health")
+        {
+            selected = this.healthSubCategorySelect.nativeElement.value; 
+           
+        }
+        else if(this.serviceGroup=="Personal")
+        {
+            selected = this.PersonalSubCategorySelect.nativeElement.value;
+        }
+        else if(this.serviceGroup=="Auto")
+        {
+            selected = this.autoSubCategorySelect.nativeElement.value ;
+        }
+
+        if(this.editCatalogIndex!=undefined)
+        {
+            this.services[this.editCatalogIndex].serviceName = catalogServiceName;
+            this.services[this.editCatalogIndex].serviceCategory = this.serviceGroup;
+            this.services[this.editCatalogIndex].serviceDescription = catalogServiceDescription;
+            this.services[this.editCatalogIndex].serviceSubCategory = selected;
+            this.services[this.editCatalogIndex].price = catalogServicePrice;
+            this.editCatalogIndex = undefined;
+        }
+        else
+        {
+            this.services.push({
+                pic: "./assets/app/media/img/logos/file.png",
+                serviceName: catalogServiceName,
+                serviceCategory: this.serviceGroup,
+                serviceSubCategory: selected,
+                serviceDescription: catalogServiceDescription,
+                Active: true,
+                price:catalogServicePrice
+            });
+        }
+      
+
+        this.isServiceFormShown = false;
+     
+    }
+    editCatalog(catalogIndex)
+    {
+        this.editCatalogIndex = catalogIndex;
+        this.isServiceFormShown = true;
+    }
+    deleteCatalog(catalogIndex)
+    {
+        this.services.splice(catalogIndex  , 1);
+    }
+
+
+    saveBundle(name , thedescription , quantity)
+    {
+
+        if(this.editBundleIndex!=undefined)
+        {
+            this.bundles[this.editBundleIndex].bundleName = name;
+            this.bundles[this.editBundleIndex].description = thedescription;
+            this.bundles[this.editBundleIndex].noOfItems = quantity;
+            this.editBundleIndex = undefined;
+        }
+        else
+        {
+            this.bundles.push({
+                bundleName : name,
+                description: thedescription,
+                noOfItems: quantity
+            });
+        }
+
+        
+        this.isBundleFormShown = false;
+    }
+
+    editBundle(bundleIndex)
+    {
+        this.editBundleIndex = bundleIndex;
+        this.isBundleFormShown = true;
+    }
+
+    deleteBundle(bundleIndex)
+    {
+        this.bundles.splice(bundleIndex , 1);
+    }
+
+
+
+
+    getPercentedValue(price , quantity , percentage)
+    {
+       let total = price*quantity;
+       total = total - (total*percentage)/100;
+       return total;     
+    }
+
+
+
+    saveServicesForBundle(servicetype_bundle , discountType  ,calculatedvalueNoDiscount , calculatedvalueDiscountAmount, calculatedvalueDiscountPercent , bundleQuantity)
+    {
+        
+        let Category = this.services[servicetype_bundle].serviceCategory;
+        let SubCategory = this.services[servicetype_bundle].serviceSubCategory;
+        let price;
+        if(discountType=="no")
+        {
+            price = calculatedvalueNoDiscount;
+        }
+        else if(discountType=="money")
+        {
+            price = calculatedvalueDiscountAmount;
+        }
+        else
+        {
+            price = calculatedvalueDiscountPercent;
+        }
+
+        this.BundlesOfServices.push({
+            Category: Category,
+            SubCategory: SubCategory,
+            Price: price,
+            Quantity: bundleQuantity
+        });
+
+
+        this.tempBundle += parseFloat(price); 
+
+
+        this.isGrossTotal = true;
+     
+    }
     constructor(private _script: ScriptLoaderService) {
 
+    
     }
     ngOnInit() {
 
@@ -84,11 +296,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
 
         this._script.loadScripts('app-catalog',
             ['//www.amcharts.com/lib/3/plugins/tools/polarScatter/polarScatter.min.js',
-                '//www.amcharts.com/lib/3/plugins/export/export.min.js',
-                'assets/app/js/staff.js']);
-
-
-
+                '//www.amcharts.com/lib/3/plugins/export/export.min.js', 'assets/app/js/catalogtable.js']);
 
     }
 
@@ -99,9 +307,6 @@ export class CatalogComponent implements OnInit, AfterViewInit {
         }, 2000);
     */
     }
-
-
-
 
 
 }

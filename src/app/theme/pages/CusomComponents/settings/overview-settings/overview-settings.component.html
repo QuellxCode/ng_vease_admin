@@ -1449,54 +1449,100 @@
 
 
                             <!-- Taxes -->
-                            <div class="tab-pane" id="taxes-tab">
-                                <div class="col-xl-12" *ngIf="!isTaxAddViewOpen">
+                             <!-- Taxes -->
+                             <div class="tab-pane" id="taxes-tab">
+                                <div class="col-xl-12" *ngIf="!isRoleAddViewOpen">
                                     <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
                                             <div class="m-portlet__body">
-                                                    <button (click)="isTaxAddViewOpen=!isTaxAddViewOpen;" class="btn btn-default"><i class="fa fa-plus" ></i> Add Tax </button>
-                                          
+                                                    <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-default"><i class="fa fa-plus" ></i> Add Tax </button>
+                                               <!-- <ul>
+                                                   <li *ngFor="let t of taxesServices.getTaxes()">
+                                                       <span>{{t.username}}</span>
+                                                       <span>{{t.percentage}}</span>
+                                                       <span>{{t.jurisdiction}}</span>
 
-                                               <table class="table table-bordered">
+                                                   </li>
+                                               </ul> -->
+
+                                               <table class="table table-bordered RolesTableViewEdit">
                                                     <tr>
-                                                           <th  scope="col">Username</th>
+                                                           <th  scope="col">Tax Name</th>
                                                            <th  scope="col">Percentage</th>
                                                            <th  scope="col">Jurisdiction</th>
-                                                           <th  colspan="2" scope="col">Actions</th>
+                                                           <th  scope="col">Actions</th>
+                                                           <th  scope="col">Status</th>
+
                                                     </tr>
-                                                    <tr *ngFor="let t of taxesServices.getTaxes(); let i = index;">
+                                                    <tr *ngFor="let t of taxesServices.getTaxes()">
                                                             <td>{{t.username}}</td>
-                                                            <td>{{t.percentage}}</td>
+                                                            <td>{{t.percentage}} %</td>
                                                             <td>{{t.jurisdiction}}</td>
-                                                            <td><button class="btn m-btn--pill  btn-sm  btn-outline-warning" (click)="onEditTax(t.id);  editPricingIndex=undefined">
+                                                            <td>
+                                                                <i class="fa fa-edit" (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction, t.dummyData, t.discription)"></i> |
+                                                                <i class="fa fa-trash" (click)="removeTax(t.id)"></i> |
+                                                                <i class="fa fa-info" data-toggle="modal" data-target="#myModal" (click)="onDetail(t.dummyData, t.discription)"></i>
+                                                                <!-- <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction)" class="btn m-btn--pill  btn-sm  btn-outline-warning">
                                                                     Edit
                                                                 </button>
+                                                                <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax(t.id)" type="button">
+                                                                        Delete
+                                                                    </button> -->
                                                             </td>
                                                             <td>
+                                                                    <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+                                                                            <label>
+                                                                                <input  name="" type="checkbox">
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </span>
+                                                            </td>
+                                                            <!-- <td>
                                                                     <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax(t.id)" type="button">
                                                                             Delete
                                                                         </button>
-                                                            </td>
+                                                            </td> -->
                                                      </tr>
                                             </table>
                                             </div>
                                     </div>
                             </div>
-                            <div class="col-xl-12 "  *ngIf="isTaxAddViewOpen">
-                                    <button (click)="isTaxAddViewOpen=!isTaxAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
-                                <form>
+                            <div class="col-xl-12 "  *ngIf="isRoleAddViewOpen && !isUpdate">
+                                    <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
+                                <form [formGroup]="servicesForm" (ngSubmit)="onSubmit()">
                                     <div class="row">
                                <div class="col-md-6">
                                     <div class="form-group">
-                                            <label for="name" class="form-control-label">Name</label>
-                                            <input type="text"  [value]="(editTaxIndex!=undefined) ? taxesServices.getTaxes()[editTaxIndex].username : ''" class="form-control" placeholder="Jhon Doe"  #nameTax>
+                                            <label for="name" class="form-control-label">Tax Name</label>
+                                            <input type="text" class="form-control" placeholder="Jhon Doe"  formControlName="username">
                                         </div>
                                         <div class="form-group">
-                                                <label for="percentage" class="form-control-label">Percentage</label>
-                                                <input type="number" [value]="(editTaxIndex!=undefined) ? taxesServices.getTaxes()[editTaxIndex].percentage : ''" class="form-control" placeholder="13"  #percentageTax>
-                                            </div>
+                                                <label for="">Jurisdiction</label><br>
+                                                <select class="form-control"
+                                                name="category"
+                                                id="create-services-name"
+                                                type="number"
+                                                formControlName="category"
+                                                >
+                                                 <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
+                                               </select>
+                                   </div>
+                                   <div class="form-group">
+                                        <label for="name" class="form-control-label">Dummy Input</label>
+                                        <input type="text" class="form-control" placeholder="Dummy Input" formControlName="dummyData">
+                                    </div>
+
                                </div>
                                <div class="col-md-6">
                                     <div class="form-group">
+                                            <label for="percentage" class="form-control-label">Percentage</label>
+                                            <input type="number" class="form-control" placeholder="13"  formControlName="percentage">
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="percentage" class="form-control-label">Discription</label>
+                                                <textarea class="form-control" placeholder="Enter Discription here!" cols="30" rows="6" formControlName="discription"></textarea>
+                                                <!-- <input type="number" class="form-control" placeholder="13" value="{{percentage}}"  formControlName="percentage"> -->
+                                            </div>
+                                    <!-- <div class="form-group">
                                             <label for="">Enable / Disable</label><br>
                                             <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
                                                     <label>
@@ -1504,42 +1550,111 @@
                                                         <span></span>
                                                     </label>
                                                 </span>
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="">Jurisdiction</label><br>
-                                            <select class="form-control"
-                                            name="category"
-                                            id="create-services-name"
-                                            type="number"
-                                            #categoryTax
-                                           
-                                            >
-                                             <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
-                                           </select>
-                               </div>
-                            </div>
-                            </div>
-                            <button class="btn btn-primary" (click)="onSubmit(nameTax.value, percentageTax.value , categoryTax.value)" style="margin-bottom:14px;">
-                                    Save
-                                </button>
-                            </form>
+                                    </div> -->
 
+                            </div>
+                            </div>
+                            <div >
+                                    <button class="btn btn-primary" type="submit" style="margin-bottom:14px;" [disabled] = '!servicesForm.valid'>
+                                            Save
+                                        </button>
+                            </div>
+                            </form>
+                </div>
+
+
+
+                <!-- this is update section -->
+
+
+                <div class="col-xl-12 "  *ngIf="isRoleAddViewOpen && isUpdate">
+                        <!-- <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onUpdate()" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button> -->
+                    <form [formGroup]="servicesForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                   <div class="col-md-6">
+                        <div class="form-group">
+                                <label for="name" class="form-control-label">Tax Name</label>
+                                <input type="text" id
+ class="form-control" placeholder="Jhon Doe" [value]="username"  formControlName="username">
+                            </div>
+
+                                <div class="form-group">
+                                        <label for="">Jurisdiction</label><br>
+                                        <select class="form-control"
+                                        name="category"
+                                        id="create-services-name"
+                                        type="number"
+                                        formControlName="category"
+                                        [value]="jurisdiction"
+                                        >
+                                         <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
+                                       </select>
+                           </div>
+                           <div class="form-group">
+                                <label for="name" class="form-control-label" >Dummy Input</label>
+                                <input type="text" class="form-control" placeholder="Dummy Input" [value]="dummyData" formControlName="dummyData" >
+                            </div>
+                   </div>
+                   <div class="col-md-6">
+                        <div class="form-group">
+                                <label for="percentage" class="form-control-label">Percentage</label>
+                                <input type="number" class="form-control" placeholder="13" [value]="percentage"  formControlName="percentage">
+                            </div>
+                            <div class="form-group">
+                                    <label for="percentage" class="form-control-label">Discription</label>
+                                    <textarea class="form-control" placeholder="Enter Discription here!" cols="30" rows="6" value="{{discription}}" formControlName="discription"></textarea>
+                                    <!-- <input type="number" class="form-control" placeholder="13" value="{{percentage}}"  formControlName="percentage"> -->
+                                </div>
+                        <!-- <div class="form-group">
+                                <label for="">Enable / Disable</label><br>
+                                <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
+                                        <label>
+                                            <input  name="" type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                        </div> -->
 
                 </div>
+                </div>
+
+                    <div>
+                            <button class="btn btn-primary" [disabled] = '!servicesForm.valid' (click)="onUpdate(); isRoleAddViewOpen=!isRoleAddViewOpen;" type="submit">
+                                    Update
+                                </button>
+                    </div>
+                </form>
+    </div>
                 <!-- This is edit portion -->
 
 
                 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
-              <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-              <h4 class="modal-title">Update Taxes</h4>
+              <h4 class="modal-title">Details</h4>
             </div>
-            <form [formGroup]="servicesForm"  (ngSubmit)="onEdit()" >
             <div class="modal-body">
+                            <div>
+                                    <label for="">Dummy Data</label><br>
+                                    <h5>{{detailDummyData}}</h5>
+                            </div>
+                            <div>
+                                <label for="">Discription</label>
+                                <h6>{{detailDiscription}}</h6>
+                            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+                <!-- <div *ngIf="edit==true" >
+                    <h1>this is edit portion</h1>
+                        <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
+                        <form [formGroup]="servicesForm" (ngSubmit)="onEdit()">
                             <div class="row">
                        <div class="col-md-6">
                             <div class="form-group">
@@ -1574,18 +1689,11 @@
                        </div>
                     </div>
                     </div>
-            </div>
-            <div class="modal-footer">
-                    <button class="btn btn-primary" data-dismiss="modal" (click)="onUpdate()" type="submit">
+                    <button class="btn btn-primary" (click)="onUpdate()" type="submit" style="margin-bottom:14px;">
                             Update
                         </button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </form>
-          </div>
-        </div>
-      </div>
-   
+                    </form>
+                </div> -->
         </div>
 
         <!-- this is pricing -->

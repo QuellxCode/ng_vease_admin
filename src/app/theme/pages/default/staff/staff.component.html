@@ -1,5 +1,5 @@
 <!-- BEGIN: Subheader -->
-<div class="m-subheader" appunwraptag="" style="padding: 14px 10px 5px 30px;margin-bottom: -18px;" *ngIf="!isDisplayDetail">
+<div class="m-subheader" appunwraptag=""  *ngIf="!isDisplayDetail">
 <div class="d-flex align-items-center">
 	<div class="mr-auto row" style="width:100%;">
 
@@ -75,6 +75,27 @@
 	
 </div>
 
+</div>
+
+<div class="m-subheader breadcrumsubheader">
+		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+			
+				<li class="m-nav__item">
+					<a class="m-nav__link" href="" ng-reflect-href="">
+						<span class="m-nav__link-text">
+							Catalog
+						</span>
+					</a>
+				</li>
+			</ul>
 </div>
 <hr class="customhr" *ngIf="!isDisplayDetail" />
 

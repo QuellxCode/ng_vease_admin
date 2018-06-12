@@ -5,6 +5,8 @@ import { CatalogComponent } from './catalog.component';
 import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
 import { FormsModule } from '@angular/forms';
+
+
 /*import { AgmCoreModule, AgmMap } from '@agm/core';
 import { CalendarModule } from 'angular-calendar';
 */

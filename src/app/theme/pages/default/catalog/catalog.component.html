@@ -1,21 +1,18 @@
 <!-- BEGIN: Subheader -->
-<div class="m-subheader" appunwraptag="" style="padding: 14px 10px 5px 30px;margin-bottom: -18px;" >
+<div class="m-subheader" appunwraptag="" >
 	<div class="d-flex align-items-center">
-		<div class="mr-auto row" style="width:100%;">
+		<div class="mr-auto row" style="width:80%;">
 
 			<div class="col-md-6">
 					<h3 class="m-subheader__title" style="display:inline-block">
-							Catalog
-							
-							<small><a (click)="adjustRadiusMap()" id="adjustRadius"  style="cursor:pointer;">
-									<i class="fa fa-map-marker"></i>
-								</a></small>
-							<small><a  style="cursor:pointer;">
-								<i class="fa fa-bar-chart" ></i>
-							</a></small>
-							<small><a style="cursor:pointer;">
-								<i class="fa fa-search"></i>
-							</a></small>
+							Catalog 
+							    <small>
+								<a href="javascript:;" style="text-decoration: none;color:grey;"><i style="font-size: 0.9rem;" class="fa fa-bar-chart"></i></a>
+								</small>
+
+								<small>
+								<a href="javascript:;" style="text-decoration: none;color:grey;"><i style="font-size: 0.9rem;" class="fa fa-search"></i></a>
+								</small>
 						</h3>
 
 						
@@ -24,9 +21,13 @@
 
 		
 		</div>
-		<button  class="btn btn-link pull-right" (click)="isServiceFormShown=true"><i class="fa fa-plus"></i> Add New Serivce</button>
-		<button  class="btn btn-link pull-right" ><i class="fa fa-plus"></i> Add Bundle</button>
 
+
+
+
+     
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isServiceFormShown=true; isBundleFormShown=false;"><i class="fa fa-plus"></i> Add New Serivce</a>
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isBundleFormShown=true; isServiceFormShown=false; createNewBundle()"><i class="fa fa-plus"></i> Add Bundle</a>
 
 
 		
@@ -34,15 +35,37 @@
 	</div>
 	
 </div>
-<hr class="customhr" />
-
+<div class="m-subheader breadcrumsubheader">
+	
+		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+			
+				<li class="m-nav__item">
+					<a class="m-nav__link" href="" ng-reflect-href="">
+						<span class="m-nav__link-text">
+							Catalog
+						</span>
+					</a>
+				</li>
+			</ul>
+</div>
 
 <!-- END: Subheader -->
-<div class="m-content">
+<div class="m-content" style="padding:0px;">
 	<!--Begin::Section-->
 	
-
-<div class="row " *ngIf="!isServiceFormShown">
+	<div class="m-portlet m-portlet--mobile">
+			
+	<div class="m-portlet__body">
+			
+<div class="row " *ngIf="!isServiceFormShown && !isBundleFormShown">
 
 	<div class="col-md-12">
 			<ul class="nav nav-tabs" role="tablist">
@@ -61,60 +84,118 @@
 
 				<div class="tab-content">
 						<div class="tab-pane active" id="m_tabs_services" role="tabpanel">
-			
+
+
+
+								
 			
 							<div class="row" *ngIf="!isServiceFormShown">
-									<table  class="table table-bordered servicesCatalogTable">
+								<div class="table-responsive">
+									<table  class="table table-bordered table-striped servicesCatalogTable">
 											<thead >
 											  <tr >
-												 <th ></th>
+												 <th class="ServiceCatalogImage"></th>
 												<th  scope="col">Service Name </th>
 												<th  scope="col">Category</th>
 												<th  scope="col">Sub Category</th>
-												<th  scope="col">Description</th>
-												<th  scope="col">Active</th>
+												<th  scope="col" class="descTable">Description</th>
 												<th  scope="col">Price</th>
-												<th  scope="col">Status</th>
-												<th  colspan="2" scope="col">Actions</th>
+												<th  scope="col">Active</th>
+												<th  scope="col">Actions</th>
 											  </tr>
 											</thead>
 											<tbody >
-											<tr *ngFor="let service of services">
-															<td ><img  src="{{service.pic}}"></td>
+											<tr *ngFor="let service of services; let i=index;">
+															<td class="ServiceCatalogImage"><img  src="{{service.pic}}"></td>
 															<td >{{service.serviceName}}</td>
 															<td >{{service.serviceCategory}}</td>
 															<td >{{service.serviceSubCategory}}</td>
 															<td >{{service.serviceDescription}}</td>
+															<td>{{service.price}}</td>
 															<td>
-																	<span class="m-switch m-switch--outline m-switch--success">
+																	<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
 																			<label>
 																				<input [checked]="service.Active" name="" type="checkbox">
 																				<span></span>
 																			</label>
 																		</span>
-															<td>{{service.price}}</td>
-															<td>{{service.status}}</td>
 															
-															<td ><button  class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
+															
+															<!--td ><button  class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
 																	Edit
 																</button></td>
 							
-																<td ><button  class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
+																<td ><button  (click)="deleteCatalog(i)"  class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
 																	Delete
-																	</button></td>
+																	</button></td-->
+
+
+																	<td>
+																			<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View details">
+																					<i class="la la-ellipsis-h"></i>
+																				</a>
+																				<a href="javascript:" (click)="editCatalog(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
+																					<i class="la la-edit"></i>
+																				</a>
+																				<a href="javascript:" (click)="deleteCatalog(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+																					<i class="la la-trash"></i>
+																				</a>
+																	</td>
 													</tr>
 											</tbody>
 										  </table>
+								</div>
+
+										
+										  <!--div class="m_datatable" id="m_datatable">
+											
+										  </div-->
 							</div>
 			
-			
+						
+
 							
 			
 			
 								
 						</div>
 						<div class="tab-pane" id="m_tabs_bundles" role="tabpanel">
-							It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+								<div class="table-responsive">
+										<table  class="table table-bordered table-striped bundlesCatalogTable">
+												<thead >
+														<tr >
+														  
+														  <th  scope="col">Bundle Name </th>
+														  <th  scope="col" class="bundledesc">Description</th>
+														  <th  scope="col">Items</th>
+														  <th> Actions</th>
+														</tr>
+													  </thead>
+													  <tbody>
+														  <tr *ngFor="let bundle of bundles; let i =index">
+															  <td>{{bundle.bundleName}}</td>
+															  <td>{{bundle.description}}</td>
+															  <td>{{bundle.noOfItems}}</td>
+															  <td>
+																	<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View details">
+																			<i class="la la-ellipsis-h"></i>
+																		</a>
+																		<a href="javascript:" (click)="editBundle(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
+																			<i class="la la-edit"></i>
+																		</a>
+																		<a href="javascript:" (click)="deleteBundle(i)"   class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+																			<i class="la la-trash"></i>
+																		</a>
+															</td>
+															  
+														  </tr>
+														 
+
+													  </tbody>
+
+										</table>
+								</div>
+						
 						</div>
 					</div>
 	</div>
@@ -124,28 +205,168 @@
 </div>
 
 
+<div class="row"  *ngIf="isBundleFormShown">
+<div class="col-md-12">
+		<button class="btn btn-link" (click)="isBundleFormShown=!isBundleFormShown;  this.editCatalogIndex = undefined;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
+		<div class="row">
+         <div class="col-md-6">
+				<div class="form-group m-form__group">
+						<label>
+							Bundle Name
+						</label>
+						<input class="form-control m-input m-input--square" [value]="(editBundleIndex!=undefined) ? bundles[editBundleIndex].bundleName : ''" placeholder="Bundle Name" type="text" #bundleName>
+					
+				</div>
+
+				<div class="form-group m-form__group">
+						<label>
+							Bundle Description
+						</label>
+						<textarea class="form-control m-input" rows="3" #bundleDescritpion></textarea>
+				</div>
+
+				<div class="form-group m-form__group">
+						<label>Service:</label>
+						<select class="form-control m-input m-input--square" #servicetype_bundle>
+								<option *ngFor="let service of services; let i =index" value="{{i}}" >
+										{{service.serviceName}}
+									</option>
+						</select>
+					</div>
+
+				<div class="form-group m-form__group">
+					<label>
+						Quantity
+					</label>
+					<input class="form-control m-input m-input--square" min="1" placeholder="Bundle Quantity" type="number" #bundleQuantity>		
+			   </div>
+
+			  
+
+
+
+				
+
+				 </div>
+
+
+				 <div class="col-md-6">
+						<div class="form-group m-form__group">
+								<label>Discount:</label>
+								<select class="form-control m-input m-input--square" #discountType>
+									<option  value="no">
+										No Discount
+									  </option>	
+									<option  value="money" >
+												Money Discount
+										</option>
+										<option  value="percent" >
+											Percentage Discount
+										</option>
+								</select>
+								 </div> 
+								 
+								 <div class="form-group m-form__group" [hidden]="discountType.value!='money'">
+									<label>Money Discount:</label>
+									<input type="text" class="form-control m-input m-input--square" #discountTheMoney />
+								</div> 
+				
+								<div class="form-group m-form__group" [hidden]="discountType.value!='percent'">
+									<label>Percentage Discount:</label>
+									<input  type="number" min="1" max="100"  class="form-control m-input m-input--square" #discountPercentage/>
+								</div> 
+								 
+				
+								 <div class="form-group m-form__group">
+									<label>Total:</label>
+									<input type="text" [hidden]="discountType.value!='no'" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueNoDiscount>
+									<input type="text" [hidden]="discountType.value!='money'" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value-discountTheMoney.value" #calculatedvalueDiscountAmount>
+									<input type="text" [hidden]="discountType.value!='percent'" disabled class="form-control m-input m-input--square" [value]="getPercentedValue(services[servicetype_bundle.value].price , bundleQuantity.value ,discountPercentage.value)" #calculatedvalueDiscountPercent>
+								</div>    
+				
+				<button  class="btn btn-default" (click)="saveServicesForBundle(servicetype_bundle.value , discountType.value , calculatedvalueNoDiscount.value , calculatedvalueDiscountAmount.value , calculatedvalueDiscountPercent.value, bundleQuantity.value)">Add Service</button>
+
+				
+				
+				
+
+				  <div class="row" *ngFor="let bundleService of BundlesOfServices" style="margin-top:20px;">
+						<div class="col-md-1">
+								<label class="m-checkbox">
+										<input type="checkbox" checked>
+										<span></span>
+									</label>
+						</div>
+
+
+						
+	
+						<div class="col-sm-3">
+								{{bundleService.Category}}
+						</div>
+	
+						<div class="col-sm-3">
+								{{bundleService.SubCategory}}
+						</div>
+	
+						<div class="col-sm-2">
+								{{bundleService.Price}}
+						</div>
+	
+						<div class="col-sm-2">
+								{{bundleService.Quantity}}
+						</div>
+	
+					</div>
+
+					<div *ngIf="isGrossTotal;" class="offset-sm-6 col-sm-4" style="margin-top:20px;border-top: 1px solid grey;">
+						<strong>Total:</strong> <span> {{tempBundle}}</span>  
+					</div>
+
+
+				 </div>
+
+
+		
+
+
+		
+		 <div class="col-sm-12">
+				<button class="btn btn-primary pull-right" (click)="saveBundle(bundleName.value , bundleDescritpion.value , BundlesOfServices.length); isBundleFormShown=false;">Save</button>
+		 </div>
+
+		</div>
+		
+		
+		
+		
+</div>	
+
+</div>
+
+
 
 <div class="row"  *ngIf="isServiceFormShown">
 		<div class="col-md-12">
 
 
-			<button class="btn btn-link" (click)="isServiceFormShown=!isServiceFormShown" style="padding:0px;"><i class="fa fa-chevron-left"></i> Back</button>
+			<button class="btn btn-link" (click)="isServiceFormShown=!isServiceFormShown; editCatalogIndex = undefined" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
 
 
 			<ul class="nav nav-tabs" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active show" data-toggle="tab" href="#serviceform_newcatalog" ng-reflect-href="#serviceform_newcatalog">
-							1. New Catalog Item
+							New Catalog Item
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#serviceform_tasks" ng-reflect-href="#serviceform_tasks">
-							2. Tasks
+							List
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#serviceform_location" ng-reflect-href="#serviceform_location">
-							3. Location
+							Location
 						</a>
 					</li>
 				
@@ -174,9 +395,9 @@
 										</div>
 
 
-										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Personal')">
+										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Personal')" >
 												<label>Service Sub-Category:</label>
-												<select class="form-control m-input m-input--square">
+												<select class="form-control m-input m-input--square" #personalSubCategory>
 														<option value="Makeup">
 																Makeup
 															</option>
@@ -195,13 +416,21 @@
 															<option value="Barber">
 																	Barber
 															</option>
+															<option value="Barber">
+																	Massage Therapist
+															</option>
+
+															<option value="Barber">
+																	Waxing
+															</option>
+
 												</select>
 										</div>
 										
 										
-										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Auto')">
-												<label>Service Sub-Categories:</label>
-												<select class="form-control m-input m-input--square">
+										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Auto')" >
+												<label>Service Sub-Category:</label>
+												<select class="form-control m-input m-input--square" #autoSubCategory>
 														<option value="Car Dealing">
 																Car Dealing
 															</option>
@@ -213,14 +442,17 @@
 										</div>
 							
 							
-										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Health')">
-												<label>Service Sub-Categories:</label>
-												<select class="form-control m-input m-input--square" >
+										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Health')" >
+												<label>Service Sub-Category:</label>
+												<select class="form-control m-input m-input--square"  #healthSubCategory>
 														<option value="Personal Trainer">
 																Personal Trainer
 															</option>
 															<option value="Yoga Instruction">
 																	Yoga Instruction
+															</option>
+															<option value="Yoga Instruction">
+																	Martial Arts
 															</option>
 															
 												</select>
@@ -231,7 +463,7 @@
 												<label>
 													Service Name
 												</label>
-												<input placeholder="Service Name" class="form-control m-input m-input--square"  type="text">
+												<input placeholder="Service Name" class="form-control m-input m-input--square"   type="text" #catalogServiceName [value]="(editCatalogIndex!=undefined) ? services[editCatalogIndex].serviceName : ''"   />
 											
 										</div>
 
@@ -240,9 +472,15 @@
 												<label >
 													Description
 												</label>
-												<textarea class="form-control m-input"  rows="3"></textarea>
+												<textarea class="form-control m-input"  rows="3" #catalogServiceDescription></textarea>
 										</div>
 
+										<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value);">Save</button>
+
+
+
+									
+										
 								</div>
 
 							
@@ -274,7 +512,7 @@
 												<label>
 													Estimated Price
 												</label>
-												<input placeholder="Estimated Price" class="form-control m-input m-input--square"  type="text">
+												<input #catalogServicePrice placeholder="Estimated Price" class="form-control m-input m-input--square"  type="text">
 											
 										</div>
 
@@ -302,8 +540,13 @@
 										<button class="btn btn-link"><i class="fa fa-file-image-o"></i> Upload images</button>
 										<button class="btn btn-link"><i class="fa fa-video-camera"></i> Link videos via urls</button>
 										</div>
+
+										
 		
 								</div>
+
+
+								
 
 
 							
@@ -332,80 +575,91 @@
 						</div>
 
 						<div class="tab-pane" id="serviceform_tasks" role="serviceform_tasks">
-								<table class="table m-table m-table--head-bg-success">
+								<button class="btn btn-default " style="float: right;margin-bottom: 8px;" data-toggle="modal" data-target="#addListItemModal"><i class="fa fa-plus"></i> Add New Item</button>
+								
+								<table class="table table-bordered">
 										<thead>
 											<tr>
 												<th>
 													Name
 												</th>
 												<th>
-													Date Start
-												</th>
-												<th>
-													Due Date
+													Description
 												</th>
 												<th>
 													Status
 												</th>
+												<th>
+													Actions
+												</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<th scope="row">
-													Looper
-												</th>
+											<tr *ngFor="let theItem of listItems; let i=index;">
 												<td>
-													18/3/2017	
+													{{theItem.itemName}}
 												</td>
 												<td>
-													18/10/2017	
+													{{theItem.itemDescription}}	
 												</td>
 												<td>
-													Approved
+
+														<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon" >
+																<label>
+																	<input name="" type="checkbox" [checked]="theItem.approved">
+																	<span></span>
+																</label>
+															</span>
 												</td>
+												<td><button (click)="editAnItem(i)" class="btn m-btn--pill btn-sm   btn-outline-warning" data-toggle="modal" data-target="#addListItemModal">
+														Edit
+													</button>
+												</td>
+												<td><button (click)="deleteAnItem(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button" >
+														Delete
+												</button>
+										    	</td>
 											</tr>
 										
 										</tbody>
 									</table>
-						
+
+
+								
 						</div>
 
 						<div class="tab-pane" id="serviceform_location" role="serviceform_tasks">
 
 							<div class="row">
 								<div class="col-md-6">
-										<div class="form-group m-form__group">
-												<label>
-													Street Address:
-												</label>
-												<input class="form-control m-input m-input--square" placeholder="Estimated Price" type="text">
-											
-										</div>
+									<div class="form-group m-form__group">
+											<label>Select Location:</label>
+											<select class="form-control m-input m-input--square">
+													<option value="Default Location">
+															Default Location
+														</option>
+														<option value="1st Location" >
+																1st Location
+														</option>
+														<option value="2nd Location">
+																2nd Location
+														</option>
+														<option value="3rd Location">
+																3rd Location
+														</option>
+														<option value="4th Location" >
+																4th Location
+														</option>
+														
+											</select>
+									</div>
 								</div>
 
 
 
-								<div class="col-md-6">
-										<div class="form-group m-form__group">
-												<label>
-													City
-												</label>
-												<input class="form-control m-input m-input--square" placeholder="City" type="text">
-											
-										</div>
+								<div class="col-md-12">
 
-								</div>
-
-
-								<div class="col-md-6">
-										<div class="form-group m-form__group">
-												<label>
-													Country
-												</label>
-												<input class="form-control m-input m-input--square" placeholder="Country" type="text">
-											
-										</div>
-
+								<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value)"> Save </button>	
 								</div>
 
 							
@@ -435,547 +689,33 @@
 
 
 
-
-<!--div class="row justify-content-md-center servicesListForm" style="padding: 0px 10px;">
 	
-	<div class="m-portlet m-portlet--full-height">
-		
-				<div class="m-portlet__body">
-					<div class="row">
-                    <div class="col-md-4">
-
-
-							<div class="form-group m-form__group">
-								
-									<select class="form-control m-input">
-										<option>
-										    All
-										</option>
-										<option>
-											Hair
-										</option>
-										
-										<option>
-											Health
-										</option>
-										<option>
-											Shopping
-										</option>
-										<option>
-											Electronics
-										</option>
-										<option>
-											Cleaning
-										</option>
-									</select>
-								</div>
-
-								<div class="form-group m-form__group">
-										<label >
-											Sort By
-										</label>
-										<select class="form-control m-input">
-											<option>
-												Recommendations
-											</option>
-											<option>
-												Price Low To High
-											</option>
-											
-											<option>
-												Price High To Low
-											</option>
-											<option>
-												Rating
-											</option>
-											<option>
-												Comments
-											</option>
-										
-										</select>
-									</div>
-
-
-							<div class="form-group m-form__group">
-									<label >
-										Search Shop/ Business Name:
-									</label>
-									<input class="form-control"  type="text">
-								</div>
-
-								<div class="form-group m-form__group">
-										<label>
-											Select The Date:
-										</label>
-										<input class="form-control"  type="date">
-									</div>
-
-
-									<div class="form-group m-form__group">
-											<label >
-												Select The Time:
-											</label>
-											<select class="form-control">
-												<option>Any Time</option>
-												<option>08-09AM</option>
-												<option>09-10AM</option>
-												<option>10-11AM</option>
-												<option>11-12PM</option>
-												<option>12-01PM</option>
-												<option>01-02PM</option>
-												<option>02-03PM</option>
-											</select>
-										</div>
-
-
-
-										<div class="form-group m-form__group">
-												<label >
-													Select Location
-												</label>
-												<input class="form-control"  type="text">
-											</div>
-
-
-											<div class="m-form__group form-group">
-													<label for="">
-														Budget
-													</label>
-													<div class="m-radio-list">
-														<label class="m-radio">
-															<input name="example_1" type="radio" >
-															Any
-															<span></span>
-														</label>
-														<label class="m-radio">
-															<input name="example_1" type="radio" >
-															$0 - $30
-															<span></span>
-														</label>
-													
-														<label class="m-radio">
-															<input name="example_1" type="radio">
-															$30 - $60
-															<span></span>
-														</label>
-
-
-														<label class="m-radio">
-																<input name="example_1" type="radio">
-																$60 - $120
-																<span></span>
-															</label>
-													</div>
-												</div>
-
-								
-
-                    </div>
-
-					<div class="col-md-8">
-					<div class="m-widget3">
-						<div class="m-widget3__item">
-							<div class="m-widget3__header">
-								
-								<div class="m-widget3__user-img">
-										<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-												<input class="chkboxes" type="checkbox">
-												<span></span>
-										</label>
-									<img alt="" class="m-widget3__img personimage" src="assets/app/media/img/fruits.jpg">
-								</div>
-								<div class="m-widget3__info">
-									<span class="m-widget3__username">
-											Fruits
-									</span>
-								
-									
-									<br>
-						
-
-								</div>
-								
-							</div>
-							<div class="m-widget3__body">
-									<div class="row services-categories">
-											<div class="col-md-12 category-list">
-												<h6 class="service-heading">Subcategories</h6>
-												<div class="row service-item">
-													<div class="col-md-12">
-														Bananana
-													</div>
-													<div class="col-md-12">
-														<hr>
-													</div>
-				
-												</div>
-												
-				
-												<div class="row service-item">
-														<div class="col-md-12">
-															Apple
-														</div>
-														<div class="col-sm-12">
-															<hr>
-														</div>
-					
-													</div>
-													
-													<div class="row service-item">
-														<div class="col-md-12">
-															Orange
-														</div>	
-														<div class="col-sm-12">
-															<hr>
-														</div>
-						
-													</div>
-														
-						
-														<div class="row service-item">
-															<div class="col-md-12">
-																Watermelon
-															</div>	
-															<div class="col-sm-12">
-																<hr>
-															</div>
-							
-															</div>		
-															
-											</div>
-				
-				
-				
-										
-											
-										</div>
-							</div>
-						</div>
-						<div class="m-widget3__item">
-								<div class="m-widget3__header">
-										<div class="m-widget3__user-img">
-												<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-														<input class="chkboxes" type="checkbox">
-														<span></span>
-												</label>
-											<img alt="" class="m-widget3__img personimage" src="assets/app/media/img/cars.png">
-										</div>
-									<div class="m-widget3__info">
-										<span class="m-widget3__username">
-												Cars
-										</span>
-									</div>
-								<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;" ><i class="la la-comments"></i> Message</a>
-								</div>
-								<div class="m-widget3__body">
-										<div class="row services-categories">
-												<div class="col-md-12 category-list">
-													<h6 class="service-heading">Subcategories</h6>
-													<div class="row service-item">
-														<div class="col-md-12">
-															Mercedes
-														</div>
-														<div class="col-md-12">
-															<hr>
-														</div>
-					
-													</div>
-													
-					
-													<div class="row service-item">
-															<div class="col-md-12">
-																BMW
-															</div>
-															<div class="col-sm-12">
-																<hr>
-															</div>
-						
-														</div>
-														
-														<div class="row service-item">
-															<div class="col-md-12">
-																Jaguar
-															</div>	
-															<div class="col-sm-12">
-																<hr>
-															</div>
-							
-														</div>
-															
-							
-															<div class="row service-item">
-																<div class="col-md-12">
-																	Suzuki
-																</div>	
-																<div class="col-sm-12">
-																	<hr>
-																</div>
-								
-																</div>		
-																
-												</div>
-					
-					
-					
-											
-												
-											</div>
-								</div>
-							</div>
-					
-					</div>
-					</div>
-				</div>
-				</div>
-			</div>
-
-
-</div-->
 
 
 
 </div>
-
-<!-- Support Ticket Modal Start-->
-<div aria-labelledby="supportModalLabel" class="modal fade show" id="c_modal_broadcast" role="dialog" tabindex="-1">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="supportModalLabel">
-						Broadcast Service Request
-					</h5>
-					<button aria-label="Close" class="close" data-dismiss="modal" type="button">
-							<span aria-hidden="true">
-								×
-							</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<label class="form-control-label" for="broadcast-recipient-name">
-								Recipient:
-							</label>
-							<input class="form-control" id="broadcast-recipient-name" type="text">
-						</div>
-
-						<div class="form-group">
-								<label class="form-control-label" for="broadcast-category-name">
-									Service Category:
-								</label>
-								<select class="form-control" id="broadcast-category-name" type="text">
-									<option>Food</option>
-									<option>Shipping</option>
-									<option>Clothing</option>
-									<option>Games &amp; Fitness</option>
-								</select>
-							</div>
-
-
-							
-
-							<div class="form-group">
-									<label class="form-control-label" for="broadcast-subcategory-name">
-										Service Sub-Category:
-									</label>
-									<select class="form-control" id="broadcast-subcategory-name" type="text">
-										<option>Sea Food</option>
-										<option>Air Cargo</option>
-										<option>Clothing</option>
-										<option>Video Games</option>
-									</select>
-								</div>
-
-
-								<div class="form-group">
-										<label class="form-control-label" for="broadcast-contact-number">
-											Contact Number:
-										</label>
-										<input class="form-control" id="broadcast-contact-number" type="text">
-								</div>
-
-
-						<div class="form-group">
-							<label class="form-control-label" for="support-message-text">
-								Message:
-							</label>
-							<textarea class="form-control" id="support-message-text"></textarea>
-						</div>
-
-
-					
-
-							
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" data-dismiss="modal" type="button">
-						Close
-					</button>
-					<button class="btn btn-primary" type="button">
-						Submit
-					</button>
-				</div>
-			</div>
-		</div>
-       </div>
-	
-	<!-- Support Ticket Modal Ends-->
-
-
-	
-
-<div aria-labelledby="bookingModalLabel" class="modal fade" id="addBookingModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">
-						Make A Booking
-					</h5>
-					<button aria-label="Close" class="close" data-dismiss="modal" type="button">
-						<span aria-hidden="true">
-							×
-						</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-            <div class="row">
-				    <div class="col-md-12">
-						<img alt="" src="./assets/app/media/img/users/user4.jpg" />
-						<img alt="" src="./assets/app/media/img/users/user2.jpg" />
-						<img alt="" src="./assets/app/media/img/users/user3.jpg" />
-					</div>
-					<!--div class="col-md-12">
-						<mwl-calendar-month-view [viewDate]="viewDate" style="width: 100%;"></mwl-calendar-month-view>
-					</div-->
-					
-                <!--div class="col-md-6">
-                        <h4>Booking</h4>
-                        <div class="form-group m-form__group">
-                                <label for="BookingServiceName">
-                                    Service Name:
-                                </label>
-                                <input class="form-control" id="BookingServiceName" type="text">
-                        </div>
-
-
-                        <div class="form-group m-form__group">
-                                <label for="BookingStaffMember">
-                                    Staff Member:
-                                </label>
-                                <input class="form-control" id="BookingStaffMember" type="text">
-                            </div>
-
-
-                            <div class="form-group m-form__group">
-                                    <label for="BookingQuantity">
-                                        Quantity:
-                                    </label>
-                                    <input class="form-control" id="BookingQuantity" type="text">
-                                </div>
-
-
-                                <div class="form-group m-form__group">
-                                        <label for="BookingAmount">
-                                            Amount:
-                                        </label>
-                                        <input class="form-control" id="BookingAmount" type="text">
-                                    </div>
-
-                                    <div class="form-group m-form__group row">
-                                            <label class="col-12 col-form-label" for="example-datetime-local-input">
-                                                Time Period
-                                            </label>
-                                            <div class="col-12">
-                                                <input class="form-control m-input" id="example-datetime-local-input" type="datetime-local" value="2011-08-19T13:45:00">
-                                            </div>
-                                        </div>
-                </div>
-
-                <div class="col-md-6">
-                        <h4>Customer</h4>
-
-                        <div class="form-group m-form__group">
-                                <label for="bookingcustomerNameField">
-                                    Name:
-                                </label>
-                                <input class="form-control" id="bookingcustomerNameField" type="text">
-                            </div>
-
-                            <div class="form-group m-form__group">
-                                    <label for="bookingcustomerEmailField">
-                                        Email:
-                                    </label>
-                                    <input class="form-control" id="bookingcustomerEmailField" type="text">
-                                </div>
-
-                                <div class="form-group m-form__group">
-                                        <label for="bookingcustomerPhoneField">
-                                            Phone:
-                                        </label>
-                                        <input class="form-control" id="bookingcustomerPhoneField" type="text">
-                                    </div>
-                        
-                     <div class="form-group m-form__group">
-                            <label for="addressFieldBooking">
-                                Address:
-                            </label>
-                            <input class="form-control" id="addressFieldBooking" type="text">
-                        </div>
-
-
-                        <div class="m-form__group form-group">
-                                <div class="m-radio-list">
-                                    <label class="m-radio">
-                                        <input name="example_1" type="radio" value="1">
-                                        Payment In Person
-                                        <span></span>
-                                    </label>
-                                    <label class="m-radio">
-                                        <input name="example_1" type="radio" value="2">
-                                        Payment With Credit Card
-                                        <span></span>
-                                    </label>
-                                </div>
-                            </div>
-                </div>
-            </div-->
-                   
-                    
-        
-                    
-                    
-                    
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" data-dismiss="modal" type="button">
-						Close
-					</button>
-					<button class="btn btn-primary" type="button">
-						Make Booking
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+</div>
 </div>
 
 
 
 
+	
 
 
 
 
 
 
-	<div aria-labelledby="exampleModalLabel" class="modal fade" id="addSubcategoryModal" role="dialog" tabindex="999">
+
+
+
+	<div aria-labelledby="addListItemModal" class="modal fade" id="addListItemModal" role="dialog" tabindex="999">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">
-							Service Provider Radius Adjustment
+							 List Item
 						</h5>
 						<button aria-label="Close" class="close" data-dismiss="modal" type="button">
 							<span aria-hidden="true">
@@ -984,31 +724,26 @@
 						</button>
 					</div>
 					<div class="modal-body">
-							<div class="form-group">
-									<label class="form-control-label" for="broadcast-category-name">
-										Parent Category:
-									</label>
-									<select class="form-control" id="broadcast-category-name" type="text">
-										<option>Food</option>
-										<option>Car</option>
-										<option>Clothing</option>
-										<option>Games &amp; Fitness</option>
-									</select>
-								</div>
-
-
+							
 								<div class="form-group">
-										<label class="form-control-label" for="broadcast-recipient-name">
-											Category Name:
+										<label class="form-control-label" >
+											Item Name:
 										</label>
-										<input class="form-control" id="broadcast-recipient-name" type="text">
+										<input class="form-control" id="item-name" [value]="(editItemIndex!=undefined) ? listItems[editItemIndex].itemName : ''" type="text" #itemName>
+									</div>
+
+									<div class="form-group">
+											<label class="form-control-label" >
+												Item Description:
+											</label>
+											<textarea [value]="(editItemIndex!=undefined) ? listItems[editItemIndex].itemDescription : ''" class="form-control" id="item-name" type="text" #itemDescription></textarea>
 									</div>
 					</div>
 					<div class="modal-footer">
-						<button class="btn btn-primary" data-dismiss="modal" type="button">
-							Add Category
+						<button class="btn btn-primary" (click)="addAnItem(itemName.value , itemDescription.value);" data-dismiss="modal" type="button">
+							Save
 						</button>
-						<button class="btn btn-secondary" data-dismiss="modal" type="button">
+						<button class="btn btn-secondary" data-dismiss="modal" type="button" (click)="editItemIndex=undefined;">
 							Close
 						</button>
 					
