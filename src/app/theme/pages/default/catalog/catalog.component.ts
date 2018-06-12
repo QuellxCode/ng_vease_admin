@@ -37,6 +37,9 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     @ViewChild('personalSubCategory') PersonalSubCategorySelect: ElementRef;
     @ViewChild('autoSubCategory') autoSubCategorySelect: ElementRef;
     @ViewChild('healthSubCategory') healthSubCategorySelect: ElementRef;
+
+
+    
     //@ViewChild(AgmMap) agmMap: AgmMap;
     viewDate: Date = new Date();
     isServiceFormShown = false;
@@ -92,18 +95,21 @@ export class CatalogComponent implements OnInit, AfterViewInit {
         {
             bundleName : "The First Bundle",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            price:200,
             noOfItems: 5
         },
 
         {
             bundleName : "The Second Bundle",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            price:400,
             noOfItems: 1
         },
 
         {
             bundleName : "The Bundle",
             description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+            price:500,
             noOfItems: 3
         }
     ];
@@ -115,6 +121,8 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     ];
 
      tempBundle :number = 0;
+     tempDiscount: number = 0;
+     bundlePrice: number = 0;
      isGrossTotal = false;
 
    
@@ -125,8 +133,14 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     createNewBundle()
     {
         this.tempBundle= 0;
+        this.tempDiscount=0;
+        this.bundlePrice=0;
         this.BundlesOfServices = [];
         this.isGrossTotal = false;
+    }
+    createBundlePrice()
+    {
+        this.bundlePrice = this.tempBundle - this.tempDiscount
     }
     addAnItem(itemName , description)
     {
@@ -220,6 +234,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             this.bundles.push({
                 bundleName : name,
                 description: thedescription,
+                price:this.bundlePrice,
                 noOfItems: quantity
             });
         }
@@ -282,13 +297,98 @@ export class CatalogComponent implements OnInit, AfterViewInit {
 
 
         this.isGrossTotal = true;
+        this.createBundlePrice();
+        
 
 
 
 
        
     }
+
+
+
+
+    addNewItemInServiceCatalog()
+    {
+        this.listItems.push({itemName:"ABC" , itemDescription:"Description" ,approved:true });
+    }
+
+    changeTheItemName(event , theItem)
+    {
+        theItem.itemName = event.target.textContent;
+        if(event.target.textContent=="")
+        {
+            event.target.style.borderBottom="1px solid red";
+            event.target.textContent="*required"
+        }
+        else
+        {
+            event.target.style.borderBottom = "none";
+        }
+    }
+    changeTheDescription(event , theItem)
+    {
+        theItem.itemDescription = event.target.textContent;
+        if(event.target.textContent=="")
+        {
+            event.target.style.borderBottom="1px solid red";
+            event.target.textContent="*required"
+        }
+        else
+        {
+            event.target.style.borderBottom = "none";
+        }
+    }
+    discountTypeChanged(discountType , Money , Percentage)
+    {
+        if(discountType=='no')
+        {
+                this.ChangeAndShowDiscount(discountType , null);
+        }
+        else if(discountType=='money')
+        {
+            this.ChangeAndShowDiscount(discountType , Money);
+        }
+        else 
+        {
+            this.ChangeAndShowDiscount(discountType , Percentage);
+        }
+        this.createBundlePrice();
+    }
+
+
+    ChangeAndShowDiscount(discounttype , TheAmount)
+    {
+        
+        if(discounttype=='no')
+        {
+            this.tempDiscount = 0;
+        }
+        else if(discounttype=='money')
+        {
+            this.tempDiscount = TheAmount;
+        }
+        else
+        {
+            this.tempDiscount = (this.tempBundle*TheAmount)/100;
+        }
+        this.createBundlePrice();
+    }
+
+
+    deleteBundleService(i)
+    {
+        this.tempBundle -= this.BundlesOfServices[i].Price;
+        this.BundlesOfServices.splice(i,1);
+        this.createBundlePrice();
+
+    }
+
+
     constructor(private _script: ScriptLoaderService) {
+
+
 
 
 

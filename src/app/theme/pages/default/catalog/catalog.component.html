@@ -168,6 +168,7 @@
 														  <th  scope="col">Bundle Name </th>
 														  <th  scope="col" class="bundledesc">Description</th>
 														  <th  scope="col">Items</th>
+														  <th  scope="col">Price</th>
 														  <th> Actions</th>
 														</tr>
 													  </thead>
@@ -176,6 +177,7 @@
 															  <td>{{bundle.bundleName}}</td>
 															  <td>{{bundle.description}}</td>
 															  <td>{{bundle.noOfItems}}</td>
+															  <td>{{bundle.price}}</td>
 															  <td>
 																	<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View details">
 																			<i class="la la-ellipsis-h"></i>
@@ -207,7 +209,7 @@
 
 <div class="row"  *ngIf="isBundleFormShown">
 <div class="col-md-12">
-		<button class="btn btn-link" (click)="isBundleFormShown=!isBundleFormShown;  this.editCatalogIndex = undefined;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
+		<button class="btn btn-link" (click)="isBundleFormShown=!isBundleFormShown; editCatalogIndex = undefined;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
 		<div class="row">
          <div class="col-md-6">
 				<div class="form-group m-form__group">
@@ -225,20 +227,13 @@
 						<textarea class="form-control m-input" rows="3" #bundleDescritpion></textarea>
 				</div>
 
-				<div class="form-group m-form__group">
-						<label>Service:</label>
-						<select class="form-control m-input m-input--square" #servicetype_bundle>
-								<option *ngFor="let service of services; let i =index" value="{{i}}" >
-										{{service.serviceName}}
-									</option>
-						</select>
-					</div>
+				
 
-				<div class="form-group m-form__group">
+				<div class="form-group m-form__group" [hidden]="true">
 					<label>
 						Quantity
 					</label>
-					<input class="form-control m-input m-input--square" min="1" placeholder="Bundle Quantity" type="number" #bundleQuantity>		
+					<input class="form-control m-input m-input--square" min="1" value="1"  placeholder="Bundle Quantity" type="number" #bundleQuantity>		
 			   </div>
 
 			  
@@ -251,46 +246,44 @@
 
 
 				 <div class="col-md-6">
-						<div class="form-group m-form__group">
-								<label>Discount:</label>
-								<select class="form-control m-input m-input--square" #discountType>
-									<option  value="no">
-										No Discount
-									  </option>	
-									<option  value="money" >
-												Money Discount
-										</option>
-										<option  value="percent" >
-											Percentage Discount
-										</option>
-								</select>
-								 </div> 
-								 
-								 <div class="form-group m-form__group" [hidden]="discountType.value!='money'">
-									<label>Money Discount:</label>
-									<input type="text" class="form-control m-input m-input--square" #discountTheMoney />
-								</div> 
-				
-								<div class="form-group m-form__group" [hidden]="discountType.value!='percent'">
-									<label>Percentage Discount:</label>
-									<input  type="number" min="1" max="100"  class="form-control m-input m-input--square" #discountPercentage/>
-								</div> 
+
+					<div class="row">
+						<div class="col-sm-8">
+								<div class="form-group m-form__group">
+										<label>Service:</label>
+										<select class="form-control m-input m-input--square" #servicetype_bundle>
+												<option *ngFor="let service of services; let i =index" value="{{i}}" >
+														{{service.serviceName}}
+													</option>
+										</select>
+								</div>
+						</div>
+
+						<div class="col-sm-4">
+								<button style="margin-top:30px;"  class="btn btn-default" (click)="saveServicesForBundle(servicetype_bundle.value , discountType.value , calculatedvalueNoDiscount.value , calculatedvalueDiscountAmount.value , calculatedvalueDiscountPercent.value, bundleQuantity.value)">Add Service</button>
+						</div>
+					</div>
+						
+
+
+
+						
 								 
 				
-								 <div class="form-group m-form__group">
+								 <div class="form-group m-form__group" [hidden]="true">
 									<label>Total:</label>
-									<input type="text" [hidden]="discountType.value!='no'" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueNoDiscount>
-									<input type="text" [hidden]="discountType.value!='money'" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value-discountTheMoney.value" #calculatedvalueDiscountAmount>
-									<input type="text" [hidden]="discountType.value!='percent'" disabled class="form-control m-input m-input--square" [value]="getPercentedValue(services[servicetype_bundle.value].price , bundleQuantity.value ,discountPercentage.value)" #calculatedvalueDiscountPercent>
-								</div>    
+									<input type="text" [hidden]="discountType.value!='no' || true" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueNoDiscount>
+									<input type="text" [hidden]="discountType.value!='money'|| true" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueDiscountAmount>
+									<input type="text" [hidden]="discountType.value!='percent'|| true" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueDiscountPercent>
+								</div>
 				
-				<button  class="btn btn-default" (click)="saveServicesForBundle(servicetype_bundle.value , discountType.value , calculatedvalueNoDiscount.value , calculatedvalueDiscountAmount.value , calculatedvalueDiscountPercent.value, bundleQuantity.value)">Add Service</button>
+			
 
 				
 				
 				
 
-				  <div class="row" *ngFor="let bundleService of BundlesOfServices" style="margin-top:20px;">
+				  <div class="row" *ngFor="let bundleService of BundlesOfServices; let i =index;" style="margin-top:20px;">
 						<div class="col-md-1">
 								<label class="m-checkbox">
 										<input type="checkbox" checked>
@@ -314,18 +307,74 @@
 						</div>
 	
 						<div class="col-sm-2">
-								{{bundleService.Quantity}}
+								<a (click)="deleteBundleService(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete">
+										<i class="la la-trash"></i>
+									</a>
 						</div>
 	
 					</div>
 
-					<div *ngIf="isGrossTotal;" class="offset-sm-6 col-sm-4" style="margin-top:20px;border-top: 1px solid grey;">
-						<strong>Total:</strong> <span> {{tempBundle}}</span>  
+					<div class="row">
+							<div *ngIf="isGrossTotal;" class="offset-sm-6 col-sm-4" style="margin-top:20px;">
+									<strong>Total:</strong> <span> {{tempBundle}}</span>  
+							</div>
 					</div>
 
+					<div class="row" [class.d-none]="!isGrossTotal" style="margin-top: -20px;">
+						<div class="col-sm-3">
+								<div class="form-group m-form__group" >
+										<label>Discount:</label>
+										<select (change)="discountTypeChanged(discountType.value ,  discountTheMoney.value, discountPercentage.value)" class="form-control m-input m-input--square" #discountType >
+											<option  value="no">
+												None
+											  </option>	
+											<option  value="money" >
+												Money
+												</option>
+												<option  value="percent" >
+													%age
+												</option>
+										</select>
+										 </div> 
+						</div>
 
+						<div class="col-sm-3">
+								<div class="form-group m-form__group" [hidden]="discountType.value!='money'">
+										<label>Money:</label>
+										<input (change)="ChangeAndShowDiscount(discountType.value , discountTheMoney.value)" type="number" min="1" class="form-control m-input m-input--square" #discountTheMoney />
+									</div>
+									
+									
+									<div class="form-group m-form__group" [hidden]="discountType.value!='percent'">
+											<label>Percentage:</label>
+											<input (change)="ChangeAndShowDiscount(discountType.value , discountPercentage.value)"  type="number" min="1" max="100"  class="form-control m-input m-input--square" #discountPercentage/>
+										</div> 
+
+						</div>
+						<div class="col-sm-6">
+								
+								<div *ngIf="isGrossTotal;" style="margin-top: 35px;">
+										<strong>Discount:</strong> <span> {{tempDiscount}} </span>  
+								</div>
+
+							</div>
+						
+					 </div>
+	
+					 <div class="row">
+	
+							<div *ngIf="isGrossTotal;" class="offset-sm-6 col-sm-4" style="margin-top:20px;">
+									<strong>Bundle Price:</strong> <span> {{bundlePrice}}</span>  
+							</div>
+							
+					 </div>
+	
+
+			
 				 </div>
 
+
+				
 
 		
 
@@ -575,7 +624,7 @@
 						</div>
 
 						<div class="tab-pane" id="serviceform_tasks" role="serviceform_tasks">
-								<button class="btn btn-default " style="float: right;margin-bottom: 8px;" data-toggle="modal" data-target="#addListItemModal"><i class="fa fa-plus"></i> Add New Item</button>
+								<button class="btn btn-default " style="float: right;margin-bottom: 8px;" data-toggle="modal" (click)="addNewItemInServiceCatalog()"><i class="fa fa-plus"></i> Add List Item</button>
 								
 								<table class="table table-bordered">
 										<thead>
@@ -596,10 +645,10 @@
 										</thead>
 										<tbody>
 											<tr *ngFor="let theItem of listItems; let i=index;">
-												<td>
+												<td contenteditable="true" (focusout)="changeTheItemName($event , theItem)">
 													{{theItem.itemName}}
 												</td>
-												<td>
+												<td contenteditable="true"  (focusout)="changeTheDescription($event , theItem)">
 													{{theItem.itemDescription}}	
 												</td>
 												<td>
@@ -611,10 +660,7 @@
 																</label>
 															</span>
 												</td>
-												<td><button (click)="editAnItem(i)" class="btn m-btn--pill btn-sm   btn-outline-warning" data-toggle="modal" data-target="#addListItemModal">
-														Edit
-													</button>
-												</td>
+											
 												<td><button (click)="deleteAnItem(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button" >
 														Delete
 												</button>
@@ -709,7 +755,7 @@
 
 
 
-
+<!--
 	<div aria-labelledby="addListItemModal" class="modal fade" id="addListItemModal" role="dialog" tabindex="999">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -753,5 +799,5 @@
 		</div>
 
 
-
+	-->
 	<!-- Modals End-->
