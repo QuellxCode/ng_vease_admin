@@ -27,36 +27,31 @@ export class RolesSettingsComponent implements OnInit, AfterViewInit {
             memberCount: 1
         }
     ];
-    saveRole(roleName)
-    {
-        if(this.editRoleIndex!=undefined)
-        {
+    saveRole(roleName) {
+        if (this.editRoleIndex != undefined) {
             this.roles[this.editRoleIndex].roleName = roleName;
             this.editRoleIndex = undefined;
         }
-        else
-        {
+        else {
             this.roles.push({
                 roleName: roleName,
-                memberCount:0
+                memberCount: 0
             });
         }
-        
+
 
         this.isRoleAddViewOpen = false;
 
     }
-    editRole(roleIndex)
-    {
+    editRole(roleIndex) {
         this.isRoleAddViewOpen = true;
         this.editRoleIndex = roleIndex;
     }
 
-    deleteRole(roleIndex)
-    {
+    deleteRole(roleIndex) {
         this.roles.splice(roleIndex, 1);
     }
-   
+
     constructor(private _script: ScriptLoaderService) {
 
     }

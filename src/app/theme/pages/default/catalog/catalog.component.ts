@@ -37,7 +37,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     //@ViewChild(AgmMap) agmMap: AgmMap;
     viewDate: Date = new Date();
     isServiceFormShown = false;
-    
+
     serviceGroup = "Health";
 
 
@@ -47,10 +47,10 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             serviceName: 'bridal make-up',
             serviceCategory: 'Make-up',
             serviceSubCategory: 'Personal',
-            serviceDescription:'Good quality makeup for bride in a very low cost ',
+            serviceDescription: 'Good quality makeup for bride in a very low cost ',
             Active: false,
-            price:100,
-            status:'Approved'
+            price: 100,
+            status: 'Approved'
         },
 
         {
@@ -58,20 +58,20 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             serviceName: 'simple style',
             serviceCategory: 'Hair Stylists',
             serviceSubCategory: 'Personal',
-            serviceDescription:'Good quality makeup for bride in a very low cost ',
+            serviceDescription: 'Good quality makeup for bride in a very low cost ',
             Active: true,
-            price:100,
-            status:'Approved'
+            price: 100,
+            status: 'Approved'
         },
         {
             pic: "./assets/app/media/img/logos/car.png",
             serviceName: 'Simple car wash',
             serviceCategory: 'Car Wash',
             serviceSubCategory: 'AUTO',
-            serviceDescription:'Good quality makeup for bride in a very low cost ',
+            serviceDescription: 'Good quality makeup for bride in a very low cost ',
             Active: true,
-            price:100,
-            status:'Approved'
+            price: 100,
+            status: 'Approved'
         }
     ];
     constructor(private _script: ScriptLoaderService) {

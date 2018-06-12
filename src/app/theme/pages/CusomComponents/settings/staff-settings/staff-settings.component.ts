@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 
 export class StaffSettingsComponent {
-   
+
     isDisplayStaffEditAndSee = false;
     editStaffIndex = undefined;
     staffs = [
@@ -32,39 +32,33 @@ export class StaffSettingsComponent {
             active: true
         }
     ];
-    constructor() 
-    {
+    constructor() {
 
     }
 
-    deleteStaff(staffIndex)
-    {
-        this.staffs.splice(staffIndex , 1);
+    deleteStaff(staffIndex) {
+        this.staffs.splice(staffIndex, 1);
     }
 
-    saveStaff(firstName , lastName)
-    {
-        if(this.editStaffIndex!=undefined)
-        {
-            this.staffs[this.editStaffIndex].Name = firstName+" "+lastName;
-            this.editStaffIndex=undefined; 
+    saveStaff(firstName, lastName) {
+        if (this.editStaffIndex != undefined) {
+            this.staffs[this.editStaffIndex].Name = firstName + " " + lastName;
+            this.editStaffIndex = undefined;
         }
-        else
-        {
+        else {
             this.staffs.push({
                 Pic: "./assets/app/media/img/users/user5.jpg",
-                Name: firstName+" "+lastName,
+                Name: firstName + " " + lastName,
                 Mail: 'admin@email.com',
                 lastLogin: '24/05/2018 - 2:15 PM',
                 active: true
             });
-    
+
         }
-            
-        this.isDisplayStaffEditAndSee= false;
+
+        this.isDisplayStaffEditAndSee = false;
     }
-    editStaff(staffIndex)
-    {
+    editStaff(staffIndex) {
         this.isDisplayStaffEditAndSee = true;
         this.editStaffIndex = staffIndex;
     }
