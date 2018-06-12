@@ -5,7 +5,14 @@
 
 			<div class="col-md-6">
 					<h3 class="m-subheader__title" style="display:inline-block">
-							Catalog
+							Catalog 
+							    <small>
+								<a href="javascript:;" style="text-decoration: none;color:grey;"><i style="font-size: 0.9rem;" class="fa fa-bar-chart"></i></a>
+								</small>
+
+								<small>
+								<a href="javascript:;" style="text-decoration: none;color:grey;"><i style="font-size: 0.9rem;" class="fa fa-search"></i></a>
+								</small>
 						</h3>
 
 						
@@ -20,7 +27,7 @@
 
      
 		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isServiceFormShown=true; isBundleFormShown=false;"><i class="fa fa-plus"></i> Add New Serivce</a>
-		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isBundleFormShown=true; isServiceFormShown=false;"><i class="fa fa-plus"></i> Add Bundle</a>
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isBundleFormShown=true; isServiceFormShown=false; createNewBundle()"><i class="fa fa-plus"></i> Add Bundle</a>
 
 
 		
@@ -49,8 +56,6 @@
 				</li>
 			</ul>
 </div>
-<hr class="customhr" />
-
 
 <!-- END: Subheader -->
 <div class="m-content" style="padding:0px;">
@@ -86,10 +91,10 @@
 			
 							<div class="row" *ngIf="!isServiceFormShown">
 								<div class="table-responsive">
-									<table  class="table table-bordered servicesCatalogTable">
+									<table  class="table table-bordered table-striped servicesCatalogTable">
 											<thead >
 											  <tr >
-												 <th ></th>
+												 <th class="ServiceCatalogImage"></th>
 												<th  scope="col">Service Name </th>
 												<th  scope="col">Category</th>
 												<th  scope="col">Sub Category</th>
@@ -101,7 +106,7 @@
 											</thead>
 											<tbody >
 											<tr *ngFor="let service of services; let i=index;">
-															<td ><img  src="{{service.pic}}"></td>
+															<td class="ServiceCatalogImage"><img  src="{{service.pic}}"></td>
 															<td >{{service.serviceName}}</td>
 															<td >{{service.serviceCategory}}</td>
 															<td >{{service.serviceSubCategory}}</td>
@@ -156,7 +161,7 @@
 						</div>
 						<div class="tab-pane" id="m_tabs_bundles" role="tabpanel">
 								<div class="table-responsive">
-										<table  class="table table-bordered bundlesCatalogTable">
+										<table  class="table table-bordered table-striped bundlesCatalogTable">
 												<thead >
 														<tr >
 														  
@@ -220,20 +225,114 @@
 						<textarea class="form-control m-input" rows="3" #bundleDescritpion></textarea>
 				</div>
 
+				<div class="form-group m-form__group">
+						<label>Service:</label>
+						<select class="form-control m-input m-input--square" #servicetype_bundle>
+								<option *ngFor="let service of services; let i =index" value="{{i}}" >
+										{{service.serviceName}}
+									</option>
+						</select>
+					</div>
+
+				<div class="form-group m-form__group">
+					<label>
+						Quantity
+					</label>
+					<input class="form-control m-input m-input--square" min="1" placeholder="Bundle Quantity" type="number" #bundleQuantity>		
+			   </div>
+
+			  
+
+
+
+				
+
 				 </div>
 
-		 <div class="col-md-6">
-				<div class="form-group m-form__group">
-						<label>
-							Quantity
-						</label>
-						<input class="form-control m-input m-input--square" placeholder="Bundle Quantityss" type="number" #bundleNumber>
-					
+
+				 <div class="col-md-6">
+						<div class="form-group m-form__group">
+								<label>Discount:</label>
+								<select class="form-control m-input m-input--square" #discountType>
+									<option  value="no">
+										No Discount
+									  </option>	
+									<option  value="money" >
+												Money Discount
+										</option>
+										<option  value="percent" >
+											Percentage Discount
+										</option>
+								</select>
+								 </div> 
+								 
+								 <div class="form-group m-form__group" [hidden]="discountType.value!='money'">
+									<label>Money Discount:</label>
+									<input type="text" class="form-control m-input m-input--square" #discountTheMoney />
+								</div> 
+				
+								<div class="form-group m-form__group" [hidden]="discountType.value!='percent'">
+									<label>Percentage Discount:</label>
+									<input  type="number" min="1" max="100"  class="form-control m-input m-input--square" #discountPercentage/>
+								</div> 
+								 
+				
+								 <div class="form-group m-form__group">
+									<label>Total:</label>
+									<input type="text" [hidden]="discountType.value!='no'" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueNoDiscount>
+									<input type="text" [hidden]="discountType.value!='money'" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value-discountTheMoney.value" #calculatedvalueDiscountAmount>
+									<input type="text" [hidden]="discountType.value!='percent'" disabled class="form-control m-input m-input--square" [value]="getPercentedValue(services[servicetype_bundle.value].price , bundleQuantity.value ,discountPercentage.value)" #calculatedvalueDiscountPercent>
+								</div>    
+				
+				<button  class="btn btn-default" (click)="saveServicesForBundle(servicetype_bundle.value , discountType.value , calculatedvalueNoDiscount.value , calculatedvalueDiscountAmount.value , calculatedvalueDiscountPercent.value, bundleQuantity.value)">Add Service</button>
+
+				
+				
+				
+
+				  <div class="row" *ngFor="let bundleService of BundlesOfServices" style="margin-top:20px;">
+						<div class="col-md-1">
+								<label class="m-checkbox">
+										<input type="checkbox" checked>
+										<span></span>
+									</label>
+						</div>
+
+
 						
-				</div>
-		 </div>
-		 <div class="col-md-12">
-				<button class="btn btn-primary" (click)="saveBundle(bundleName.value , bundleDescritpion.value , bundleNumber.value); isBundleFormShown=false;">Save</button>
+	
+						<div class="col-sm-3">
+								{{bundleService.Category}}
+						</div>
+	
+						<div class="col-sm-3">
+								{{bundleService.SubCategory}}
+						</div>
+	
+						<div class="col-sm-2">
+								{{bundleService.Price}}
+						</div>
+	
+						<div class="col-sm-2">
+								{{bundleService.Quantity}}
+						</div>
+	
+					</div>
+
+					<div *ngIf="isGrossTotal;" class="offset-sm-6 col-sm-4" style="margin-top:20px;border-top: 1px solid grey;">
+						<strong>Total:</strong> <span> {{tempBundle}}</span>  
+					</div>
+
+
+				 </div>
+
+
+		
+
+
+		
+		 <div class="col-sm-12">
+				<button class="btn btn-primary pull-right" (click)="saveBundle(bundleName.value , bundleDescritpion.value , BundlesOfServices.length); isBundleFormShown=false;">Save</button>
 		 </div>
 
 		</div>

@@ -100,7 +100,19 @@ export class OverViewSettingsComponent implements OnInit {
     isRoleAddViewOpen = false;
     isPricingAddEditOpen = false;
     isTaxAddViewOpen = false;
-    edit = false
+    
+
+    id: number;
+    isUpdate = false;
+    isSave = true;
+    edit = false;
+
+
+    private username =' ';
+    private percentage = '';
+    private jurisdiction = '';
+    private dummyData = '';
+    private discription = '';
 
 
 
@@ -271,10 +283,13 @@ export class OverViewSettingsComponent implements OnInit {
         this.isTaxAddViewOpen = true;
     }
     ngOnInit() {
-        this.servicesForm = new FormGroup({
-            'username': new FormControl(null, Validators.required),
-            'percentage': new FormControl(null, Validators.required),
+        
+          this.servicesForm = new FormGroup({
+            'username': new FormControl(null),
+            'percentage': new FormControl(null),
             'category': new FormControl('Federal'),
+            'dummyData': new FormControl(null),
+            'discription': new FormControl(null)
           });
 
           this.searchControl = new FormControl();
@@ -324,39 +339,53 @@ export class OverViewSettingsComponent implements OnInit {
 
 
     onSubmit(name , percentage, category) {
-        // console.log(this.servicesForm.value.username + ' ' + this.servicesForm.value.percentage);
-        
-        if(this.editTaxIndex!=undefined)
-        {
-            console.log(this.taxesServices.getTaxes()[this.editTaxIndex-1]);
-            this.taxesServices.getTaxes()[this.editTaxIndex-1].username = this.servicesForm.value.username;
-            this.taxesServices.getTaxes()[this.editTaxIndex-1].percentage = this.servicesForm.value.percentage;
-            this.taxesServices.getTaxes()[this.editTaxIndex-1].jurisdiction = this.servicesForm.value.category;
-        }
-        else
-        {
-            this.taxesServices.addtax(name , percentage, category);
-        }
-        
+        this.taxesServices.addtax(this.servicesForm.value.username, this.servicesForm.value.percentage, this.servicesForm.value.category, this.servicesForm.value.dummyData, this.servicesForm.value.discription);
+        this.isRoleAddViewOpen = false;
         this.servicesForm.reset();
-        this.isTaxAddViewOpen = false;
+      }
+
+      removeTax(id) {
+        this.taxesServices.removeTax(id);
+      }
+
+      onEdit(idno, name, per, jur, dum, dis) {
+        //   this.edit = true;
+        this.isSave = false;
+        this.isUpdate = true;
+        this.username = name;
+        this.servicesForm.get('username').setValue(name);
+        this.percentage = per;
+        this.servicesForm.get('percentage').setValue(per);
+        this.jurisdiction = jur;
+        this.servicesForm.get('category').setValue(jur);
+        this.dummyData = dum;
+        this.servicesForm.get('dummyData').setValue(dum);
+         this.servicesForm.get('discription').setValue(dis);
+       
+        this.discription = dis;
+        this.id = idno;
+       
+      }
         
-      }
+     
 
-      removeTax(tax) {
-          this.taxesServices.removeTax(tax)
-      }
-        private id: number;
-      onEdit() {
-          this.edit = true;
-        //   this.id = id;
-      }
+        onUpdate() {
+            // console.log(this.servicesForm.value.username + ' ' + this.servicesForm.value.percentage);
+            this.taxesServices.updateTax(this.id, this.servicesForm.value.username, this.servicesForm.value.percentage, this.servicesForm.value.category, this.servicesForm.value.dummyData, this.servicesForm.value.discription);
+            // this.edit = false;
+            this.servicesForm.reset();
+            this.isUpdate = false;
+            // this.username = '';
+            // this.percentage = '';
+            // this.jurisdiction = '';
+            this.isSave = true;
+        }
 
-      onUpdate() {
-        // console.log(this.servicesForm.value.username + ' ' + this.servicesForm.value.percentage);
-        this.taxesServices.updateTax(this.id, this.servicesForm.value.username, this.servicesForm.value.percentage, this.servicesForm.value.category);
-        this.edit = false;
-    }
-
+        detailDummyData: string;
+        detailDiscription: string;
+        onDetail(dummyData, discription) {
+            this.detailDummyData = dummyData;
+            this.detailDiscription = discription;
+        }
 
 }

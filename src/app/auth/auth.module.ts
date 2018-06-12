@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BaseRequestOptions, HttpModule } from '@angular/http';
-// import { HttpModule } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
 import { AuthRoutingModule } from './auth-routing.routing';
@@ -24,8 +23,7 @@ import { fakeBackendProvider } from './_helpers/index';
     imports: [
         CommonModule,
         FormsModule,
-        HttpModule,   //-------- OLD
-        // HttpClientModule,
+        HttpModule,
         AuthRoutingModule,
     ],
     providers: [

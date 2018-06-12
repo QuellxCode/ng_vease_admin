@@ -108,11 +108,26 @@ export class CatalogComponent implements OnInit, AfterViewInit {
         }
     ];
 
+
+    BundlesOfServices = 
+    [
+
+    ];
+
+     tempBundle :number = 0;
+     isGrossTotal = false;
+
    
 
 
 
 
+    createNewBundle()
+    {
+        this.tempBundle= 0;
+        this.BundlesOfServices = [];
+        this.isGrossTotal = false;
+    }
     addAnItem(itemName , description)
     {
        if(this.editItemIndex!=undefined)
@@ -123,7 +138,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
        } 
        else
        {
-        this.listItems.push({itemName:itemName , itemDescription: description, approved:true}); 
+        this.listItems.push({itemName:itemName , itemDescription: description, approved:false}); 
        }
     }
     editAnItem(itemIndex)
@@ -224,6 +239,55 @@ export class CatalogComponent implements OnInit, AfterViewInit {
         this.bundles.splice(bundleIndex , 1);
     }
 
+
+
+
+    getPercentedValue(price , quantity , percentage)
+    {
+       let total = price*quantity;
+       total = total - (total*percentage)/100;
+       return total;     
+    }
+
+
+
+    saveServicesForBundle(servicetype_bundle , discountType  ,calculatedvalueNoDiscount , calculatedvalueDiscountAmount, calculatedvalueDiscountPercent , bundleQuantity)
+    {
+        
+        let Category = this.services[servicetype_bundle].serviceCategory;
+        let SubCategory = this.services[servicetype_bundle].serviceSubCategory;
+        let price;
+        if(discountType=="no")
+        {
+            price = calculatedvalueNoDiscount;
+        }
+        else if(discountType=="money")
+        {
+            price = calculatedvalueDiscountAmount;
+        }
+        else
+        {
+            price = calculatedvalueDiscountPercent;
+        }
+
+        this.BundlesOfServices.push({
+            Category: Category,
+            SubCategory: SubCategory,
+            Price: price,
+            Quantity: bundleQuantity
+        });
+
+
+        this.tempBundle += parseFloat(price); 
+
+
+        this.isGrossTotal = true;
+
+
+
+
+       
+    }
     constructor(private _script: ScriptLoaderService) {
 
 
