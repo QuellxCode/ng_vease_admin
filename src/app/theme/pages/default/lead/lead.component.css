@@ -2,10 +2,16 @@
     border-bottom: 1px solid #ebedf2;
 }
 
+.agm-map{
+    height: 400px;
+}
 .mcol {
     height: 100%;
-}
+} 
 
+.m-content.m-content-nopadding{
+    padding: 0px !important;
+}
 m-widget4 m-widget4__item {
     cursor: grab;
     cursor: -webkit-grab;
@@ -13,6 +19,9 @@ m-widget4 m-widget4__item {
 .m-content {
     padding: 0px 30px !important;
 }
+.m-content {
+    padding: 0px;
+}
 .m-subheader {
-    padding-top: 5px;
+   padding-top: 5px;
 }

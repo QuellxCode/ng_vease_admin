@@ -44,6 +44,17 @@
 					</a>
 				</li>
 				<li class="m-nav__separator">
+						-
+					</li>
+				
+					<li class="m-nav__item">
+						<a class="m-nav__link" href="" ng-reflect-href="">
+							<span class="m-nav__link-text">
+								Settings
+							</span>
+						</a>
+					</li>
+				<li class="m-nav__separator">
 					-
 				</li>
 			
@@ -169,6 +180,7 @@
 														  <th  scope="col" class="bundledesc">Description</th>
 														  <th  scope="col">Items</th>
 														  <th  scope="col">Price</th>
+														  <th  scope="col">Active</th>
 														  <th> Actions</th>
 														</tr>
 													  </thead>
@@ -178,6 +190,12 @@
 															  <td>{{bundle.description}}</td>
 															  <td>{{bundle.noOfItems}}</td>
 															  <td>{{bundle.price}}</td>
+															  <td><span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
+																	<label>
+																		<input name="" type="checkbox" [checked]="bundle.active">
+																		<span></span>
+																	</label>
+																</span>
 															  <td>
 																	<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View details">
 																			<i class="la la-ellipsis-h"></i>
@@ -260,7 +278,7 @@
 						</div>
 
 						<div class="col-sm-4">
-								<button style="margin-top:30px;"  class="btn btn-default" (click)="saveServicesForBundle(servicetype_bundle.value , discountType.value , calculatedvalueNoDiscount.value , calculatedvalueDiscountAmount.value , calculatedvalueDiscountPercent.value, bundleQuantity.value)">Add Service</button>
+								<button style="margin-top:30px;"  class="btn btn-default" (click)="saveServicesForBundle(servicetype_bundle.value , discountType.value , calculatedvalueNoDiscount.value , calculatedvalueDiscountAmount.value , calculatedvalueDiscountPercent.value, bundleQuantity.value , servicetype_bundle)">Add Service</button>
 						</div>
 					</div>
 						
@@ -272,9 +290,9 @@
 				
 								 <div class="form-group m-form__group" [hidden]="true">
 									<label>Total:</label>
-									<input type="text" [hidden]="discountType.value!='no' || true" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueNoDiscount>
-									<input type="text" [hidden]="discountType.value!='money'|| true" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueDiscountAmount>
-									<input type="text" [hidden]="discountType.value!='percent'|| true" disabled class="form-control m-input m-input--square" [value]="services[servicetype_bundle.value].price*bundleQuantity.value" #calculatedvalueDiscountPercent>
+									<input type="text" [hidden]="discountType.value!='no' || true" disabled class="form-control m-input m-input--square" [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''" #calculatedvalueNoDiscount>
+									<input type="text" [hidden]="discountType.value!='money'|| true" disabled class="form-control m-input m-input--square" [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''" #calculatedvalueDiscountAmount>
+									<input type="text" [hidden]="discountType.value!='percent'|| true" disabled class="form-control m-input m-input--square" [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''" #calculatedvalueDiscountPercent>
 								</div>
 				
 			
@@ -284,7 +302,7 @@
 				
 
 				  <div class="row" *ngFor="let bundleService of BundlesOfServices; let i =index;" style="margin-top:20px;">
-						<div class="col-md-1">
+						<div class="col-1">
 								<label class="m-checkbox">
 										<input type="checkbox" checked>
 										<span></span>
@@ -294,33 +312,43 @@
 
 						
 	
-						<div class="col-sm-3">
+						<div class="col-3">
 								{{bundleService.Category}}
 						</div>
 	
-						<div class="col-sm-3">
+						<div class="col-2">
 								{{bundleService.SubCategory}}
 						</div>
 	
-						<div class="col-sm-2">
+						<div class="col-2">
 								{{bundleService.Price}}
 						</div>
 	
-						<div class="col-sm-2">
-								<a (click)="deleteBundleService(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete">
+						<div class="col-2">
+								<a (click)="deleteBundleService(i , bundleService.Serviceindex , servicetype_bundle)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete">
 										<i class="la la-trash"></i>
 									</a>
+						</div>
+
+						<div class="col-1">
+								<span  class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
+										<label >
+											<input name="" type="checkbox">
+											<span ></span>
+										</label>
+									</span>
+
 						</div>
 	
 					</div>
 
 					<div class="row">
-							<div *ngIf="isGrossTotal;" class="offset-sm-6 col-sm-4" style="margin-top:20px;">
-									<strong>Total:</strong> <span> {{tempBundle}}</span>  
+							<div *ngIf="isGrossTotal;" class="offset-sm-4 col-sm-6" style="margin-top:20px;">
+									<strong>Total:</strong> <span style="margin-left:48px;"> {{tempBundle}}</span>  
 							</div>
 					</div>
 
-					<div class="row" [class.d-none]="!isGrossTotal" style="margin-top: -20px;">
+					<div class="row" [class.d-none]="!isGrossTotal" style="margin-top: -26px;">
 						<div class="col-sm-3">
 								<div class="form-group m-form__group" >
 										<label>Discount:</label>
@@ -335,27 +363,33 @@
 													%age
 												</option>
 										</select>
-										 </div> 
+										 </div>
+										 
+										 <div class="form-group m-form__group" [hidden]="discountType.value!='money'">
+											<label>Money:</label>
+											<input (change)="ChangeAndShowDiscount(discountType.value , discountTheMoney.value)" type="number" min="1" class="form-control m-input m-input--square" #discountTheMoney />
+										</div>
+										
+										
+										<div class="form-group m-form__group" [hidden]="discountType.value!='percent'">
+												<label>Percentage:</label>
+												<input (change)="ChangeAndShowDiscount(discountType.value , discountPercentage.value)"  type="number" min="1" max="100"  class="form-control m-input m-input--square" #discountPercentage/>
+											</div> 
 						</div>
 
-						<div class="col-sm-3">
-								<div class="form-group m-form__group" [hidden]="discountType.value!='money'">
-										<label>Money:</label>
-										<input (change)="ChangeAndShowDiscount(discountType.value , discountTheMoney.value)" type="number" min="1" class="form-control m-input m-input--square" #discountTheMoney />
-									</div>
-									
-									
-									<div class="form-group m-form__group" [hidden]="discountType.value!='percent'">
-											<label>Percentage:</label>
-											<input (change)="ChangeAndShowDiscount(discountType.value , discountPercentage.value)"  type="number" min="1" max="100"  class="form-control m-input m-input--square" #discountPercentage/>
-										</div> 
+						<div class="col-sm-1">
+								
 
 						</div>
 						<div class="col-sm-6">
 								
 								<div *ngIf="isGrossTotal;" style="margin-top: 35px;">
-										<strong>Discount:</strong> <span> {{tempDiscount}} </span>  
+										<strong>Discount:</strong> <span style="margin-left: 22px;"> {{tempDiscount}} </span>  
 								</div>
+
+								<div *ngIf="isGrossTotal;"   style="margin-top:20px;">
+									<strong>Bundle Price:</strong> <span> {{bundlePrice}}</span>  
+							</div>
 
 							</div>
 						
@@ -363,9 +397,7 @@
 	
 					 <div class="row">
 	
-							<div *ngIf="isGrossTotal;" class="offset-sm-6 col-sm-4" style="margin-top:20px;">
-									<strong>Bundle Price:</strong> <span> {{bundlePrice}}</span>  
-							</div>
+							
 							
 					 </div>
 	
@@ -624,9 +656,9 @@
 						</div>
 
 						<div class="tab-pane" id="serviceform_tasks" role="serviceform_tasks">
-								<button class="btn btn-default " style="float: right;margin-bottom: 8px;" data-toggle="modal" (click)="addNewItemInServiceCatalog()"><i class="fa fa-plus"></i> Add List Item</button>
-								
-								<table class="table table-bordered">
+								<button class="btn btn-default " style="margin-bottom: 8px;" data-toggle="modal" (click)="addNewItemInServiceCatalog()"><i class="fa fa-plus"></i> Add List Item</button>
+								<div class="table-responsive">
+								<table class="table table-bordered table-striped">
 										<thead>
 											<tr>
 												<th>
@@ -669,6 +701,7 @@
 										
 										</tbody>
 									</table>
+								</div>
 
 
 								

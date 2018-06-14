@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
-import { Helpers } from '../../../../helpers';
-import { ScriptLoaderService } from '../../../../_services/script-loader.service';
+import { Helpers } from '../../../../../helpers';
+import { ScriptLoaderService } from '../../../../../_services/script-loader.service';
 /*
 import { AgmMap } from '@agm/core';
 import {
@@ -30,7 +30,7 @@ import {
     selector: "app-catalog",
     templateUrl: "./catalog.component.html",
     styleUrls: ["./catalog.component.css"],
-    encapsulation: ViewEncapsulation.None,
+    
 })
 export class CatalogComponent implements OnInit, AfterViewInit {
 
@@ -96,21 +96,24 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             bundleName : "The First Bundle",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
             price:200,
-            noOfItems: 5
+            noOfItems: 5,
+            active:false
         },
 
         {
             bundleName : "The Second Bundle",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
             price:400,
-            noOfItems: 1
+            noOfItems: 1,
+            active:false
         },
 
         {
             bundleName : "The Bundle",
             description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
             price:500,
-            noOfItems: 3
+            noOfItems: 3,
+            active:false
         }
     ];
 
@@ -235,7 +238,8 @@ export class CatalogComponent implements OnInit, AfterViewInit {
                 bundleName : name,
                 description: thedescription,
                 price:this.bundlePrice,
-                noOfItems: quantity
+                noOfItems: quantity,
+                active:false
             });
         }
 
@@ -249,9 +253,10 @@ export class CatalogComponent implements OnInit, AfterViewInit {
         this.isBundleFormShown = true;
     }
 
-    deleteBundle(bundleIndex)
+    deleteBundle(bundleIndex )
     {
         this.bundles.splice(bundleIndex , 1);
+       
     }
 
 
@@ -266,9 +271,18 @@ export class CatalogComponent implements OnInit, AfterViewInit {
 
 
 
-    saveServicesForBundle(servicetype_bundle , discountType  ,calculatedvalueNoDiscount , calculatedvalueDiscountAmount, calculatedvalueDiscountPercent , bundleQuantity)
+    saveServicesForBundle(servicetype_bundle , discountType  ,calculatedvalueNoDiscount , calculatedvalueDiscountAmount, calculatedvalueDiscountPercent , bundleQuantity , service_bundle)
     {
-        
+
+        if(servicetype_bundle!='')
+        {
+        for(let i=0 ; i<service_bundle.options.length;i++)
+        {
+            if(service_bundle.options[i].value==servicetype_bundle)
+            {
+                service_bundle.options[i].remove();
+            }
+        }
         let Category = this.services[servicetype_bundle].serviceCategory;
         let SubCategory = this.services[servicetype_bundle].serviceSubCategory;
         let price;
@@ -289,7 +303,8 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             Category: Category,
             SubCategory: SubCategory,
             Price: price,
-            Quantity: bundleQuantity
+            Quantity: bundleQuantity,
+            Serviceindex: servicetype_bundle
         });
 
 
@@ -298,7 +313,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
 
         this.isGrossTotal = true;
         this.createBundlePrice();
-        
+    }
 
 
 
@@ -377,12 +392,16 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     }
 
 
-    deleteBundleService(i)
+    deleteBundleService(i , ServiceIndex , servicetype_bundle)
     {
         this.tempBundle -= this.BundlesOfServices[i].Price;
         this.BundlesOfServices.splice(i,1);
         this.createBundlePrice();
-
+        
+        let option = document.createElement('option');
+        option.value= ServiceIndex;
+        option.innerHTML = this.services[ServiceIndex].serviceName;
+        servicetype_bundle.options.add(option);
     }
 
 

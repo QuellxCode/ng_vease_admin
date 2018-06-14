@@ -33,3 +33,22 @@ app-role-settings{
     background-color: #F2F3F8;
     box-shadow: none;
  }
+
+ thead tr
+ {
+    background-color: #555;
+    color: white;
+ }
+
+.m-content 
+ {
+    padding: 0px 0px;
+ }
+ .table th, .table td
+ {
+     vertical-align: middle;
+ }
+ .m-subheader {
+    padding-top: 5px;
+}
+ 

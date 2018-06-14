@@ -1,12 +1,59 @@
+<div  appunwraptag="" class="m-subheader">
+		<div  class="d-flex align-items-center">
+			<div  class="mr-auto">
+								<h3  class="m-subheader__title" style="display:inline-block">
+								Staff Settings 
+									<small >
+									<a  href="javascript:;" style="text-decoration: none;color:grey;" ng-reflect-href="javascript:;"><i  class="fa fa-bar-chart" style="font-size: 0.9rem;"></i></a>
+									</small>
+	
+									<small >
+									<a  href="javascript:;" style="text-decoration: none;color:grey;" ng-reflect-href="javascript:;"><i  class="fa fa-search" style="font-size: 0.9rem;"></i></a>
+									</small>
+							</h3>
+			</div>
+	</div>
+		
+</div>
 
+<div class="m-subheader breadcrumsubheader">
+	
+		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard" href="/dashboard">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+			
+				<li class="m-nav__item">
+					<a class="m-nav__link" href="" ng-reflect-href="">
+						<span class="m-nav__link-text">
+							Settings
+						</span>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+						-
+					</li>
+				
+					<li class="m-nav__item">
+						<a class="m-nav__link" href="" ng-reflect-href="">
+							<span class="m-nav__link-text">
+								Staff Settings
+							</span>
+						</a>
+					</li>
+			</ul>
+</div>
 
 <div class="m-content">
-<div class="row full-height" >
-<div class="col-md-12 full-height">
-
-<div class="m-portlet m-portlet--space full-height" style="background-color:#F2F3F8; box-shadow:none; margin-bottom: 0px;">
-	
-		<div class="m-portlet__body full-height" style="padding:0px;">
+<div class="m-portlet m-portlet--mobile">
+<div class="m-portlet__body">
+<div class="row" >
+<div class="col-md-12">
 			<div class="row full-height" [class.d-none]="!isDisplayStaffEditAndSee">
 				<div class="col-xl-2 ghostWhiteColorSideBar" >
 						<div class="nav flex-column nav-pills" aria-orientation="vertical">
@@ -553,9 +600,10 @@
 
 
 			<div class="row" [class.d-none]="isDisplayStaffEditAndSee">
-				<div class="col-md-12" style="padding-left: 60px;">
-				<button class="btn btn-default" style="margin-top:25px;" (click)="isDisplayStaffEditAndSee = !isDisplayStaffEditAndSee;"><i class="fa fa-user-plus"></i> New Member Staff </button>
-				<table class="table table-bordered MembersTableViewEdit">
+				<div class="col-md-12" >
+				<button class="btn btn-default" style="margin-bottom:20px;" (click)="isDisplayStaffEditAndSee = !isDisplayStaffEditAndSee;"><i class="fa fa-user-plus"></i> New Member Staff </button>
+				<div class="table table-responsive">
+				<table class="table table-bordered table-striped MembersTableViewEdit">
 						<thead>
 						  <tr>
 							 <th></th>
@@ -584,12 +632,15 @@
 								</tr>
 						</tbody>
 					  </table>
+					  </div>
 				</div>
 			</div>
-		</div>
-	</div>
+		
+	
 
 </div>
 
+</div>
+</div>
 </div>
 </div>

@@ -23,9 +23,9 @@
     display:block;
     color:gray;
 }
-.m-body .m-content
+.m-content
 {
-    padding-top:0px;
+    padding:0px 0px;
 }
 .descTable
 {
@@ -67,4 +67,7 @@ thead tr
 .servicesCatalogTable td
 {
    vertical-align: middle;
+}
+.m-subheader {
+    padding-top: 5px;
 }

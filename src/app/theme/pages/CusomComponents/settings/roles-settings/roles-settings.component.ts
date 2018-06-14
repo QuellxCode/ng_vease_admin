@@ -6,8 +6,7 @@ import { ScriptLoaderService } from '../../../../../_services/script-loader.serv
 @Component({
     selector: "app-role-settings",
     templateUrl: "./roles-settings.component.html",
-    styleUrls: ["./role-settings.component.css"],
-    encapsulation: ViewEncapsulation.None
+    styleUrls: ["./role-settings.component.css"]
 })
 export class RolesSettingsComponent implements OnInit, AfterViewInit {
 
