@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation,  AfterViewInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { ScriptLoaderService } from '../../../../../_services/script-loader.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -13,27 +13,27 @@ import { } from 'googlemaps';
     styleUrls: ['./overview-settings.component.css']
 })
 export class OverViewSettingsComponent implements OnInit {
-    time = { hour: 13, minute: 30 };
-    time2 = { hour: 20, minute: 50 };
+    time = {hour: 13, minute: 30};
+    time2 = {hour: 20, minute: 50};
     locations = [{
-        number: 1,
+        number:1,
         name: '3rd Location',
         address: 'Missisaaga The Canaada'
     },
     {
-        number: 2,
+        number:2,
         name: '4th Location',
         address: 'Missisaaga The Canaada'
     },
 
     {
-        number: 3,
+        number:3,
         name: '5th Location',
         address: 'Missisaaga The Canaada'
     }
-    ];
+];
 
-
+    
     schedules = [{
         name: 'St. Mary',
         day: 'Tue',
@@ -52,30 +52,30 @@ export class OverViewSettingsComponent implements OnInit {
     ];
 
     shifts = [
-        {
-            shiftName: 'Morning',
-            timingStart: "11:00",
-            timingEnd: "17:00",
-            break: 1,
-            position: 'No Position',
-            schedule: 'ST. Mary'
-        },
-        {
-            shiftName: 'Evening',
-            timingStart: "17:00",
-            timingEnd: "7:00",
-            break: 0.5,
-            position: 'No Position',
-            schedule: 'ST. Mary'
-        },
-        {
-            shiftName: 'Evening',
-            timingStart: "20:00",
-            timingEnd: "9:00",
-            break: 1,
-            position: 'No Position',
-            schedule: 'ST. Mary'
-        }
+    {
+        shiftName: 'Morning',
+        timingStart:"11:00",
+        timingEnd:"17:00",
+        break: 1,
+        position: 'No Position',
+        schedule: 'ST. Mary'
+    },
+    {
+        shiftName: 'Evening',
+        timingStart:"17:00",
+        timingEnd:"7:00",
+        break: 0.5,
+        position: 'No Position',
+        schedule: 'ST. Mary'
+    },
+    {
+        shiftName: 'Evening',
+        timingStart:"20:00",
+        timingEnd:"9:00",
+        break: 1,
+        position: 'No Position',
+        schedule: 'ST. Mary'
+    }
     ];
 
 
@@ -83,20 +83,20 @@ export class OverViewSettingsComponent implements OnInit {
     pricing = [
         {
             serviceName: 'Hair Cutting',
-            categoryName: "Adults",
+            categoryName:"Adults",
             price: 25
         },
         {
             serviceName: 'Hair Cutting',
-            categoryName: "Kids",
+            categoryName:"Kids",
             price: 15
         }
-    ];
+        ];
 
 
-    enterLocationFormDisplay = false;
+    enterLocationFormDisplay= false;
     isDisplayScheduleEditAndSee = false;
-    isDisplayShiftsEditAndSee = false;
+    isDisplayShiftsEditAndSee = false;    
     isRoleAddViewOpen = false;
     isPricingAddEditOpen = false;
     isTaxAddViewOpen = false;
@@ -119,8 +119,8 @@ export class OverViewSettingsComponent implements OnInit {
     editLocationIndex = undefined;
     editScheduleIndex = undefined;
     editShiftIndex = undefined;
-    editPricingIndex = undefined;
-    editTaxIndex = undefined;
+    editPricingIndex=undefined;
+    editTaxIndex=undefined;
 
 
     public latitude: number;
@@ -129,136 +129,156 @@ export class OverViewSettingsComponent implements OnInit {
     // public BillingandShipping: FormControl;
     public zoom: number;
     @ViewChild('search') public searchElementRef: ElementRef;
-
+    
     constructor(private _script: ScriptLoaderService, private taxesServices: TaxesService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
-
+    
     }
 
     private placess: any;
-    private city = '';
-    private country = '';
-    private countryCode = '';
+    private city='';
+    private country='';
+    private countryCode='';
 
 
     categories = ['Federal', 'Provincial', 'Federal & Provencial'];
 
     servicesForm: FormGroup;
 
-    addLocation(number: number, name: string, address: string) {
+    addLocation(number : number, name: string , address:string )
+    {
 
-        if (this.editLocationIndex != undefined) {
+        if(this.editLocationIndex!=undefined)
+        {
             this.locations[this.editLocationIndex].number = number;
             this.locations[this.editLocationIndex].name = name;
             this.locations[this.editLocationIndex].address = address;
             this.editLocationIndex = undefined;
         }
-        else {
-            this.locations.push({                
-number: number,
+        else
+        {
+            this.locations.push({number: number,
                 name: name,
-                address: address
-            });
+                address : address
+            });     
         }
-
-        this.enterLocationFormDisplay = false;
+       
+        this.enterLocationFormDisplay=false;
     }
-    editLocation(locationIndex) {
+    editLocation(locationIndex)
+    {
         this.enterLocationFormDisplay = true;
         this.editLocationIndex = locationIndex;
     }
 
-    deletelocation(locationIndex) {
+    deletelocation(locationIndex)
+    {
         this.locations.splice(locationIndex, 1);
     }
 
 
 
-    addSchedule(scheduleDay, scheduleName, scheduleHours) {
-        if (this.editScheduleIndex != undefined) {
+    addSchedule(scheduleDay , scheduleName , scheduleHours)
+    {
+        if(this.editScheduleIndex!=undefined)
+        {
             this.schedules[this.editScheduleIndex].name = scheduleName;
             this.schedules[this.editScheduleIndex].day = scheduleDay;
             this.schedules[this.editScheduleIndex].hoursPerDay = scheduleHours;
             this.editScheduleIndex = undefined;
         }
-        else {
-            this.schedules.push({ name: scheduleName, day: scheduleDay, hoursPerDay: scheduleHours });
+        else
+        {
+            this.schedules.push({name:scheduleName , day:scheduleDay , hoursPerDay:scheduleHours});
         }
-
+        
         this.isDisplayScheduleEditAndSee = false;
     }
-    editSchedule(ScheduleIndex) {
+    editSchedule(ScheduleIndex)
+    {
         this.isDisplayScheduleEditAndSee = true;
         this.editScheduleIndex = ScheduleIndex;
     }
-    deleteSchedule(ScheduleIndex) {
+    deleteSchedule(ScheduleIndex)
+    {
         this.schedules.splice(ScheduleIndex, 1);
     }
 
 
-    addShift(shiftName, shiftPosition, shiftBreak, shiftSchedule) {
-        if (this.editShiftIndex != undefined) {
+    addShift(shiftName, shiftPosition, shiftBreak, shiftSchedule)
+    {
+        if(this.editShiftIndex!=undefined)
+        {
             this.shifts[this.editShiftIndex].shiftName = shiftName;
             this.shifts[this.editShiftIndex].position = shiftPosition;
             this.shifts[this.editShiftIndex].break = shiftBreak;
             this.shifts[this.editShiftIndex].schedule = shiftSchedule;
-            this.shifts[this.editShiftIndex].timingStart = this.time.hour + ":" + this.time.minute;
-            this.shifts[this.editShiftIndex].timingEnd = this.time2.hour + ":" + this.time2.minute;
-            this.editShiftIndex = undefined;
+            this.shifts[this.editShiftIndex].timingStart = this.time.hour+":"+this.time.minute;
+            this.shifts[this.editShiftIndex].timingEnd = this.time2.hour+":"+this.time2.minute;
+            this.editShiftIndex=undefined;
         }
-        else {
-            this.shifts.push({
+        else
+        {
+            this.shifts.push( {
                 shiftName: shiftName,
-                timingStart: this.time.hour + ":" + this.time.minute,
-                timingEnd: this.time2.hour + ":" + this.time2.minute,
+                timingStart:this.time.hour+":"+this.time.minute,
+                timingEnd:this.time2.hour+":"+this.time2.minute,
                 break: shiftBreak,
                 position: shiftPosition,
                 schedule: shiftSchedule
             });
         }
+     
 
-
-        this.isDisplayShiftsEditAndSee = false;
-
+    this.isDisplayShiftsEditAndSee = false;
+        
     }
-    editShift(ShiftIndex) {
+    editShift(ShiftIndex)
+    {
         this.isDisplayShiftsEditAndSee = true;
-        this.editShiftIndex = ShiftIndex;
+        this.editShiftIndex = ShiftIndex; 
     }
-    deleteShift(ShiftIndex) {
+    deleteShift(ShiftIndex)
+    {
         this.shifts.splice(ShiftIndex, 1);
     }
 
 
-    addPricing(pricingService, pricingCategory, pricingPrice) {
-        if (this.editPricingIndex != undefined) {
+    addPricing(pricingService, pricingCategory, pricingPrice)
+    {
+        if(this.editPricingIndex!=undefined)
+        {
             this.pricing[this.editPricingIndex].serviceName = pricingService;
             this.pricing[this.editPricingIndex].categoryName = pricingCategory;
             this.pricing[this.editPricingIndex].price = pricingPrice;
-            this.editShiftIndex = undefined;
+            this.editShiftIndex=undefined;
         }
-        else {
+        else
+        {
             this.pricing.push({
                 serviceName: pricingService,
                 categoryName: pricingCategory,
                 price: pricingPrice
             });
         }
-
+        
         this.isPricingAddEditOpen = false;
     }
 
-    editPricing(PricingIndex) {
+    editPricing(PricingIndex)
+    {
         this.isPricingAddEditOpen = true;
-        this.editPricingIndex = PricingIndex;
+        this.editPricingIndex = PricingIndex; 
     }
 
-    deletePricing(PricingIndex) {
+    deletePricing(PricingIndex)
+    {
         this.pricing.splice(PricingIndex, 1);
     }
 
 
 
-    onEditTax(taxID) {
+    onEditTax(taxID)
+    {
         this.editTaxIndex = taxID;
         this.isTaxAddViewOpen = true;
     }
@@ -307,6 +327,7 @@ number: number,
            //    this.longitude = place.geometry.location.lng();
            //    this.zoom = 12;
             });
+          });
         });
     }
 
@@ -315,7 +336,8 @@ number: number,
             ['assets/app/js/overview-settings.js']);
 
     }
-	
+
+
     onSubmit(name , percentage, category) {
         this.taxesServices.addtax(this.servicesForm.value.username, this.servicesForm.value.percentage, this.servicesForm.value.category, this.servicesForm.value.dummyData, this.servicesForm.value.discription);
         this.isRoleAddViewOpen = false;
