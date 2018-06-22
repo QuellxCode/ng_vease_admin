@@ -60,7 +60,6 @@ export class AuthComponent implements OnInit {
     signin() {
 
         this.loading = true;
-        CreateServiceApi
         this._authService.login(this.model.email, this.model.password)
             .subscribe(
                 (data => {
