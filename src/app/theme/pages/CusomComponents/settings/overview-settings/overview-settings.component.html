@@ -296,7 +296,7 @@
                                                                                 <td>
                                                                                         {{location.address}}		
                                                                                 </td>
-                                                                                <td><button (click)="editLocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                <!-- <td><button (click)="editLocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                         Edit
                                                                                     </button>
                                                                                 </td>
@@ -304,7 +304,18 @@
                                                                                 <td><button (click)="deletelocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
                                                                                         Delete
                                                                                     </button>
-                                                                                </td>
+                                                                                </td> -->
+                                                                                <td >
+                                                                                        <a  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" >
+                                                                                                <i  class="la la-ellipsis-h"></i>
+                                                                                            </a>
+                                                                                            <a (click)="editLocation(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+                                                                                                <i class="la la-edit"></i>
+                                                                                            </a>
+                                                                                            <a (click)="deletelocation(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                                                                <i class="la la-trash"></i>
+                                                                                            </a>
+                                                                               </td>
                                                                             </tr>
                                                                 </tbody>
                                                             </table>
@@ -326,7 +337,7 @@
                                                                     <label >
                                                                         Location Name:
                                                                     </label>
-                                                                    <input class="form-control m-input" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].name : ''" placeholder="Enter Location Name" type="text" #locationname>
+                                                                    <input class="form-control m-input"   [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].name : ''" placeholder="Enter Location Name" type="text" #locationname>
                                                             </div>
 
                                                             <div  class="form-group m-form__group">
@@ -414,7 +425,7 @@
                                                                                             <td>{{schedule.name}}</td>
                                                                                             <td>{{schedule.day}}</td>
                                                                                             <td>{{schedule.hoursPerDay}}</td>
-                                                                                            <td><button (click)="editSchedule(i)"  class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                            <!-- <td><button (click)="editSchedule(i)"  class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                                     Edit
                                                                                                 </button>
                                                                                             </td>
@@ -422,7 +433,18 @@
                                                                                                     <button (click)="deleteSchedule(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
                                                                                                             Delete
                                                                                                         </button>
-                                                                                            </td>
+                                                                                            </td> -->
+                                                                                            <td>
+                                                                                                    <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" title="View details" ng-reflect-href="javascript:;">
+                                                                                                            <i  class="la la-ellipsis-h"></i>
+                                                                                                        </a>
+                                                                                                        <a (click)="editSchedule(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+                                                                                                            <i class="la la-edit"></i>
+                                                                                                        </a>
+                                                                                                        <a (click)="deleteSchedule(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                                                                            <i class="la la-trash"></i>
+                                                                                                        </a>
+                                                                                           </td>
                                                                                      </tr>
                                             
                                             
@@ -525,7 +547,7 @@
                                                                                         <td>{{shift.break}} Hour(s)</td>
                                                                                         <td>{{shift.position}}</td>
                                                                                         <td>{{shift.schedule}}</td>
-                                                                                        <td><button (click)="editShift(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                        <!-- <td><button (click)="editShift(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                                 Edit
                                                                                             </button>
                                                                                         </td>
@@ -533,8 +555,19 @@
                                                                                         <button (click)="deleteShift(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
                                                                                                 Delete
                                                                                         </button>
-                                                                                        </td>
-                                                                                 </tr>
+                                                                                        </td> -->
+                                                                                        <td>
+                                                                                                <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" title="View details" ng-reflect-href="javascript:;">
+                                                                                                        <i  class="la la-ellipsis-h"></i>
+                                                                                                    </a>
+                                                                                                    <a (click)="editShift(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+                                                                                                        <i class="la la-edit"></i>
+                                                                                                    </a>
+                                                                                                    <a (click)="deleteShift(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                                                                        <i class="la la-trash"></i>
+                                                                                                    </a>
+                                                                                       </td>
+                                                                                        </tr>
 
 
                                                                                  
@@ -1545,17 +1578,28 @@
                                                             <td>{{t.username}}</td>
                                                             <td>{{t.percentage}} %</td>
                                                             <td>{{t.jurisdiction}}</td>
-                                                            <td>
+                                                            <!--td>
                                                                 <i class="fa fa-edit" (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction, t.dummyData, t.discription)"></i> |
                                                                 <i class="fa fa-trash" (click)="removeTax(t.id)"></i> |
                                                                 <i class="fa fa-info" data-toggle="modal" data-target="#myModal" (click)="onDetail(t.dummyData, t.discription)"></i>
-                                                                <!-- <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction)" class="btn m-btn--pill  btn-sm  btn-outline-warning">
+                                                                <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction)" class="btn m-btn--pill  btn-sm  btn-outline-warning">
                                                                     Edit
                                                                 </button>
                                                                 <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax(t.id)" type="button">
                                                                         Delete
-                                                                    </button> -->
-                                                            </td>
+                                                                    </button> 
+                                                            </td-->
+                                                            <td>
+                                                                    <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="modal" data-target="#myModal" (click)="onDetail(t.dummyData, t.discription)">
+                                                                            <i  class="la la-ellipsis-h"></i>
+                                                                        </a>
+                                                                        <a   class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction, t.dummyData, t.discription)">
+                                                                            <i class="la la-edit"></i>
+                                                                        </a>
+                                                                        <a (click)="removeTax(t.id)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                                            <i class="la la-trash"></i>
+                                                                        </a>
+                                                           </td>
                                                             <td>
                                                                     <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
                                                                             <label>
@@ -1791,7 +1835,7 @@
                                         <td>{{pricingItem.serviceName}}</td>
                                         <td>{{pricingItem.categoryName}}</td>
                                         <td>${{pricingItem.price}}</td>
-                                        <td><button (click)="editPricing(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning"  type="button">
+                                        <!-- <td><button (click)="editPricing(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning"  type="button">
                                                 Edit
                                             </button>
                                         </td>
@@ -1799,7 +1843,18 @@
                                                 <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="deletePricing(i)"  type="button">
                                                         Delete
                                                     </button>
-                                        </td>
+                                        </td> -->
+                                        <td class="text-center">
+                                                <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" title="View details" ng-reflect-href="javascript:;">
+                                                        <i  class="la la-ellipsis-h"></i>
+                                                    </a>
+                                                    <a (click)="editPricing(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+                                                        <i class="la la-edit"></i>
+                                                    </a>
+                                                    <a (click)="deletePricing(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                        <i class="la la-trash"></i>
+                                                    </a>
+                                       </td>
                                     </tr>
                                     </tbody>
                                     

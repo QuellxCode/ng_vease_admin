@@ -693,9 +693,15 @@
 															</span>
 												</td>
 											
-												<td><button (click)="deleteAnItem(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button" >
+												<td>
+												<!-- <button (click)="deleteAnItem(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button" >
 														Delete
-												</button>
+												</button> -->
+
+												<a (click)="deleteAnItem(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" ng-reflect-href="javascript:" title="Delete">
+														<i  class="la la-trash"></i>
+													</a>
+												
 										    	</td>
 											</tr>
 										

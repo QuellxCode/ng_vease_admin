@@ -98,3 +98,21 @@ H4 small
 {
     margin-top: -14px;
 }
+.m-subheader
+{
+    padding: 10px 30px 0 30px;;
+}
+.m-subheader.breadcrumsubheader
+{
+    padding-top: 0px !important;
+    margin-top: -7px !important;
+}
+.breadcrumsubheader .m-nav .m-nav__item > .m-nav__link .m-nav__link-text
+{
+    font-size:11px !important;
+}
+
+.customhr
+{
+    margin-top: 0.5rem;
+}

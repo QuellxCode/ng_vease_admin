@@ -58,18 +58,20 @@ export class AuthComponent implements OnInit {
     }
 
     signin() {
-        // this.loading = true;
+        //this.loading = true;
         this._authService.login(this.model.email, this.model.password)
             .subscribe(
                 (data => {
                 // localStorage.setItem('currentUser', JSON.stringify(data));
                 // console.log(data);
+                 //Helpers.setLoading(true);  
+                 //this.loading = true;
                 this._router.navigate(['/dashboard']);
-                Helpers.setLoading(true);
                 }
                 ),
                 (error => {
                     console.log(error);
+                    
                 })
             )
         // console.log(this.model.email + ' ' + this.model.password);

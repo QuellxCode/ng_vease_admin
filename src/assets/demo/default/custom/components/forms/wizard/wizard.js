@@ -22,7 +22,7 @@ var WizardDemo = function () {
 
         //== Change event
         wizard.on('change', function(wizard) {
-            mApp.scrollTop();
+          //  mApp.scrollTop();
         });
     }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild, NgZone, ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, NgZone, ElementRef } from '@angular/core';
 import { DragulaService } from 'ng2-dragula/ng2-dragula';
 import { MapsAPILoader } from '@agm/core';
 import { } from 'googlemaps';
@@ -12,11 +12,14 @@ declare var $: any;
 
 })
 export class LeadComponent implements OnInit {
-     lang: any;
-     lat: any;
-     formHidden = true;
+    lang: any;
+    lat: any;
+    lati: number = 51.678418;
+    lng: number = 7.809007;
+    formHidden = true;
+    isCustomer = true;
     @ViewChild('search') public searchElementRef: ElementRef;
-    constructor(private dragulaService: DragulaService, private mapsAPILoader:MapsAPILoader, private ngZone:NgZone ) {
+    constructor(private dragulaService: DragulaService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
 
         // dragulaService.setOptions('bag-task1', {
         //     revertOnSpill: true
@@ -44,32 +47,34 @@ export class LeadComponent implements OnInit {
 
     ngOnInit() {
 
-         // for client
-         this.searchControl = new FormControl();
-         this.mapsAPILoader.load().then(() => {
-             const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-                 types: ['address']
-             });
-             autocomplete.addListener('place_changed', () => {
-                 this.ngZone.run(() => {
-                     const place: google.maps.places.PlaceResult = autocomplete.getPlace();
-                   //  this.clientPlacess = place;
-                     // console.log(this.clientCity);
- 
-                     //    for country
-                     var address_components = autocomplete.getPlace().address_components;
-                    
-                     if (place.geometry === undefined || place.geometry === null) {
-                         return;
-                     }
+        // for client
+        this.searchControl = new FormControl();
+        this.mapsAPILoader.load().then(() => {
+            const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+                types: ['address']
+            });
+            autocomplete.addListener('place_changed', () => {
+                this.ngZone.run(() => {
+                    const place: google.maps.places.PlaceResult = autocomplete.getPlace();
+                    //  this.clientPlacess = place;
+                    // console.log(this.clientCity);
 
-                     this.lat=place.geometry.location.lat();
-                     this.lang=place.geometry.location.lng();
- 
-                 });
-             });
-         });
- 
+                    //    for country
+                    var address_components = autocomplete.getPlace().address_components;
+
+                    if (place.geometry === undefined || place.geometry === null) {
+                        return;
+                    }
+
+                    this.lat = place.geometry.location.lat();
+                    this.lang = place.geometry.location.lng();
+                    this.lati = this.lat;
+                    this.lng = this.lang;
+
+                });
+            });
+        });
+
 
 
         var text, counter = 0;
