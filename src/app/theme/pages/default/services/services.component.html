@@ -1,12 +1,11 @@
 <!-- BEGIN: Subheader -->
 <div class="m-subheader" appunwraptag="" *ngIf="!isDisplayDetail">
 	<div class="d-flex align-items-center">
-		<div class="mr-auto row" style="width:100%;">
+		<div class="mr-auto" style="width:60%;">
 
-			<div class="col-md-3">
+		
 					<h3 class="m-subheader__title" style="display:inline-block">
 							Services
-							
 							<small><a (click)="adjustRadiusMap()" id="adjustRadius"  style="cursor:pointer;">
 									<i class="fa fa-map-marker"></i>
 								</a></small>
@@ -17,43 +16,32 @@
 								<i class="fa fa-search"></i>
 							</a></small>
 						</h3>
-			</div>
 
-			<div class="col-md-3">
-					<div class="form-group m-form__group" style="display:inline-block ; margin-left:8px; margin-bottom:0px;">
-								<select class="form-control m-input mainFilterHeading">
-								<option>
-									All
-								</option>
-								<option>
-									Hair
-								</option>
-								
-								<option>
-									Health
-								</option>
-								<option>
-									Shopping
-								</option>
-								<option>
-									Electronics
-								</option>
-								<option>
-									Cleaning
-								</option>
-							</select>
-						</div>
-				
-			</div>
-
-			<div class="col-md-3 offset-md-3">
-					<button class="btn btn-link" data-target="#c_modal_broadcast" data-toggle="modal" >
-							<i class="fa fa-plus"></i> Broadcast
-					</button>
-
-					<button  class="btn btn-link pull-right" (click)="changeView()"><i class="fa"  [class.hidden]="!isGridView"  [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}" ></i> {{viewName}} </button>
-
-			</div>
+						<div class="form-group m-form__group" style="display:inline-block ; margin-left:8px; margin-bottom:0px;">
+							<select class="form-control m-input mainFilterHeading">
+							<option>
+								All
+							</option>
+							<option>
+								Hair
+							</option>
+							
+							<option>
+								Health
+							</option>
+							<option>
+								Shopping
+							</option>
+							<option>
+								Electronics
+							</option>
+							<option>
+								Cleaning
+							</option>
+						</select>
+					</div>
+			
+			
 
 		
 
@@ -74,7 +62,36 @@
 			
 		</div>
 		
+		<button class="btn btn-link" data-target="#c_modal_broadcast" data-toggle="modal" >
+			<i class="fa fa-plus"></i> Broadcast
+	</button>
+
+	<button  class="btn btn-link pull-right" (click)="changeView()"><i class="fa"  [class.hidden]="!isGridView"  [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}" ></i> {{viewName}} </button>
+
+		
 	</div>
+</div>
+
+
+<div  class="m-subheader breadcrumsubheader">
+		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li  class="m-nav__item m-nav__item--home">
+					<a  class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard" href="/dashboard">
+						<i  class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li  class="m-nav__separator">
+					-
+				</li>
+			
+				<li  class="m-nav__item">
+					<a  class="m-nav__link" href="" ng-reflect-href="">
+						<span  class="m-nav__link-text">
+							Services
+						</span>
+					</a>
+				</li>
+			</ul>
 </div>
 
 <hr class="customhr"  *ngIf="!isDisplayDetail" />

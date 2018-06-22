@@ -1,16 +1,10 @@
 <div class="m-subheader">
     <div class="d-flex align-items-center">
         <div class="mr-auto">
-            <h3 class="m-subheader__title m-subheader__title--separator">
+            <h3 class="m-subheader__title">
                 Services Page
             </h3>
-            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                <li class="m-nav__item m-nav__item--home">
-                    <a routerLink="/dashboard" class="m-nav__link m-nav__link--icon">
-                        <i class="m-nav__link-icon la la-home"></i>
-                    </a>
-                </li>
-            </ul>
+           
         </div>
         <a data-toggle="modal" data-target="#addServiceModal" class="btn btn-link"><i class="fa fa-plus"></i> Add Request</a>
         <a  data-toggle="modal" data-target="#addBookingModal" class="btn btn-link"><i class="fa fa-plus"></i> Add Booking</a>
@@ -77,6 +71,27 @@
             </div>
         </div>
     </div>
+</div>
+
+<div  class="m-subheader breadcrumsubheader">
+		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li  class="m-nav__item m-nav__item--home">
+					<a  class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard" href="/dashboard">
+						<i  class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li  class="m-nav__separator">
+					-
+				</li>
+			
+				<li  class="m-nav__item">
+					<a  class="m-nav__link" href="" ng-reflect-href="">
+						<span  class="m-nav__link-text">
+							Requests
+						</span>
+					</a>
+				</li>
+			</ul>
 </div>
 <!-- END: Subheader -->
 <hr class="customhr">

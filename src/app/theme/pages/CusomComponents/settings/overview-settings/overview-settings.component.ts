@@ -128,7 +128,7 @@ export class OverViewSettingsComponent implements OnInit {
     public searchControl: FormControl;
     // public BillingandShipping: FormControl;
     public zoom: number;
-    @ViewChild('search') public searchElementRef: ElementRef;
+    /*@ViewChild('search') public searchElementRef: ElementRef;*/
     
     constructor(private _script: ScriptLoaderService, private taxesServices: TaxesService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
     
@@ -291,7 +291,7 @@ export class OverViewSettingsComponent implements OnInit {
             'dummyData': new FormControl(null),
             'discription': new FormControl(null)
           });
-
+           /*
           this.searchControl = new FormControl();
       this.mapsAPILoader.load().then(() => {
           const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
@@ -329,6 +329,7 @@ export class OverViewSettingsComponent implements OnInit {
             });
           });
         });
+        */
     }
 
     ngAfterViewInit() {

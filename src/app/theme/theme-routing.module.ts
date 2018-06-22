@@ -34,7 +34,15 @@ const routes: Routes = [
             },
             {
                 "path": "catalog",
-                "loadChildren": ".\/pages\/default\/catalog\/catalog.module#CatalogModule"
+                "loadChildren": ".\/pages\/CusomComponents\/settings\/catalog\/catalog.module#CatalogModule"
+            },
+            {
+                "path": "permission-settings",
+                "loadChildren": ".\/pages\/CusomComponents\/settings\/permissions-settings\/permissions-settings.module#PermissionsSettingsModule"
+            },
+            {
+                "path": "lead",
+                "loadChildren": ".\/pages\/default\/lead\/lead.module#LeadModule"
             }
         ]
 

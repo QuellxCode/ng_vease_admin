@@ -1,23 +1,76 @@
+<div  appunwraptag="" class="m-subheader">
+		<div  class="d-flex align-items-center">
+			<div  class="mr-auto">
+								<h3  class="m-subheader__title" style="display:inline-block">
+								Role Settings 
+									<small >
+									<a  href="javascript:;" style="text-decoration: none;color:grey;" ng-reflect-href="javascript:;"><i  class="fa fa-bar-chart" style="font-size: 0.9rem;"></i></a>
+									</small>
+	
+									<small >
+									<a  href="javascript:;" style="text-decoration: none;color:grey;" ng-reflect-href="javascript:;"><i  class="fa fa-search" style="font-size: 0.9rem;"></i></a>
+									</small>
+							</h3>
+			</div>
+	</div>
+		
+</div>
 
-<div class="m-content " >
-
+<div class="m-subheader breadcrumsubheader">
+	
+		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard" href="/dashboard">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+			
+				<li class="m-nav__item">
+					<a class="m-nav__link" href="" ng-reflect-href="">
+						<span class="m-nav__link-text">
+							Settings
+						</span>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+						-
+					</li>
+				
+					<li class="m-nav__item">
+						<a class="m-nav__link" href="" ng-reflect-href="">
+							<span class="m-nav__link-text">
+								Role Settings
+							</span>
+						</a>
+					</li>
+			</ul>
+</div>
+<div class="m-content" >
+<div class="m-portlet m-portlet--mobile">
+	<div class="m-portlet__body">
 	<!--Begin::Section-->
 	<div class="row ">
 
 			<div class="col-xl-12" *ngIf="!isRoleAddViewOpen">
-					<div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
-							<div class="m-portlet__body">
-									<button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-default"><i class="fa fa-user-plus" ></i> Add New Role </button>
-								<table class="table table-bordered RolesTableViewEdit">
-										<tr>
+						
+				<button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;"  style="margin-bottom:20px;" class="btn btn-default"><i class="fa fa-user-plus"></i> Add New Role </button>
+				<div class="table-responsive">				
+				<table class="table table-bordered table-striped RolesTableViewEdit">
+									<thead>	
+									<tr>
 											   <th  scope="col">Role</th>
 											   <th  scope="col">Member Count</th>
-											   <th  colspan="2" scope="col">Actions</th>
+											   <th  colspan="2" scope="col" class="text-center">Actions</th>
 										</tr>
+									</thead>
+									<tbody>
 										<tr *ngFor="let role of roles; let i =index">
 												<td>{{role.roleName}}</td>
 												<td>{{role.memberCount}}</td>
-												<td><button (click)="editRole(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+												<!-- <td><button (click)="editRole(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
 														Edit
 													</button>
 												</td>
@@ -25,17 +78,29 @@
 														<button (click)="deleteRole(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
 																Delete
 															</button>
-												</td>
-										 </tr>
+												</td> -->
+												<td class="text-center">
+														<a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" title="View details" ng-reflect-href="javascript:;">
+																<i  class="la la-ellipsis-h"></i>
+															</a>
+															<a (click)="editRole(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+																<i class="la la-edit"></i>
+															</a>
+															<a (click)="deleteRole(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+																<i class="la la-trash"></i>
+															</a>
+										       </td>
+											</tr>
+										</tbody>
 								</table>
-							</div>
-					</div>
+				</div>
+							
+					
 			</div>
 
 		<div class="col-xl-12 "  *ngIf="isRoleAddViewOpen">
 			<!--begin:: Widgets/Top Products-->
-			<div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground" style="padding-bottom: 30px;">
-				<div class="m-portlet__body full-height-element">
+				
 						<button (click)="isRoleAddViewOpen=!isRoleAddViewOpen; editRoleIndex=undefined;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
 					<div class="form-group m-form__group">
 						<label>
@@ -204,11 +269,13 @@
 							Save
 						</button>
 
-				</div>
-			</div>
+				
+			
 			<!--end:: Widgets/Top Products-->
 		</div>
 
 
 	</div>
+	</div>
+</div>
 </div>

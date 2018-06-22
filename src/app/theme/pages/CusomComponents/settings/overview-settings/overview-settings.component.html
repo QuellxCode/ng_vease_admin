@@ -1,8 +1,57 @@
+<div  appunwraptag="" class="m-subheader">
+		<div  class="d-flex align-items-center">
+			<div  class="mr-auto">
+								<h3  class="m-subheader__title" style="display:inline-block">
+								Overview Settings 
+									<small >
+									<a  href="javascript:;" style="text-decoration: none;color:grey;" ng-reflect-href="javascript:;"><i  class="fa fa-bar-chart" style="font-size: 0.9rem;"></i></a>
+									</small>
+	
+									<small >
+									<a  href="javascript:;" style="text-decoration: none;color:grey;" ng-reflect-href="javascript:;"><i  class="fa fa-search" style="font-size: 0.9rem;"></i></a>
+									</small>
+							</h3>
+			</div>
+	</div>
+		
+</div>
 
+<div class="m-subheader breadcrumsubheader">
+	
+		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard" href="/dashboard">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+			
+				<li class="m-nav__item">
+					<a class="m-nav__link" href="" ng-reflect-href="">
+						<span class="m-nav__link-text">
+							Settings
+						</span>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+						-
+					</li>
+				
+					<li class="m-nav__item">
+						<a class="m-nav__link" href="" ng-reflect-href="">
+							<span class="m-nav__link-text">
+								Overview Settings
+							</span>
+						</a>
+					</li>
+			</ul>
+</div>
 <div class="m-content" >
 
-<div class="m-portlet" >
-    <div class="m-portlet__body" style="padding:0px;">
+<div class="m-portlet m-portlet--mobile" >
+    <div class="m-portlet__body" >
         <div class="row full-height">
         <div class="col-lg-2 ghostWhiteColorSideBar">
  <div class="nav flex-column nav-pills" aria-orientation="vertical">
@@ -214,8 +263,9 @@
                                                      </h6-->
                                             <div class="row" *ngIf="!enterLocationFormDisplay">
                                                 <div class="col-md-12">
-                                                        <button  class="btn btn-default" (click)="enterLocationFormDisplay=!enterLocationFormDisplay; "><i class="fa fa-plus"></i> Add Location</button>
-                                                        <table class="table">
+                                                        <button style="margin-bottom:15px;"  class="btn btn-default" (click)="enterLocationFormDisplay=!enterLocationFormDisplay; "><i class="fa fa-plus"></i> Add Location</button>
+                                                        <div class="table-responsive">
+                                                        <table class="table table-striped">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>
@@ -246,7 +296,7 @@
                                                                                 <td>
                                                                                         {{location.address}}		
                                                                                 </td>
-                                                                                <td><button (click)="editLocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                <!-- <td><button (click)="editLocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                         Edit
                                                                                     </button>
                                                                                 </td>
@@ -254,10 +304,22 @@
                                                                                 <td><button (click)="deletelocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
                                                                                         Delete
                                                                                     </button>
-                                                                                </td>
+                                                                                </td> -->
+                                                                                <td >
+                                                                                        <a  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" >
+                                                                                                <i  class="la la-ellipsis-h"></i>
+                                                                                            </a>
+                                                                                            <a (click)="editLocation(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+                                                                                                <i class="la la-edit"></i>
+                                                                                            </a>
+                                                                                            <a (click)="deletelocation(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                                                                <i class="la la-trash"></i>
+                                                                                            </a>
+                                                                               </td>
                                                                             </tr>
                                                                 </tbody>
                                                             </table>
+                                                        </div>
                                                 </div>
                                             </div>
                                             
@@ -275,7 +337,7 @@
                                                                     <label >
                                                                         Location Name:
                                                                     </label>
-                                                                    <input class="form-control m-input" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].name : ''" placeholder="Enter Location Name" type="text" #locationname>
+                                                                    <input class="form-control m-input"   [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].name : ''" placeholder="Enter Location Name" type="text" #locationname>
                                                             </div>
 
                                                             <div  class="form-group m-form__group">
@@ -344,24 +406,26 @@
                                                 <div class="row " *ngIf="!isDisplayScheduleEditAndSee">
 
                                                <div class="col-xl-12" >
-                                                                <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
-                                                                        <div class="m-portlet__body">
-                                                                                <button class="btn btn-default" (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee"><i class="fa fa-user-plus"></i> Add New Schedule </button>
-                                                                            <table class="table table-bordered RolesTableViewEdit">
-                                                                                    <tbody>
+                                                                                <button style="margin-bottom:15px;" class="btn btn-default" (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee"><i class="fa fa-user-plus"></i> Add New Schedule </button>
+                                                                                 <div class="table-responsive">
+                                                                                <table class="table table-bordered table-striped RolesTableViewEdit">
+                                                                                <thead>
                                                                                         <tr>
-                                                                                           <th scope="col">Schedules</th>
-                                                                                           <th scope="col">Day</th>
-                                                                                           <th scope="col">Max Hours/Day</th>
-                                                                                              <th colspan="2" scope="col">Actions</th>
-                                                                                    </tr>
+                                                                                                <th scope="col">Schedules</th>
+                                                                                                <th scope="col">Day</th>
+                                                                                                <th scope="col">Max Hours/Day</th>
+                                                                                                   <th colspan="2" scope="col">Actions</th>
+                                                                                         </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        
 
                                                                                  
                                                                                     <tr *ngFor="let schedule of schedules; let i=index;">
                                                                                             <td>{{schedule.name}}</td>
                                                                                             <td>{{schedule.day}}</td>
                                                                                             <td>{{schedule.hoursPerDay}}</td>
-                                                                                            <td><button (click)="editSchedule(i)"  class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                            <!-- <td><button (click)="editSchedule(i)"  class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                                     Edit
                                                                                                 </button>
                                                                                             </td>
@@ -369,14 +433,26 @@
                                                                                                     <button (click)="deleteSchedule(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
                                                                                                             Delete
                                                                                                         </button>
-                                                                                            </td>
+                                                                                            </td> -->
+                                                                                            <td>
+                                                                                                    <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" title="View details" ng-reflect-href="javascript:;">
+                                                                                                            <i  class="la la-ellipsis-h"></i>
+                                                                                                        </a>
+                                                                                                        <a (click)="editSchedule(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+                                                                                                            <i class="la la-edit"></i>
+                                                                                                        </a>
+                                                                                                        <a (click)="deleteSchedule(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                                                                            <i class="la la-trash"></i>
+                                                                                                        </a>
+                                                                                           </td>
                                                                                      </tr>
                                             
                                             
                                             
-                                                                            </tbody></table>
-                                                                        </div>
-                                                                </div>
+                                                                            </tbody>
+                                                                        </table>
+                                                                                 </div>
+                                                                
                                                         </div>
                                             
                                                 
@@ -447,10 +523,20 @@
                                                 <div class="row " *ngIf="!isDisplayShiftsEditAndSee">
 
                                                <div class="col-xl-12" >
-                                                                <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
-                                                                        <div class="m-portlet__body">
-                                                                                <button class="btn btn-default" (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee"><i class="fa fa-user-plus"></i> Add New Shift </button>
-                                                                            <table class="table table-bordered">
+                                                                   
+                                                                                <button class="btn btn-default" style="margin-bottom:15px;" (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee"><i class="fa fa-user-plus"></i> Add New Shift </button>
+                                                                              <div class="table-responsive">
+                                                                                <table class="table table-bordered table-striped" >
+                                                                                    	<thead>	
+                                                                                                <tr>
+                                                                                                           <th  scope="col">Name</th>
+                                                                                                           <th  scope="col">Time</th>
+                                                                                                           <th  scope="col">Duration</th>
+                                                                                                           <th  scope="col">Position</th>
+                                                                                                           <th  scope="col">Location</th>
+                                                                                                           <th  colspan="2" scope="col">Actions</th>
+                                                                                                </tr>
+                                                                                                </thead>
                                                                                     <tbody>
                                                                                  
 
@@ -461,7 +547,7 @@
                                                                                         <td>{{shift.break}} Hour(s)</td>
                                                                                         <td>{{shift.position}}</td>
                                                                                         <td>{{shift.schedule}}</td>
-                                                                                        <td><button (click)="editShift(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
+                                                                                        <!-- <td><button (click)="editShift(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                                                                 Edit
                                                                                             </button>
                                                                                         </td>
@@ -469,16 +555,27 @@
                                                                                         <button (click)="deleteShift(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
                                                                                                 Delete
                                                                                         </button>
-                                                                                        </td>
-                                                                                 </tr>
+                                                                                        </td> -->
+                                                                                        <td>
+                                                                                                <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" title="View details" ng-reflect-href="javascript:;">
+                                                                                                        <i  class="la la-ellipsis-h"></i>
+                                                                                                    </a>
+                                                                                                    <a (click)="editShift(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+                                                                                                        <i class="la la-edit"></i>
+                                                                                                    </a>
+                                                                                                    <a (click)="deleteShift(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                                                                        <i class="la la-trash"></i>
+                                                                                                    </a>
+                                                                                       </td>
+                                                                                        </tr>
 
 
                                                                                  
-                                                                            </tbody></table>
+                                                                            </tbody>
+                                                                        </table>
+                                                                              </div>
 
-                                                                            
-                                                                        </div>
-                                                                </div>
+                                                                
                                                         </div>
                                             
                                                 
@@ -1452,9 +1549,9 @@
                              <!-- Taxes -->
                              <div class="tab-pane" id="taxes-tab">
                                 <div class="col-xl-12" *ngIf="!isRoleAddViewOpen">
-                                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
-                                            <div class="m-portlet__body">
-                                                    <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-default"><i class="fa fa-plus" ></i> Add Tax </button>
+                                 
+                                          
+                                                    <button style="margin-bottom:15px;" (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-default"><i class="fa fa-plus" ></i> Add Tax </button>
                                                <!-- <ul>
                                                    <li *ngFor="let t of taxesServices.getTaxes()">
                                                        <span>{{t.username}}</span>
@@ -1463,9 +1560,11 @@
 
                                                    </li>
                                                </ul> -->
+                                               <div class="table-responsive">
 
-                                               <table class="table table-bordered RolesTableViewEdit">
-                                                    <tr>
+                                               <table class="table table-bordered table-striped RolesTableViewEdit">
+                                                <thead>    
+                                                <tr>
                                                            <th  scope="col">Tax Name</th>
                                                            <th  scope="col">Percentage</th>
                                                            <th  scope="col">Jurisdiction</th>
@@ -1473,21 +1572,34 @@
                                                            <th  scope="col">Status</th>
 
                                                     </tr>
+                                                </thead>
+                                                <tbody>
                                                     <tr *ngFor="let t of taxesServices.getTaxes()">
                                                             <td>{{t.username}}</td>
                                                             <td>{{t.percentage}} %</td>
                                                             <td>{{t.jurisdiction}}</td>
-                                                            <td>
+                                                            <!--td>
                                                                 <i class="fa fa-edit" (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction, t.dummyData, t.discription)"></i> |
                                                                 <i class="fa fa-trash" (click)="removeTax(t.id)"></i> |
                                                                 <i class="fa fa-info" data-toggle="modal" data-target="#myModal" (click)="onDetail(t.dummyData, t.discription)"></i>
-                                                                <!-- <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction)" class="btn m-btn--pill  btn-sm  btn-outline-warning">
+                                                                <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction)" class="btn m-btn--pill  btn-sm  btn-outline-warning">
                                                                     Edit
                                                                 </button>
                                                                 <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="removeTax(t.id)" type="button">
                                                                         Delete
-                                                                    </button> -->
-                                                            </td>
+                                                                    </button> 
+                                                            </td-->
+                                                            <td>
+                                                                    <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="modal" data-target="#myModal" (click)="onDetail(t.dummyData, t.discription)">
+                                                                            <i  class="la la-ellipsis-h"></i>
+                                                                        </a>
+                                                                        <a   class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" (click)="isRoleAddViewOpen=!isRoleAddViewOpen; onEdit(t.id,t.username,t.percentage,t.jurisdiction, t.dummyData, t.discription)">
+                                                                            <i class="la la-edit"></i>
+                                                                        </a>
+                                                                        <a (click)="removeTax(t.id)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                                            <i class="la la-trash"></i>
+                                                                        </a>
+                                                           </td>
                                                             <td>
                                                                     <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
                                                                             <label>
@@ -1502,9 +1614,11 @@
                                                                         </button>
                                                             </td> -->
                                                      </tr>
+                                                </tbody>
                                             </table>
-                                            </div>
-                                    </div>
+                                               </div>
+                                           
+                                    
                             </div>
                             <div class="col-xl-12 "  *ngIf="isRoleAddViewOpen && !isUpdate">
                                     <button (click)="isRoleAddViewOpen=!isRoleAddViewOpen;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
@@ -1701,9 +1815,11 @@
                 
                 <div class="row" *ngIf="!isPricingAddEditOpen">
                     <div class="col-sm-12">
-                            <button (click)="isPricingAddEditOpen=!isPricingAddEditOpen; editPricingIndex=undefined;" class="btn btn-default"><i class="fa fa-plus"></i> Add Price </button>
-                            <table class="table table-bordered RolesTableViewEdit">
-                                    <tr>
+                            <button style="margin-bottom:15px;" (click)="isPricingAddEditOpen=!isPricingAddEditOpen; editPricingIndex=undefined;" class="btn btn-default"><i class="fa fa-plus"></i> Add Price </button>
+                            <div class="table-responsive">
+                            <table class="table table-bordered table-striped RolesTableViewEdit">
+                                    <thead>
+                                <tr>
                                            <th>Service</th>
                                            <th  scope="col">Categories</th>
                                            <th  scope="col">Prices</th>
@@ -1711,13 +1827,15 @@
                                            <!-- <th  scope="col">Jurisdiction</th> -->
                                            <!-- <th  colspan="2" scope="col">Prices</th> -->
                                     </tr>
-            
+                                    </thead>
+
+                                    <tbody>
             
                                     <tr *ngFor="let pricingItem of pricing; let i = index;">
                                         <td>{{pricingItem.serviceName}}</td>
                                         <td>{{pricingItem.categoryName}}</td>
                                         <td>${{pricingItem.price}}</td>
-                                        <td><button (click)="editPricing(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning"  type="button">
+                                        <!-- <td><button (click)="editPricing(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning"  type="button">
                                                 Edit
                                             </button>
                                         </td>
@@ -1725,11 +1843,24 @@
                                                 <button class="btn m-btn--pill btn-sm btn-outline-danger" (click)="deletePricing(i)"  type="button">
                                                         Delete
                                                     </button>
-                                        </td>
+                                        </td> -->
+                                        <td class="text-center">
+                                                <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" title="View details" ng-reflect-href="javascript:;">
+                                                        <i  class="la la-ellipsis-h"></i>
+                                                    </a>
+                                                    <a (click)="editPricing(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Edit details" ng-reflect-href="javascript:">
+                                                        <i class="la la-edit"></i>
+                                                    </a>
+                                                    <a (click)="deletePricing(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete" ng-reflect-href="javascript:">
+                                                        <i class="la la-trash"></i>
+                                                    </a>
+                                       </td>
                                     </tr>
+                                    </tbody>
                                     
                                   
                             </table>
+                            </div>
                     </div>
                 </div>
 

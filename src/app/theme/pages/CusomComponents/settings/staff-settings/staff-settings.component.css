@@ -25,10 +25,12 @@ app-staff-settings{
 {
     width: 100% !important;
 }
+/*
 .m-content
 {
     padding: 10px 30px 45px 30px;
 }
+*/
 .m-tabs .m-nav .m-nav__item a
 {
     padding: 3px 21px;
@@ -45,11 +47,7 @@ app-staff-settings{
     height: 30px;
     border-radius: 50%;
 }
-.m-content
-{
-    padding: 0px;
 
-}
 .content .m-portlet.m-portlet--space
 {
     padding-left: 0px;
@@ -63,7 +61,26 @@ app-staff-settings{
     background-color: ghostwhite;
     padding: 15px 25px;
 }
-.m-content , .full-height
+/*.m-content , .full-height
 {
     height:100%;
+}
+*/
+.m-subheader {
+    padding-top: 5px;
+}
+
+thead tr
+{
+   background-color: #555;
+   color: white;
+}
+
+.m-content 
+{
+   padding: 0px 0px;
+}
+.table th, .table td
+{
+    vertical-align: middle;
 }
