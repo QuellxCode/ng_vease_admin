@@ -128,7 +128,7 @@ export class OverViewSettingsComponent implements OnInit {
     public searchControl: FormControl;
     // public BillingandShipping: FormControl;
     public zoom: number;
-    /*@ViewChild('search') public searchElementRef: ElementRef;*/
+    @ViewChild('search') public searchElementRef: ElementRef;
     
     constructor(private _script: ScriptLoaderService, private taxesServices: TaxesService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
     

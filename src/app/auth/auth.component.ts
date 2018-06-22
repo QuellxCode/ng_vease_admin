@@ -58,7 +58,9 @@ export class AuthComponent implements OnInit {
     }
 
     signin() {
-        //this.loading = true;
+
+        this.loading = true;
+        CreateServiceApi
         this._authService.login(this.model.email, this.model.password)
             .subscribe(
                 (data => {
@@ -70,8 +72,9 @@ export class AuthComponent implements OnInit {
                 }
                 ),
                 (error => {
-                    console.log(error);
-                    
+                    this.showAlert('alertSignin');
+                    this._alertService.error(error);
+                    this.loading = false;
                 })
             )
         // console.log(this.model.email + ' ' + this.model.password);
@@ -88,7 +91,7 @@ export class AuthComponent implements OnInit {
 
     signup(email, pass, rpass, name) {
         // console.log(name.value, email.value, pass.value, rpass.value);
-        // this.loading = true;
+        this.loading = true;
         // this._userService.create(this.model).subscribe(
         //     data => {
         //         this.showAlert('alertSignin');
@@ -119,7 +122,7 @@ export class AuthComponent implements OnInit {
               },
               error => {
                 //   console.log(error);
-                  this.showAlert('alertSignup');
+                          this.showAlert('alertSignup');
                           this._alertService.error(error);
                           this.loading = false;
               }

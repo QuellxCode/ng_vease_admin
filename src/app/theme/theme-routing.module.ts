@@ -81,6 +81,16 @@ const routes: Routes = [
                 "path": "role-settings",
                 "loadChildren": ".\/pages\/CusomComponents\/settings\/roles-settings\/role-settings.module#RolesSettingsModule"
             }]
+    },
+    {
+        "path": "",
+        component: ThemeComponent,
+        "canActivate": [AuthGuard],
+        "children": [
+            {
+                "path": "permissions-settings",
+                "loadChildren": ".\/pages\/CusomComponents\/settings\/permissions-settings\/permissions-settings.module#PermissionsSettingsModule"
+            }]
     }
 
     // {
