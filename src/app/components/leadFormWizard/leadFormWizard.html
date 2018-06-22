@@ -4,7 +4,7 @@
 			<!--Begin::Main Portlet-->
 			<div class="m-portlet" style="box-shadow: none;">
 				<!--begin: Portlet Head-->
-				<div class="m-portlet__head">
+				<!-- <div class="m-portlet__head">
 					<div class="m-portlet__head-caption">
 						<div class="m-portlet__head-title">
 							<h3 class="m-portlet__head-text">
@@ -24,7 +24,7 @@
 							</li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 				<!--end: Portlet Head-->  			<!--begin: Form Wizard-->
 				<div class="m-wizard m-wizard--5 m-wizard--success" id="m_wizard">
 					<!--begin: Message container -->
@@ -34,7 +34,7 @@
 					<!--end: Message container -->  				<!--begin: Form Wizard Head -->
 					<div class="m-wizard__head m-portlet__padding-x">
 						<div class="row">
-							<div class="col-xl-10 offset-xl-1">
+							<div class="col-xl-12">
 								<!--begin: Form Wizard Nav -->
 								<div class="m-wizard__nav">
 									<div class="m-wizard__steps">
@@ -137,41 +137,7 @@
 
 
 												
-														<div class="form-group m-form__group row" *ngIf="Categorgy=='peronsal'">
-																<label class="col-xl-3 col-lg-3 col-form-label">
-																	*Sub-Categories:
-																</label>
-																<div class="col-xl-9 col-lg-9">
-																		<select  class="form-control m-input m-input--square">
-																				<option  value="Makeup" >
-																						Makeup
-																					</option>
-																					<option  value="Nail Technician" >
-																						Nail Technician
-																					</option>
-																					
-																					<option  value="Hair Stylists">
-																						Hair Stylists
-																					</option>
-													
-																					<option  value="Eyelash Extensions" >
-																							Eyelash Extensions
-																					</option>
-													
-																					<option  value="Barber">
-																							Barber
-																					</option>
-																					<option  value="Barber">
-																							Massage Therapist
-																					</option>
-						
-																					<option  value="Barber">
-																							Waxing
-																					</option>
-						
-																		</select>
-																</div>
-															</div>
+														
 
 
 															<div class="form-group m-form__group row" *ngIf="Categorgy=='health'">
@@ -210,10 +176,45 @@
 																				</select>
 																		</div>
 																	</div>
+																	<div class="form-group m-form__group row" >
+																			<label class="col-xl-3 col-lg-3 col-form-label">
+																				*Services:
+																			</label>
+																			<div class="col-xl-9 col-lg-9">
+																					<select  class="form-control m-input m-input--square" data-live-search="true">
+																							<option  value="Makeup" >
+																									Makeup
+																								</option>
+																								<option  value="Nail Technician" >
+																									Nail Technician
+																								</option>
+																								
+																								<option  value="Hair Stylists">
+																									Hair Stylists
+																								</option>
+																
+																								<option  value="Eyelash Extensions" >
+																										Eyelash Extensions
+																								</option>
+																
+																								<option  value="Barber">
+																										Barber
+																								</option>
+																								<option  value="Barber">
+																										Massage Therapist
+																								</option>
+									
+																								<option  value="Barber">
+																										Waxing
+																								</option>
+									
+																					</select>
+																			</div>
+																		</div>
 
 																	<div class="form-group m-form__group row" >
 																			<label class="col-xl-3 col-lg-3 col-form-label">
-																				Consumer Comments:
+																				Comments:
 																			</label>
 																			<div class="col-xl-9 col-lg-9">
 																					<textarea class="form-control" id="textArea" rows="3"></textarea>
@@ -230,8 +231,8 @@
 											<div class="m-form__section m-form__section--first">
 												<div class="form-group m-form__group row">
 													<div class="col-lg-12">
-															<label for="Subject">Subject</label>
-															<input type="text" class="form-control" value="The Subject" id="Subject">
+															<label for="Subject">Service</label>
+															<input type="text" class="form-control" value="Hair Trimming" disabled>
 													</div>
 												</div>
 
@@ -239,7 +240,7 @@
 												<div class="form-group m-form__group row">
 														<div class="col-lg-12">
 																<label for="clientName">Client Name</label>
-																<input type="clientName" value="The Company" class="form-control" id="Subject">
+																<input type="clientName" value="The Company" class="form-control" id="Subject" disabled>
 														</div>
 												</div>
 
@@ -247,21 +248,21 @@
 												<div class="form-group m-form__group row">
 													<div class="col-lg-6 m-form__group-sub">
 														<label class="form-control-label">
-															* Date Range Start:
+															* Date Time Range Start:
 														</label>
-														<input class="form-control m-input" id="example-date-input" type="date" value="2017-08-19">
+														<input class="form-control m-input"  type="datetime-local" value="2018-08-19T13:45:00">
 																</div>
 													<div class="col-lg-6 m-form__group-sub">
 														<label class="form-control-label">
-															* Date Range End:
+															* Date Time Range End:
 														</label>
-														<input class="form-control m-input" id="example-date-input" type="date" value="2017-10-19">
+														<input class="form-control m-input"  type="datetime-local" value="2018-08-20T14:50:20">
 													</div>
 												</div>
 												<div class="m-separator m-separator--dashed m-separator--lg"></div>
 
 												<div class="listOfAvailableEmployees">
-												
+												    <h5>Employees Available</h5>
 														<div class="m-widget4 m-widget4--progress">
 																<div class="m-widget4__item">
 																	<div class="m-widget4__img m-widget4__img--pic">
@@ -452,7 +453,7 @@
 																			*Crypto Currency Type:
 																	</label>
 																	<div class="col-xl-9 col-lg-9">
-																			<select  class="form-control m-input m-input--square">
+																			<select  class="form-control m-input m-input--square" >
 																					<option  value="Bitcoin">
 																							Bitcoin
 																						</option>
@@ -462,6 +463,28 @@
 																			</select>
 																	</div>
 																</div>
+
+																
+																<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																				*Card Name:
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																				<input class="form-control m-input"placeholder="e.g. Stevens Hawks" type="text">
+																		</div>
+																</div>
+
+
+																<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																				*Card Number:
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																				<input class="form-control m-input"placeholder="xxxx-xxxx-xxxx" type="text">
+																		</div>
+																	</div>
+
+
 							
 											</div>
 									

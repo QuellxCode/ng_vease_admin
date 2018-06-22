@@ -30,3 +30,8 @@
     background-color: #F2F3F8;
     box-shadow: none;
  }
+ thead tr
+ {
+    background-color: #555;
+    color: white;
+ }

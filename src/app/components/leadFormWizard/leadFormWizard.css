@@ -11,3 +11,12 @@ label.m-radio
 {
 font-size:12px;
 }
+
+.m-wizard__steps
+{
+    margin-top:10px !important;
+}
+.m-wizard__step
+{
+    padding:10px !important;
+}

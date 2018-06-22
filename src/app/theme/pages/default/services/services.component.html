@@ -66,6 +66,10 @@
 			<i class="fa fa-plus"></i> Broadcast
 	</button>
 
+	<button class="btn btn-link" [hidden]="!isDisplayForm" (click)="changeViewForm()">
+			<i class="fa fa-plus"></i> Create
+		</button>
+
 	<button  class="btn btn-link pull-right" (click)="changeView()"><i class="fa"  [class.hidden]="!isGridView"  [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}" ></i> {{viewName}} </button>
 
 		
@@ -2008,6 +2012,9 @@
 		<div class="card" role="document">
 			<div class="card-content">
 				<div class="card-header">
+						<button class="btn btn-link" (click)="changeViewForm()" style="margin-left: 90px;">
+								<i class="fa fa-backward"></i> Back
+							</button>
 					<h5 class="modal-title" id="supportModalLabel">
 						Create a Service
 					</h5>
@@ -2408,7 +2415,7 @@
 
 
 <!-- Support Ticket Modal Start-->
-<div aria-labelledby="supportModalLabel" class="modal fade show" id="c_modal_broadcast" role="dialog" tabindex="-1">
+<!-- <div aria-labelledby="supportModalLabel" class="modal fade show" id="c_modal_broadcast" role="dialog" tabindex="-1">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -2489,7 +2496,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 <!-- Support Ticket Modal Ends-->
 
 <!-- Modals End-->

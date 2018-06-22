@@ -1,105 +1,46 @@
-<div class="container" style="padding-top: 20px;">
+<div  appunwraptag="" class="m-subheader">
+    <div  class="d-flex align-items-center">
+        <div  class="mr-auto">
+                            <h3  class="m-subheader__title" style="display:inline-block">
+                            Permission Settings 
+                            </h3>
+        </div>
+</div>
+    
+</div>
 
-        <div class="m-subheader" appunwraptag="" >
-                <div class="d-flex align-items-center"  style="margin-top: -40px;">
-                    <div class="mr-auto">
-                        <h3 class="m-subheader__title">
-                            Permissions Settings
-                        </h3><br>
-                        <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                            <li class="m-nav__item m-nav__item--home">
-                                <a href="#" class="m-nav__link m-nav__link--icon">
-                                    <i class="m-nav__link-icon la la-home"></i>
-                                </a>
-                            </li>
-                            <li class="m-nav__separator">
-                                -
-                            </li>
-                            <li class="m-nav__item">
-                                <a href="" class="m-nav__link">
-                                    <span class="m-nav__link-text">
-                                        Settings
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="m-nav__separator">
-                                -
-                            </li>
-                            <li class="m-nav__item">
-                                <a href="" class="m-nav__link">
-                                    <span class="m-nav__link-text">
-                                        Permissions Settings
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover"
-                            aria-expanded="true">
-                            <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                                <i class="la la-plus m--hide"></i>
-                                <i class="la la-ellipsis-h"></i>
-                            </a>
-                            <div class="m-dropdown__wrapper">
-                                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                <div class="m-dropdown__inner">
-                                    <div class="m-dropdown__body">
-                                        <div class="m-dropdown__content">
-                                            <ul class="m-nav">
-                                                <li class="m-nav__section m-nav__section--first m--hide">
-                                                    <span class="m-nav__section-text">
-                                                        Quick Actions
-                                                    </span>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-share"></i>
-                                                        <span class="m-nav__link-text">
-                                                            Activity
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                        <span class="m-nav__link-text">
-                                                            Messages
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-info"></i>
-                                                        <span class="m-nav__link-text">
-                                                            FAQ
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                        <span class="m-nav__link-text">
-                                                            Support
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__separator m-nav__separator--fit"></li>
-                                                <li class="m-nav__item">
-                                                    <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                        Submit
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr _ngcontent-c1 class="customhr">
-            </div>
+<div class="m-subheader breadcrumsubheader">
+
+    <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+            <li class="m-nav__item m-nav__item--home">
+                <a class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard" href="/dashboard">
+                    <i class="m-nav__link-icon la la-home"></i>
+                </a>
+            </li>
+            <li class="m-nav__separator">
+                -
+            </li>
+        
+            <li class="m-nav__item">
+                <a class="m-nav__link" href="" ng-reflect-href="">
+                    <span class="m-nav__link-text">
+                        Settings
+                    </span>
+                </a>
+            </li>
+            <li class="m-nav__separator">
+                    -
+                </li>
+            
+                <li class="m-nav__item">
+                    <a class="m-nav__link" href="" ng-reflect-href="">
+                        <span class="m-nav__link-text">
+                            Permission Settings
+                        </span>
+                    </a>
+                </li>
+        </ul>
+</div>
     <!-- <div class="row">
         <div class="col-md-6">
             <form [formGroup]="permissionForm" (ngSubmit)="onSubmit()">
@@ -129,28 +70,42 @@
               </table>
         </div> -->
         <!-- <loading-spinner-settings></loading-spinner-settings> -->
-            <loading-spinner-settings *ngIf="loadingSpinner" ></loading-spinner-settings>
+            <!-- <loading-spinner-settings *ngIf="loadingSpinner" ></loading-spinner-settings> -->
 
-
+<div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__body">
+    <loading-spinner-settings *ngIf="loadingSpinner" ></loading-spinner-settings>
     <div class="row ">
 
-
         <div class="col-xl-12" *ngIf="!isPermissionAddViewOpen && !isPermissionUpdateViewOpen && !loadingSpinner">
-                <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground">
-                        <div class="m-portlet__body">
-                                <button (click)="isPermissionAddViewOpen=!isPermissionAddViewOpen;" class="btn btn-default"><i class="fa fa-user-plus" ></i> Add New Role </button>
-                            <table class="table table-bordered RolesTableViewEdit">
+               
+                     
+                         <button style="margin-bottom:15px;" (click)="isPermissionAddViewOpen=!isPermissionAddViewOpen;" class="btn btn-default"><i class="fa fa-user-plus" ></i> Add New Permission </button>
+                            <table class="table table-striped RolesTableViewEdit">
+                                <thead>
                                     <tr>
                                            <th  scope="col">Role</th>
                                            <th  scope="col">Created At</th>
-                                           <th  colspan="2" scope="col">Actions</th>
+                                           <th class="text-center" scope="col">Actions</th>
                                     </tr>
+                                </thead>
+                                <tbody>
                                     <tr *ngFor="let item of permissionService.getPermissions()">
                                             <td>{{item.name}}</td>
                                             <td>{{item.created_at}}</td>
-                                            <td>
-                                                <i class="fa fa-edit" (click)="isPermissionUpdateViewOpen=!isPermissionUpdateViewOpen; onUpdate(item.name, item.rand_id)"></i>
-                                                <i class="fa fa-trash" (click)="onDelete(item)" style="margin-left: 15px;"></i>
+                                            <td class="text-center">
+                                                <!-- <i class="fa fa-edit" (click)="isPermissionUpdateViewOpen=!isPermissionUpdateViewOpen; onUpdate(item.name, item.rand_id)"></i>
+                                                <i class="fa fa-trash" (click)="onDelete(item)" style="margin-left: 15px;"></i> -->
+
+                                                <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" ng-reflect-href="javascript:;" title="View details">
+                                                        <i class="la la-ellipsis-h"></i>
+                                                </a>
+                                                <a  class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:"(click)="isPermissionUpdateViewOpen=!isPermissionUpdateViewOpen; onUpdate(item.name, item.rand_id)">
+                                                        <i  class="la la-edit"></i>
+                                                </a>
+                                                <a  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" (click)="onDelete(item)"title="Delete">
+                                                        <i  class="la la-trash"></i>
+                                                    </a>
                                                 <!-- <button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
                                                     Edit
                                                 </button> -->
@@ -161,15 +116,14 @@
                                                         </button>
                                             </td> -->
                                      </tr>
+                                </tbody>
                             </table>
-                        </div>
-                </div>
+                       
+                
         </div>
 
     <div class="col-xl-12 "  *ngIf="isPermissionAddViewOpen">
         <!--begin:: Widgets/Top Products-->
-        <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height greyBackground" style="padding-bottom: 30px;">
-            <div class="m-portlet__body full-height-element">
                     <button (click)="isPermissionAddViewOpen=!isPermissionAddViewOpen; editRoleIndex=undefined;" class="btn btn-link" style="padding:0px;"><i class="fa fa-chevron-left"  ></i> Back </button>
                 <div class="form-group m-form__group">
                     <form [formGroup]="permissionForm" (ngSubmit)="onSubmit()">
@@ -189,10 +143,7 @@
                     <!-- <div>
                         <button class="btn btn-primary" type="submit" [disabled]="!permissionForm.valid">Save</button>
                     </div> -->
-
-            </div>
-        </div>
-        <!--end:: Widgets/Top Products-->
+       
     </div>
     
 
@@ -221,4 +172,5 @@
 
 
 </div>
+    </div>
 </div>
