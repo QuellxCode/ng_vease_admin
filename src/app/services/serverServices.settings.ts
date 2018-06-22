@@ -53,4 +53,17 @@ export class Settings_Services {
         return this.http.delete(deletePermissionURL, options)
            .map((response) => console.log(response));
     }
+
+    updatePermission(rand_id, name) {
+        let updatePermissionURL = 'http://www.sharjeelkhan.ca/vease/vease-app/api/v1/update-staff-permission/';
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'Bearer ' + this.userToken);
+        var options = new RequestOptions({headers: headers});
+        updatePermissionURL = updatePermissionURL + rand_id;
+        console.log(updatePermissionURL);
+        var body = {name: name}
+        return this.http.post(updatePermissionURL, body,options)
+           .map((response) => console.log(response));
+    }
 }

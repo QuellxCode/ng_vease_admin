@@ -7,6 +7,7 @@ import { SettingsComponent } from './../settings.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Settings_Services } from '../../../../../services/serverServices.settings';
 import { PermissionService } from '../../../../../services/permissions.services';
+import { SpinnerComponent } from '../../loading-spinner/spinner.component';
 const routes: Routes = [
     {
         "path": "",
@@ -25,11 +26,12 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         LayoutModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ], exports: [
         RouterModule
     ], declarations: [
-        PermissionsSettingsComponent
+        PermissionsSettingsComponent,
+        SpinnerComponent
     ],
     providers: [Settings_Services, PermissionService]
 })

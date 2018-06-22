@@ -6,7 +6,7 @@ export class PermissionService {
     public permissions = [];
 // public permissionAdded = new EventEmitter();
 public permissionRemoved = new EventEmitter();
-
+// public permissionUpdated = new EventEmitter();
 // addPermission(permission) {
 // this.permissions.push(permission);
 // this.permissionAdded.emit(permission);

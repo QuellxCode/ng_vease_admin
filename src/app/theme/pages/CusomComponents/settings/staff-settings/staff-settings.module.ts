@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutModule } from '../../../../layouts/layout.module';
 import { StaffSettingsComponent } from './staff-settings.component';
-
-
+// import { LayoutModule } from '../../../../layouts/layout.module';
+import { WizardWizard3Component } from '../../../../../components/wizard3/wizard-wizard-3.component';
 const routes: Routes = [
     {
         'path': '',
@@ -21,11 +21,16 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes), LayoutModule
-    ], exports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        LayoutModule
+    ],
+    exports: [
         RouterModule
-    ], declarations: [
+    ],
+    declarations: [
         StaffSettingsComponent,
+        WizardWizard3Component
     ],
 })
 export class StaffSettingsModule {
