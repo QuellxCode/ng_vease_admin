@@ -71,6 +71,7 @@ export class WizardWizard3Component implements OnInit, AfterViewInit {
         this.isDisplayStaffEditAndSee = false;
     }
     editStaff(staffIndex) {
+        console.log('called');
         this.isDisplayStaffEditAndSee = true;
         this.editStaffIndex = staffIndex;
     }

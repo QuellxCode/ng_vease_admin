@@ -85,3 +85,41 @@ thead tr
     vertical-align: middle;
 }
 
+.staff-back {
+    padding-top: 25px;
+    margin-left: -45px;
+    padding-top: 20px;
+}
+
+.step-staff {
+    height: 40px !important;
+    width: 40px !important;
+}
+
+.progress-staff {
+    margin-right: 45px;
+}
+
+.top-settings {
+    padding-top: 0px;
+}
+
+.staff-header {
+    height: 2px !important;
+}
+
+.step-staff-icon {
+    display: inherit;
+}
+
+.m-wizard.m-wizard--3 .m-wizard__head .m-wizard__nav .m-wizard__steps .m-wizard__step {
+    margin-bottom: 15px;
+}
+
+.m-wizard.m-wizard--3 .m-wizard__form {
+    padding-top: 10px;
+}
+
+.step-margin-top {
+    margin-top: -15px;
+}
