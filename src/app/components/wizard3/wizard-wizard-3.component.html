@@ -126,7 +126,7 @@
                         <!--begin: Form Wizard Form-->
                         <div class="m-wizard__form">
                             <!-- 							1) Use m-form--label-align-left class to alight the form input lables to the right 							2) Use m-form--state class to highlight input control borders on form validation 						-->
-                            <form class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+                            <form class="m-form m-form--label-align-left- m-form--state-" id="m_form" [formGroup]="staffForm" (ngSubmit)="onSubmit()">
                                 <!--begin: Form Body -->
                                 <div class="m-portlet__body m-portlet__body--no-padding">
                                     <!--begin: Form Wizard Step 1-->
@@ -144,7 +144,7 @@
                                                             First Name:
                                                         </label>
                                                         <input [value]="(editStaffIndex!=undefined) ? staffs[editStaffIndex].Name : ''" aria-describedby="input1" class="form-control form-control-sm m-input"
-                                                            placeholder="First Name" type="text" #firstNameStaff>
+                                                            placeholder="First Name" type="text" formControlName="firstname">
                                                     </div>
 
 
@@ -152,7 +152,7 @@
                                                         <label for="input2">
                                                             Last Name:
                                                         </label>
-                                                        <input aria-describedby="input2" class="form-control form-control-sm m-input" placeholder="Last Name" type="text" #lastNameStaff>
+                                                        <input class="form-control form-control-sm m-input" placeholder="Last Name" type="text" formControlName="lastname">
                                                     </div>
 
 
@@ -160,47 +160,48 @@
                                                         <label for="label3">
                                                             Date Of Birth:
                                                         </label>
-                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" id="label3" placeholder="DOB" type="text">
+                                                        <input class="form-control form-control-sm m-input" id="label3" placeholder="DOB" type="text" formControlName="dob">
                                                     </div>
 
                                                     <div class="form-group m-form__group">
                                                         <label>
                                                             Company Location:
                                                         </label>
-                                                        <select class="form-control form-control-sm m-input" type="text">
-                                                            <option selected="">Default Location</option>
-                                                            <option>1st Location</option>
-                                                            <option>2nd Location</option>
-                                                            <option>The Median Location</option>
-                                                            <option>Green Location -4th</option>
-                                                            <option>The Last Location</option>
+                                                        <select class="form-control form-control-sm m-input" type="text"  formControlName="companyLocation">
+                                                            <option *ngFor="let item of companyLocations" [value]="item">{{item}}</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group m-form__group">
                                                         <label for="label3">
-                                                            Facebook:
+                                                            Email:
                                                         </label>
-                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Facebook Link" type="text">
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Email" type="text" formControlName="email">
                                                     </div>
 
                                                     <div class="form-group m-form__group">
                                                         <label for="label3">
-                                                            Twitter:
+                                                            Facebook:
                                                         </label>
-                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Facebook Link" type="text">
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Facebook Link" type="text" formControlName="facebook">
                                                     </div>
+                                                    <div class="form-group m-form__group">
+                                                            <label for="label3">
+                                                                Twitter:
+                                                            </label>
+                                                            <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Facebook Link" type="text" formControlName="twitter">
+                                                        </div>
 
                                                     <div class="form-group m-form__group">
                                                         <label for="label3">
                                                             Instagram:
                                                         </label>
-                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Instagram Link" type="text">
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Instagram Link" type="text" formControlName="instagram">
                                                     </div>
                                                     <div class="form-group m-form__group">
                                                         <label for="exampleTextarea">
                                                             Contact Number:
                                                         </label>
-                                                        <input class="form-control-sm form-control m-input" id="example-tel-input" type="tel" value="1-(555)-555-5555">
+                                                        <input class="form-control-sm form-control m-input" type="tel" value="1-(555)-555-5555" formControlName="contactNo">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -208,7 +209,7 @@
                                                         <label for="label3">
                                                             Linkedin:
                                                         </label>
-                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Linkedin Link" type="text">
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Linkedin Link" type="text" formControlName="linkedIn">
                                                     </div>
 
 
@@ -216,14 +217,14 @@
                                                         <label for="label3">
                                                             Address:
                                                         </label>
-                                                        <textarea class="form-control m-input" rows="3"></textarea>
+                                                        <textarea class="form-control m-input" rows="3" formControlName="address"></textarea>
                                                     </div>
 
                                                     <div class="form-group m-form__group">
                                                         <label for="exampleTextarea">
                                                             Description:
                                                         </label>
-                                                        <textarea class="form-control m-input" rows=""></textarea>
+                                                        <textarea class="form-control m-input" rows="" formControlName="discription"></textarea>
                                                     </div>
 
 
@@ -254,7 +255,7 @@
                                                             File Browser
                                                         </label>
                                                         <div class="custom-file">
-                                                            <input class="custom-file-input" id="customFile" type="file">
+                                                            <input class="custom-file-input" id="customFile" type="file"  (change)="handleFileInput($event.target.files)">
                                                             <label class="custom-file-label" for="customFile">
                                                                 Choose file
                                                             </label>
@@ -469,16 +470,18 @@
                                                 </a>
                                             </div>
                                             <div class="col-lg-6 m--align-right">
-                                                <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
-                                                    <span>
-                                                        <i class="la la-check"></i>
-                                                        &nbsp;&nbsp;
-                                                        <span>
-                                                            Submit
-                                                        </span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="btn btn-success m-btn m-btn--custom m-btn--icon" data-wizard-action="next">
+                                                <!-- <button class="btn btn-primary m-btn m-btn--custom m-btn--icon" type="submit" data-wizard-action="submit">Submit</button> -->
+                                                        <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
+                                                                <span>
+                                                                    <i class="la la-check"></i>
+                                                                    &nbsp;&nbsp;
+                                                                    <span>
+                                                                        Submit
+                                                                    </span>
+                                                                </span>
+                                                            </a>
+                                                <button class="btn btn-success m-btn m-btn--custom m-btn--icon" data-wizard-action="next">Save & Continue</button>
+                                                <!-- <a href="#" class="btn btn-success m-btn m-btn--custom m-btn--icon" data-wizard-action="next">
                                                     <span>
                                                         <span>
                                                             Save & Continue
@@ -486,7 +489,7 @@
                                                         &nbsp;&nbsp;
                                                         <i class="la la-arrow-right"></i>
                                                     </span>
-                                                </a>
+                                                </a> -->
                                             </div>
                                         </div>
                                     </div>

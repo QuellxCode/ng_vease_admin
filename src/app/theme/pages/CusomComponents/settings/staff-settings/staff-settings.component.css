@@ -123,3 +123,7 @@ thead tr
 .step-margin-top {
     margin-top: -15px;
 }
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }

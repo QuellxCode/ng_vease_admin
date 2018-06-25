@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutModule } from '../../../../layouts/layout.module';
 import { StaffSettingsComponent } from './staff-settings.component';
-// import { LayoutModule } from '../../../../layouts/layout.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Staff_Services } from '../../../../../services/staffServices';
 import { WizardWizard3Component } from '../../../../../components/wizard3/wizard-wizard-3.component';
 const routes: Routes = [
     {
@@ -23,7 +24,9 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        LayoutModule
+        LayoutModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         RouterModule
@@ -32,6 +35,7 @@ const routes: Routes = [
         StaffSettingsComponent,
         WizardWizard3Component
     ],
+    providers: [Staff_Services]
 })
 export class StaffSettingsModule {
 }
