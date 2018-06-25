@@ -21,10 +21,6 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/index\/index.module#IndexModule"
             },
             {
-                "path": "requests",
-                "loadChildren": ".\/pages\/default\/requests\/requests.module#RequestsModule"
-            },
-            {
                 "path": "services",
                 "loadChildren": ".\/pages\/default\/services\/services.module#ServiceModule"
             },

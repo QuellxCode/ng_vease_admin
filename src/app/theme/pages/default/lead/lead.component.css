@@ -11,6 +11,7 @@
 
 .m-content.m-content-nopadding{
     padding: 0px !important;
+    margin-top: -14px;
 }
 m-widget4 m-widget4__item {
     cursor: grab;

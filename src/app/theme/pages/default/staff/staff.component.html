@@ -72,7 +72,7 @@
 
 </div>
 
-<div class="m-subheader breadcrumsubheader" style="margin-top: -14px !important;">
+<div class="m-subheader breadcrumsubheader" style="margin-top: -14px !important;" *ngIf="!isDisplayDetail">
 		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
 				<li class="m-nav__item m-nav__item--home">
 					<a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
@@ -100,7 +100,7 @@
 <!--Begin::Section-->
 
 
-<div class="row gridView" style="padding: 0px 10px;" [style.display]="(isGridView && !isDisplayDetail) ? 'flex' : 'none'" >
+<div class="row gridView" [style.display]="(isGridView && !isDisplayDetail) ? 'flex' : 'none'" >
 	
 
 		<div  class="col-md-6">
@@ -535,7 +535,7 @@
 	
 	
 	</div>
-<div class="row justify-content-md-center servicesListForm" style="padding: 0px 10px;"   [style.display]="(!isGridView && !isDisplayDetail) ? 'flex' : 'none'">
+<div class="row justify-content-md-center servicesListForm marginTopNegative14" style="padding: 0px 10px;"   [style.display]="(!isGridView && !isDisplayDetail) ? 'flex' : 'none'">
 
 <div class="m-portlet m-portlet--full-height">
 	
@@ -932,14 +932,14 @@
 
 <div class="row detailSection" [style.display]="isDisplayDetail ? 'flex' : 'none'">
 	<div class="col-md-12">
-			<div class="m-portlet" style="margin-bottom:0px;">
+			<div class="m-portlet">
 				<div class="m-portlet__body">
 						<div class="row">
 
 							<div class="col-sm-12">
 									<div class="row">
 											<div class="col-sm-4">
-													<a class="btn btn-link" style="padding:0px;" (click)="isDisplayDetail=false;"> <i class="fa fa-chevron-circle-left"></i> BACK</a>
+													<a class="btn btn-link" style="padding:0px;" (click)="isDisplayDetail=false;"> <i class="fa fa-chevron-left"></i> BACK</a>
 											</div>
 											<div class="col-sm-4">
 											<h5>Mr. John (Manager)												</h5>  

@@ -331,3 +331,11 @@ input.ng-invalid.ng-touched {
   textarea.ng-invalid.ng-touched {
     border: 1px solid red;
   }
+.m-content
+{
+    padding:0px 0px;
+}
+.gridView
+{
+    padding: 0px 30px;
+}
