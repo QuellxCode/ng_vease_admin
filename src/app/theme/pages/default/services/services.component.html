@@ -62,15 +62,15 @@
 
 		</div>
 		
-		<button class="btn btn-link" data-target="#c_modal_broadcast" data-toggle="modal" >
+		<!-- <button class="btn btn-link" data-target="#c_modal_broadcast" data-toggle="modal" >
 			<i class="fa fa-plus"></i> Broadcast
-	</button>
+	</button> -->
 
 	<button class="btn btn-link" [hidden]="!isDisplayForm" (click)="changeViewForm()">
 			<i class="fa fa-plus"></i> Create
 		</button>
 
-	<button  class="btn btn-link pull-right" (click)="changeView()"><i class="fa"  [class.hidden]="!isGridView"  [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}" ></i> {{viewName}} </button>
+	<button  class="btn btn-link pull-right" [hidden]="!isDisplayForm" (click)="changeView()"><i class="fa"  [class.hidden]="!isGridView"  [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}" ></i> {{viewName}} </button>
 
 		
 	</div>
@@ -2008,18 +2008,18 @@
 </div>
 
 <div [hidden]="isDisplayForm">
-	<div class="container">
-		<div class="card" role="document">
-			<div class="card-content">
-				<div class="card-header">
-						<button class="btn btn-link" (click)="changeViewForm()" style="margin-left: 90px;">
-								<i class="fa fa-backward"></i> Back
-							</button>
-					<h5 class="modal-title" id="supportModalLabel">
+	
+		<div class="m-portlet m-portlet--mobile">
+			
+				<div class="m-portlet__head">
+						<a href="javascript:;" class="btn btn-link" style="padding-left:0px;" (click)="changeViewForm()">
+								<i class="fa fa-chevron-left"></i> Back
+						</a>
+					<h6>
 						Create a Service
-					</h5>
+					</h6>
 				</div>
-				<div class="card-body">
+				<div class="m-portlet__body">
 					<form [formGroup]="servicesForm" (ngSubmit)="onSubmit(search.value)">
 						<div class="row">
 							<div class="col-md-6">
@@ -2093,11 +2093,11 @@
 
 
 					</div>
-					<div class="card-footer">
+					<div>
 							<button class="btn btn-primary" type="submit" [disabled]="!servicesForm.valid">
 								Submit
 							</button>
-						</div>
+					</div>
 					</form>
 				</div>
 				<!-- <div class="card-footer">
@@ -2108,9 +2108,9 @@
 						Submit
 					</button>
 				</div> -->
-			</div>
+			
 		</div>
-	</div>
+	
 </div>
 
 <!-- Support Ticket Modal Start-->
