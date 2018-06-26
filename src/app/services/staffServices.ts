@@ -10,7 +10,7 @@ export class Staff_Services {
 
     private userToken = this.authenticationService.getToken();
 
-    constructor(private authenticationService: AuthenticationService, private http: Http) {}
+    constructor(private authenticationService: AuthenticationService, private http: Http) { }
 
 
     addStaff(first_name, last_name, email, contact_no, date_of_birth, company_location, file) {
@@ -18,13 +18,13 @@ export class Staff_Services {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'Bearer ' + this.userToken);
-        var options = new RequestOptions({headers: headers});
-        var body = {email: email, first_name: first_name, last_name: last_name, date_of_birth: date_of_birth, company_location: company_location, contact_no: contact_no};
+        var options = new RequestOptions({ headers: headers });
+        var body = { email: email, first_name: first_name, last_name: last_name, date_of_birth: date_of_birth, company_location: company_location, contact_no: contact_no };
         console.log(body);
-        return this.http.post(this.addStaffURL , body , options)
-        .map((response) => {
-            console.log(response);
-         return response.json();
-        });
+        return this.http.post(this.addStaffURL, body, options)
+            .map((response) => {
+                console.log(response);
+                return response.json();
+            });
     }
 }

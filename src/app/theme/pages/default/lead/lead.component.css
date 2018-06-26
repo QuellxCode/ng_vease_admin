@@ -20,3 +20,36 @@ m-widget4 m-widget4__item {
 .m-content {
     padding: 0px 30px !important;
 }
+.MuliSection {
+    padding: 10px;
+}
+
+.m-widget4 .m-widget4__item .m-widget4__ext .m-widget4__number {
+    font-size: 1rem !important;
+}
+
+.m-widget4 .m-widget4__item .m-widget4__ext {
+    vertical-align: top;
+}
+
+.m-portlet.m-portlet--full-height .m-portlet__body {
+    padding: 10px;
+}
+
+.reschedule{
+    margin-top: 35px;
+}
+
+.m-widget4 .m-widget4__item .m-widget4__img.m-widget4__img--logo img {
+    height: 35px;
+    width: 35px;
+}
+
+.m-portlet.m-portlet--bordered-semi[_ngcontent-c1] .m-portlet__head[_ngcontent-c1] {
+    padding-left: 11px;
+}
+
+
+.m-portlet[_ngcontent-c1] .m-portlet__head[_ngcontent-c1] .m-portlet__head-caption[_ngcontent-c1] .m-portlet__head-title[_ngcontent-c1] .m-portlet__head-text[_ngcontent-c1] {
+    padding-left: 15px;
+}

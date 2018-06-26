@@ -30,7 +30,7 @@ import {
     selector: "app-catalog",
     templateUrl: "./catalog.component.html",
     styleUrls: ["./catalog.component.css"],
-    
+
 })
 export class CatalogComponent implements OnInit, AfterViewInit {
 
@@ -39,24 +39,24 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     @ViewChild('healthSubCategory') healthSubCategorySelect: ElementRef;
 
 
-    
+
     //@ViewChild(AgmMap) agmMap: AgmMap;
     viewDate: Date = new Date();
     isServiceFormShown = false;
- 
+
     isBundleFormShown = false;
-    editItemIndex= undefined;
+    editItemIndex = undefined;
     editCatalogIndex = undefined;
     editBundleIndex = undefined;
 
     serviceGroup = "Health";
 
     listItems = [
-        { 
+        {
             itemName: "Looper",
             itemDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ipsum quis neque",
             approved: true
-       }
+        }
     ];
 
     services = [
@@ -67,7 +67,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             serviceSubCategory: 'Personal',
             serviceDescription: 'Good quality makeup for bride in a very low cost ',
             Active: false,
-            price:100
+            price: 100
         },
 
         {
@@ -77,7 +77,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             serviceSubCategory: 'Personal',
             serviceDescription: 'Good quality makeup for bride in a very low cost ',
             Active: true,
-            price:200
+            price: 200
 
         },
         {
@@ -85,109 +85,97 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             serviceName: 'Simple car wash',
             serviceCategory: 'Car Wash',
             serviceSubCategory: 'Auto',
-            serviceDescription:'Good quality makeup for bride in a very low cost ',
+            serviceDescription: 'Good quality makeup for bride in a very low cost ',
             Active: true,
-            price:333
+            price: 333
         }
     ];
 
 
     bundles = [
         {
-            bundleName : "The First Bundle",
+            bundleName: "The First Bundle",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-            price:200,
+            price: 200,
             noOfItems: 5,
-            active:false
+            active: false
         },
 
         {
-            bundleName : "The Second Bundle",
+            bundleName: "The Second Bundle",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-            price:400,
+            price: 400,
             noOfItems: 1,
-            active:false
+            active: false
         },
 
         {
-            bundleName : "The Bundle",
+            bundleName: "The Bundle",
             description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-            price:500,
+            price: 500,
             noOfItems: 3,
-            active:false
+            active: false
         }
     ];
 
 
-    BundlesOfServices = 
-    [
+    BundlesOfServices =
+        [
 
-    ];
+        ];
 
-     tempBundle :number = 0;
-     tempDiscount: number = 0;
-     bundlePrice: number = 0;
-     isGrossTotal = false;
-
-   
+    tempBundle: number = 0;
+    tempDiscount: number = 0;
+    bundlePrice: number = 0;
+    isGrossTotal = false;
 
 
 
 
-    createNewBundle()
-    {
-        this.tempBundle= 0;
-        this.tempDiscount=0;
-        this.bundlePrice=0;
+
+
+    createNewBundle() {
+        this.tempBundle = 0;
+        this.tempDiscount = 0;
+        this.bundlePrice = 0;
         this.BundlesOfServices = [];
         this.isGrossTotal = false;
     }
-    createBundlePrice()
-    {
+    createBundlePrice() {
         this.bundlePrice = this.tempBundle - this.tempDiscount
     }
-    addAnItem(itemName , description)
-    {
-       if(this.editItemIndex!=undefined)
-       {
-        this.listItems[this.editItemIndex].itemName = itemName;
-        this.listItems[this.editItemIndex].itemDescription = description;
-        this.editItemIndex=undefined;
-       } 
-       else
-       {
-        this.listItems.push({itemName:itemName , itemDescription: description, approved:false}); 
-       }
+    addAnItem(itemName, description) {
+        if (this.editItemIndex != undefined) {
+            this.listItems[this.editItemIndex].itemName = itemName;
+            this.listItems[this.editItemIndex].itemDescription = description;
+            this.editItemIndex = undefined;
+        }
+        else {
+            this.listItems.push({ itemName: itemName, itemDescription: description, approved: false });
+        }
     }
-    editAnItem(itemIndex)
-    {
+    editAnItem(itemIndex) {
         this.editItemIndex = itemIndex;
     }
-    deleteAnItem(itemIndex)
-    {
-        this.listItems.splice(itemIndex ,1);
+    deleteAnItem(itemIndex) {
+        this.listItems.splice(itemIndex, 1);
     }
 
 
-    addCatalog(catalogServiceName , catalogServiceDescription , catalogServicePrice)
-    {
-        let selected="";
-        if(this.serviceGroup=="Health")
-        {
-            selected = this.healthSubCategorySelect.nativeElement.value; 
-           
+    addCatalog(catalogServiceName, catalogServiceDescription, catalogServicePrice) {
+        let selected = "";
+        if (this.serviceGroup == "Health") {
+            selected = this.healthSubCategorySelect.nativeElement.value;
+
         }
-        else if(this.serviceGroup=="Personal")
-        {
+        else if (this.serviceGroup == "Personal") {
             selected = this.PersonalSubCategorySelect.nativeElement.value;
         }
-        else if(this.serviceGroup=="Auto")
-        {
-            selected = this.autoSubCategorySelect.nativeElement.value ;
+        else if (this.serviceGroup == "Auto") {
+            selected = this.autoSubCategorySelect.nativeElement.value;
         }
 
-        if(this.editCatalogIndex!=undefined)
-        {
+        if (this.editCatalogIndex != undefined) {
             this.services[this.editCatalogIndex].serviceName = catalogServiceName;
             this.services[this.editCatalogIndex].serviceCategory = this.serviceGroup;
             this.services[this.editCatalogIndex].serviceDescription = catalogServiceDescription;
@@ -195,8 +183,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
             this.services[this.editCatalogIndex].price = catalogServicePrice;
             this.editCatalogIndex = undefined;
         }
-        else
-        {
+        else {
             this.services.push({
                 pic: "./assets/app/media/img/logos/file.png",
                 serviceName: catalogServiceName,
@@ -204,203 +191,172 @@ export class CatalogComponent implements OnInit, AfterViewInit {
                 serviceSubCategory: selected,
                 serviceDescription: catalogServiceDescription,
                 Active: true,
-                price:catalogServicePrice
+                price: catalogServicePrice
             });
         }
-      
+
 
         this.isServiceFormShown = false;
-     
+
     }
-    editCatalog(catalogIndex)
-    {
+    editCatalog(catalogIndex) {
         this.editCatalogIndex = catalogIndex;
         this.isServiceFormShown = true;
     }
-    deleteCatalog(catalogIndex)
-    {
-        this.services.splice(catalogIndex  , 1);
+    deleteCatalog(catalogIndex) {
+        this.services.splice(catalogIndex, 1);
     }
 
 
-    saveBundle(name , thedescription , quantity)
-    {
+    saveBundle(name, thedescription, quantity) {
 
-        if(this.editBundleIndex!=undefined)
-        {
+        if (this.editBundleIndex != undefined) {
             this.bundles[this.editBundleIndex].bundleName = name;
             this.bundles[this.editBundleIndex].description = thedescription;
             this.bundles[this.editBundleIndex].noOfItems = quantity;
             this.editBundleIndex = undefined;
         }
-        else
-        {
+        else {
             this.bundles.push({
-                bundleName : name,
+                bundleName: name,
                 description: thedescription,
-                price:this.bundlePrice,
+                price: this.bundlePrice,
                 noOfItems: quantity,
-                active:false
+                active: false
             });
         }
 
-        
+
         this.isBundleFormShown = false;
     }
 
-    editBundle(bundleIndex)
-    {
+    editBundle(bundleIndex) {
         this.editBundleIndex = bundleIndex;
         this.isBundleFormShown = true;
     }
 
-    deleteBundle(bundleIndex )
-    {
-        this.bundles.splice(bundleIndex , 1);
-       
+    deleteBundle(bundleIndex) {
+        this.bundles.splice(bundleIndex, 1);
+
     }
 
 
 
 
-    getPercentedValue(price , quantity , percentage)
-    {
-       let total = price*quantity;
-       total = total - (total*percentage)/100;
-       return total;     
+    getPercentedValue(price, quantity, percentage) {
+        let total = price * quantity;
+        total = total - (total * percentage) / 100;
+        return total;
     }
 
 
 
-    saveServicesForBundle(servicetype_bundle , discountType  ,calculatedvalueNoDiscount , calculatedvalueDiscountAmount, calculatedvalueDiscountPercent , bundleQuantity , service_bundle)
-    {
+    saveServicesForBundle(servicetype_bundle, discountType, calculatedvalueNoDiscount, calculatedvalueDiscountAmount, calculatedvalueDiscountPercent, bundleQuantity, service_bundle) {
 
-        if(servicetype_bundle!='')
-        {
-        for(let i=0 ; i<service_bundle.options.length;i++)
-        {
-            if(service_bundle.options[i].value==servicetype_bundle)
-            {
-                service_bundle.options[i].remove();
+        if (servicetype_bundle != '') {
+            for (let i = 0; i < service_bundle.options.length; i++) {
+                if (service_bundle.options[i].value == servicetype_bundle) {
+                    service_bundle.options[i].remove();
+                }
             }
+            let Category = this.services[servicetype_bundle].serviceCategory;
+            let SubCategory = this.services[servicetype_bundle].serviceSubCategory;
+            let price;
+            if (discountType == "no") {
+                price = calculatedvalueNoDiscount;
+            }
+            else if (discountType == "money") {
+                price = calculatedvalueDiscountAmount;
+            }
+            else {
+                price = calculatedvalueDiscountPercent;
+            }
+
+            this.BundlesOfServices.push({
+                Category: Category,
+                SubCategory: SubCategory,
+                Price: price,
+                Quantity: bundleQuantity,
+                Serviceindex: servicetype_bundle
+            });
+
+
+            this.tempBundle += parseFloat(price);
+
+
+            this.isGrossTotal = true;
+            this.createBundlePrice();
         }
-        let Category = this.services[servicetype_bundle].serviceCategory;
-        let SubCategory = this.services[servicetype_bundle].serviceSubCategory;
-        let price;
-        if(discountType=="no")
-        {
-            price = calculatedvalueNoDiscount;
-        }
-        else if(discountType=="money")
-        {
-            price = calculatedvalueDiscountAmount;
-        }
-        else
-        {
-            price = calculatedvalueDiscountPercent;
-        }
-
-        this.BundlesOfServices.push({
-            Category: Category,
-            SubCategory: SubCategory,
-            Price: price,
-            Quantity: bundleQuantity,
-            Serviceindex: servicetype_bundle
-        });
 
 
-        this.tempBundle += parseFloat(price); 
 
 
-        this.isGrossTotal = true;
-        this.createBundlePrice();
+
     }
 
 
 
 
-       
+    addNewItemInServiceCatalog() {
+        this.listItems.push({ itemName: "ABC", itemDescription: "Description", approved: true });
     }
 
-
-
-
-    addNewItemInServiceCatalog()
-    {
-        this.listItems.push({itemName:"ABC" , itemDescription:"Description" ,approved:true });
-    }
-
-    changeTheItemName(event , theItem)
-    {
+    changeTheItemName(event, theItem) {
         theItem.itemName = event.target.textContent;
-        if(event.target.textContent=="")
-        {
-            event.target.style.borderBottom="1px solid red";
-            event.target.textContent="*required"
+        if (event.target.textContent == "") {
+            event.target.style.borderBottom = "1px solid red";
+            event.target.textContent = "*required"
         }
-        else
-        {
+        else {
             event.target.style.borderBottom = "none";
         }
     }
-    changeTheDescription(event , theItem)
-    {
+    changeTheDescription(event, theItem) {
         theItem.itemDescription = event.target.textContent;
-        if(event.target.textContent=="")
-        {
-            event.target.style.borderBottom="1px solid red";
-            event.target.textContent="*required"
+        if (event.target.textContent == "") {
+            event.target.style.borderBottom = "1px solid red";
+            event.target.textContent = "*required"
         }
-        else
-        {
+        else {
             event.target.style.borderBottom = "none";
         }
     }
-    discountTypeChanged(discountType , Money , Percentage)
-    {
-        if(discountType=='no')
-        {
-                this.ChangeAndShowDiscount(discountType , null);
+    discountTypeChanged(discountType, Money, Percentage) {
+        if (discountType == 'no') {
+            this.ChangeAndShowDiscount(discountType, null);
         }
-        else if(discountType=='money')
-        {
-            this.ChangeAndShowDiscount(discountType , Money);
+        else if (discountType == 'money') {
+            this.ChangeAndShowDiscount(discountType, Money);
         }
-        else 
-        {
-            this.ChangeAndShowDiscount(discountType , Percentage);
+        else {
+            this.ChangeAndShowDiscount(discountType, Percentage);
         }
         this.createBundlePrice();
     }
 
 
-    ChangeAndShowDiscount(discounttype , TheAmount)
-    {
-        
-        if(discounttype=='no')
-        {
+    ChangeAndShowDiscount(discounttype, TheAmount) {
+
+        if (discounttype == 'no') {
             this.tempDiscount = 0;
         }
-        else if(discounttype=='money')
-        {
+        else if (discounttype == 'money') {
             this.tempDiscount = TheAmount;
         }
-        else
-        {
-            this.tempDiscount = (this.tempBundle*TheAmount)/100;
+        else {
+            this.tempDiscount = (this.tempBundle * TheAmount) / 100;
         }
         this.createBundlePrice();
     }
 
 
-    deleteBundleService(i , ServiceIndex , servicetype_bundle)
-    {
+    deleteBundleService(i, ServiceIndex, servicetype_bundle) {
         this.tempBundle -= this.BundlesOfServices[i].Price;
-        this.BundlesOfServices.splice(i,1);
+        this.BundlesOfServices.splice(i, 1);
         this.createBundlePrice();
-        
+
         let option = document.createElement('option');
-        option.value= ServiceIndex;
+        option.value = ServiceIndex;
         option.innerHTML = this.services[ServiceIndex].serviceName;
         servicetype_bundle.options.add(option);
     }
@@ -408,7 +364,7 @@ export class CatalogComponent implements OnInit, AfterViewInit {
 
     constructor(private _script: ScriptLoaderService) {
 
-    
+
     }
     ngOnInit() {
 

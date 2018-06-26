@@ -62,19 +62,19 @@ export class AuthComponent implements OnInit {
         this.loading = true;
         this._authService.login(this.model.email, this.model.password)
             .subscribe(
-                (data => {
+            (data => {
                 // localStorage.setItem('currentUser', JSON.stringify(data));
                 // console.log(data);
-                 //Helpers.setLoading(true);  
-                 //this.loading = true;
+                //Helpers.setLoading(true);  
+                //this.loading = true;
                 this._router.navigate(['/dashboard']);
-                }
-                ),
-                (error => {
-                    this.showAlert('alertSignin');
-                    this._alertService.error(error);
-                    this.loading = false;
-                })
+            }
+            ),
+            (error => {
+                this.showAlert('alertSignin');
+                this._alertService.error(error);
+                this.loading = false;
+            })
             )
         // console.log(this.model.email + ' ' + this.model.password);
         // this._authService.login(this.model.email, this.model.password).subscribe(
@@ -108,24 +108,24 @@ export class AuthComponent implements OnInit {
         //     });
         // console.log(email.value+ ' '+ pass.value+ ' '+rpass.value+ ' '+name.value);
         this._authService.signupUser(email.value, pass.value, rpass.value, name.value)
-          .subscribe(
-              response => {
+            .subscribe(
+            response => {
                 //   console.log(response);
-                  this.showAlert('alertSignin');
-                          this._alertService.success(
-                              'Thank you. To complete your registration please check your email.',
-                              true);
-                          this.loading = false;
-                          LoginCustom.displaySignInForm();
-                        //   this.model = {};
-              },
-              error => {
+                this.showAlert('alertSignin');
+                this._alertService.success(
+                    'Thank you. To complete your registration please check your email.',
+                    true);
+                this.loading = false;
+                LoginCustom.displaySignInForm();
+                //   this.model = {};
+            },
+            error => {
                 //   console.log(error);
-                          this.showAlert('alertSignup');
-                          this._alertService.error(error);
-                          this.loading = false;
-              }
-          );
+                this.showAlert('alertSignup');
+                this._alertService.error(error);
+                this.loading = false;
+            }
+            );
     }
 
     forgotPass() {

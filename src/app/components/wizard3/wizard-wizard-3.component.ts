@@ -105,13 +105,13 @@ export class WizardWizard3Component implements OnInit, AfterViewInit {
         console.log(this.fileToUpload);
         console.log('data called');
         console.log(this.staffForm.value.firstname + ' ' + this.staffForm.value.lastname + ' ' +
-                    this.staffForm.value.email + ' ' + this.staffForm.value.dob + ' ' +
-                    this.staffForm.value.contactNo + ' ' + this.staffForm.value.companyLocation);
+            this.staffForm.value.email + ' ' + this.staffForm.value.dob + ' ' +
+            this.staffForm.value.contactNo + ' ' + this.staffForm.value.companyLocation);
         this.staffServices.addStaff(this.staffForm.value.firstname, this.staffForm.value.lastname, this.staffForm.value.email, this.staffForm.value.contactNo,
             this.staffForm.value.dob, this.staffForm.value.companyLocation, this.fileToUpload)
-                .subscribe((response: Response)=> {
-                    console.log('data saved');
-                });
+            .subscribe((response: Response) => {
+                console.log('data saved');
+            });
 
     }
     fileToUpload: File = null;

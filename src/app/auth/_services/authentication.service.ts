@@ -18,22 +18,22 @@ export class AuthenticationService {
 
     // loging in function and stroing the returned usertoken to local storage
     login(email: string, password: string) {
-        var headers = new Headers ({ 'Content-Type' : 'application/x-www-form-urlencoded' });
-        let options = new RequestOptions ({headers: headers});
-        var body = {email: email, password: password};
+        var headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        let options = new RequestOptions({ headers: headers });
+        var body = { email: email, password: password };
         return this.http.post(this.loginurl, body, options)
-         .map ((response: Response) => {
-            //  console.log(response);
-             let user = response.json();
-            //  console.log('token in login');
-             console.log(user.data.token);
-             localStorage.setItem('token', user.data.token);
-             this.token = user.data.token;
-             if(user && user.data.token) {
-                 this.token = user.data.token;
-                 localStorage.setItem('currentUser', JSON.stringify(user));
-             }
-         });
+            .map((response: Response) => {
+                //  console.log(response);
+                let user = response.json();
+                //  console.log('token in login');
+                console.log(user.data.token);
+                localStorage.setItem('token', user.data.token);
+                this.token = user.data.token;
+                if (user && user.data.token) {
+                    this.token = user.data.token;
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
+            });
         // return this.http.post('/api/authenticate', JSON.stringify({ email: email, password: password }))
         //     .map((response: Response) => {
         //         // login successful if there's a jwt token in the response
@@ -54,12 +54,12 @@ export class AuthenticationService {
     // signup user
     signupUser(email: string, password: string, c_password: string, name: string) {
         // console.log(name + ' ' + email + ' ' + pass + ' ' + rpass );
-        var headers = new Headers ({ 'Content-Type' : 'application/x-www-form-urlencoded' });
-        let options = new RequestOptions ({headers: headers});
-        var body = {email: email, password: password, c_password: c_password, name: name};
+        var headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        let options = new RequestOptions({ headers: headers });
+        var body = { email: email, password: password, c_password: c_password, name: name };
         // console.log(body);
-        return this.http.post(this.requrl , body , options)
-           .map(res => res.json());
+        return this.http.post(this.requrl, body, options)
+            .map(res => res.json());
     }
 
     // this function is being called in serverServices.services.ts file

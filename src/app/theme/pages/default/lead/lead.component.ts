@@ -1,25 +1,28 @@
-import { Component, OnInit, ViewChild, NgZone, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, NgZone, ElementRef, AfterViewInit } from '@angular/core';
 import { DragulaService } from 'ng2-dragula/ng2-dragula';
 import { MapsAPILoader } from '@agm/core';
 import { } from 'googlemaps';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ScriptLoaderService } from '../../../../_services/script-loader.service';
 declare var $: any;
 
 @Component({
     selector: 'app-lead',
     templateUrl: './lead.component.html',
-    styleUrls: ['./lead.component.css', '../../../../../../node_modules/dragula/dist/dragula.css']
+    styleUrls: ['./lead.component.css', '../../../../../../node_modules/dragula/dist/dragula.css',
+                '../../../../../assets/vendors/base/vendors.bundle.css', '../../../../../assets/demo/default/base/style.bundle.css']
 
 })
-export class LeadComponent implements OnInit {
+export class LeadComponent implements OnInit, AfterViewInit {
     lang: any;
     lat: any;
     lati: number = 51.678418;
     lng: number = 7.809007;
     formHidden = true;
     isCustomer = true;
+    rescheduleForm = false;
     @ViewChild('search') public searchElementRef: ElementRef;
-    constructor(private dragulaService: DragulaService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+    constructor(private dragulaService: DragulaService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _script: ScriptLoaderService) {
 
         // dragulaService.setOptions('bag-task1', {
         //     revertOnSpill: true
@@ -104,6 +107,10 @@ export class LeadComponent implements OnInit {
 
         });
 
+    }
+    ngAfterViewInit () {
+        this._script.loadScripts('app-lead',
+            ['assets/app/js/bootstrap-datetimepicker.js']);
     }
 
 }

@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
 import { LeadComponent } from "./lead.component";
-import {WizardLeadForm} from '../../../../components/leadFormWizard/leadFormWizard';
+import { WizardLeadForm } from '../../../../components/leadFormWizard/leadFormWizard';
 
 
 

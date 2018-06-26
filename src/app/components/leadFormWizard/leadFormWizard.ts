@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { Helpers } from '../../helpers';
 import { ScriptLoaderService } from '../../_services/script-loader.service';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap/datepicker/datepicker';
 
 
@@ -15,7 +15,7 @@ import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap/datepicker/datepicker'
 export class WizardLeadForm implements OnInit, AfterViewInit {
 
     Categorgy = "health";
-    
+
 
     constructor(private _script: ScriptLoaderService) {
 

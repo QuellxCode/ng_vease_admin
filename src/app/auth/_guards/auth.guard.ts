@@ -10,25 +10,25 @@ export class AuthGuard implements CanActivate {
     constructor(private _router: Router, private _userService: UserService, private autheticationServices: AuthenticationService) {
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-            let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            console.log(currentUser);
-            return this._userService.verify().map(
-                        data => {
-                            if (currentUser) {
-                                console.log('logged in so true');
-                                // logged in so return true
-                                return true;
-                            }
-                            // error when verify so redirect to login page with the return url
-                            this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-                            return false;
-                        },
-                        error => {
-                            // error when verify so redirect to login page with the return url
-                            this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-                            return false;
-                        });
-                    }
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(currentUser);
+        return this._userService.verify().map(
+            data => {
+                if (currentUser) {
+                    console.log('logged in so true');
+                    // logged in so return true
+                    return true;
+                }
+                // error when verify so redirect to login page with the return url
+                this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+                return false;
+            },
+            error => {
+                // error when verify so redirect to login page with the return url
+                this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+                return false;
+            });
+    }
 
 }
 

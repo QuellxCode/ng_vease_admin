@@ -9,7 +9,7 @@ export class TaxesService {
     public taxEditted = new EventEmitter();
 
     addtax(username, percentage, jurisdiction, dummyData, discription) {
-        const tax = {id: this.taxes.length + 1, username: username, percentage: percentage, jurisdiction: jurisdiction, dummyData: dummyData, discription: discription}
+        const tax = { id: this.taxes.length + 1, username: username, percentage: percentage, jurisdiction: jurisdiction, dummyData: dummyData, discription: discription }
         this.taxes.push(tax);
         this.taxAdded.emit(tax);
     }
@@ -23,9 +23,9 @@ export class TaxesService {
         return this.taxes;
     }
 
-    updateTax(id,username, percentage, jurisdiction, dummyData, discription) {
-    const editTask = {id: id, username: username, percentage: percentage, jurisdiction: jurisdiction,  dummyData: dummyData, discription: discription};
-    this.taxes[id-1] = editTask;
-    this.taxEditted.emit(editTask);
+    updateTax(id, username, percentage, jurisdiction, dummyData, discription) {
+        const editTask = { id: id, username: username, percentage: percentage, jurisdiction: jurisdiction, dummyData: dummyData, discription: discription };
+        this.taxes[id - 1] = editTask;
+        this.taxEditted.emit(editTask);
     }
 }

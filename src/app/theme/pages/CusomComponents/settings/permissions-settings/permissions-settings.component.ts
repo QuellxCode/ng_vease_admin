@@ -14,8 +14,8 @@ import { ScriptLoaderService } from '../../../../../_services/script-loader.serv
 export class PermissionsSettingsComponent implements OnInit {
 
     constructor(private _script: ScriptLoaderService,
-                private settingsServices: Settings_Services,
-                private permissionService: PermissionService) {}
+        private settingsServices: Settings_Services,
+        private permissionService: PermissionService) { }
     isPermissionAddViewOpen = false;
     isPermissionUpdateViewOpen = false;
     permissionForm: FormGroup;
@@ -24,19 +24,19 @@ export class PermissionsSettingsComponent implements OnInit {
     loadingSpinner: boolean = true;
     ngOnInit() {
         this.permissionForm = new FormGroup({
-        'permissionName': new FormControl(null, Validators.required)
+            'permissionName': new FormControl(null, Validators.required)
         });
         this.permissionUpdateForm = new FormGroup({
             'UpdateName': new FormControl(null, Validators.required)
         });
 
         this.settingsServices.getPermission()
-         .subscribe((response) => {
-             this.permissions = response.data;
-             console.log(this.permissions);
-             this.permissionService.permissions = this.permissions;
-             this.loadingSpinner = false;
-         });
+            .subscribe((response) => {
+                this.permissions = response.data;
+                console.log(this.permissions);
+                this.permissionService.permissions = this.permissions;
+                this.loadingSpinner = false;
+            });
     }
 
     onSubmit() {
@@ -44,18 +44,18 @@ export class PermissionsSettingsComponent implements OnInit {
         this.isPermissionAddViewOpen = false;
         // console.log(this.permissionForm.value.permissionName);
         this.settingsServices.createPermission(this.permissionForm.value.permissionName)
-         .subscribe((response) => {
+            .subscribe((response) => {
                 // console.log('on submit called');
                 // console.log(response);
                 // this.permissionService.addPermission(this.permissionForm.value.permissionName);
                 this.settingsServices.getPermission()
-                .subscribe((response) => {
-                    this.permissions = response.data;
-                    console.log(this.permissions);
-                    this.permissionService.permissions = this.permissions;
-                    this.permissionForm.reset();
-                    this.loadingSpinner = false;
-                });
+                    .subscribe((response) => {
+                        this.permissions = response.data;
+                        console.log(this.permissions);
+                        this.permissionService.permissions = this.permissions;
+                        this.permissionForm.reset();
+                        this.loadingSpinner = false;
+                    });
             }),
             (error: Error) => {
                 console.log(error);
@@ -68,27 +68,27 @@ export class PermissionsSettingsComponent implements OnInit {
         // console.log(this.permissions.findIndex(fruit => fruit === rand_id));
         console.log(item.rand_id);
         this.settingsServices.deletePermission(item.rand_id)
-         .subscribe((respoonse) => {
-             this.permissionService.removePermission(item.rand_id);
-            // for(var i = 0; i < this.permissions.length; i += 1) {
-            //     if(this.permissions[i]['rand_id'] === rand_id) {
-            //         this.permissions.splice(i, 1);
-            //     }
-            // }
-            this.loadingSpinner = false;
-         },
-        (error) => {
-            console.log(error);
-            this.loadingSpinner = false;
-        }
-        );
+            .subscribe((respoonse) => {
+                this.permissionService.removePermission(item.rand_id);
+                // for(var i = 0; i < this.permissions.length; i += 1) {
+                //     if(this.permissions[i]['rand_id'] === rand_id) {
+                //         this.permissions.splice(i, 1);
+                //     }
+                // }
+                this.loadingSpinner = false;
+            },
+            (error) => {
+                console.log(error);
+                this.loadingSpinner = false;
+            }
+            );
         //  this.permissions.filter(t => {
         //      t.rand_id !== rand_id;
         //  });
         //  console.log(this.permissions);
     }
-private onUpdatePermissionId: string;
-private onUpdatePermissionName: string;
+    private onUpdatePermissionId: string;
+    private onUpdatePermissionName: string;
     onUpdate(name, id) {
         this.onUpdatePermissionId = id;
         this.onUpdatePermissionName = name;
@@ -100,16 +100,16 @@ private onUpdatePermissionName: string;
         this.isPermissionUpdateViewOpen = false;
         console.log(this.permissionUpdateForm.value.UpdateName);
         this.settingsServices.updatePermission(this.onUpdatePermissionId, this.permissionUpdateForm.value.UpdateName)
-          .subscribe((response) => {
-            this.settingsServices.getPermission()
             .subscribe((response) => {
-                this.permissions = response.data;
-                console.log(this.permissions);
-                this.permissionService.permissions = this.permissions;
-                this.permissionForm.reset();
-                this.loadingSpinner = false;
+                this.settingsServices.getPermission()
+                    .subscribe((response) => {
+                        this.permissions = response.data;
+                        console.log(this.permissions);
+                        this.permissionService.permissions = this.permissions;
+                        this.permissionForm.reset();
+                        this.loadingSpinner = false;
+                    });
             });
-          });
     }
 
 }

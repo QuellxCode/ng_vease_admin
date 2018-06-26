@@ -39,7 +39,7 @@ const routes: Routes = [
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyCQlMMVsJXt25cmmii1rx_Ghn0bjRRNdtc',
             libraries: ['places']
-          }),
+        }),
     ],
     exports: [
         RouterModule

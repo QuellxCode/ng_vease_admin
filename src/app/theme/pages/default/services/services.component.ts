@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit, Element
 import { Helpers } from '../../../../helpers';
 import { ScriptLoaderService } from '../../../../_services/script-loader.service';
 import { Server_Services } from '../../../../services/serverServices.services';
-import {  FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 import { } from '@types/googlemaps';
 // import { CreateService } from './model';
@@ -53,7 +53,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     isDisplayForm = true;
     private latitude: any;
     private longitude: any;
-    constructor(private _script: ScriptLoaderService, private serverServices: Server_Services,  private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+    constructor(private _script: ScriptLoaderService, private serverServices: Server_Services, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
 
     }
 
@@ -97,26 +97,26 @@ export class ServicesComponent implements OnInit, AfterViewInit {
         });
 
         this.serverServices.getCategories()
-        .subscribe(
+            .subscribe(
             (data) => {
                 console.log(data);
                 this.catogries = data.data;
                 // console.log(this.catogries[0].id + ' ' + this.catogries[0].name);
             }
-        );
+            );
 
 
         // services reactive form
         this.servicesForm = new FormGroup({
-        'name': new FormControl(null, Validators.required),
-        'details': new FormControl(null, Validators.required),
-        'category': new FormControl(null, Validators.required),
-        'subCategory': new FormControl(null, Validators.required),
-        'price': new FormControl(null, Validators.required),
-        'publish': new FormControl(true, Validators.required),
-        // 'location': new FormControl(null, Validators.required),
-        // 'latitude': new FormControl(null, Validators.required),
-        // 'longitude': new FormControl(null, Validators.required),
+            'name': new FormControl(null, Validators.required),
+            'details': new FormControl(null, Validators.required),
+            'category': new FormControl(null, Validators.required),
+            'subCategory': new FormControl(null, Validators.required),
+            'price': new FormControl(null, Validators.required),
+            'publish': new FormControl(true, Validators.required),
+            // 'location': new FormControl(null, Validators.required),
+            // 'latitude': new FormControl(null, Validators.required),
+            // 'longitude': new FormControl(null, Validators.required),
         });
 
     }
@@ -156,14 +156,14 @@ export class ServicesComponent implements OnInit, AfterViewInit {
         console.log('getsubCategory called');
         console.log(id);
         this.serverServices.getSubCategories(id)
-        .subscribe(
+            .subscribe(
             (data) => {
                 // console.log(data);
                 this.subCatogries = data.data;
                 // console.log(this.subCatogries);
                 // console.log(this.catogries[0].id + ' ' + this.catogries[0].name);
             }
-        );
+            );
     }
 
     changeViewForm() {
@@ -174,19 +174,19 @@ export class ServicesComponent implements OnInit, AfterViewInit {
         this.servicesForm.value.location = location;
         console.log('onSubmit called ');
         console.log(
-         this.servicesForm.value.name + ' ' + this.servicesForm.value.details + ' ' + this.servicesForm.value.category
-         + ' ' + this.servicesForm.value.subCategory + ' ' +  this.servicesForm.value.price + ' ' +
-         this.servicesForm.value.location + ' ' + this.servicesForm.value.publish
-    );
+            this.servicesForm.value.name + ' ' + this.servicesForm.value.details + ' ' + this.servicesForm.value.category
+            + ' ' + this.servicesForm.value.subCategory + ' ' + this.servicesForm.value.price + ' ' +
+            this.servicesForm.value.location + ' ' + this.servicesForm.value.publish
+        );
 
-    this.serverServices.createService( this.servicesForm.value.name, this.servicesForm.value.details,
-                this.servicesForm.value.category, this.servicesForm.value.subCategory, this.servicesForm.value.price,
-                this.servicesForm.value.location, this.latitude, this.longitude, this.servicesForm.value.publish
-                                    )
-                                    .subscribe((response) => {
+        this.serverServices.createService(this.servicesForm.value.name, this.servicesForm.value.details,
+            this.servicesForm.value.category, this.servicesForm.value.subCategory, this.servicesForm.value.price,
+            this.servicesForm.value.location, this.latitude, this.longitude, this.servicesForm.value.publish
+        )
+            .subscribe((response) => {
 
-                                    });
-    this.servicesForm.reset();
+            });
+        this.servicesForm.reset();
     }
 
 }
