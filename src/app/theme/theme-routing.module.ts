@@ -39,6 +39,10 @@ const routes: Routes = [
             {
                 "path": "lead",
                 "loadChildren": ".\/pages\/default\/lead\/lead.module#LeadModule"
+            },
+            {
+                "path": "estimated-response",
+                "loadChildren": ".\/pages\/default\/estimated-response\/estimated-response.module#EstimateResponseModule"
             }
         ]
 
