@@ -42,7 +42,7 @@ m-widget4 m-widget4__item {
 
 .m-widget4 .m-widget4__item .m-widget4__img.m-widget4__img--logo img {
     height: 35px;
-    width: 35px;
+    width: 35px !important;
 }
 
 .m-portlet.m-portlet--bordered-semi[_ngcontent-c1] .m-portlet__head[_ngcontent-c1] {
@@ -52,4 +52,19 @@ m-widget4 m-widget4__item {
 
 .m-portlet[_ngcontent-c1] .m-portlet__head[_ngcontent-c1] .m-portlet__head-caption[_ngcontent-c1] .m-portlet__head-title[_ngcontent-c1] .m-portlet__head-text[_ngcontent-c1] {
     padding-left: 15px;
+}
+
+.m-list-timeline__items[_ngcontent-c1] .m-list-timeline__item[_ngcontent-c1] .m-list-timeline__text[_ngcontent-c1] {
+    font-size: 1rem;
+}
+
+.company-text {
+    margin-left:20px;
+    font-size: 0.85rem;
+}
+
+.company-text-1 {
+    margin-left:20px;
+    font-weight: 500 !important;
+    display: block;
 }

@@ -20,7 +20,7 @@ export class LeadComponent implements OnInit, AfterViewInit {
     lng: number = 7.809007;
     formHidden = true;
     isCustomer = true;
-    rescheduleForm = false;
+    date: boolean = false;
     @ViewChild('search') public searchElementRef: ElementRef;
     constructor(private dragulaService: DragulaService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _script: ScriptLoaderService) {
 

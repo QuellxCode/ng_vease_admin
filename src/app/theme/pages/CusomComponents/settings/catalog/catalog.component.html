@@ -1,716 +1,640 @@
 <!-- BEGIN: Subheader -->
-<div class="m-subheader" appunwraptag="" >
+<div class="m-subheader" appunwraptag="">
 	<div class="d-flex align-items-center">
 		<div class="mr-auto row" style="width:80%;">
 
 			<div class="col-md-6">
-					<h3 class="m-subheader__title" style="display:inline-block">
-							Catalog 
-							    <small>
-								<a href="javascript:;" style="text-decoration: none;color:grey;"><i style="font-size: 0.9rem;" class="fa fa-bar-chart"></i></a>
-								</small>
+				<h3 class="m-subheader__title" style="display:inline-block">
+					Catalog
+					<small>
+						<a href="javascript:;" style="text-decoration: none;color:grey;">
+							<i style="font-size: 0.9rem;" class="fa fa-bar-chart"></i>
+						</a>
+					</small>
 
-								<small>
-								<a href="javascript:;" style="text-decoration: none;color:grey;"><i style="font-size: 0.9rem;" class="fa fa-search"></i></a>
-								</small>
-						</h3>
+					<small>
+						<a href="javascript:;" style="text-decoration: none;color:grey;">
+							<i style="font-size: 0.9rem;" class="fa fa-search"></i>
+						</a>
+					</small>
+				</h3>
 
-						
 			</div>
-
-
-		
 		</div>
-
-
-
-
-     
-		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isServiceFormShown=true; isBundleFormShown=false;"><i class="fa fa-plus"></i> Add New Serivce</a>
-		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;"  class="btn btn-link pull-right" (click)="isBundleFormShown=true; isServiceFormShown=false; createNewBundle()"><i class="fa fa-plus"></i> Add Bundle</a>
-
-
-		
-		
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;" class="btn btn-link pull-right" (click)="isServiceFormShown=true; isBundleFormShown=false;">
+			<i class="fa fa-plus"></i> Add New Serivce</a>
+		<a href="javascript:;" *ngIf="!this.isServiceFormShown && !isBundleFormShown;" class="btn btn-link pull-right" (click)="isBundleFormShown=true; isServiceFormShown=false; createNewBundle()">
+			<i class="fa fa-plus"></i> Add Bundle</a>
 	</div>
-	
+
 </div>
 <div class="m-subheader breadcrumsubheader">
-	
-		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-				<li class="m-nav__item m-nav__item--home">
-					<a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
-						<i class="m-nav__link-icon la la-home"></i>
-					</a>
-				</li>
-				<li class="m-nav__separator">
-						-
-					</li>
-				
-					<li class="m-nav__item">
-						<a class="m-nav__link" href="" ng-reflect-href="">
-							<span class="m-nav__link-text">
-								Settings
-							</span>
-						</a>
-					</li>
-				<li class="m-nav__separator">
-					-
-				</li>
-			
-				<li class="m-nav__item">
-					<a class="m-nav__link" href="" ng-reflect-href="">
-						<span class="m-nav__link-text">
-							Catalog
-						</span>
-					</a>
-				</li>
-			</ul>
+
+	<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+		<li class="m-nav__item m-nav__item--home">
+			<a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
+				<i class="m-nav__link-icon la la-home"></i>
+			</a>
+		</li>
+		<li class="m-nav__separator">
+			-
+		</li>
+
+		<li class="m-nav__item">
+			<a class="m-nav__link" href="" ng-reflect-href="">
+				<span class="m-nav__link-text">
+					Settings
+				</span>
+			</a>
+		</li>
+		<li class="m-nav__separator">
+			-
+		</li>
+
+		<li class="m-nav__item">
+			<a class="m-nav__link" href="" ng-reflect-href="">
+				<span class="m-nav__link-text">
+					Catalog
+				</span>
+			</a>
+		</li>
+	</ul>
 </div>
 
 <!-- END: Subheader -->
 <div class="m-content" style="padding:0px;">
 	<!--Begin::Section-->
-	
+
 	<div class="m-portlet m-portlet--mobile">
-			
-	<div class="m-portlet__body">
-			
-<div class="row marginTopNegative14" *ngIf="!isServiceFormShown && !isBundleFormShown">
 
-	<div class="col-md-12">
-			<ul class="nav nav-tabs" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link active show" data-toggle="tab" href="#m_tabs_services" ng-reflect-href="#m_tabs_services">
-							Services
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#m_tabs_bundles" ng-reflect-href="#m_tabs_bundles">
-							Bundles
-						</a>
-					</li>
-				
-				</ul>
+		<div class="m-portlet__body">
 
-				<div class="tab-content">
+			<div class="row marginTopNegative14" *ngIf="!isServiceFormShown && !isBundleFormShown">
+
+				<div class="col-md-12">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active show" data-toggle="tab" href="#m_tabs_services" ng-reflect-href="#m_tabs_services">
+								Services
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#m_tabs_bundles" ng-reflect-href="#m_tabs_bundles">
+								Bundles
+							</a>
+						</li>
+
+					</ul>
+
+					<div class="tab-content">
 						<div class="tab-pane active" id="m_tabs_services" role="tabpanel">
-
-
-
-								
-			
 							<div class="row" *ngIf="!isServiceFormShown">
 								<div class="table-responsive">
-									<table  class="table table-bordered table-striped servicesCatalogTable">
-											<thead >
-											  <tr >
-												 <th class="ServiceCatalogImage"></th>
-												<th  scope="col">Service Name </th>
-												<th  scope="col">Category</th>
-												<th  scope="col">Sub Category</th>
-												<th  scope="col" class="descTable">Description</th>
-												<th  scope="col">Price</th>
-												<th  scope="col">Active</th>
-												<th  scope="col">Actions</th>
-											  </tr>
-											</thead>
-											<tbody >
+									<table class="table table-bordered table-striped servicesCatalogTable">
+										<thead>
+											<tr>
+												<th class="ServiceCatalogImage"></th>
+												<th scope="col">Service Name </th>
+												<th scope="col">Category</th>
+												<th scope="col">Sub Category</th>
+												<th scope="col" class="descTable">Description</th>
+												<th scope="col">Price</th>
+												<th scope="col">Active</th>
+												<th scope="col">Actions</th>
+											</tr>
+										</thead>
+										<tbody>
 											<tr *ngFor="let service of services; let i=index;">
-															<td class="ServiceCatalogImage"><img  src="{{service.pic}}"></td>
-															<td >{{service.serviceName}}</td>
-															<td >{{service.serviceCategory}}</td>
-															<td >{{service.serviceSubCategory}}</td>
-															<td >{{service.serviceDescription}}</td>
-															<td>{{service.price}}</td>
-															<td>
-																	<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
-																			<label>
-																				<input [checked]="service.Active" name="" type="checkbox">
-																				<span></span>
-																			</label>
-																		</span>
-															
-															
-															<!--td ><button  class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
+												<td class="ServiceCatalogImage">
+													<img src="{{service.pic}}">
+												</td>
+												<td>{{service.serviceName}}</td>
+												<td>{{service.serviceCategory}}</td>
+												<td>{{service.serviceSubCategory}}</td>
+												<td>{{service.serviceDescription}}</td>
+												<td>{{service.price}}</td>
+												<td>
+													<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
+														<label>
+															<input [checked]="service.Active" name="" type="checkbox">
+															<span></span>
+														</label>
+													</span>
+
+
+													<!--td ><button  class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
 																	Edit
 																</button></td>
 							
 																<td ><button  (click)="deleteCatalog(i)"  class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
 																	Delete
 																	</button></td-->
-
-
-																	<td>
-																			<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View details">
-																					<i class="la la-ellipsis-h"></i>
-																				</a>
-																				<a href="javascript:" (click)="editCatalog(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
-																					<i class="la la-edit"></i>
-																				</a>
-																				<a href="javascript:" (click)="deleteCatalog(i)"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
-																					<i class="la la-trash"></i>
-																				</a>
-																	</td>
-													</tr>
-											</tbody>
-										  </table>
+													<td>
+														<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
+														    title="View details">
+															<i class="la la-ellipsis-h"></i>
+														</a>
+														<a href="javascript:" (click)="editCatalog(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
+														    title="Edit details">
+															<i class="la la-edit"></i>
+														</a>
+														<a href="javascript:" (click)="deleteCatalog(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill"
+														    title="Delete">
+															<i class="la la-trash"></i>
+														</a>
+													</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
-
-										
-										  <!--div class="m_datatable" id="m_datatable">
-											
+								<!--div class="m_datatable" id="m_datatable">
 										  </div-->
 							</div>
-			
-						
-
-							
-			
-			
-								
 						</div>
 						<div class="tab-pane" id="m_tabs_bundles" role="tabpanel">
-								<div class="table-responsive">
-										<table  class="table table-bordered table-striped bundlesCatalogTable">
-												<thead >
-														<tr >
-														  
-														  <th  scope="col">Bundle Name </th>
-														  <th  scope="col" class="bundledesc">Description</th>
-														  <th  scope="col">Items</th>
-														  <th  scope="col">Price</th>
-														  <th  scope="col">Active</th>
-														  <th> Actions</th>
-														</tr>
-													  </thead>
-													  <tbody>
-														  <tr *ngFor="let bundle of bundles; let i =index">
-															  <td>{{bundle.bundleName}}</td>
-															  <td>{{bundle.description}}</td>
-															  <td>{{bundle.noOfItems}}</td>
-															  <td>{{bundle.price}}</td>
-															  <td><span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
-																	<label>
-																		<input name="" type="checkbox" [checked]="bundle.active">
-																		<span></span>
-																	</label>
-																</span>
-															  <td>
-																	<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View details">
-																			<i class="la la-ellipsis-h"></i>
-																		</a>
-																		<a href="javascript:" (click)="editBundle(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
-																			<i class="la la-edit"></i>
-																		</a>
-																		<a href="javascript:" (click)="deleteBundle(i)"   class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
-																			<i class="la la-trash"></i>
-																		</a>
-															</td>
-															  
-														  </tr>
-														 
+							<div class="table-responsive">
+								<table class="table table-bordered table-striped bundlesCatalogTable">
+									<thead>
+										<tr>
 
-													  </tbody>
+											<th scope="col">Bundle Name </th>
+											<th scope="col" class="bundledesc">Description</th>
+											<th scope="col">Items</th>
+											<th scope="col">Price</th>
+											<th scope="col">Active</th>
+											<th> Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let bundle of bundles; let i =index">
+											<td>{{bundle.bundleName}}</td>
+											<td>{{bundle.description}}</td>
+											<td>{{bundle.noOfItems}}</td>
+											<td>{{bundle.price}}</td>
+											<td>
+												<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
+													<label>
+														<input name="" type="checkbox" [checked]="bundle.active">
+														<span></span>
+													</label>
+												</span>
+												<td>
+													<a href="javascript:;" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
+													    title="View details">
+														<i class="la la-ellipsis-h"></i>
+													</a>
+													<a href="javascript:" (click)="editBundle(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
+													    title="Edit details">
+														<i class="la la-edit"></i>
+													</a>
+													<a href="javascript:" (click)="deleteBundle(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill"
+													    title="Delete">
+														<i class="la la-trash"></i>
+													</a>
+												</td>
 
-										</table>
-								</div>
-						
+										</tr>
+
+
+									</tbody>
+
+								</table>
+							</div>
+
 						</div>
 					</div>
-	</div>
-
-	
-
-</div>
-
-
-<div class="row"  *ngIf="isBundleFormShown">
-<div class="col-md-12">
-		<button class="btn btn-link marginTopNegative14" (click)="isBundleFormShown=!isBundleFormShown; editCatalogIndex = undefined;" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
-		<div class="row">
-         <div class="col-md-6">
-				<div class="form-group m-form__group">
-						<label>
-							Bundle Name
-						</label>
-						<input class="form-control m-input m-input--square" [value]="(editBundleIndex!=undefined) ? bundles[editBundleIndex].bundleName : ''" placeholder="Bundle Name" type="text" #bundleName>
-					
 				</div>
-
-				<div class="form-group m-form__group">
-						<label>
-							Bundle Description
-						</label>
-						<textarea class="form-control m-input" rows="3" #bundleDescritpion></textarea>
-				</div>
-
-				
-
-				<div class="form-group m-form__group" [hidden]="true">
-					<label>
-						Quantity
-					</label>
-					<input class="form-control m-input m-input--square" min="1" value="1"  placeholder="Bundle Quantity" type="number" #bundleQuantity>		
-			   </div>
-
-			  
+			</div>
 
 
-
-				
-
-				 </div>
-
-
-				 <div class="col-md-6">
-
+			<div class="row" *ngIf="isBundleFormShown">
+				<div class="col-md-12">
+					<button class="btn btn-link marginTopNegative14" (click)="isBundleFormShown=!isBundleFormShown; editCatalogIndex = undefined;"
+					    style="padding-left:0px;">
+						<i class="fa fa-chevron-left"></i> Back</button>
 					<div class="row">
-						<div class="col-sm-8">
-								<div class="form-group m-form__group">
+						<div class="col-md-6">
+							<div class="form-group m-form__group">
+								<label>
+									Bundle Name
+								</label>
+								<input class="form-control m-input m-input--square" [value]="(editBundleIndex!=undefined) ? bundles[editBundleIndex].bundleName : ''"
+								    placeholder="Bundle Name" type="text" #bundleName>
+
+							</div>
+
+							<div class="form-group m-form__group">
+								<label>
+									Bundle Description
+								</label>
+								<textarea class="form-control m-input" rows="3" #bundleDescritpion></textarea>
+							</div>
+
+
+
+							<div class="form-group m-form__group" [hidden]="true">
+								<label>
+									Quantity
+								</label>
+								<input class="form-control m-input m-input--square" min="1" value="1" placeholder="Bundle Quantity" type="number" #bundleQuantity>
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+
+							<div class="row">
+								<div class="col-sm-8">
+									<div class="form-group m-form__group">
 										<label>Service:</label>
 										<select class="form-control m-input m-input--square" #servicetype_bundle>
-												<option *ngFor="let service of services; let i =index" value="{{i}}" >
-														{{service.serviceName}}
-													</option>
+											<option *ngFor="let service of services; let i =index" value="{{i}}">
+												{{service.serviceName}}
+											</option>
 										</select>
+									</div>
 								</div>
-						</div>
 
-						<div class="col-sm-4">
-								<button style="margin-top:30px;"  class="btn btn-default" (click)="saveServicesForBundle(servicetype_bundle.value , discountType.value , calculatedvalueNoDiscount.value , calculatedvalueDiscountAmount.value , calculatedvalueDiscountPercent.value, bundleQuantity.value , servicetype_bundle)">Add Service</button>
-						</div>
-					</div>
-						
-
-
-
-						
-								 
-				
-								 <div class="form-group m-form__group" [hidden]="true">
-									<label>Total:</label>
-									<input type="text" [hidden]="discountType.value!='no' || true" disabled class="form-control m-input m-input--square" [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''" #calculatedvalueNoDiscount>
-									<input type="text" [hidden]="discountType.value!='money'|| true" disabled class="form-control m-input m-input--square" [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''" #calculatedvalueDiscountAmount>
-									<input type="text" [hidden]="discountType.value!='percent'|| true" disabled class="form-control m-input m-input--square" [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''" #calculatedvalueDiscountPercent>
+								<div class="col-sm-4">
+									<button style="margin-top:30px;" class="btn btn-default" (click)="saveServicesForBundle(servicetype_bundle.value , discountType.value , calculatedvalueNoDiscount.value , calculatedvalueDiscountAmount.value , calculatedvalueDiscountPercent.value, bundleQuantity.value , servicetype_bundle)">Add Service</button>
 								</div>
-				
-			
-
-				
-				
-				
-
-				  <div class="row" *ngFor="let bundleService of BundlesOfServices; let i =index;" style="margin-top:20px;">
-						<div class="col-1">
-								<label class="m-checkbox">
+							</div>
+							<div class="form-group m-form__group" [hidden]="true">
+								<label>Total:</label>
+								<input type="text" [hidden]="discountType.value!='no' || true" disabled class="form-control m-input m-input--square" [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''"
+								    #calculatedvalueNoDiscount>
+								<input type="text" [hidden]="discountType.value!='money'|| true" disabled class="form-control m-input m-input--square" [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''"
+								    #calculatedvalueDiscountAmount>
+								<input type="text" [hidden]="discountType.value!='percent'|| true" disabled class="form-control m-input m-input--square"
+								    [value]="(services[servicetype_bundle.value]) ? services[servicetype_bundle.value].price*bundleQuantity.value : ''"
+								    #calculatedvalueDiscountPercent>
+							</div>
+							<div class="row" *ngFor="let bundleService of BundlesOfServices; let i =index;" style="margin-top:20px;">
+								<div class="col-1">
+									<label class="m-checkbox">
 										<input type="checkbox" checked>
 										<span></span>
 									</label>
-						</div>
+								</div>
+								<div class="col-3">
+									{{bundleService.Category}}
+								</div>
 
+								<div class="col-2">
+									{{bundleService.SubCategory}}
+								</div>
 
-						
-	
-						<div class="col-3">
-								{{bundleService.Category}}
-						</div>
-	
-						<div class="col-2">
-								{{bundleService.SubCategory}}
-						</div>
-	
-						<div class="col-2">
-								{{bundleService.Price}}
-						</div>
-	
-						<div class="col-2">
-								<a (click)="deleteBundleService(i , bundleService.Serviceindex , servicetype_bundle)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" title="Delete">
+								<div class="col-2">
+									{{bundleService.Price}}
+								</div>
+
+								<div class="col-2">
+									<a (click)="deleteBundleService(i , bundleService.Serviceindex , servicetype_bundle)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill"
+									    href="javascript:" title="Delete">
 										<i class="la la-trash"></i>
 									</a>
-						</div>
+								</div>
 
-						<div class="col-1">
-								<span  class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
-										<label >
+								<div class="col-1">
+									<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
+										<label>
 											<input name="" type="checkbox">
-											<span ></span>
+											<span></span>
 										</label>
 									</span>
 
-						</div>
-	
-					</div>
-
-					<div class="row">
-							<div *ngIf="isGrossTotal;" class="offset-sm-4 col-sm-6" style="margin-top:20px;">
-									<strong>Total:</strong> <span style="margin-left:48px;"> {{tempBundle}}</span>  
-							</div>
-					</div>
-
-					<div class="row" [class.d-none]="!isGrossTotal" style="margin-top: -26px;">
-						<div class="col-sm-3">
-								<div class="form-group m-form__group" >
-										<label>Discount:</label>
-										<select (change)="discountTypeChanged(discountType.value ,  discountTheMoney.value, discountPercentage.value)" class="form-control m-input m-input--square" #discountType >
-											<option  value="no">
-												None
-											  </option>	
-											<option  value="money" >
-												Money
-												</option>
-												<option  value="percent" >
-													%age
-												</option>
-										</select>
-										 </div>
-										 
-										 <div class="form-group m-form__group" [hidden]="discountType.value!='money'">
-											<label>Money:</label>
-											<input (change)="ChangeAndShowDiscount(discountType.value , discountTheMoney.value)" type="number" min="1" class="form-control m-input m-input--square" #discountTheMoney />
-										</div>
-										
-										
-										<div class="form-group m-form__group" [hidden]="discountType.value!='percent'">
-												<label>Percentage:</label>
-												<input (change)="ChangeAndShowDiscount(discountType.value , discountPercentage.value)"  type="number" min="1" max="100"  class="form-control m-input m-input--square" #discountPercentage/>
-											</div> 
-						</div>
-
-						<div class="col-sm-1">
-								
-
-						</div>
-						<div class="col-sm-6">
-								
-								<div *ngIf="isGrossTotal;" style="margin-top: 35px;">
-										<strong>Discount:</strong> <span style="margin-left: 22px;"> {{tempDiscount}} </span>  
 								</div>
 
-								<div *ngIf="isGrossTotal;"   style="margin-top:20px;">
-									<strong>Bundle Price:</strong> <span> {{bundlePrice}}</span>  
 							</div>
 
+							<div class="row">
+								<div *ngIf="isGrossTotal;" class="offset-sm-4 col-sm-6" style="margin-top:20px;">
+									<strong>Total:</strong>
+									<span style="margin-left:48px;"> {{tempBundle}}</span>
+								</div>
 							</div>
-						
-					 </div>
-	
-					 <div class="row">
-	
-							
-							
-					 </div>
-	
 
-			
-				 </div>
+							<div class="row" [class.d-none]="!isGrossTotal" style="margin-top: -26px;">
+								<div class="col-sm-3">
+									<div class="form-group m-form__group">
+										<label>Discount:</label>
+										<select (change)="discountTypeChanged(discountType.value ,  discountTheMoney.value, discountPercentage.value)" class="form-control m-input m-input--square"
+										    #discountType>
+											<option value="no">
+												None
+											</option>
+											<option value="money">
+												Money
+											</option>
+											<option value="percent">
+												%age
+											</option>
+										</select>
+									</div>
 
-
-				
-
-		
-
-
-		
-		 <div class="col-sm-12">
-				<button class="btn btn-primary pull-right" (click)="saveBundle(bundleName.value , bundleDescritpion.value , BundlesOfServices.length); isBundleFormShown=false;">Save</button>
-		 </div>
-
-		</div>
-		
-		
-		
-		
-</div>	
-
-</div>
+									<div class="form-group m-form__group" [hidden]="discountType.value!='money'">
+										<label>Money:</label>
+										<input (change)="ChangeAndShowDiscount(discountType.value , discountTheMoney.value)" type="number" min="1" class="form-control m-input m-input--square"
+										    #discountTheMoney />
+									</div>
 
 
+									<div class="form-group m-form__group" [hidden]="discountType.value!='percent'">
+										<label>Percentage:</label>
+										<input (change)="ChangeAndShowDiscount(discountType.value , discountPercentage.value)" type="number" min="1" max="100" class="form-control m-input m-input--square"
+										    #discountPercentage/>
+									</div>
+								</div>
 
-<div class="row"  *ngIf="isServiceFormShown">
-		<div class="col-md-12">
-
-
-			<button class="btn btn-link marginTopNegative14" (click)="isServiceFormShown=!isServiceFormShown; editCatalogIndex = undefined" style="padding-left:0px;"><i class="fa fa-chevron-left"></i> Back</button>
-
-
-			<ul class="nav nav-tabs" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link active show" data-toggle="tab" href="#serviceform_newcatalog" ng-reflect-href="#serviceform_newcatalog">
-							New Catalog Item
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#serviceform_tasks" ng-reflect-href="#serviceform_tasks">
-							List
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#serviceform_location" ng-reflect-href="#serviceform_location">
-							Location
-						</a>
-					</li>
-				
-				</ul>
+								<div class="col-sm-1">
 
 
-				<div class="tab-content">
+								</div>
+								<div class="col-sm-6">
+
+									<div *ngIf="isGrossTotal;" style="margin-top: 35px;">
+										<strong>Discount:</strong>
+										<span style="margin-left: 22px;"> {{tempDiscount}} </span>
+									</div>
+
+									<div *ngIf="isGrossTotal;" style="margin-top:20px;">
+										<strong>Bundle Price:</strong>
+										<span> {{bundlePrice}}</span>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="row">
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<button class="btn btn-primary pull-right" (click)="saveBundle(bundleName.value , bundleDescritpion.value , BundlesOfServices.length); isBundleFormShown=false;">Save</button>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+			<div class="row" *ngIf="isServiceFormShown">
+				<div class="col-md-12">
+
+
+					<button class="btn btn-link marginTopNegative14" (click)="isServiceFormShown=!isServiceFormShown; editCatalogIndex = undefined"
+					    style="padding-left:0px;">
+						<i class="fa fa-chevron-left"></i> Back</button>
+
+
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active show" data-toggle="tab" href="#serviceform_newcatalog" ng-reflect-href="#serviceform_newcatalog">
+								New Catalog Item
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#serviceform_tasks" ng-reflect-href="#serviceform_tasks">
+								List
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#serviceform_location" ng-reflect-href="#serviceform_location">
+								Location
+							</a>
+						</li>
+
+					</ul>
+
+
+					<div class="tab-content">
 						<div class="tab-pane active " id="serviceform_newcatalog" role="tabpanel">
 
 							<div class="row">
 								<div class="col-md-6">
-										<div class="form-group m-form__group">
-												<label>Service Category</label>
-												<select [(ngModel)]="serviceGroup" class="form-control m-input m-input--square">
-														<option value="Personal">
-																Personal
-															</option>
-															<option value="Auto">
-																Auto
-															</option>
-															
-															<option value="Health">
-																Health
-															</option>
-												</select>
-										</div>
+									<div class="form-group m-form__group">
+										<label>Service Category</label>
+										<select [(ngModel)]="serviceGroup" class="form-control m-input m-input--square">
+											<option value="Personal">
+												Personal
+											</option>
+											<option value="Auto">
+												Auto
+											</option>
+
+											<option value="Health">
+												Health
+											</option>
+										</select>
+									</div>
 
 
-										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Personal')" >
-												<label>Service Sub-Category:</label>
-												<select class="form-control m-input m-input--square" #personalSubCategory>
-														<option value="Makeup">
-																Makeup
-															</option>
-															<option value="Nail Technician">
-																Nail Technician
-															</option>
-															
-															<option value="Hair Stylists">
-																Hair Stylists
-															</option>
-							
-															<option value="Eyelash Extensions">
-																	Eyelash Extensions
-															</option>
-							
-															<option value="Barber">
-																	Barber
-															</option>
-															<option value="Barber">
-																	Massage Therapist
-															</option>
+									<div class="form-group m-form__group" *ngIf="(serviceGroup=='Personal')">
+										<label>Service Sub-Category:</label>
+										<select class="form-control m-input m-input--square" #personalSubCategory>
+											<option value="Makeup">
+												Makeup
+											</option>
+											<option value="Nail Technician">
+												Nail Technician
+											</option>
 
-															<option value="Barber">
-																	Waxing
-															</option>
+											<option value="Hair Stylists">
+												Hair Stylists
+											</option>
 
-												</select>
-										</div>
-										
-										
-										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Auto')" >
-												<label>Service Sub-Category:</label>
-												<select class="form-control m-input m-input--square" #autoSubCategory>
-														<option value="Car Dealing">
-																Car Dealing
-															</option>
-															<option value="Car Wash">
-																Car Wash
-															</option>
-															
-												</select>
-										</div>
-							
-							
-										<div class="form-group m-form__group" *ngIf="(serviceGroup=='Health')" >
-												<label>Service Sub-Category:</label>
-												<select class="form-control m-input m-input--square"  #healthSubCategory>
-														<option value="Personal Trainer">
-																Personal Trainer
-															</option>
-															<option value="Yoga Instruction">
-																	Yoga Instruction
-															</option>
-															<option value="Yoga Instruction">
-																	Martial Arts
-															</option>
-															
-												</select>
-										</div>
+											<option value="Eyelash Extensions">
+												Eyelash Extensions
+											</option>
+
+											<option value="Barber">
+												Barber
+											</option>
+											<option value="Barber">
+												Massage Therapist
+											</option>
+
+											<option value="Barber">
+												Waxing
+											</option>
+
+										</select>
+									</div>
 
 
-										<div class="form-group m-form__group">
-												<label>
-													Service Name
-												</label>
-												<input placeholder="Service Name" class="form-control m-input m-input--square"   type="text" #catalogServiceName [value]="(editCatalogIndex!=undefined) ? services[editCatalogIndex].serviceName : ''"   />
-											
-										</div>
+									<div class="form-group m-form__group" *ngIf="(serviceGroup=='Auto')">
+										<label>Service Sub-Category:</label>
+										<select class="form-control m-input m-input--square" #autoSubCategory>
+											<option value="Car Dealing">
+												Car Dealing
+											</option>
+											<option value="Car Wash">
+												Car Wash
+											</option>
+
+										</select>
+									</div>
 
 
-										<div class="form-group m-form__group">
-												<label >
-													Description
-												</label>
-												<textarea class="form-control m-input"  rows="3" #catalogServiceDescription></textarea>
-										</div>
+									<div class="form-group m-form__group" *ngIf="(serviceGroup=='Health')">
+										<label>Service Sub-Category:</label>
+										<select class="form-control m-input m-input--square" #healthSubCategory>
+											<option value="Personal Trainer">
+												Personal Trainer
+											</option>
+											<option value="Yoga Instruction">
+												Yoga Instruction
+											</option>
+											<option value="Yoga Instruction">
+												Martial Arts
+											</option>
 
-										<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value);">Save</button>
+										</select>
+									</div>
 
 
+									<div class="form-group m-form__group">
+										<label>
+											Service Name
+										</label>
+										<input placeholder="Service Name" class="form-control m-input m-input--square" type="text" #catalogServiceName [value]="(editCatalogIndex!=undefined) ? services[editCatalogIndex].serviceName : ''"
+										/>
 
-									
-										
+									</div>
+
+
+									<div class="form-group m-form__group">
+										<label>
+											Description
+										</label>
+										<textarea class="form-control m-input" rows="3" #catalogServiceDescription></textarea>
+									</div>
+
+									<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value);">Save</button>
+
 								</div>
 
-							
+
 								<div class="col-md-6">
-										<div class="form-group m-form__group" >
-												<label>Service Frequency:</label>
-												<select class="form-control m-input m-input--square" >
-														<option value="1">
-																1
-															</option>
-															<option value="2">
-																	2
-															</option>
-															<option value="3+">
-																	3+
-															</option>
-															<option value="5+">
-																	5+
-															</option>
-															<option value="10+">
-																	10+
-															</option>
-															
-												</select>
-										</div>
+									<div class="form-group m-form__group">
+										<label>Service Frequency:</label>
+										<select class="form-control m-input m-input--square">
+											<option value="1">
+												1
+											</option>
+											<option value="2">
+												2
+											</option>
+											<option value="3+">
+												3+
+											</option>
+											<option value="5+">
+												5+
+											</option>
+											<option value="10+">
+												10+
+											</option>
+
+										</select>
+									</div>
 
 
-										<div class="form-group m-form__group">
-												<label>
-													Estimated Price
-												</label>
-												<input #catalogServicePrice placeholder="Estimated Price" class="form-control m-input m-input--square"  type="text">
-											
-										</div>
+									<div class="form-group m-form__group">
+										<label>
+											Estimated Price
+										</label>
+										<input #catalogServicePrice placeholder="Estimated Price" class="form-control m-input m-input--square" type="text">
+
+									</div>
 
 
-										<div class="form-group m-form__group" >
-												<label>Currency:</label>
-												<select class="form-control m-input m-input--square" >
-														<option value="USD">
-																USD
-															</option>
-															<option value="CAD">
-																	CAD
-															</option>
-															<option value="PKR">
-																	PKR
-															</option>
-															<option value="IND">
-																	IND
-															</option>
-															
-												</select>
-										</div>
+									<div class="form-group m-form__group">
+										<label>Currency:</label>
+										<select class="form-control m-input m-input--square">
+											<option value="USD">
+												USD
+											</option>
+											<option value="CAD">
+												CAD
+											</option>
+											<option value="PKR">
+												PKR
+											</option>
+											<option value="IND">
+												IND
+											</option>
 
-										<div class="uploadButtons">
-										<button class="btn btn-link"><i class="fa fa-file-image-o"></i> Upload images</button>
-										<button class="btn btn-link"><i class="fa fa-video-camera"></i> Link videos via urls</button>
-										</div>
+										</select>
+									</div>
 
-										
-		
+									<div class="uploadButtons">
+										<button class="btn btn-link">
+											<i class="fa fa-file-image-o"></i> Upload images</button>
+										<button class="btn btn-link">
+											<i class="fa fa-video-camera"></i> Link videos via urls</button>
+									</div>
 								</div>
-
-
-								
-
-
-							
-									
 							</div>
 
-							
-							
-					
-					
-					
-							
-
-
-
-								
-							
-
-
-							
-
-								
-								
-
-								
 						</div>
 
 						<div class="tab-pane" id="serviceform_tasks" role="serviceform_tasks">
-								<button class="btn btn-default " style="margin-bottom: 8px;" data-toggle="modal" (click)="addNewItemInServiceCatalog()"><i class="fa fa-plus"></i> Add List Item</button>
-								<div class="table-responsive">
+							<button class="btn btn-default " style="margin-bottom: 8px;" data-toggle="modal" (click)="addNewItemInServiceCatalog()">
+								<i class="fa fa-plus"></i> Add List Item</button>
+							<div class="table-responsive">
 								<table class="table table-bordered table-striped">
-										<thead>
-											<tr>
-												<th>
-													Name
-												</th>
-												<th>
-													Description
-												</th>
-												<th>
-													Status
-												</th>
-												<th>
-													Actions
-												</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr *ngFor="let theItem of listItems; let i=index;">
-												<td contenteditable="true" (focusout)="changeTheItemName($event , theItem)">
-													{{theItem.itemName}}
-												</td>
-												<td contenteditable="true"  (focusout)="changeTheDescription($event , theItem)">
-													{{theItem.itemDescription}}	
-												</td>
-												<td>
+									<thead>
+										<tr>
+											<th>
+												Name
+											</th>
+											<th>
+												Description
+											</th>
+											<th>
+												Status
+											</th>
+											<th>
+												Actions
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let theItem of listItems; let i=index;">
+											<td contenteditable="true" (focusout)="changeTheItemName($event , theItem)">
+												{{theItem.itemName}}
+											</td>
+											<td contenteditable="true" (focusout)="changeTheDescription($event , theItem)">
+												{{theItem.itemDescription}}
+											</td>
+											<td>
 
-														<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon" >
-																<label>
-																	<input name="" type="checkbox" [checked]="theItem.approved">
-																	<span></span>
-																</label>
-															</span>
-												</td>
-											
-												<td>
+												<span class="m-switch m-switch--outline m-switch--sm m-switch--success m-switch--icon">
+													<label>
+														<input name="" type="checkbox" [checked]="theItem.approved">
+														<span></span>
+													</label>
+												</span>
+											</td>
+
+											<td>
 												<!-- <button (click)="deleteAnItem(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button" >
 														Delete
 												</button> -->
 
-												<a (click)="deleteAnItem(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" ng-reflect-href="javascript:" title="Delete">
-														<i  class="la la-trash"></i>
-													</a>
-												
-										    	</td>
-											</tr>
-										
-										</tbody>
-									</table>
-								</div>
+												<a (click)="deleteAnItem(i)" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill"
+												    href="javascript:" ng-reflect-href="javascript:" title="Delete">
+													<i class="la la-trash"></i>
+												</a>
 
+											</td>
+										</tr>
 
-								
+									</tbody>
+								</table>
+							</div>
 						</div>
 
 						<div class="tab-pane" id="serviceform_location" role="serviceform_tasks">
@@ -718,25 +642,25 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group m-form__group">
-											<label>Select Location:</label>
-											<select class="form-control m-input m-input--square">
-													<option value="Default Location">
-															Default Location
-														</option>
-														<option value="1st Location" >
-																1st Location
-														</option>
-														<option value="2nd Location">
-																2nd Location
-														</option>
-														<option value="3rd Location">
-																3rd Location
-														</option>
-														<option value="4th Location" >
-																4th Location
-														</option>
-														
-											</select>
+										<label>Select Location:</label>
+										<select class="form-control m-input m-input--square">
+											<option value="Default Location">
+												Default Location
+											</option>
+											<option value="1st Location">
+												1st Location
+											</option>
+											<option value="2nd Location">
+												2nd Location
+											</option>
+											<option value="3rd Location">
+												3rd Location
+											</option>
+											<option value="4th Location">
+												4th Location
+											</option>
+
+										</select>
 									</div>
 								</div>
 
@@ -744,99 +668,23 @@
 
 								<div class="col-md-12">
 
-								<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value)"> Save </button>	
+									<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value)">
+									Save </button>
 								</div>
-
-							
-
 							</div>
-
-
-
-								
-
-							
-								
-						
 						</div>
-				</div>
-
-	
-				
-
-				
-	
-	
-		</div>
-			
-	
-	</div >
-
-
-
-	
-
-
-
-</div>
-</div>
-</div>
-
-
-
-
-	
-
-
-
-
-
-
-
-
-<!--
-	<div aria-labelledby="addListItemModal" class="modal fade" id="addListItemModal" role="dialog" tabindex="999">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							 List Item
-						</h5>
-						<button aria-label="Close" class="close" data-dismiss="modal" type="button">
-							<span aria-hidden="true">
-								×
-							</span>
-						</button>
-					</div>
-					<div class="modal-body">
-							
-								<div class="form-group">
-										<label class="form-control-label" >
-											Item Name:
-										</label>
-										<input class="form-control" id="item-name" [value]="(editItemIndex!=undefined) ? listItems[editItemIndex].itemName : ''" type="text" #itemName>
-									</div>
-
-									<div class="form-group">
-											<label class="form-control-label" >
-												Item Description:
-											</label>
-											<textarea [value]="(editItemIndex!=undefined) ? listItems[editItemIndex].itemDescription : ''" class="form-control" id="item-name" type="text" #itemDescription></textarea>
-									</div>
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-primary" (click)="addAnItem(itemName.value , itemDescription.value);" data-dismiss="modal" type="button">
-							Save
-						</button>
-						<button class="btn btn-secondary" data-dismiss="modal" type="button" (click)="editItemIndex=undefined;">
-							Close
-						</button>
-					
 					</div>
 				</div>
+
+
 			</div>
+
+
+
+
+
+
+
 		</div>
-
-
-	-->
-	<!-- Modals End-->
+	</div>
+</div>

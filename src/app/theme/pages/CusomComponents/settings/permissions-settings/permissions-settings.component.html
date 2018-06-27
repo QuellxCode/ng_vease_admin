@@ -41,36 +41,6 @@
                 </li>
         </ul>
 </div>
-    <!-- <div class="row">
-        <div class="col-md-6">
-            <form [formGroup]="permissionForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="" class="form-control-label strong">Create Permission</label>
-                    <input type="text" placeholder="Enter permission name here" class="form-control" formControlName="permissionName">
-                </div>
-                <div>
-                    <button class="btn btn-primary" type="submit" [disabled]="!permissionForm.valid">Save</button>
-                </div>
-               </form>
-        </div>
-        <div class="col-md-6">
-            <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Permission Name</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let item of permissionService.getPermissions()">
-                  <tr>
-                    <td>{{item.name}}</td>
-                    <td><button class="btn btn-danger" (click)="onDelete(item)">Delete</button></td>
-                  </tr>
-                </tbody>
-              </table>
-        </div> -->
-        <!-- <loading-spinner-settings></loading-spinner-settings> -->
-            <!-- <loading-spinner-settings *ngIf="loadingSpinner" ></loading-spinner-settings> -->
 
 <div class="m-portlet m-portlet--mobile">
     <div class="m-portlet__body">
@@ -137,12 +107,6 @@
                        </form>
                 </div>
 
-                  <!-- <button class="btn btn-primary pull-right" (click)="saveRole(roleName.value)" type="reset" style="margin-bottom:14px;">
-                        Save
-                    </button> -->
-                    <!-- <div>
-                        <button class="btn btn-primary" type="submit" [disabled]="!permissionForm.valid">Save</button>
-                    </div> -->
        
     </div>
     

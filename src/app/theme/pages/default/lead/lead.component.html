@@ -8,7 +8,6 @@
         </div>
         <a class="btn btn-link" (click)="formHidden=!formHidden">
             <i class="fa fa-plus"></i> Add Lead</a>
-        <!-- <a  data-toggle="modal" data-target="#addBookingModal" class="btn btn-link"><i class="fa fa-plus"></i> Add Booking</a> -->
         <div>
             <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover"
                 aria-expanded="true">
@@ -100,9 +99,9 @@
 <!-- Content Begins -->
 <div class="m-content">
 
-    <div class="row" [hidden]="!formHidden" [hidden]="rescheduleForm">
+    <div class="row" [hidden]="!formHidden">
         <!--List 1 Start-->
-        <div class="col-xl-3 MuliSection">
+        <div class="col-xl-3 MuliSection" >
             <!--begin:: Widgets/Authors Profit-->
             <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height">
                 <div class="m-portlet__head">
@@ -156,8 +155,8 @@
                                                         </a>
                                                     </li>
                                                     <li class="m-nav__item">
-                                                        <a href="" class="m-nav__link">
-                                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                                        <a href="" class="m-nav__link" (click)="date=!date">
+                                                            <i class="m-nav__link-icon flaticon-calendar-2"></i>
                                                             <span class="m-nav__link-text">
                                                                 Date
                                                             </span>
@@ -186,7 +185,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="m-portlet__body">
+                <div class="m-portlet__body" *ngIf="!date" >
                     <div class="m-widget4 mcol" [dragula]='"bag-task1"'>
                         <div class="m-widget4__item" (click)="formHidden=false;">
                             <div class="m-widget4__img m-widget4__img--logo">
@@ -284,6 +283,115 @@
                             </span>
                         </div>
                     </div>
+                </div>
+                <!-- ______________This is date filter______________ -->
+                <div *ngIf="date" class="m-portlet__body">
+                        <h6 class="m-section__heading" style="margin-left: 25px; font-weight: 400">
+                                06-27-2018
+                        </h6>
+                        <div class="m-list-timeline m-list-timeline--skin-light">
+                                <div class="m-list-timeline__items">
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                        <span class="m-list-timeline__text">
+                                            <strong>Trump Themes</strong>
+                                        </span>
+                                    </div>
+                                        <span class="m-list-timeline__badge"></span>
+                                        <span class="m-list-timeline__time company-text">
+                                                Make metronic great
+                                             </span>
+                                             <span class="m-widget4__number m--font-brand company-text-1">
+                                                    +$2500
+                                                </span>
+                                            
+                                                    <div class="m-list-timeline__item">
+                                                        <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                        <span class="m-list-timeline__text">
+                                                            <strong>StarBucks</strong>
+                                                        </span>
+                                                    </div>
+                                                        <span class="m-list-timeline__badge"></span>
+                                                        <span class="m-list-timeline__text company-text">
+                                                                Good coffee and snacks
+                                                             </span>
+                                                             <span class="m-widget4__number m--font-brand company-text-1">
+                                                                    -$290
+                                                                </span>
+                                                             <div class="m-list-timeline__item">
+                                                                    <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                                    <span class="m-list-timeline__text">
+                                                                        <strong>Green Makers</strong>
+                                                                    </span>
+                                                                </div>
+                                                                    <span class="m-list-timeline__badge"></span>
+                                                                    <span class="m-list-timeline__text company-text">
+                                                                            Make green great again
+                                                                         </span>
+                                                                         <span class="m-widget4__number m--font-brand company-text-1">
+                                                                                +$17
+                                                                            </span>
+                                </div>
+                            </div><br>
+                            <h6 class="m-section__heading" style="margin-left: 25px; font-weight: 400">
+                                    09-12-2017
+                            </h6>
+                            <div class="m-list-timeline m-list-timeline--skin-light">
+                                    <div class="m-list-timeline__items">
+                                            <div class="m-list-timeline__item">
+                                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                <span class="m-list-timeline__text">
+                                                    <strong>Trump Themes</strong>
+                                                </span>
+                                            </div>
+                                                <span class="m-list-timeline__badge"></span>
+                                                <span class="m-list-timeline__text company-text">
+                                                        Make metronic great
+                                                     </span>
+                                                     <span class="m-widget4__number m--font-brand company-text-1">
+                                                            +$17
+                                                        </span>
+                                                            <div class="m-list-timeline__item">
+                                                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                                <span class="m-list-timeline__text">
+                                                                    <strong>StarBucks</strong>
+                                                                </span>
+                                                            </div>
+                                                                <span class="m-list-timeline__badge"></span>
+                                                                <span class="m-list-timeline__text company-text">
+                                                                        Good coffee and
+                                                                     </span>
+                                                                     <span class="m-widget4__number m--font-brand company-text-1">
+                                                                            +$2500
+                                                                        </span>
+                                                                     <div class="m-list-timeline__item">
+                                                                            <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                                            <span class="m-list-timeline__text">
+                                                                                <strong>Green Makers</strong>
+                                                                            </span>
+                                                                        </div>
+                                                                            <span class="m-list-timeline__badge"></span>
+                                                                            <span class="m-list-timeline__text company-text">
+                                                                                    Make green great again
+                                                                                 </span>
+                                                                                 <span class="m-widget4__number m--font-brand company-text-1">
+                                                                                        +$17
+                                                                                    </span>
+                                                                                 <div class="m-list-timeline__item">
+                                                                                        <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                                                        <span class="m-list-timeline__text">
+                                                                                            <strong>Fly Themes</strong>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                        <span class="m-list-timeline__badge"></span>
+                                                                                        <span class="m-list-timeline__text company-text">
+                                                                                                Lets fly fast again
+                                                                                             </span>
+                                                                                             <span class="m-widget4__number m--font-brand company-text-1">
+                                                                                                    +$55
+                                                                                                </span>
+                                        </div>
+                                </div>
                 </div>
             </div>
             <!--&lt;!&ndash;end:: Widgets/Authors Profit&ndash;&gt;-->
@@ -389,7 +497,7 @@
                                 <span class="m-widget4__number m--font-brand">
                                     +$2500
                                 </span>
-                                <button _ngcontent-c6="" (click)="rescheduleForm=!rescheduleForm" class="btn btn-link personMoreDetailsButton pull-right reschedule"
+                                <button _ngcontent-c6=""  type="button" class="btn btn-primary" data-toggle="modal" data-target="#rescheduleForm" class="btn btn-link personMoreDetailsButton pull-right reschedule"
                                     style="padding:0px;">Reschedule</button>
 
                             </span>
@@ -411,7 +519,7 @@
                                 <span class="m-widget4__number m--font-brand">
                                     -$290
                                 </span>
-                                <button _ngcontent-c6="" class="btn btn-link personMoreDetailsButton pull-right reschedule" style="padding:0px;">Reschedule</button>
+                                <button _ngcontent-c6="" class="btn btn-link personMoreDetailsButton pull-right reschedule" type="button" data-toggle="modal" data-target="#rescheduleForm" style="padding:0px;">Reschedule</button>
 
                             </span>
                         </div>
@@ -440,7 +548,7 @@
                             <div class="m-widget4__img m-widget4__img--logo">
                                 <img src="./assets/app/media/img/client-logos/logo2.png" alt="">
                             </div>
-                            <div class="m-widget4__info">
+                            <div class="m-widget4__info" style="padding-right: 6px;">
                                 <span class="m-widget4__title">
                                     GreenMakers
                                 </span>
@@ -1181,19 +1289,6 @@
             <div class="m-portlet__body">
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- <div class="form-group">
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label" style="padding-right: 40px;">Client Type</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" (click)="isCustomer=true;" type="radio" name="clientcheck" checked  id="inlineRadio"  style="padding-top: 2px;" >
-                                <label class="form-check-label"  for="inlineRadio" style="padding-top: 2px;" >Customer</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input"  (click)="isCustomer=false;" type="radio" name="clientcheck" id="inlineRadio1"   style="padding-top: 2px;">
-                                <label class="form-check-label" for="inlineRadio1" style="padding-top: 2px;">Company</label>
-                            </div>
-                        </div> -->
 
 
                         <div class="m-radio-inline" style="margin-bottom:20px;">
@@ -1234,12 +1329,6 @@
                                 <option>5</option>
                             </select>
                         </div>
-
-
-                        <!-- <div class="form-group">
-                            <label for="leadfee">Lead Fee</label>
-                            <input type="text" class="form-control" id="leadfee" placeholder="Enter Lead Fee">
-                        </div> -->
 
 
 
@@ -1320,52 +1409,7 @@
                         <wizard-lead-form></wizard-lead-form>
                     </div>
 
-                    <!-- <div class="col-md-12">
-                        <h5 class="m-portlet__head-text" style="margin-top: 25px;">
-                            <i class="fa fa-info-circle"></i> Lead Details</h5>
-                        <div class="row">
-                            <div class="col-md-8">
-
-                                <div class="form-group">
-                                    <label for="Subject">Subject</label>
-                                    <input type="password" class="form-control" id="Subject">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="textArea">Consumer Comments</label>
-                                    <textarea class="form-control" id="textArea" rows="3"></textarea>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div> -->
-
                     <div class="col-md-12">
-                        <!-- <h5 class="m-portlet__head-text" style="margin-top: 25px;">
-                            <i class="fa fa-calendar"></i> Appointments</h5> -->
-                        <!-- <div class="row">
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label for="Subject">Assign/Appointment</label>
-                                    <input type="text" class="form-control" id="assign">
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <div class="m-input-icon m-input-icon--right">
-                                        <input class="form-control m-input" placeholder=".Niaz" type="text">
-                                        <span class="m-input-icon__icon m-input-icon__icon--right">
-                                            <span>
-                                                <i class="fa fa-trash"></i>
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <button type="button" class="btn btn-light" style="margin-top: 27px" data-target="#m_modal_4" data-toggle="modal">
-                                    <i class="fa fa-calendar"></i> Schedule</button>
-                            </div>
-
-                        </div> -->
                         <div class="row">
                             <div class="col-md-2">
                                 <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
@@ -1468,63 +1512,58 @@
 
 
 <!-- _________________Reschedule Form_______________ -->
-
-<div class="m-content m-content-nopadding">
-                <form [hidden]="!rescheduleForm">
-                        <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height">
-                            <div class="m-portlet__head">
-                                <div class="m-portlet__head-caption">
-                                    <div class="m-portlet__head-title">
-                                        <a class="btn btn-link" style="padding:0px;" (click)="rescheduleForm=!rescheduleForm" style="display:  block;padding-left: 0px;margin-left: -18px;">
-                                            <i class="fa fa-chevron-left"></i> BACK</a>
-                                        <h3 class="m-portlet__head-text" style=" float:left;">
-                                            Reschedule
-                                        </h3>
-                                    </div>
-                                </div>
+<div class="modal fade" id="rescheduleForm" tabindex="-1" role="dialog" aria-labelledby="rescheduleFormTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+                <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <h4 class="m-portlet__head-text" style=" float:left;">
+                                    Reschedule
+                                </h4>
                             </div>
-                            <div class="m-portlet__body">
-                           
-                                    <div class="col-md-6">
-                                <div class="form-group m-form__group">
-                                    <label class="col-form-label">
-                                        Company Name
-                                    </label>
-                                        <input type='text' class="form-control" placeholder="Enter Compnay Name" />
-                                </div>
-
-                                <div class="form-group m-form__group">
-                                    <label class="col-form-label">
-                                        Reschedule Date & Time
-                                    </label>
-                                    <div>
-                                        
-                                        <input type='text' class="form-control" id="m_datetimepicker_1" readonly placeholder="Select date & time" />
-                                        <!-- <span class="input-group-addon"><i class="fa fa-calendar"></i></span> -->
-                                    </div>
-                                </div>
-
-                                <div class="form-group m-form__group">
-                                    <label class="col-form-label">
-                                        Price
-                                    </label>
-                                        <input type='number' class="form-control" placeholder="Enter Price" />
-                                </div>
-
-                                        <div class="m-form__actions m-form__actions">
-                                            <div class="row">
-                                                <div class="col-lg-9 ml-lg-auto">
-                                                    <button type="submit" class="btn btn-success float-right">
-                                                        Submit
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                            
                         </div>
                     </div>
-                    
+              <!-- Reschedule -->
+          </div>
+          <div class="modal-body">
+                        <div class="form-group m-form__group">
+                            <label class="col-form-label">
+                                Company Name
+                            </label>
+                                <input type='text' class="form-control" placeholder="Enter Compnay Name" />
                         </div>
 
-                    </form>
-</div>
+                        <div class="form-group m-form__group">
+                            <label class="col-form-label">
+                                Reschedule Date & Time
+                            </label>
+                            <div>
+                                
+                                <input type='text' class="form-control" id="m_datetimepicker_1" readonly placeholder="Select date & time" />
+                                <!-- <span class="input-group-addon"><i class="fa fa-calendar"></i></span> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group m-form__group">
+                            <label class="col-form-label">
+                                Price
+                            </label>
+                                <input type='number' class="form-control" placeholder="Enter Price" />
+                        </div>
+
+                                <div class="m-form__actions m-form__actions">
+                                    <div class="row">
+                                        <div class="col-lg-9 ml-lg-auto">
+                                            <button type="submit" class="btn btn-success float-right" data-dismiss="modal">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                    
+                </div>
+          </div>
+          </div>
+          </div>
+          </div>
