@@ -10,8 +10,6 @@ import { DefaultComponent } from '../default.component';
 import { LeadComponent } from "./lead.component";
 import { WizardLeadForm } from '../../../../components/leadFormWizard/leadFormWizard';
 
-
-
 const routes: Routes = [
     {
         'path': '',

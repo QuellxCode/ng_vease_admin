@@ -101,7 +101,7 @@
 
     <div class="row" [hidden]="!formHidden">
         <!--List 1 Start-->
-        <div class="col-xl-3 MuliSection" >
+        <div class="col-xl-3 MuliSection">
             <!--begin:: Widgets/Authors Profit-->
             <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height">
                 <div class="m-portlet__head">
@@ -154,7 +154,7 @@
                                                             </span>
                                                         </a>
                                                     </li>
-                                                    <li class="m-nav__item">
+                                                    <li class="m-nav__item" *ngIf="!date">
                                                         <a href="" class="m-nav__link" (click)="date=!date">
                                                             <i class="m-nav__link-icon flaticon-calendar-2"></i>
                                                             <span class="m-nav__link-text">
@@ -162,6 +162,14 @@
                                                             </span>
                                                         </a>
                                                     </li>
+                                                    <li class="m-nav__item" *ngIf="date">
+                                                            <a href="" class="m-nav__link" (click)="date=!date">
+                                                                <i class="m-nav__link-icon flaticon-calendar-2"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    All
+                                                                </span>
+                                                            </a>
+                                                        </li>
                                                     <!-- <li class="m-nav__item">
                                                         <a href="" class="m-nav__link">
                                                             <i class="m-nav__link-icon flaticon-lifebuoy"></i>
@@ -185,7 +193,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="m-portlet__body" *ngIf="!date" >
+                <div class="m-portlet__body" *ngIf="!date">
                     <div class="m-widget4 mcol" [dragula]='"bag-task1"'>
                         <div class="m-widget4__item" (click)="formHidden=false;">
                             <div class="m-widget4__img m-widget4__img--logo">
@@ -286,112 +294,113 @@
                 </div>
                 <!-- ______________This is date filter______________ -->
                 <div *ngIf="date" class="m-portlet__body">
-                        <h6 class="m-section__heading" style="margin-left: 25px; font-weight: 400">
-                                06-27-2018
-                        </h6>
-                        <div class="m-list-timeline m-list-timeline--skin-light">
-                                <div class="m-list-timeline__items">
-                                    <div class="m-list-timeline__item">
-                                        <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                        <span class="m-list-timeline__text">
-                                            <strong>Trump Themes</strong>
-                                        </span>
-                                    </div>
-                                        <span class="m-list-timeline__badge"></span>
-                                        <span class="m-list-timeline__time company-text">
-                                                Make metronic great
-                                             </span>
-                                             <span class="m-widget4__number m--font-brand company-text-1">
-                                                    +$2500
-                                                </span>
-                                            
-                                                    <div class="m-list-timeline__item">
-                                                        <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                                        <span class="m-list-timeline__text">
-                                                            <strong>StarBucks</strong>
-                                                        </span>
-                                                    </div>
-                                                        <span class="m-list-timeline__badge"></span>
-                                                        <span class="m-list-timeline__text company-text">
-                                                                Good coffee and snacks
-                                                             </span>
-                                                             <span class="m-widget4__number m--font-brand company-text-1">
-                                                                    -$290
-                                                                </span>
-                                                             <div class="m-list-timeline__item">
-                                                                    <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                                                    <span class="m-list-timeline__text">
-                                                                        <strong>Green Makers</strong>
-                                                                    </span>
-                                                                </div>
-                                                                    <span class="m-list-timeline__badge"></span>
-                                                                    <span class="m-list-timeline__text company-text">
-                                                                            Make green great again
-                                                                         </span>
-                                                                         <span class="m-widget4__number m--font-brand company-text-1">
-                                                                                +$17
-                                                                            </span>
-                                </div>
-                            </div><br>
-                            <h6 class="m-section__heading" style="margin-left: 25px; font-weight: 400">
-                                    09-12-2017
-                            </h6>
-                            <div class="m-list-timeline m-list-timeline--skin-light">
-                                    <div class="m-list-timeline__items">
-                                            <div class="m-list-timeline__item">
-                                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                                <span class="m-list-timeline__text">
-                                                    <strong>Trump Themes</strong>
-                                                </span>
-                                            </div>
-                                                <span class="m-list-timeline__badge"></span>
-                                                <span class="m-list-timeline__text company-text">
-                                                        Make metronic great
-                                                     </span>
-                                                     <span class="m-widget4__number m--font-brand company-text-1">
-                                                            +$17
-                                                        </span>
-                                                            <div class="m-list-timeline__item">
-                                                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                                                <span class="m-list-timeline__text">
-                                                                    <strong>StarBucks</strong>
-                                                                </span>
-                                                            </div>
-                                                                <span class="m-list-timeline__badge"></span>
-                                                                <span class="m-list-timeline__text company-text">
-                                                                        Good coffee and
-                                                                     </span>
-                                                                     <span class="m-widget4__number m--font-brand company-text-1">
-                                                                            +$2500
-                                                                        </span>
-                                                                     <div class="m-list-timeline__item">
-                                                                            <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                                                            <span class="m-list-timeline__text">
-                                                                                <strong>Green Makers</strong>
-                                                                            </span>
-                                                                        </div>
-                                                                            <span class="m-list-timeline__badge"></span>
-                                                                            <span class="m-list-timeline__text company-text">
-                                                                                    Make green great again
-                                                                                 </span>
-                                                                                 <span class="m-widget4__number m--font-brand company-text-1">
-                                                                                        +$17
-                                                                                    </span>
-                                                                                 <div class="m-list-timeline__item">
-                                                                                        <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                                                                        <span class="m-list-timeline__text">
-                                                                                            <strong>Fly Themes</strong>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                        <span class="m-list-timeline__badge"></span>
-                                                                                        <span class="m-list-timeline__text company-text">
-                                                                                                Lets fly fast again
-                                                                                             </span>
-                                                                                             <span class="m-widget4__number m--font-brand company-text-1">
-                                                                                                    +$55
-                                                                                                </span>
-                                        </div>
-                                </div>
+                    <h6 class="m-section__heading" style="margin-left: 25px; font-weight: 400">
+                        06-27-2018
+                    </h6>
+                    <div class="m-list-timeline m-list-timeline--skin-light">
+                        <div class="m-list-timeline__items">
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                <span class="m-list-timeline__text">
+                                    <strong>Trump Themes</strong>
+                                </span>
+                            </div>
+                            <span class="m-list-timeline__badge"></span>
+                            <span class="m-list-timeline__time company-text">
+                                Make metronic great
+                            </span>
+                            <span class="m-widget4__number m--font-brand company-text-1">
+                                +$2500
+                            </span>
+
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                <span class="m-list-timeline__text">
+                                    <strong>StarBucks</strong>
+                                </span>
+                            </div>
+                            <span class="m-list-timeline__badge"></span>
+                            <span class="m-list-timeline__text company-text">
+                                Good coffee and snacks
+                            </span>
+                            <span class="m-widget4__number m--font-brand company-text-1">
+                                -$290
+                            </span>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                <span class="m-list-timeline__text">
+                                    <strong>Green Makers</strong>
+                                </span>
+                            </div>
+                            <span class="m-list-timeline__badge"></span>
+                            <span class="m-list-timeline__text company-text">
+                                Make green great again
+                            </span>
+                            <span class="m-widget4__number m--font-brand company-text-1">
+                                +$17
+                            </span>
+                        </div>
+                    </div>
+                    <br>
+                    <h6 class="m-section__heading" style="margin-left: 25px; font-weight: 400">
+                        09-12-2017
+                    </h6>
+                    <div class="m-list-timeline m-list-timeline--skin-light">
+                        <div class="m-list-timeline__items">
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                <span class="m-list-timeline__text">
+                                    <strong>Trump Themes</strong>
+                                </span>
+                            </div>
+                            <span class="m-list-timeline__badge"></span>
+                            <span class="m-list-timeline__text company-text">
+                                Make metronic great
+                            </span>
+                            <span class="m-widget4__number m--font-brand company-text-1">
+                                +$17
+                            </span>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                <span class="m-list-timeline__text">
+                                    <strong>StarBucks</strong>
+                                </span>
+                            </div>
+                            <span class="m-list-timeline__badge"></span>
+                            <span class="m-list-timeline__text company-text">
+                                Good coffee and
+                            </span>
+                            <span class="m-widget4__number m--font-brand company-text-1">
+                                +$2500
+                            </span>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                <span class="m-list-timeline__text">
+                                    <strong>Green Makers</strong>
+                                </span>
+                            </div>
+                            <span class="m-list-timeline__badge"></span>
+                            <span class="m-list-timeline__text company-text">
+                                Make green great again
+                            </span>
+                            <span class="m-widget4__number m--font-brand company-text-1">
+                                +$17
+                            </span>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                <span class="m-list-timeline__text">
+                                    <strong>Fly Themes</strong>
+                                </span>
+                            </div>
+                            <span class="m-list-timeline__badge"></span>
+                            <span class="m-list-timeline__text company-text">
+                                Lets fly fast again
+                            </span>
+                            <span class="m-widget4__number m--font-brand company-text-1">
+                                +$55
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!--&lt;!&ndash;end:: Widgets/Authors Profit&ndash;&gt;-->
@@ -494,11 +503,11 @@
                                 </span>
                             </div>
                             <span class="m-widget4__ext">
-                                <span class="m-widget4__number m--font-brand">
+                                <span class="m-widget4__number m--font-brand float-right">
                                     +$2500
                                 </span>
-                                <button _ngcontent-c6=""  type="button" class="btn btn-primary" data-toggle="modal" data-target="#rescheduleForm" class="btn btn-link personMoreDetailsButton pull-right reschedule"
-                                    style="padding:0px;">Reschedule</button>
+                                <button _ngcontent-c6="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#rescheduleForm" class="btn btn-link personMoreDetailsButton pull-right reschedule"
+                                    style="padding:0px;" (click)="onReschedule('Trump Themes', '2500')">Reschedule</button>
 
                             </span>
                         </div>
@@ -516,10 +525,11 @@
                                 </span>
                             </div>
                             <span class="m-widget4__ext">
-                                <span class="m-widget4__number m--font-brand">
+                                <span class="m-widget4__number m--font-brand float-right">
                                     -$290
                                 </span>
-                                <button _ngcontent-c6="" class="btn btn-link personMoreDetailsButton pull-right reschedule" type="button" data-toggle="modal" data-target="#rescheduleForm" style="padding:0px;">Reschedule</button>
+                                <button _ngcontent-c6="" class="btn btn-link personMoreDetailsButton pull-right reschedule" type="button" data-toggle="modal"
+                                    data-target="#rescheduleForm" style="padding:0px;" (click)="onReschedule('StarBucks', '290')">Reschedule</button>
 
                             </span>
                         </div>
@@ -537,7 +547,7 @@
                                 </span>
                             </div>
                             <span class="m-widget4__ext">
-                                <span class="m-widget4__number m--font-brand">
+                                <span class="m-widget4__number m--font-brand float-right">
                                     +$17
                                 </span>
                                 <button _ngcontent-c6="" class="btn btn-link personMoreDetailsButton pull-right reschedule" style="padding:0px;">Reschedule</button>
@@ -558,7 +568,7 @@
                                 </span>
                             </div>
                             <span class="m-widget4__ext">
-                                <span class="m-widget4__number m--font-brand">
+                                <span class="m-widget4__number m--font-brand float-right">
                                     -$2.50
                                 </span>
                                 <button _ngcontent-c6="" class="btn btn-link personMoreDetailsButton pull-right reschedule" style="padding:0px;">Reschedule</button>
@@ -579,7 +589,7 @@
                                 </span>
                             </div>
                             <span class="m-widget4__ext">
-                                <span class="m-widget4__number m--font-brand">
+                                <span class="m-widget4__number m--font-brand float-right">
                                     +$200
                                 </span>
                                 <button _ngcontent-c6="" class="btn btn-link personMoreDetailsButton pull-right reschedule" style="padding:0px;">Reschedule</button>
@@ -623,7 +633,7 @@
                                                 <ul class="m-nav">
                                                     <li class="m-nav__section m-nav__section--first">
                                                         <span class="m-nav__section-text">
-                                                           Filter
+                                                            Filter
                                                         </span>
                                                     </li>
                                                     <li class="m-nav__item">
@@ -807,7 +817,7 @@
                                                 <ul class="m-nav">
                                                     <li class="m-nav__section m-nav__section--first">
                                                         <span class="m-nav__section-text">
-                                                        Filter
+                                                            Filter
                                                         </span>
                                                     </li>
                                                     <li class="m-nav__item">
@@ -1514,56 +1524,69 @@
 <!-- _________________Reschedule Form_______________ -->
 <div class="modal fade" id="rescheduleForm" tabindex="-1" role="dialog" aria-labelledby="rescheduleFormTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
+        <div class="modal-content">
+            <div class="modal-header">
                 <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h4 class="m-portlet__head-text" style=" float:left;">
-                                    Reschedule
-                                </h4>
-                            </div>
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <h4 class="m-portlet__head-text" style=" float:left;">
+                                Reschedule
+                            </h4>
                         </div>
                     </div>
-              <!-- Reschedule -->
-          </div>
-          <div class="modal-body">
-                        <div class="form-group m-form__group">
-                            <label class="col-form-label">
-                                Company Name
-                            </label>
-                                <input type='text' class="form-control" placeholder="Enter Compnay Name" />
-                        </div>
-
-                        <div class="form-group m-form__group">
-                            <label class="col-form-label">
-                                Reschedule Date & Time
-                            </label>
-                            <div>
-                                
-                                <input type='text' class="form-control" id="m_datetimepicker_1" readonly placeholder="Select date & time" />
-                                <!-- <span class="input-group-addon"><i class="fa fa-calendar"></i></span> -->
-                            </div>
-                        </div>
-
-                        <div class="form-group m-form__group">
-                            <label class="col-form-label">
-                                Price
-                            </label>
-                                <input type='number' class="form-control" placeholder="Enter Price" />
-                        </div>
-
-                                <div class="m-form__actions m-form__actions">
-                                    <div class="row">
-                                        <div class="col-lg-9 ml-lg-auto">
-                                            <button type="submit" class="btn btn-success float-right" data-dismiss="modal">
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </div>
-                    
                 </div>
-          </div>
-          </div>
-          </div>
-          </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -4px;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+             <div class="row">
+                    <div class="col-md-6">
+                            <div class="form-group m-form__group">
+                                    <label class="col-form-label">
+                                        Company Name
+                                    </label>
+                                    <input type='text' [value]="rescheduleCompanyName" readonly class="form-control"/>
+                                </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="form-group m-form__group">
+                                    <label class="col-form-label">
+                                        Price
+                                    </label>
+                                    <input type='number' class="form-control" [value]="reschedulePrice" readonly />
+                                </div>
+                    </div>
+             </div>
+
+                <div class="form-group m-form__group">
+                    <label class="col-form-label">
+                        Reschedule starting Date & Time
+                    </label>
+                    <div>
+                        <input type='text' class="form-control" id="m_datetimepicker_1" readonly placeholder="Select date & time" />
+                    </div>
+                </div>
+                    <div class="form-group m-form__group">
+                        <label class="col-form-label">
+                            Reschedule ending Date & Time
+                        </label>
+                        <div>
+                            <input type='text' class="form-control" id="m_datetimepicker_2" readonly placeholder="Select date & time" />
+                        </div>
+                    </div>
+
+                <div class="m-form__actions m-form__actions">
+                    <div class="row">
+                        <div class="col-lg-9 ml-lg-auto">
+                            <button type="submit" class="btn btn-success float-right" data-dismiss="modal">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

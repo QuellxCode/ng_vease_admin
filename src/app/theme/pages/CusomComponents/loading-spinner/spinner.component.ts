@@ -7,7 +7,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./spinner.component.css']
 })
 export class SpinnerComponent {
-
     constructor() { }
-
 }

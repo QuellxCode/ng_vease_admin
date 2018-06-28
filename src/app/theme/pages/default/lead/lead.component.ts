@@ -112,5 +112,12 @@ export class LeadComponent implements OnInit, AfterViewInit {
         this._script.loadScripts('app-lead',
             ['assets/app/js/bootstrap-datetimepicker.js']);
     }
+    private rescheduleCompanyName;
+    private reschedulePrice;
 
+    onReschedule(name, price) {
+        this.rescheduleCompanyName = name;
+        this.reschedulePrice = price;
+        // this.onBookClass = 'btn btn-primary';
+    }
 }
