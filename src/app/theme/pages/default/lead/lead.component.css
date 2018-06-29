@@ -68,3 +68,11 @@ m-widget4 m-widget4__item {
     font-weight: 500 !important;
     display: block;
 }
+
+.dateFilter {
+ margin-left: -51px;
+}
+
+.m--font-brand[_ngcontent-c1] {
+	text-align: right;
+}

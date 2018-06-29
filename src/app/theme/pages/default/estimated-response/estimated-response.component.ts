@@ -51,22 +51,22 @@ const colors: any = {
     }
 };
 
-interface data {
-    category_id: number;
-    created_at: string;
-    details: string;
-    duration: number;
-    id: number;
-    latitude: string;
-    longitude: string;
-    name: string;
-    price: number;
-    publish: number;
-    rand_id: string;
-    staff: string;
-    status: string;
-    updated_at: string;
-}
+// interface data {
+//     category_id: number;
+//     created_at: string;
+//     details: string;
+//     duration: number;
+//     id: number;
+//     latitude: string;
+//     longitude: string;
+//     name: string;
+//     price: number;
+//     publish: number;
+//     rand_id: string;
+//     staff: string;
+//     status: string;
+//     updated_at: string;
+// }
 
 
 
@@ -103,7 +103,7 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
     viewName = "List View";
     isDisplayDetail = false;
     viewDate: Date = new Date();
-
+    search = true;
 
     time = { hour: 13, minute: 30 };
     meridian = true;
@@ -114,7 +114,7 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
         this.meridian = !this.meridian;
     }
 
-    serData: data;
+    // serData: data;
     requestForms: FormGroup;
 
 
