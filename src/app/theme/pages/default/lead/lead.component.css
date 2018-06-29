@@ -76,3 +76,12 @@ m-widget4 m-widget4__item {
 .m--font-brand[_ngcontent-c1] {
 	text-align: right;
 }
+
+hr[_ngcontent-c1] {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.m-subheader[_ngcontent-c1] {
+    padding-top: 7px;
+}
