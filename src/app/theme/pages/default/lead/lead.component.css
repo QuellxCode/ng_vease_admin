@@ -13,6 +13,7 @@
     padding: 0px !important;
     margin-top: -14px;
 }
+
 m-widget4 m-widget4__item {
     cursor: grab;
     cursor: -webkit-grab;
@@ -84,4 +85,12 @@ hr[_ngcontent-c1] {
 
 .m-subheader[_ngcontent-c1] {
     padding-top: 7px;
+}
+
+.m-subheader[_ngcontent-c1][_ngcontent-c1] {
+    padding-top: 5px;
+}
+.m-content.m-content-nopadding[_ngcontent-c1]
+{
+    margin-top: -5px;
 }

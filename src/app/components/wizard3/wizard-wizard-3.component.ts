@@ -7,7 +7,7 @@ import { Staff_Services } from '../../services/staffServices';
     selector: "app-wizard-wizard-3",
     templateUrl: "./wizard-wizard-3.component.html",
     styleUrls: ["../../theme/pages/CusomComponents/settings/staff-settings/staff-settings.component.css"],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.Emulated,
 })
 export class WizardWizard3Component implements OnInit, AfterViewInit {
 

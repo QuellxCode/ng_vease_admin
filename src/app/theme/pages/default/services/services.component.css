@@ -339,3 +339,9 @@ input.ng-invalid.ng-touched {
 {
     padding: 0px 30px;
 }
+
+.leftCardEditDelete
+{
+    margin-top: -2px;
+    float: right;
+}

@@ -13,8 +13,11 @@ import { } from 'googlemaps';
     styleUrls: ['./overview-settings.component.css']
 })
 export class OverViewSettingsComponent implements OnInit {
+
     time = { hour: 13, minute: 30 };
     time2 = { hour: 20, minute: 50 };
+    // @ViewChild('search') searchElementRef: ElementRef;
+
     locations = [{
         number: 1,
         name: '3rd Location',
@@ -121,14 +124,7 @@ export class OverViewSettingsComponent implements OnInit {
     editShiftIndex = undefined;
     editPricingIndex = undefined;
     editTaxIndex = undefined;
-
-
-    public latitude: number;
-    public longitude: number;
     public searchControl: FormControl;
-    // public BillingandShipping: FormControl;
-    public zoom: number;
-    @ViewChild('search') public searchElementRef: ElementRef;
 
     constructor(private _script: ScriptLoaderService, private taxesServices: TaxesService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
 
@@ -144,23 +140,23 @@ export class OverViewSettingsComponent implements OnInit {
 
     servicesForm: FormGroup;
 
-    addLocation(number: number, name: string, address: string) {
+    addLocation() {
+    console.log('test');
+        // if (this.editLocationIndex != undefined) {
+        //     this.locations[this.editLocationIndex].number = number;
+        //     this.locations[this.editLocationIndex].name = name;
+        //     this.locations[this.editLocationIndex].address = address;
+        //     this.editLocationIndex = undefined;
+        // }
+        // else {
+        //     this.locations.push({
+        //         number: number,
+        //         name: name,
+        //         address: address
+        //     });
+        // }
 
-        if (this.editLocationIndex != undefined) {
-            this.locations[this.editLocationIndex].number = number;
-            this.locations[this.editLocationIndex].name = name;
-            this.locations[this.editLocationIndex].address = address;
-            this.editLocationIndex = undefined;
-        }
-        else {
-            this.locations.push({
-                number: number,
-                name: name,
-                address: address
-            });
-        }
-
-        this.enterLocationFormDisplay = false;
+        // this.enterLocationFormDisplay = false;
     }
     editLocation(locationIndex) {
         this.enterLocationFormDisplay = true;
@@ -264,6 +260,8 @@ export class OverViewSettingsComponent implements OnInit {
     }
     ngOnInit() {
 
+        // console.log(this.searchElementRef);
+
         this.servicesForm = new FormGroup({
             'username': new FormControl(null),
             'percentage': new FormControl(null),
@@ -271,45 +269,28 @@ export class OverViewSettingsComponent implements OnInit {
             'dummyData': new FormControl(null),
             'discription': new FormControl(null)
         });
-        /*
-       this.searchControl = new FormControl();
-   this.mapsAPILoader.load().then(() => {
-       const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-         types: ['(cities)']
-       });
-       autocomplete.addListener('place_changed', () => {
-         this.ngZone.run(() => {
-           // get the place result
-           const place: google.maps.places.PlaceResult = autocomplete.getPlace();
-           this.placess = place;
+        // ____________Google map Autocomplete code starts
+    //   // create search FormControl
+    //   this.searchControl = new FormControl();
+    //   this.mapsAPILoader.load().then(() => {
+    //       const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+    //           types: ['address']
+    //       });
+    //       autocomplete.addListener('place_changed', () => {
+    //           this.ngZone.run(() => {
+    //               const place: google.maps.places.PlaceResult = autocomplete.getPlace();
+    //               //  this.clientPlacess = place;
+    //               // console.log(this.clientCity);
 
-        //    for country
-           var address_components=autocomplete.getPlace().address_components;
-           for(var j =0 ;j<address_components.length;j++)
-           {
-            this.city =address_components[0].long_name;
-            if(address_components[j].types[0]=='country')
-           {
-               this.country=address_components[j].long_name;
-           }
-           if(address_components[j].types[0]=='country')
-           {
-               this.countryCode=address_components[j].short_name;
-           }
-           }
-           // verify result
-           if (place.geometry === undefined || place.geometry === null) {
-             return;
-           }
+    //               //    for country
+    //               var address_components = autocomplete.getPlace().address_components;
 
-           // set latitude, longitude and zoom
-        //    this.latitude = place.geometry.location.lat();
-        //    this.longitude = place.geometry.location.lng();
-        //    this.zoom = 12;
-         });
-       });
-     });
-     */
+    //               if (place.geometry === undefined || place.geometry === null) {
+    //                   return;
+    //               }
+    //           });
+    //       });
+    //   });
     }
 
     ngAfterViewInit() {

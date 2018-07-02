@@ -5,32 +5,6 @@ import { Server_Services } from '../../../../services/serverServices.services';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 import { } from '@types/googlemaps';
-// import { CreateService } from './model';
-/*
-import { AgmMap } from '@agm/core';
-import {
-    startOfDay,
-    endOfDay,
-    subDays,
-    addDays,
-    endOfMonth,
-    isSameDay,
-    isSameMonth,
-    addHours
-  } from 'date-fns';
-  import { Subject } from 'rxjs';
-  import {
-    CalendarEvent,
-    CalendarEventAction,
-    CalendarEventTimesChangedEvent
-  } from 'angular-calendar';
-
-
-  Calendar And Map Components Not Installed Yet
- */
-
-
-
 @Component({
     selector: "app-services",
     templateUrl: "./services.component.html",
@@ -69,29 +43,13 @@ export class ServicesComponent implements OnInit, AfterViewInit {
                 this.ngZone.run(() => {
                     // get the place result
                     const place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
-                    //    for country
                     var address_components = autocomplete.getPlace().address_components;
                     console.log(address_components);
-                    // for (var j = 0; j < address_components.length; j++) {
-                    //     this.city = address_components[0].long_name;
-                    //     if (address_components[j].types[0] == 'country') {
-                    //         this.country = address_components[j].long_name;
-                    //     }
-                    //     if (address_components[j].types[0] == 'country') {
-                    //         this.countryCode = address_components[j].short_name;
-                    //     }
-                    // }
-                    // verify result
                     if (place.geometry === undefined || place.geometry === null) {
                         return;
                     }
-
-                    // set latitude, longitude and zoom
                     this.latitude = place.geometry.location.lat();
                     this.longitude = place.geometry.location.lng();
-                    // console.log(this.latitude + ' ' + this.longitude);
-                    //    this.zoom = 12;
                 });
             });
         });
@@ -113,10 +71,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
             'category': new FormControl(null, Validators.required),
             'subCategory': new FormControl(null, Validators.required),
             'price': new FormControl(null, Validators.required),
-            'publish': new FormControl(true, Validators.required),
-            // 'location': new FormControl(null, Validators.required),
-            // 'latitude': new FormControl(null, Validators.required),
-            // 'longitude': new FormControl(null, Validators.required),
+            'publish': new FormControl(true, Validators.required)
         });
 
     }
@@ -126,21 +81,10 @@ export class ServicesComponent implements OnInit, AfterViewInit {
             ['//www.amcharts.com/lib/3/plugins/tools/polarScatter/polarScatter.min.js',
                 '//www.amcharts.com/lib/3/plugins/export/export.min.js',
                 'assets/app/js/services.js']);
-
-
-
-
     }
 
     adjustRadiusMap() {
-        /*
-        setTimeout(() => {
-            this.agmMap.triggerResize();
-        }, 2000);
-    */
     }
-
-
 
     changeView() {
         this.isGridView = !this.isGridView;

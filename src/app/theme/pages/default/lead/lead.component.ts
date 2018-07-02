@@ -21,6 +21,7 @@ export class LeadComponent implements OnInit, AfterViewInit {
     formHidden = true;
     isCustomer = true;
     date: boolean = false;
+    zoom = 10;
     @ViewChild('search') public searchElementRef: ElementRef;
     constructor(private dragulaService: DragulaService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _script: ScriptLoaderService) {
 
@@ -73,6 +74,7 @@ export class LeadComponent implements OnInit, AfterViewInit {
                     this.lang = place.geometry.location.lng();
                     this.lati = this.lat;
                     this.lng = this.lang;
+                    this.zoom = 15;
 
                 });
             });

@@ -127,3 +127,7 @@ thead tr
 input.ng-invalid.ng-touched {
     border: 1px solid red;
   }
+
+  .m-wizard.m-wizard--3 .m-wizard__head .m-wizard__progress .progress {
+      width: 200px;
+  }

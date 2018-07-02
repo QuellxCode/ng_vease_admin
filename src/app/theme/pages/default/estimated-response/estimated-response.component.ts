@@ -122,28 +122,12 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
 
 
 
-    constructor(private _script: ScriptLoaderService, private modal: NgbModal/*, private serverServies_services: Server_Services*/) {
+    constructor(private _script: ScriptLoaderService, private modal: NgbModal) {
 
     }
     reqBeautyCategories: any[];
     ngOnInit() {
         this.reqBeautyCategories = ['Facial Care', 'Hair Removal', 'Nail Care', 'Event Planning', 'Food & Cattring', 'Pet Services'];
-        /*
-                this.serverServies_services.getSerices()
-                    .subscribe(
-                    (data) => {
-                        // console.log(data.data);
-                        this.serData = data.data;
-                        console.log(this.serData);
-                        // console.log('this is serverData');
-                        // console.log(this.serverData);
-                        // console.log('this is interface data');
-                        // console.log(this.serData);
-                        // console.log(serData[0].price + ' ' + serData[0].publish);
-                    }
-                    );
-        
-        */
         this.requestForms = new FormGroup({
             'reqName': new FormControl(null, Validators.required),
             'reqDetail': new FormControl(null, Validators.required),
@@ -186,126 +170,7 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
         }
     }
 
-    //Calendar
-    /* modalData: {
-         action: string;
-         event: CalendarEvent;
-     };
- 
-     actions: CalendarEventAction[] = [
-         {
-             label: '<i class="fa fa-fw fa-pencil"></i>',
-             onClick: ({ event }: { event: CalendarEvent }): void => {
-                 // this.handleEvent('Edited', event);
-             }
-         },
-         {
-             label: '<i class="fa fa-fw fa-times"></i>',
-             onClick: ({ event }: { event: CalendarEvent }): void => {
-                 this.events = this.events.filter(iEvent => iEvent !== event);
-                 // this.handleEvent('Deleted', event);
-             }
-         }
-     ];
- 
-     refresh: Subject<any> = new Subject();
- 
-     events: CalendarEvent[] = [
-         {
-             start: subDays(startOfDay(new Date()), 1),
-             end: addDays(new Date(), 1),
-             title: 'A 3 day event',
-             color: colors.red,
-             // actions: this.actions
-         },
-         {
-             start: startOfDay(new Date()),
-             title: 'An event with no end date',
-             color: colors.yellow,
-             // actions: this.actions
-         },
-         {
-             start: subDays(endOfMonth(new Date()), 3),
-             end: addDays(endOfMonth(new Date()), 3),
-             title: 'A long event that spans 2 months',
-             color: colors.blue
-         },
-         {
-             start: addHours(startOfDay(new Date()), 2),
-             end: new Date(),
-             title: 'A draggable and resizable event',
-             color: colors.yellow/*,
-         actions: this.actions,
-         resizable: {
-           beforeStart: true,
-           afterEnd: true
-         },
-         draggable: true
-         }
-     ];*/
-
     activeDayIsOpen: boolean = true;
-
-
-
-    /*
-     dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-       if (isSameMonth(date, this.viewDate)) {
-           if (
-             (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-             events.length === 0
-           ) {
-             this.activeDayIsOpen = false;
-           } else {
-             this.activeDayIsOpen = true;
-             this.viewDate = date;
-           }
-         }
-       }
-       handleEvent(action: string, event: CalendarEvent): void {
-         this.modalData = { event, action };
-         this.modal.open(this.modalContent, { size: 'lg' });
-       }
- */
-
-    //Calendar Ends
-
-
-    // seding data to serve
-    // submitServices(name, details, value, staff, price, duration, location, latitude, longitude, publish) {
-    //     // console.log(value.value, ' ', publish.value);
-    //     // console.log(this.category_id);
-    //     console.log(name.value, details.value, value.value,staff.value, price.value, duration.value, location.value, longitude.value, latitude.value, publish.value);
-    //     this.serverServies_services.storeServices(name.value, details.value, value.value,staff.value, price.value, duration.value, location.value, longitude.value, latitude.value, publish.value)
-    //        .subscribe(
-    //            (response) => {
-    //                console.log(response);
-    //            }
-    //        )
-    //     // After the data submission empty all input fields....
-    //        name.value = '';
-    //        details.value = '';
-    //        value.value=null;
-    //        staff.value = '';
-    //        price.value = '';
-    //        duration.value = null;
-    //        location.value = '';
-    //        latitude.value = '';
-    //        longitude.value = '';
-    //        publish = null;
-    // }
-
-    // For getting data from server call this function to get data on console....
-    // getTasks() {
-    //     this.serverServies_services.getTasks()
-    //     .subscribe(
-    //         (data) => {
-    //             console.log(data);
-    //         }
-    //     )
-    // }
-
-
     broadcastServiceRequest(recipient, serviceCategory, value, contactNumber, message) {
 
 
@@ -318,24 +183,7 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
         contactNumber.value = '';
         message = '';
     }
-    onSubmit() {
-        // console.log(this.requestForms.value.reqName, this.requestForms.value.reqDetail,
-        //             this.requestForms.value.reqCategory, this.requestForms.value.reqPrice,
-        //             this.requestForms.value.reqDuration, this.requestForms.value.reqContactNumber,
-        //             this.requestForms.value.reqIsPublish, this.fileToUpload);
-        /*this.serverServies_services.storeRequests(this.requestForms.value.reqName,
-            this.requestForms.value.reqDetail, this.requestForms.value.reqCategory,
-            this.requestForms.value.reqPrice, this.requestForms.value.reqDuration,
-            this.requestForms.value.reqContactNumber, this.requestForms.value.reqIsPublish,
-            this.fileToUpload)
-            .subscribe(
-            (response) => {
-                console.log(response);
-            }
-            )
-        this.requestForms.reset();
-        this.fileToUpload = null; */
-    }
+    onSubmit() {    }
 
     handleFileInput(files: FileList) {
         this.fileToUpload = files.item(0);
