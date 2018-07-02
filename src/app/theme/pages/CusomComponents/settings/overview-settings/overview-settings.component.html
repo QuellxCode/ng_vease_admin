@@ -302,15 +302,6 @@
                                                             <td>
                                                                 {{location.address}}
                                                             </td>
-                                                            <!-- <td><button (click)="editLocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-                                                                                        Edit
-                                                                                    </button>
-                                                                                </td>
-                                                                                
-                                                                                <td><button (click)="deletelocation(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
-                                                                                        Delete
-                                                                                    </button>
-                                                                                </td> -->
                                                             <td>
                                                                 <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill">
                                                                     <i class="la la-ellipsis-h"></i>
@@ -332,37 +323,38 @@
                                     </div>
 
                                     <div class="row" *ngIf="enterLocationFormDisplay">
-                                            <div class="col-md-12">
+                                        <div class="col-md-12">
                                             <button class="btn btn-link" style="padding-left:0px;" (click)="enterLocationFormDisplay=!enterLocationFormDisplay; editLocationIndex=undefined;">
                                                 <i class="fa fa-chevron-circle-left"></i> Back</button>
-                                                <div class="row">
-                                                        <div class="col-md-6">
-                                                                <div class="form-group m-form__group">
-                                                                        <label>
-                                                                            Location Number:
-                                                                        </label>
-                                                                        <input class="form-control m-input" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].number : ''" placeholder="Enter Location Number"
-                                                                            type="number" #locationnumber>
-                                                                    </div>
-                        
-                                                                    <div class="form-group m-form__group">
-                                                                        <label>
-                                                                            Location Name:
-                                                                        </label>
-                                                                        <input class="form-control m-input" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].name : ''" placeholder="Enter Location Name"
-                                                                            type="text" #locationname>
-                                                                    </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                                <div class="form-group m-form__group">
-                                                                        <label>
-                                                                            Location Address:
-                                                                        </label>
-                                                                        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group m-form__group">
+                                                        <label>
+                                                            Location Number:
+                                                        </label>
+                                                        <input class="form-control m-input" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].number : ''" placeholder="Enter Location Number"
+                                                            type="number" #locationnumber>
+                                                    </div>
 
-                                                                    </div>
-                                                        </div>
+                                                    <div class="form-group m-form__group">
+                                                        <label>
+                                                            Location Name:
+                                                        </label>
+                                                        <input class="form-control m-input" [value]="(editLocationIndex!=undefined) ? locations[editLocationIndex].name : ''" placeholder="Enter Location Name"
+                                                            type="text" #locationname>
+                                                    </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group m-form__group">
+                                                        <label>
+                                                            Location Address:
+                                                        </label>
+                                                        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+                                                            #search [formControl]="searchControl">
+
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <button class="btn btn-primary" style="margin-bottom:14px;" (click)="addLocation()">
                                                 Save Location
@@ -443,15 +435,6 @@
                                                             <td>{{schedule.name}}</td>
                                                             <td>{{schedule.day}}</td>
                                                             <td>{{schedule.hoursPerDay}}</td>
-                                                            <!-- <td><button (click)="editSchedule(i)"  class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-                                                                                                    Edit
-                                                                                                </button>
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                    <button (click)="deleteSchedule(i)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-                                                                                                            Delete
-                                                                                                        </button>
-                                                                                            </td> -->
                                                             <td>
                                                                 <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;"
                                                                     title="View details" ng-reflect-href="javascript:;">
@@ -622,13 +605,13 @@
                                     </div>
 
                                     <div class="row" *ngIf="isDisplayShiftsEditAndSee">
-                                            <div class="col-md-12">
-                                                    <button class="btn btn-link" (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee; editShiftIndex=undefined;" style="padding-left:0px;">
-                                                            <i class="fa fa-chevron-left"></i> Back </button>
-                                            </div>
+                                        <div class="col-md-12">
+                                            <button class="btn btn-link" (click)="isDisplayShiftsEditAndSee=!isDisplayShiftsEditAndSee; editShiftIndex=undefined;" style="padding-left:0px;">
+                                                <i class="fa fa-chevron-left"></i> Back </button>
+                                        </div>
                                         <div class="col-md-6">
 
-                                           
+
 
                                             <div class="form-group m-form__group">
                                                 <label>
@@ -1323,28 +1306,28 @@
                                             </div>
                                         </div>
 
-                                            <div class="col-md-6">
-                                                <div class="form-group m-form__group">
-                                                    <label>
-                                                        API Signarure:
-                                                    </label>
-                                                    <input class="form-control m-input" placeholder="API Signarure" type="text">
-                                                </div>
-
-                                                <div class="form-group m-form__group">
-                                                    <label>
-                                                        Gateway Dashboard Payment Description:
-                                                    </label>
-                                                    <input class="form-control m-input" placeholder="invoice number">
-                                                </div>
-
-                                                <div class="form-group m-form__group">
-                                                    <label>
-                                                        Currencies (comma separated):
-                                                    </label>
-                                                    <input class="form-control m-input" placeholder="USD, PKR, IND" type="text">
-                                                </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group m-form__group">
+                                                <label>
+                                                    API Signarure:
+                                                </label>
+                                                <input class="form-control m-input" placeholder="API Signarure" type="text">
                                             </div>
+
+                                            <div class="form-group m-form__group">
+                                                <label>
+                                                    Gateway Dashboard Payment Description:
+                                                </label>
+                                                <input class="form-control m-input" placeholder="invoice number">
+                                            </div>
+
+                                            <div class="form-group m-form__group">
+                                                <label>
+                                                    Currencies (comma separated):
+                                                </label>
+                                                <input class="form-control m-input" placeholder="USD, PKR, IND" type="text">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -1589,31 +1572,37 @@
                                     <button class="btn btn-link" (click)="isPricingAddEditOpen=!isPricingAddEditOpen; editPricingIndex=undefined;" style="padding-left:0px;">
                                         <i class="fa fa-chevron-left"></i> Back </button>
 
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group m-form__group">
+                                                <label>
+                                                    Service Name:
+                                                </label>
+                                                <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].serviceName : ''" class="form-control m-input"
+                                                    placeholder="Service Name" type="text" #pricingService>
+                                            </div>
 
 
-                                    <div class="form-group m-form__group">
-                                        <label>
-                                            Service Name:
-                                        </label>
-                                        <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].serviceName : ''" class="form-control m-input"
-                                            placeholder="Service Name" type="text" #pricingService>
-                                    </div>
+                                            <div class="form-group m-form__group">
+                                                <label>
+                                                    Category:
+                                                </label>
+                                                <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].categoryName : ''" class="form-control m-input"
+                                                    placeholder="Category Name" type="text" #pricingCategory>
+                                            </div>
+
+                                        </div>
 
 
-                                    <div class="form-group m-form__group">
-                                        <label>
-                                            Category:
-                                        </label>
-                                        <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].categoryName : ''" class="form-control m-input"
-                                            placeholder="Category Name" type="text" #pricingCategory>
-                                    </div>
-
-                                    <div class="form-group m-form__group">
-                                        <label>
-                                            Price:
-                                        </label>
-                                        <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].price : ''" class="form-control m-input" min="0"
-                                            type="number" #pricingPrice>
+                                        <div class="col-md-6">
+                                            <div class="form-group m-form__group">
+                                                <label>
+                                                    Price:
+                                                </label>
+                                                <input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].price : ''" class="form-control m-input" min="0"
+                                                    type="number" #pricingPrice>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <button class="btn btn-primary" style="margin-bottom:14px;" (click)="addPricing(pricingService.value, pricingCategory.value, pricingPrice.value)">

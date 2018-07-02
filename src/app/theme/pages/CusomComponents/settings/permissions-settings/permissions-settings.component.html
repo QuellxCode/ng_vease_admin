@@ -64,9 +64,6 @@
                                             <td>{{item.name}}</td>
                                             <td>{{item.created_at}}</td>
                                             <td class="text-center">
-                                                <!-- <i class="fa fa-edit" (click)="isPermissionUpdateViewOpen=!isPermissionUpdateViewOpen; onUpdate(item.name, item.rand_id)"></i>
-                                                <i class="fa fa-trash" (click)="onDelete(item)" style="margin-left: 15px;"></i> -->
-
                                                 <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;" ng-reflect-href="javascript:;" title="View details">
                                                         <i class="la la-ellipsis-h"></i>
                                                 </a>
@@ -76,15 +73,7 @@
                                                 <a  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:" (click)="onDelete(item)"title="Delete">
                                                         <i  class="la la-trash"></i>
                                                     </a>
-                                                <!-- <button class="btn m-btn--pill  btn-sm  btn-outline-warning" type="button">
-                                                    Edit
-                                                </button> -->
                                             </td>
-                                            <!-- <td>
-                                                    <button (click)="onDelete(item)" class="btn m-btn--pill btn-sm    btn-outline-danger" type="button">
-                                                            Delete
-                                                        </button>
-                                            </td> -->
                                      </tr>
                                 </tbody>
                             </table>
@@ -126,7 +115,6 @@
                             </div>
                             <div>
                                 <button class="btn btn-primary" type="submit" [disabled]="!permissionUpdateForm.valid">Update</button>
-                                <!-- <button class="btn btn-primary" type="submit">Update</button> -->
                             </div>
                            </form>
                     </div>

@@ -2,103 +2,82 @@
 <div class="m-subheader" appunwraptag="" *ngIf="!isDisplayDetail">
 	<div class="d-flex align-items-center">
 		<div class="mr-auto" style="width:60%;">
+			<h3 class="m-subheader__title" style="display:inline-block">
+				Services
+				<small>
+					<a (click)="adjustRadiusMap()" id="adjustRadius" style="cursor:pointer;">
+						<i class="fa fa-map-marker"></i>
+					</a>
+				</small>
+				<small>
+					<a style="cursor:pointer;">
+						<i class="fa fa-bar-chart"></i>
+					</a>
+				</small>
+				<small>
+					<a style="cursor:pointer;">
+						<i class="fa fa-search"></i>
+					</a>
+				</small>
+			</h3>
 
-		
-					<h3 class="m-subheader__title" style="display:inline-block">
-							Services
-							<small><a (click)="adjustRadiusMap()" id="adjustRadius"  style="cursor:pointer;">
-									<i class="fa fa-map-marker"></i>
-								</a></small>
-							<small><a  style="cursor:pointer;">
-								<i class="fa fa-bar-chart" ></i>
-							</a></small>
-							<small><a style="cursor:pointer;">
-								<i class="fa fa-search"></i>
-							</a></small>
-						</h3>
-
-						<div class="form-group m-form__group" style="display:inline-block ; margin-left:8px; margin-bottom:0px;">
-							<select class="form-control m-input mainFilterHeading">
-							<option>
-								All
-							</option>
-							<option>
-								Hair
-							</option>
-							
-							<option>
-								Health
-							</option>
-							<option>
-								Shopping
-							</option>
-							<option>
-								Electronics
-							</option>
-							<option>
-								Cleaning
-							</option>
-						</select>
-					</div>
-			
-			
-
-
-
-			<!--div class="col-md-4">
-					<div class="form-group m-form__group" style="display:inline-block; margin-left:8px; margin-top: -15px;">
-							<label>
-								Search Shop/ Business:
-							</label>
-							<input class="form-control" type="text">
-					</div>
-
-			</div-->
-
-			<!--div class="col-md-2">
-				<button class="btn btn-primary" style="margin-top: 10px;margin-left: 8px;">Search</button>
-
-			</div-->
-
+			<div class="form-group m-form__group" style="display:inline-block ; margin-left:8px; margin-bottom:0px;">
+				<select class="form-control m-input mainFilterHeading">
+					<option>
+						All
+					</option>
+					<option>
+						Hair
+					</option>
+					<option>
+						Health
+					</option>
+					<option>
+						Shopping
+					</option>
+					<option>
+						Electronics
+					</option>
+					<option>
+						Cleaning
+					</option>
+				</select>
+			</div>
 		</div>
-		
-		<!-- <button class="btn btn-link" data-target="#c_modal_broadcast" data-toggle="modal" >
-			<i class="fa fa-plus"></i> Broadcast
-	</button> -->
-
-	<button class="btn btn-link" [hidden]="!isDisplayForm" (click)="changeViewForm()">
+		<button class="btn btn-link" [hidden]="!isDisplayForm" (click)="changeViewForm()">
 			<i class="fa fa-plus"></i> Create
 		</button>
 
-	<button  class="btn btn-link pull-right" [hidden]="!isDisplayForm" (click)="changeView()"><i class="fa"  [class.hidden]="!isGridView"  [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}" ></i> {{viewName}} </button>
+		<button class="btn btn-link pull-right" [hidden]="!isDisplayForm" (click)="changeView()">
+			<i class="fa" [class.hidden]="!isGridView" [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}"></i> {{viewName}} </button>
 
-		
 	</div>
 </div>
 
 
-<div  class="m-subheader breadcrumsubheader" *ngIf="!isDisplayDetail">
-		<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-				<li  class="m-nav__item m-nav__item--home">
-					<a  class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard" href="/dashboard">
-						<i  class="m-nav__link-icon la la-home"></i>
-					</a>
-				</li>
-				<li  class="m-nav__separator">
-					-
-				</li>
-			
-				<li  class="m-nav__item">
-					<a  class="m-nav__link" href="" ng-reflect-href="">
-						<span  class="m-nav__link-text">
-							Services
-						</span>
-					</a>
-				</li>
-			</ul>
+<div class="m-subheader breadcrumsubheader" *ngIf="!isDisplayDetail">
+	<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+		<li class="m-nav__item m-nav__item--home">
+			<a class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard"
+			    href="/dashboard">
+				<i class="m-nav__link-icon la la-home"></i>
+			</a>
+		</li>
+		<li class="m-nav__separator">
+			-
+		</li>
+
+		<li class="m-nav__item">
+			<a class="m-nav__link" href="" ng-reflect-href="">
+				<span class="m-nav__link-text">
+					Services
+				</span>
+			</a>
+		</li>
+	</ul>
 </div>
 
-<hr class="customhr"  *ngIf="!isDisplayDetail" />
+<hr class="customhr" *ngIf="!isDisplayDetail" />
 
 <!-- END: Subheader -->
 <div [hidden]="!isDisplayForm">
@@ -115,9 +94,15 @@
 								<input class="chkboxes" type="checkbox">
 								<span></span>
 							</label>
-							<div  class="leftCardEditDelete">
-									<span><a href="#"><i class="fa fa-edit"></i></a>
-										<a href="#"><i class="fa fa-trash"></i></a></span>
+							<div class="leftCardEditDelete">
+								<span>
+									<a href="#">
+										<i class="fa fa-edit"></i>
+									</a>
+									<a href="#">
+										<i class="fa fa-trash"></i>
+									</a>
+								</span>
 							</div>
 
 							<div class="row onepersonrow">
@@ -245,9 +230,15 @@
 								<input class="chkboxes" type="checkbox">
 								<span></span>
 							</label>
-							<div  class="leftCardEditDelete">
-									<span><a href="#"><i class="fa fa-edit"></i></a>
-										<a href="#"><i class="fa fa-trash"></i></a></span>
+							<div class="leftCardEditDelete">
+								<span>
+									<a href="#">
+										<i class="fa fa-edit"></i>
+									</a>
+									<a href="#">
+										<i class="fa fa-trash"></i>
+									</a>
+								</span>
 							</div>
 
 							<div class="row onepersonrow">
@@ -346,9 +337,15 @@
 								<input class="chkboxes" type="checkbox">
 								<span></span>
 							</label>
-							<div  class="leftCardEditDelete">
-									<span><a href="#"><i class="fa fa-edit"></i></a>
-										<a href="#"><i class="fa fa-trash"></i></a></span>
+							<div class="leftCardEditDelete">
+								<span>
+									<a href="#">
+										<i class="fa fa-edit"></i>
+									</a>
+									<a href="#">
+										<i class="fa fa-trash"></i>
+									</a>
+								</span>
 							</div>
 
 							<div class="row onepersonrow">
@@ -470,9 +467,15 @@
 								<input class="chkboxes" type="checkbox">
 								<span></span>
 							</label>
-							<div  class="leftCardEditDelete">
-									<span><a href="#"><i class="fa fa-edit"></i></a>
-										<a href="#"><i class="fa fa-trash"></i></a></span>
+							<div class="leftCardEditDelete">
+								<span>
+									<a href="#">
+										<i class="fa fa-edit"></i>
+									</a>
+									<a href="#">
+										<i class="fa fa-trash"></i>
+									</a>
+								</span>
 							</div>
 							<div class="row onepersonrow">
 
@@ -1661,21 +1664,21 @@
 </div>
 
 <div [hidden]="isDisplayForm" class="marginTopNegative14">
-	
-		<div class="m-portlet m-portlet--mobile">
-			
-				<div class="m-portlet__head">
-						<a href="javascript:;" class="btn btn-link" style="padding-left:0px;" (click)="changeViewForm()">
-								<i class="fa fa-chevron-left"></i> Back
-						</a>
-					<h6>
-						Create a Service
-					</h6>
-				</div>
-				<div class="m-portlet__body">
-					<form [formGroup]="servicesForm" (ngSubmit)="onSubmit(search.value)">
-						<div class="row">
-							<div class="col-md-6">
+
+	<div class="m-portlet m-portlet--mobile">
+
+		<div class="m-portlet__head">
+			<a href="javascript:;" class="btn btn-link" style="padding-left:0px;" (click)="changeViewForm()">
+				<i class="fa fa-chevron-left"></i> Back
+			</a>
+			<h6>
+				Create a Service
+			</h6>
+		</div>
+		<div class="m-portlet__body">
+			<form [formGroup]="servicesForm" (ngSubmit)="onSubmit(search.value)">
+				<div class="row">
+					<div class="col-md-6">
 						<div class="form-group m-form__group">
 							<label class="form-control-label" for="service-recipient-name">
 								Name:
@@ -1696,9 +1699,6 @@
 							<select class="form-control" id="broadcast-category-name" #item type="text" (change)="getSubCatogery(item.value)" formControlName="category">
 								<option></option>
 								<option *ngFor="let item of catogries" value="{{item.id}}">{{item.name}}</option>
-								<!-- <option>Shipping</option>
-									<option>Clothing</option>
-									<option>Games &amp; Fitness</option> -->
 							</select>
 						</div>
 
@@ -1706,14 +1706,11 @@
 
 
 						<div class="form-group">
-							<label class="form-control-label" for="broadcast-subcategory-name" >
+							<label class="form-control-label" for="broadcast-subcategory-name">
 								Service Sub-Category:
 							</label>
 							<select class="form-control" id="broadcast-subcategory-name" #subCatogery type="text" formControlName="subCategory">
 								<option *ngFor="let item of subCatogries" value="{{item.id}}">{{item.name}}</option>
-								<!-- <option>Air Cargo</option>
-										<option>Clothing</option>
-										<option>Video Games</option> -->
 							</select>
 						</div>
 					</div>
@@ -1731,30 +1728,30 @@
 							<label class="form-control-label" for="service-locatoin-name">
 								Location:
 							</label>
-							<input placeholder="search for location" id="location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
-							    #search>
-							<!-- <input class="form-control" id="service-location-name" type="text"> -->
+							<input placeholder="search for location" id="location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+							    class="form-control" #search>
 						</div>
 						<div class="form-group form-inline" style="padding-top: 35px;">
 							<label class="form-control-label" for="service-publish-name">
 								Publish this service online:
 							</label>
-							<input style="margin-left: 25px;" class="form-control form-check-label" value="" id="service-publish-name" type="checkbox" #publish formControlName="publish">
+							<input style="margin-left: 25px;" class="form-control form-check-label" value="" id="service-publish-name" type="checkbox"
+							    #publish formControlName="publish">
 						</div>
 
 					</div>
 
 
-					</div>
-					<div>
-							<button class="btn btn-primary" type="submit" [disabled]="!servicesForm.valid">
-								Submit
-							</button>
-					</div>
-					</form>
 				</div>
+				<div>
+					<button class="btn btn-primary" type="submit" [disabled]="!servicesForm.valid">
+						Submit
+					</button>
+				</div>
+			</form>
 		</div>
-	
+	</div>
+
 </div>
 
 
@@ -1831,7 +1828,3 @@
 		</div>
 	</div>
 </div>
-
-
-
-
