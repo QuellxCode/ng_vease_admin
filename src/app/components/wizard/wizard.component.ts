@@ -9,13 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./wizard.component.css']
 })
 export class WizardComponent implements OnInit, AfterViewInit {
-
-
-    // public latitude: number;
-    // public longitude: number;
     public searchControl: FormControl;
     public companyForm: FormControl;
-    // public BillingandShipping: FormControl;
     public zoom: number;
     @ViewChild('search') public searchElementRef: ElementRef;
     @ViewChild('company') public companyElementRef: ElementRef;
@@ -25,7 +20,6 @@ export class WizardComponent implements OnInit, AfterViewInit {
     constructor(private _script: ScriptLoaderService, private mapsAPILoader: MapsAPILoader, private ngcompanyZone: NgZone, private ngZone: NgZone, private companyMapApiLoader: MapsAPILoader) {
 
     }
-    // these are naming conventions for client autocomplete address
     clientPlacess: any;
     clientCity = '';
     clientCountry = '';
@@ -33,10 +27,6 @@ export class WizardComponent implements OnInit, AfterViewInit {
     clientMainCity = '';
     clientState = '';
     companyAddressModel = '';
-
-
-    // these are the naming conventions for Company autocomplete address
-
     companyPlacess: any;
     companyCity = '';
     companyCountry = '';
@@ -143,18 +133,6 @@ export class WizardComponent implements OnInit, AfterViewInit {
 
 
                     };
-
-
-                    //   For zip code of location.....
-                    // for (var i = 0; i < company_address_components.length; i++) {
-                    //     for (var j = 0; j < company_address_components[i].types.length; j++) {
-                    //       if (company_address_components[i].types[j] == "postal_code") {
-                    //         this.companyPostalCode = company_address_components[i].long_name;
-                    //       }
-                    //     }
-                    // }
-
-
                     if (this.doCheckInit) {
                         this.billCity = this.companyMainCity;
                         this.billAddress = this.companyAddressModel;
@@ -169,11 +147,6 @@ export class WizardComponent implements OnInit, AfterViewInit {
                     if (companyPlace.geometry === undefined || companyPlace.geometry === null) {
                         return;
                     }
-
-                    // set latitude, longitude and zoom
-                    //    this.latitude = place.geometry.location.lat();
-                    //    this.longitude = place.geometry.location.lng();
-                    //    this.zoom = 12;
                 });
             });
         });
@@ -203,10 +176,6 @@ export class WizardComponent implements OnInit, AfterViewInit {
             this.doCheck = true;
             this.doCheckInit = false;
         }
-        // console.log(this.companyAddressModel);
-        // else if(e.target.unchecked) {
-        //     console.log(e.target.unchecked);
-        // }
     }
 
 }

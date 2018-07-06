@@ -51,26 +51,6 @@ const colors: any = {
     }
 };
 
-// interface data {
-//     category_id: number;
-//     created_at: string;
-//     details: string;
-//     duration: number;
-//     id: number;
-//     latitude: string;
-//     longitude: string;
-//     name: string;
-//     price: number;
-//     publish: number;
-//     rand_id: string;
-//     staff: string;
-//     status: string;
-//     updated_at: string;
-// }
-
-
-
-
 @Component({
     selector: "app-estimate-response",
     templateUrl: "./estimated-response.component.html",
@@ -91,7 +71,6 @@ const colors: any = {
                 ]),
             ]
         )]
-    // encapsulation: ViewEncapsulation.None,
 })
 export class EstimateResponseComponent implements OnInit, AfterViewInit {
 
@@ -114,7 +93,6 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
         this.meridian = !this.meridian;
     }
 
-    // serData: data;
     requestForms: FormGroup;
 
 

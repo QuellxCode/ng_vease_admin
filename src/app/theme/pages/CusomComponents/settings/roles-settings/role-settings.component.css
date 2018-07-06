@@ -13,21 +13,6 @@ app-role-settings{
    app-role-settings {
     width: 100% !important;
 }
-/*
-.m-body .m-content
- {
-     padding:0px !important;
- }
- .m-portlet
- {
-    margin: 0px;
-    padding: 0px;
- }
- .full-height-element
- {
-     height:99.95% !important;
- }
- */
  .greyBackground
  {
     background-color: #F2F3F8;

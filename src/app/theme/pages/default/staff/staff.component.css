@@ -20,11 +20,6 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding: 10px;
-   /* -webkit-box-shadow: 0px 3px 5px 0px rgba(128,118,128,1);
-    -moz-box-shadow: 0px 3px 5px 0px rgba(128,118,128,1);
-    
-    box-shadow: 0px 3px 5px 0px rgba(128,118,128,1);
-    */
     border-right: 2px solid rgba(6, 138, 205 ,0.3);
     box-shadow: -3px 1px 15px 1px rgba(69, 65, 78, 0.08);
 
@@ -32,7 +27,6 @@
 
 .card-right p
 {
-  
   text-align: justify;
 }
 .card-left p
@@ -63,11 +57,6 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     min-height: auto;
-    /*
-    -webkit-box-shadow: 0px 3px 5px 0px rgba(128,118,128,1);
-    -moz-box-shadow: 0px 3px 5px 0px rgba(128,118,128,1);
-    box-shadow: 0px 3px 5px 0px rgba(128,118,128,1);
-    */
     box-shadow: 7px 1px 25px -6px rgba(69, 65, 78, 0.08);
     padding-bottom: 18px;
 
@@ -195,15 +184,6 @@
     color: grey;
     cursor: pointer;
 }
-/*
-.customhr
-{
-    border-top: 1px solid grey; 
-    width: 100%;
-    opacity: 0.1;
-    margin-bottom: 1rem;
-}
-*/
 .onepersonrow
 {
     text-align:center;

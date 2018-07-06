@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
-    //headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
@@ -12,21 +11,10 @@ export class DemoService {
 
     constructor(private http: HttpClient) { }
 
-    // Uses http.get() to load data from a single API endpoint
     getData() {
-        //  return this.http.get('https://address-book-demo.herokuapp.com/api/contacts');
         return this.http.get('http://www.sharjeelkhan.ca/veaseapp/vease-app/api/get-user');
-        // return this.http.get('https://www.sharjeelkhan.ca/veaseapp/vease-app/api/login');
     }
-
-    // Uses http.Post to load data
     postData() {
-        /*
-         let body = new URLSearchParams();
-         body.set('email', 'quellx@test.com');
-         body.set('password', '123');
-         */
-
         let body = new URLSearchParams();
 
         body.set('email', 'thequellx@test.com');
@@ -38,11 +26,6 @@ export class DemoService {
     }
 
     public SignUpTheUser(email, password, c_password, name) {
-        /*
-         let body = new URLSearchParams();
-         body.set('email', 'quellx@test.com');
-         body.set('password', '123');
-         */
         let body = new URLSearchParams();
 
         body.set('email', email);

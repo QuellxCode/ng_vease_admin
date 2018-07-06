@@ -1,30 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { Helpers } from '../../../../../helpers';
 import { ScriptLoaderService } from '../../../../../_services/script-loader.service';
-/*
-import { AgmMap } from '@agm/core';
-import {
-    startOfDay,
-    endOfDay,
-    subDays,
-    addDays,
-    endOfMonth,
-    isSameDay,
-    isSameMonth,
-    addHours
-  } from 'date-fns';
-  import { Subject } from 'rxjs';
-  import {
-    CalendarEvent,
-    CalendarEventAction,
-    CalendarEventTimesChangedEvent
-  } from 'angular-calendar';
-
-
-  Calendar And Map Components Not Installed Yet
- */
-
-
 
 @Component({
     selector: "app-catalog",
@@ -37,10 +13,6 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     @ViewChild('personalSubCategory') PersonalSubCategorySelect: ElementRef;
     @ViewChild('autoSubCategory') autoSubCategorySelect: ElementRef;
     @ViewChild('healthSubCategory') healthSubCategorySelect: ElementRef;
-
-
-
-    //@ViewChild(AgmMap) agmMap: AgmMap;
     viewDate: Date = new Date();
     isServiceFormShown = false;
 
@@ -378,11 +350,6 @@ export class CatalogComponent implements OnInit, AfterViewInit {
     }
 
     adjustRadiusMap() {
-        /*
-        setTimeout(() => {
-            this.agmMap.triggerResize();
-        }, 2000);
-    */
     }
 
 

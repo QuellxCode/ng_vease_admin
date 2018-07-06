@@ -14,14 +14,6 @@ export class BlankComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this._demoService.getData().subscribe(
-        //     data => { this.theData = data},
-        //     err =>  console.error(err),
-        //     () =>  console.log((this.theData['data']))
-        // );
-
-
-
     }
 
     sendGet() {

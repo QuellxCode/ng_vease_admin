@@ -4,14 +4,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 
 export class PermissionService {
     public permissions = [];
-    // public permissionAdded = new EventEmitter();
     public permissionRemoved = new EventEmitter();
-    // public permissionUpdated = new EventEmitter();
-    // addPermission(permission) {
-    // this.permissions.push(permission);
-    // this.permissionAdded.emit(permission);
-    // }
-
     removePermission(rand_id) {
         for (var i = 0; i < this.permissions.length; i += 1) {
             if (this.permissions[i]['rand_id'] === rand_id) {
@@ -19,9 +12,6 @@ export class PermissionService {
                 this.permissionRemoved.emit(rand_id);
             }
         }
-        // const index = this.permissions.indexOf(permission);
-        //     this.permissions.splice(index, 1);
-        //     this.permissionRemoved.emit(permission);
     }
 
     getPermissions() {

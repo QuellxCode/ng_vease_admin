@@ -4,9 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { StaffComponent } from './staff.component';
 import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
-/*import { AgmCoreModule, AgmMap } from '@agm/core';
-import { CalendarModule } from 'angular-calendar';
-*/
 
 const routes: Routes = [
     {
@@ -22,9 +19,7 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes), /*CalendarModule.forRoot(),*/ LayoutModule/*, AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyABAXCmYooxcSc5GajYQIDIGgM9U2n6vyg'
-          })*/
+        CommonModule, RouterModule.forChild(routes),LayoutModule
     ], exports: [
         RouterModule
     ], declarations: [

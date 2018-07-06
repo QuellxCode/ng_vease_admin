@@ -34,15 +34,6 @@ export class AuthenticationService {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }
             });
-        // return this.http.post('/api/authenticate', JSON.stringify({ email: email, password: password }))
-        //     .map((response: Response) => {
-        //         // login successful if there's a jwt token in the response
-        //         let user = response.json();
-        //         if (user && user.token) {
-        //             // store user details and jwt token in local storage to keep user logged in between page refreshes
-        //             localStorage.setItem('currentUser', JSON.stringify(user));
-        //         }
-        //     });
     }
 
     logout() {
@@ -64,9 +55,6 @@ export class AuthenticationService {
 
     // this function is being called in serverServices.services.ts file
     getToken() {
-        // console.log('token in local stroge');
-        // console.log(localStorage.getItem('token'));
-        // login();
         return localStorage.getItem('token');
     }
 }

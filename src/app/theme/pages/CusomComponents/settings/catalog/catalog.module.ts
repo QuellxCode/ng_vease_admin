@@ -6,11 +6,6 @@ import { CatalogComponent } from './catalog.component';
 import { LayoutModule } from '../../../../layouts/layout.module';
 import { FormsModule } from '@angular/forms';
 
-
-/*import { AgmCoreModule, AgmMap } from '@agm/core';
-import { CalendarModule } from 'angular-calendar';
-*/
-
 const routes: Routes = [
     {
         "path": "",
@@ -25,9 +20,7 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes), /*CalendarModule.forRoot(),*/ LayoutModule, FormsModule/*, AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyABAXCmYooxcSc5GajYQIDIGgM9U2n6vyg'
-          })*/
+        CommonModule, RouterModule.forChild(routes), LayoutModule, FormsModule
     ], exports: [
         RouterModule
     ], declarations: [

@@ -9,17 +9,11 @@
             </div>
             <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
-                    <!-- <button (click)="isDisplayStaffEditAndSee=!isDisplayStaffEditAndSee; editStaffIndex=undefined;" class="btn btn-link staff-back">
-                        <i class="fa fa-chevron-left"></i> Back </button> -->
                 </div>
             </div>
             <div class="m-portlet__head-tools">
                 <ul class="m-portlet__nav">
                     <li class="m-portlet__nav-item">
-                        <!-- <a href="#" data-toggle="m-tooltip" class="m-portlet__nav-link m-portlet__nav-link--icon" data-direction="left" data-width="auto"
-                            title="Get help with filling up this form">
-                            <i class="flaticon-info m--icon-font-size-lg3"></i>
-                        </a> -->
                     </li>
                 </ul>
             </div>
@@ -481,15 +475,6 @@
                                                                 </span>
                                                             </a>
                                                 <button class="btn btn-success m-btn m-btn--custom m-btn--icon" data-wizard-action="next">Save & Continue</button>
-                                                <!-- <a href="#" class="btn btn-success m-btn m-btn--custom m-btn--icon" data-wizard-action="next">
-                                                    <span>
-                                                        <span>
-                                                            Save & Continue
-                                                        </span>
-                                                        &nbsp;&nbsp;
-                                                        <i class="la la-arrow-right"></i>
-                                                    </span>
-                                                </a> -->
                                             </div>
                                         </div>
                                     </div>
@@ -513,248 +498,6 @@
 
 
 <div class="m-portlet__body full-height" style="padding:0px;">
-    <!-- <div class="row full-height" [class.d-none]="!isDisplayStaffEditAndSee">
-            <div class="col-xl-9">
-                <button (click)="isDisplayStaffEditAndSee=!isDisplayStaffEditAndSee; editStaffIndex=undefined;" class="btn btn-link" style="padding:0px;">
-                    <i class="fa fa-chevron-left"></i> Back </button>
-                <div class="tab-content">
-                    <div class="tab-pane" id="m_section_2">
-                        <h6 class="text-center">
-                            Permissions
-                        </h6>
-                        <div class="form-group m-form__group">
-                            <label>
-                                Role
-                            </label>
-                            <select class="form-control m-input form-control-sm">
-                                <option>
-                                    Employee
-                                </option>
-                                <option>
-                                    Customer
-                                </option>
-                                <option>
-                                    Developer
-                                </option>
-                                <option>
-                                    Management
-                                </option>
-                                <option>
-                                    HR
-                                </option>
-                            </select>
-                        </div>
-                        <table class="table table-bordered permissionsTableStaff">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Permissions</th>
-                                    <th scope="col">View (Global)</th>
-                                    <th scope="col">View (Own)</th>
-                                    <th scope="col">Create</th>
-                                    <th scope="col">Edit</th>
-                                    <th scope="col">Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Contracts</th>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Credit Notes</th>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Customers</th>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">Estimates</th>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--success">
-                                            <label>
-                                                <input checked="checked" name="" type="checkbox">
-                                                <span></span>
-                                            </label>
-                                        </span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
-
-
-
-
-
-
-                </div>
-                <button class="btn btn-primary" (click)="saveStaff(firstNameStaff.value , lastNameStaff.value)">Save</button>
-
-            </div>
-        </div> -->
-
-
     <div class="row" [hidden]="!isDisplayStaffEditAndSee">
         <div class="col-md-12">
             <button class="btn btn-default" style="margin-top:25px; margin-bottom:15px;" (click)="isDisplayStaffEditAndSee = !isDisplayStaffEditAndSee;">
@@ -786,15 +529,7 @@
                                 </label>
                             </span>
                         </td>
-                        <!-- <td>
-                            <button (click)="editStaff(i)" class="btn m-btn--pill btn-sm   btn-outline-warning" type="button">
-                                Edit
-                            </button>
-                        </td> -->
                         <td class="text-center">
-                            <!-- <button (click)="deleteStaff(i)" class="btn m-btn--pill  btn-sm  btn-outline-danger" type="button">
-                                Delete
-                            </button> -->
                             <a class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="javascript:;"
                                 ng-reflect-href="javascript:;" title="View details">
                                 <i class="la la-ellipsis-h"></i>

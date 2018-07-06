@@ -31,7 +31,6 @@ import { fakeBackendProvider } from './_helpers/index';
         AlertService,
         AuthenticationService,
         UserService,
-        // api backend simulation
         fakeBackendProvider,
         MockBackend,
         BaseRequestOptions,

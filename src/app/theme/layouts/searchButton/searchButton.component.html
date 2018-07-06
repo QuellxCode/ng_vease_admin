@@ -1,17 +1,12 @@
-<!-- <small id="demo-2">
-        <input type="search" placeholder="Search" style="cursor:pointer !important;">
-</small> -->
+
         <small class="fa fa-search text-muted stats-icons" style=" margin-left: 0px; font-size: 0.9rem" (click)="search=!search" *ngIf="search">
                 <a style="cursor:pointer;">
                 </a>
             </small>
             <small *ngIf="!search" class="input-group" >
-                            <!-- <a style="cursor:pointer;">
-                            </a> -->
                             <div class="input-group-prepend">
                                     <span style="width: 14.3px;
                                     height: 15px;" class="input-group-text fa fa-search text-muted stats-icons" id="basic-addon1" (click)="search=!search" style=" margin-left: 0px; font-size: 0.9rem"></span>
                                   </div>
-                            <!-- <span class="fa fa-search text-muted stats-icons"></span> -->
                     <input type="text" class="form-control m-input filterStyle customFilterStyle">
             </small>

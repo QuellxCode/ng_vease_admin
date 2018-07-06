@@ -16,7 +16,6 @@ export class OverViewSettingsComponent implements OnInit {
 
     time = { hour: 13, minute: 30 };
     time2 = { hour: 20, minute: 50 };
-    // @ViewChild('search') searchElementRef: ElementRef;
 
     locations = [{
         number: 1,
@@ -141,22 +140,6 @@ export class OverViewSettingsComponent implements OnInit {
     servicesForm: FormGroup;
 
     addLocation() {
-    console.log('test');
-        // if (this.editLocationIndex != undefined) {
-        //     this.locations[this.editLocationIndex].number = number;
-        //     this.locations[this.editLocationIndex].name = name;
-        //     this.locations[this.editLocationIndex].address = address;
-        //     this.editLocationIndex = undefined;
-        // }
-        // else {
-        //     this.locations.push({
-        //         number: number,
-        //         name: name,
-        //         address: address
-        //     });
-        // }
-
-        // this.enterLocationFormDisplay = false;
     }
     editLocation(locationIndex) {
         this.enterLocationFormDisplay = true;
@@ -269,28 +252,6 @@ export class OverViewSettingsComponent implements OnInit {
             'dummyData': new FormControl(null),
             'discription': new FormControl(null)
         });
-        // ____________Google map Autocomplete code starts
-    //   // create search FormControl
-    //   this.searchControl = new FormControl();
-    //   this.mapsAPILoader.load().then(() => {
-    //       const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-    //           types: ['address']
-    //       });
-    //       autocomplete.addListener('place_changed', () => {
-    //           this.ngZone.run(() => {
-    //               const place: google.maps.places.PlaceResult = autocomplete.getPlace();
-    //               //  this.clientPlacess = place;
-    //               // console.log(this.clientCity);
-
-    //               //    for country
-    //               var address_components = autocomplete.getPlace().address_components;
-
-    //               if (place.geometry === undefined || place.geometry === null) {
-    //                   return;
-    //               }
-    //           });
-    //       });
-    //   });
     }
 
     ngAfterViewInit() {
@@ -311,7 +272,6 @@ export class OverViewSettingsComponent implements OnInit {
     }
 
     onEdit(idno, name, per, jur, dum, dis) {
-        //   this.edit = true;
         this.isSave = false;
         this.isUpdate = true;
         this.username = name;
@@ -332,14 +292,9 @@ export class OverViewSettingsComponent implements OnInit {
 
 
     onUpdate() {
-        // console.log(this.servicesForm.value.username + ' ' + this.servicesForm.value.percentage);
         this.taxesServices.updateTax(this.id, this.servicesForm.value.username, this.servicesForm.value.percentage, this.servicesForm.value.category, this.servicesForm.value.dummyData, this.servicesForm.value.discription);
-        // this.edit = false;
         this.servicesForm.reset();
         this.isUpdate = false;
-        // this.username = '';
-        // this.percentage = '';
-        // this.jurisdiction = '';
         this.isSave = true;
     }
 

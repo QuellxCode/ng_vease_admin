@@ -92,12 +92,6 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/CusomComponents\/settings\/permissions-settings\/permissions-settings.module#PermissionsSettingsModule"
             }]
     }
-
-    // {
-    //     'path': '**',
-    //     'redirectTo': 'index',
-    //     'pathMatch': 'full',
-    // }
 ];
 
 @NgModule({

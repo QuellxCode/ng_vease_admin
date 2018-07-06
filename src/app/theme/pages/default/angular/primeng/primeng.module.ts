@@ -52,7 +52,6 @@ const routes: Routes = [
         CommonModule, RouterModule.forChild(routes),
         LayoutModule,
         FormsModule,
-        // primeng modules
         ButtonModule,
         CheckboxModule,
         ChipsModule,

@@ -10,7 +10,6 @@ import { CalendarModule } from 'angular-calendar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchButtonComponent } from '../../../../theme/layouts/searchButton/searchButton.component';
-//import { Server_Services } from '../../../../services/serverServices.services';
 
 const routes: Routes = [
     {
@@ -34,9 +33,8 @@ const routes: Routes = [
         HttpModule
     ], declarations: [
         EstimateResponseComponent,
-        // SearchButtonComponent
     ],
-    providers: [/*Server_Services*/]
+    providers: []
 })
 export class EstimateResponseModule {
 

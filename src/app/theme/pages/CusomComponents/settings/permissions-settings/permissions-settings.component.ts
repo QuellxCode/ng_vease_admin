@@ -42,12 +42,8 @@ export class PermissionsSettingsComponent implements OnInit {
     onSubmit() {
         this.loadingSpinner = true;
         this.isPermissionAddViewOpen = false;
-        // console.log(this.permissionForm.value.permissionName);
         this.settingsServices.createPermission(this.permissionForm.value.permissionName)
             .subscribe((response) => {
-                // console.log('on submit called');
-                // console.log(response);
-                // this.permissionService.addPermission(this.permissionForm.value.permissionName);
                 this.settingsServices.getPermission()
                     .subscribe((response) => {
                         this.permissions = response.data;
@@ -65,15 +61,10 @@ export class PermissionsSettingsComponent implements OnInit {
 
     onDelete(item) {
         this.loadingSpinner = true;
-        // console.log(this.permissions.findIndex(fruit => fruit === rand_id));
         console.log(item.rand_id);
         this.settingsServices.deletePermission(item.rand_id)
             .subscribe((respoonse) => {
                 this.permissionService.removePermission(item.rand_id);
-                // for(var i = 0; i < this.permissions.length; i += 1) {
-                //     if(this.permissions[i]['rand_id'] === rand_id) {
-                //         this.permissions.splice(i, 1);
-                //     }
                 // }
                 this.loadingSpinner = false;
             },
@@ -82,10 +73,6 @@ export class PermissionsSettingsComponent implements OnInit {
                 this.loadingSpinner = false;
             }
             );
-        //  this.permissions.filter(t => {
-        //      t.rand_id !== rand_id;
-        //  });
-        //  console.log(this.permissions);
     }
     private onUpdatePermissionId: string;
     private onUpdatePermissionName: string;
