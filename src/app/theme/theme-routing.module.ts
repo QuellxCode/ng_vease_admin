@@ -5,6 +5,7 @@ import { AuthGuard } from '../auth/_guards/auth.guard';
 import { WizardComponent } from "../components/wizard/wizard.component";
 import { StaffComponent } from './pages/default/staff/staff.component';
 import { StaffSettingsComponent } from './pages/CusomComponents/settings/staff-settings/staff-settings.component';
+import { DisputesComponent } from './pages/default/disputes/disputes.component';
 
 const routes: Routes = [
     {
@@ -43,6 +44,10 @@ const routes: Routes = [
             {
                 "path": "estimated-response",
                 "loadChildren": ".\/pages\/default\/estimated-response\/estimated-response.module#EstimateResponseModule"
+            },
+            {
+                "path": "disputes",
+                "loadChildren": ".\/pages\/default\/disputes\/disputes.module#DisputesModule"
             }
         ]
 

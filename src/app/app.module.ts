@@ -14,7 +14,6 @@ import { WizardComponent } from './components/wizard/wizard.component';
 import { ThemeComponent } from './theme/theme.component';
 import { AgmCoreModule } from '@agm/core';
 import { DemoService } from "./services/demo.service";
-
 @NgModule({
     declarations: [
         ThemeComponent,
