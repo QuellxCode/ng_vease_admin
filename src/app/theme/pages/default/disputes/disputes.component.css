@@ -11,7 +11,35 @@
 .titleComplaints {
     /* margin-left: 15px; */
     margin-bottom: 15px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
+}
+
+.custom-image-setting-icon{
+    width: 25px;
+    height: 25px;
+}
+
+.custom-float-right{
+    float: right;
+}
+
+.custom-badge-setting{
+    height: 10px;
+    float:right;
+    margin-bottom: 3px;
+}
+
+.custom-hover:hover{
+    background-color: lightyellow; 
+}
+
+.active-row-class{
+    background-color: white !important; 
+}
+
+.custom-image-setting{
+    width: 45px;
+    height: 45px;
 }
 
 .details {
@@ -24,4 +52,9 @@
 
 .titles {
     margin-left: 15px;
+}
+
+.disputeImg{
+    float: right;
+    margin-top: 12px;
 }

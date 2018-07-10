@@ -2,7 +2,7 @@
 	<div class="d-flex align-items-center">
 		<div class="mr-auto">
 			<h3 class="m-subheader__title">
-				Disputes
+				Resolution Center
 				<small class="fa fa-gear text-muted stats-icons" style=" margin-left: 0px">
 					<a style="cursor:pointer;">
 					</a>
@@ -15,27 +15,6 @@
 				</small>
 				<search-button style="display: inline-block; font-size: 0.9rem !important;"></search-button>
 				</h3>
-
-			<div class="form-group m-form__group" style=" display: inline-block;">
-				<select class="form-control m-input filterStyle customFilterStyle">
-					<option>
-						All
-					</option>
-					<option>
-						Pending
-					</option>
-
-					<option>
-						Completed
-					</option>
-					<option>
-						Rejected
-					</option>
-					<option>
-						In-Progress
-					</option>
-				</select>
-			</div>
 
 
 		</div>
@@ -115,340 +94,357 @@
 			<li class="m-nav__separator">
 				-
 			</li>
-		
 			<li class="m-nav__item">
 				<a class="m-nav__link" href="" ng-reflect-href="">
 					<span class="m-nav__link-text">
-						Disputes
-					</span>
+						Resolution Center					</span>
 				</a>
 			</li>
 		</ul>
 </div>
 <hr class="customhr" />
 
-<div class="container">
-<div class="row">
-    <div class="col-md-6">
-            <div class="form-group m-form__group">
-                    <label for="exampleInputEmail1">
-                        Order Id
-                    </label>
-                    <input type="email" class="form-control m-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter ID">
-                    <span class="m-form__help">
-                        We'll never share your order id with anyone else.
-                    </span>
-                </div>
-    </div>
-    <div class="col-md-6">
-            <div class="form-group m-form__group">
-                    <label for="exampleInputEmail1">
-                        Status
-                    </label>
-                    <input type="email" class="form-control m-input" id="inputId" aria-describedby="emailHelp" placeholder="Enter status">
-                </div>
-    </div>
-</div>
-</div>
 
-<!-- ___________complaints ______________ -->
-<div class="container">
-<div class="row">
-    <div class="col-md-2 btnGroup">
-            <!-- <div class="m-demo__preview">
-                    <div class="btn-group btn-group-vertical m-btn-group m-btn-group--air" role="group" aria-label="Vertical button group">
-                        <button type="button" class="btn btn-secondary">
-                           Cancelled
-                        </button>
-                        <button type="button" class="btn btn-secondary">
-                            Complaints
-                        </button>
-                    </div>
-                </div> -->
-    </div>
-    <div class="col-md-4" style="margin-bottom: 15px;">
-            <h3 class="m-subheader__title titleComplaints titles">
-                    Complaints
-                </h3>
-                      <!-- _______scroable goes here_______ -->
-           <div class="m-scrollable mCustomScrollbar _mCS_5 mCS-autoHide " data-scrollbar-shown="true" data-scrollable="true" data-max-height="550" style="overflow: visible; height: 380px; max-height: 380px; position: relative;">
-                <!--Begin::Timeline 2 -->
-                <div class="card complaintsCard" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Service Name</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Client Name</h6>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <button type="button" class="btn btn-primary btn-sm">
-                               Details
-                            </button>
-                        </div>
-                      </div>
-                      <div class="card complaintsCard" style="width: 18rem;">
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <button type="button" class="btn btn-primary btn-sm">
-                                   Details
-                                </button>
-                            </div>
-                          </div>
-                          <div class="card complaintsCard" style="width: 18rem;">
-                                <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <button type="button" class="btn btn-primary btn-sm">
-                                       Details
-                                    </button>
-                                </div>
-                              </div>
-                              <div class="card complaintsCard" style="width: 18rem;">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Card title</h5>
-                                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      <button type="button" class="btn btn-primary btn-sm">
-                                           Details
-                                        </button>
-                                    </div>
-                                  </div>
-                                  <div class="card complaintsCard" style="width: 18rem;">
-                                        <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                          <button type="button" class="btn btn-primary btn-sm">
-                                               Details
-                                            </button>
-                                        </div>
-                                      </div>
-                                      <div class="card complaintsCard" style="width: 18rem;">
-                                            <div class="card-body">
-                                              <h5 class="card-title">Card title</h5>
-                                              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                              <button type="button" class="btn btn-primary btn-sm">
-                                                   Details
-                                                </button>
-                                            </div>
-                                          </div>
-        <!--End::Timeline 2 -->
+<div class="m-content" style="padding-top: 0px">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group m-form__group">
+                <input type="text" class="form-control m-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search">
+            </div>
         </div>
-        <!--End: TimeLine Scrolable--> 
+    </div>
+
+    <!-- ___________complaints ______________ -->
+    <div class="row" [hidden]="!complaints">
+
+
+        <div class="col-md-5">
+            <h3 class="m-subheader__title titleComplaints titles">
+                Dispute Table
+            </h3>
+            <div class="m-section">
+                <div class="m-section__content">
+                    <table class="table table-striped m-table">
+                        <thead>
+                            <tr class="active">
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Service
+                                </th>
+                                <th>
+                                    Customer
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="custom-hover" (click)="activeRow(1)" [ngClass]="firstRowActive == true ? 'active-row-class': '' ">
+                                <th scope="row">
+                                    1
+                                </th>
+                                <td>
+                                    Oil & Oil Filter Changing
+                                </td>
+                                <td>
+                                   Jhon Doe
+                                </td>
+                                <td>
+                                    <span class="m-badge m-badge--danger m-badge--wide">
+                                        Cancelled
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="custom-hover" (click)="activeRow(2)" [ngClass]="secondRowActive == true ? 'active-row-class': '' ">
+                                <th scope="row">
+                                    2
+                                </th>
+                                <td>
+                                    Fancy Cutting
+                                </td>
+                                <td>
+                                    Max Khan
+                                </td>
+                                <td>
+                                    <span class="m-badge m-badge--info m-badge--wide">
+                                        Complaint
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-    <div class="col-md-3 titleComplaints">
-           <!-- _______scroable goes here_______ -->
-                <!--Begin::Timeline 2 -->
-                <h3 class="m-subheader__title titleComplaints titles">
-                        Details
-                    </h3>
-           <div class="m-scrollable mCustomScrollbar _mCS_5 mCS-autoHide " data-scrollbar-shown="true" data-scrollable="true" data-max-height="550" style="overflow: visible; height: 380px; max-height: 380px; position: relative;">
+            </div>
 
-                <div class="m-timeline-2">
-                    <div class="m-timeline-2__items  m--padding-top-25 m--padding-bottom-30">
-                        <div class="m-timeline-2__item job-width">
-                            <!-- <span class="m-timeline-2__item-time">
-                                10:00
-                            </span> -->
-                            <div class="m-timeline-2__item-cricle">
-                                <i class="fa fa-genderless m--font-danger"></i>
-                            </div>
+        </div>
+        <div class="col-md-7 titleComplaints" [hidden]="disputeRightSideActive">
+            <img src="./assets/app/media/img/dispute.png" class="mx-auto d-block">
+        </div>
 
-                            <div class="m-timeline-2__item-text  m--padding-top-5">
-                                <div class="card-content">
-                                <div class="m-widget3__item">
-                                    <div class="m-widget3__header">
-                                        <div class="m-widget3__user-img">
-                                            <img class="m-widget3__img card-customer-image" src="./assets/app/media/img/client-logos/logo5.png" alt="">
-                                            <p class="card-customer-name">
-                                                   Service Name
-                                                </p>
-                                        </div>
-                                        <div class="m-widget3__info">
-                                            <br>
-                                            
-                                            <p class="card-job-title purple">Client Name</p>
-                                            <p class="card-job-pay m-link m--font-bolder m-widget4__number">
-                                            USD 200
-                                            </p>
-                                        
-                                        </div>
-                                    </div>
-                                    <div class="m-widget3__body">
-                                        <p class="m-widget3__text card-job-description">
-                                            Detail Goes Here..... <br>
-                                            Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat.
-                                            Lorem ipsum dolor sit amet,consectetuer edipiscing elit
-                                        </p>
-                                        <!-- <button type="button" class="btn btn-info card-button" data-toggle="modal" data-target="#rescheduleFormd">
-                                                Reschedule</button> -->
+        <div class="col-md-4 titleComplaints" [hidden]="!disputeRightSideActive">
+            <!-- _______scroable goes here_______ -->
+            <!--Begin::Timeline 2 -->
+            <h3 class="m-subheader__title titleComplaints titles">
+                Details / Handle Dispute
+            </h3>
+            <div class="tab-pane" id="finance-tab">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#general_finance" role="tab" data-toggle="tab" (click)="feedBack = false">Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#invoices_finance" role="tab" data-toggle="tab" (click)="feedBack = true">Feedback</a>
+                    </li>
 
-                                    </div>
-                                </div>
-                            </div>
-                            
 
-                            </div>
-                            <!--Timeline 2 text-->
-                        </div>
-                        <div class="m-timeline-2__item job-width">
-                                <!-- <span class="m-timeline-2__item-time">
-                                    10:00
-                                </span> -->
-                                <div class="m-timeline-2__item-cricle">
-                                    <i class="fa fa-genderless m--font-danger"></i>
-                                </div>
-    
-                                <div class="m-timeline-2__item-text  m--padding-top-5">
-                                    <div class="card-content">
-                                    <div class="m-widget3__item">
-                                        <div class="m-widget3__header">
-                                            <div class="m-widget3__user-img">
-                                                <img class="m-widget3__img card-customer-image" src="./assets/app/media/img/client-logos/logo2.png" alt="">
-                                                <p class="card-customer-name">
-                                                       Service Name
-                                                    </p>
-                                            </div>
-                                            <div class="m-widget3__info">
-                                                <br>
-                                                
-                                                <p class="card-job-title purple">Client Name</p>
-                                                <p class="card-job-pay m-link m--font-bolder m-widget4__number">
-                                                USD 200
-                                                </p>
-                                            
-                                            </div>
-                                        </div>
-                                        <div class="m-widget3__body">
-                                            <p class="m-widget3__text card-job-description">
-                                                Detail Goes Here..... <br>
-                                                Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat.
-                                                Lorem ipsum dolor sit amet,consectetuer edipiscing elit
-                                            </p>
-                                            <!-- <button type="button" class="btn btn-info card-button" data-toggle="modal" data-target="#rescheduleFormd">
-                                                    Reschedule</button> -->
-    
-                                        </div>
-                                    </div>
-                                </div>
-                                
-    
-                                </div>
-                                <!--Timeline 2 text-->
-                            </div>
-                            <div class="m-timeline-2__item job-width">
-                                    <!-- <span class="m-timeline-2__item-time">
-                                        10:00
-                                    </span> -->
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="general_finance">
+                        <div class="m-timeline-2" style="left:2.89rem;">
+                            <div class="m-timeline-2__items  m--padding-top-25 m--padding-bottom-30">
+            
+            
+                                <div class="m-timeline-2__item job-width" [hidden]="!firstRowActive">
                                     <div class="m-timeline-2__item-cricle">
                                         <i class="fa fa-genderless m--font-danger"></i>
                                     </div>
-        
+            
                                     <div class="m-timeline-2__item-text  m--padding-top-5">
                                         <div class="card-content">
-                                        <div class="m-widget3__item">
-                                            <div class="m-widget3__header">
-                                                <div class="m-widget3__user-img">
-                                                    <img class="m-widget3__img card-customer-image" src="./assets/app/media/img/client-logos/logo3.png" alt="">
-                                                    <p class="card-customer-name">
-                                                           Company Name
-                                                        </p>
-                                                </div>
-                                                <div class="m-widget3__info">
-                                                    <br>
-                                                    
-                                                    <p class="card-job-title purple">Service Name</p>
-                                                    <p class="card-job-pay m-link m--font-bolder m-widget4__number">
-                                                    USD 200
-                                                    </p>
-                                                
-                                                </div>
-                                            </div>
-                                            <div class="m-widget3__body">
-                                                <p class="m-widget3__text card-job-description">
-                                                    Detail Goes Here..... <br>
-                                                    Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat.
-                                                    Lorem ipsum dolor sit amet,consectetuer edipiscing elit
-                                                </p>
-                                                <!-- <button type="button" class="btn btn-info card-button" data-toggle="modal" data-target="#rescheduleFormd">
-                                                        Reschedule</button> -->
-        
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-        
-                                    </div>
-                                    <!--Timeline 2 text-->
-                                </div>
-                                <div class="m-timeline-2__item job-width">
-                                        <!-- <span class="m-timeline-2__item-time">
-                                            10:00
-                                        </span> -->
-                                        <div class="m-timeline-2__item-cricle">
-                                            <i class="fa fa-genderless m--font-danger"></i>
-                                        </div>
-            
-                                        <div class="m-timeline-2__item-text  m--padding-top-5">
-                                            <div class="card-content">
                                             <div class="m-widget3__item">
                                                 <div class="m-widget3__header">
                                                     <div class="m-widget3__user-img">
-                                                        <img class="m-widget3__img card-customer-image" src="./assets/app/media/img/client-logos/logo4.png" alt="">
-                                                        <p class="card-customer-name">
-                                                               Company Name
-                                                            </p>
+                                                        <!-- <img class="m-widget3__img card-customer-image custom-image-setting" src="./assets/app/media/img/car.png" alt=""> -->
+                                                        <span>
+                                                            Oil & Oil Filter Changing
+                                                        </span>
                                                     </div>
                                                     <div class="m-widget3__info">
                                                         <br>
-                                                        
-                                                        <p class="card-job-title purple">Service Name</p>
-                                                        <p class="card-job-pay m-link m--font-bolder m-widget4__number">
-                                                        USD 200
+            
+                                                        <p class="card-job-title purple">
+                                                            <span class="card-job-pay m-link m--font-bolder m-widget4__number" style="float: right;">
+                                                                $120.00
+                                                            </span>
                                                         </p>
-                                                    
+            
+            
                                                     </div>
                                                 </div>
                                                 <div class="m-widget3__body">
                                                     <p class="m-widget3__text card-job-description">
-                                                        Detail Goes Here..... <br>
-                                                        Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat.
-                                                        Lorem ipsum dolor sit amet,consectetuer edipiscing elit
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh
+                                                        euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor
+                                                        sit amet,consectetuer edipiscing elit
                                                     </p>
-                                                    <!-- <button type="button" class="btn btn-info card-button" data-toggle="modal" data-target="#rescheduleFormd">
-                                                            Reschedule</button> -->
-            
                                                 </div>
                                             </div>
                                         </div>
-                                        </div>
-                                        <!--Timeline 2 text-->
+            
+            
                                     </div>
-                <!--Job width-->
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <div class="m-timeline-2__item job-width" [hidden]="!secondRowActive">
+                                    <div class="m-timeline-2__item-cricle">
+                                        <i class="fa fa-genderless m--font-danger"></i>
+                                    </div>
+            
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <!-- <img class="m-widget3__img card-customer-image custom-image-setting" src="./assets/app/media/img/hair.png" alt=""> -->
+                                                        <span>
+                                                            Fancy Cutting
+                                                        </span>
+                                                    </div>
+                                                    <div class="m-widget3__info">
+                                                        <br>
+            
+                                                        <p class="card-job-title purple">
+                                                            <span class="card-job-pay m-link m--font-bolder m-widget4__number" style="float: right;">
+                                                                $100.00
+                                                            </span>
+                                                        </p>
+            
+            
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh
+                                                        euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor
+                                                        sit amet,consectetuer edipiscing elit
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+            
+            
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <!--Job width-->
+            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="invoices_finance">
+                        <div class="m-timeline-2" style="left:2.89rem;">
+                            <div class="m-timeline-2__items  m--padding-top-25 m--padding-bottom-30">
+            
+            
+                                <div class="m-timeline-2__item job-width" [hidden]="!firstRowActive">
+                                    <div class="m-timeline-2__item-cricle">
+                                        <i class="fa fa-genderless m--font-danger"></i>
+                                    </div>
+            
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <!-- <img class="m-widget3__img card-customer-image custom-image-setting" src="./assets/app/media/img/car.png" alt=""> -->
+                                                        <span>
+                                                            Jhon Doe
+                                                        </span>
+                                                    </div>
+                                                    <div class="m-widget3__info">
+                                                        <br>
+            
+                                                        <p class="card-job-title purple">Service Not Recieved <br>
+                                                            <!-- <span class="card-job-pay m-link m--font-bolder m-widget4__number" style="float: right;">
+                                                                $120.00
+                                                            </span> -->
+                                                            <!-- <button class="btn btn-link pull-right chatServiceButton" style="padding:0px;">More Details</button> -->
+                                                        
+<a class="btn btn-link btn-sm chatServiceButton" href="" ng-reflect-href="">
+    <i class="la la-comments"></i> Message</a>
+                                                        </p>
+            
+            
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh
+                                                        euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor
+                                                        sit amet,consectetuer edipiscing elit
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+            
+            
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <div class="m-timeline-2__item job-width"[hidden]="!secondRowActive">
+                                    <div class="m-timeline-2__item-cricle">
+                                        <i class="fa fa-genderless m--font-danger"></i>
+                                    </div>
+            
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <!-- <img class="m-widget3__img card-customer-image custom-image-setting" src="./assets/app/media/img/hair.png" alt=""> -->
+                                                        <span>
+                                                            Max Khan
+                                                        </span>
+                                                    </div>
+                                                    <div class="m-widget3__info">
+                                                        <br>
+            
+                                                        <p class="card-job-title purple">Money Refund <br>
+                                                            <!-- <span class="card-job-pay m-link m--font-bolder m-widget4__number" style="float: right;">
+                                                                $100.00
+                                                            </span> -->
+                                                            <a class="btn btn-link btn-sm chatServiceButton" href="" ng-reflect-href="">
+                                                                <i class="la la-comments"></i> Message</a>
+                                                        </p>
+            
+            
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh
+                                                        euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor
+                                                        sit amet,consectetuer edipiscing elit
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+            
+            
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <!--Job width-->
+            
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
 
                 </div>
+
+            </div>
+            <!--End::Timeline 2 -->
+            <!--End: TimeLine Scrolable-->
+            <!--End: TimeLine Scrolable-->
+        </div>
+        <div class="col-md-3" [hidden]="!feedBack">
+            <label class="m--font-danger" style="font-weight: 500; margin-top: 100px;">
+                <span>*Choose Below Option Accordingly</span>
+            </label>
+            <div class="form-group m-form__group">
+                <label for="exampleSelect1">
+                    Order Status
+                </label>
+                <select name="status" id="order_status" class="form-control m-input m-input--air">
+                    <option value="ORDERED">ORDERED</option>
+                    <option value="RECEIVED">RECEIVED</option>
+                    <option value="ASSIGNED">ASSIGNED</option>
+                    <option value="PROCESSING">PROCESSING</option>
+                    <option value="REACHED">REACHED</option>
+                    <option value="PICKEDUP">PICKEDUP</option>
+                    <option value="ARRIVED">ARRIVED</option>
+                    <option value="COMPLETED">COMPLETED</option>
+                    <option value="CANCELLED" selected="selected">CANCELLED</option>
+                </select>
+            </div>
+            <div class="form-group m-form__group">
+                <div class="form-group">
+                    <label for="comment">Description:</label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+                <span class="m-form__help">
+                    We'll never share your order id with anyone else.
+                </span>
+            </div>
+            <button class="btn btn-primary m-btn m-btn--custom" type="button">
+                Submit
+            </button>
         </div>
     </div>
+</div>
 
-        <!--End::Timeline 2 -->
-    <!--End: TimeLine Scrolable-->
-        <!--End: TimeLine Scrolable-->
-    </div>
-    <div class="col-md-3">
-            <!-- <h3 class="m-subheader__title titleComplaints">
-                    Request Handle Dispute
-                </h3>
-            <div class="form-group m-form__group">
-                    <div class="form-group">
-                            <label for="comment">Discription:</label>
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
-                          </div>
-                    <span class="m-form__help">
-                        We'll never share your order id with anyone else.
-                    </span>
-                </div>
-                <button class="btn btn-success">Submit</button> -->
-    </div>
-</div>
-</div>
+<!-- 
+<a class="btn btn-default btn-sm chatServiceButton" href="" ng-reflect-href="">
+    <i class="la la-comments"></i> Message</a> -->
