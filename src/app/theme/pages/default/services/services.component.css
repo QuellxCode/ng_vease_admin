@@ -326,3 +326,10 @@ input.ng-invalid.ng-touched {
     margin-top: -2px;
     float: right;
 }
+
+@media (max-width: 991px) {
+    .gridView .chatServiceButton {
+      position: relative;
+      bottom: 0px;
+    }
+      }

@@ -28,7 +28,6 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     private latitude: any;
     private longitude: any;
     
-    
     constructor(private _script: ScriptLoaderService, private serverServices: Server_Services, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
 
     }

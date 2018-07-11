@@ -11,38 +11,10 @@
 				</small>
 				<small>
 					<a style="cursor:pointer;">
-						<i class="fa fa-bar-chart"></i>
-					</a>
-				</small>
-				<small>
-					<a style="cursor:pointer;">
 						<i class="fa fa-search"></i>
 					</a>
 				</small>
 			</h3>
-
-			<div class="form-group m-form__group" style="display:inline-block ; margin-left:8px; margin-bottom:0px;">
-				<select class="form-control m-input mainFilterHeading">
-					<option>
-						All
-					</option>
-					<option>
-						Hair
-					</option>
-					<option>
-						Health
-					</option>
-					<option>
-						Shopping
-					</option>
-					<option>
-						Electronics
-					</option>
-					<option>
-						Cleaning
-					</option>
-				</select>
-			</div>
 		</div>
 		<button class="btn btn-link" [hidden]="!isDisplayForm" (click)="changeViewForm()">
 			<i class="fa fa-plus"></i> Create
@@ -79,494 +51,1114 @@
 
 <hr class="customhr" *ngIf="!isDisplayDetail" />
 
-<!-- END: Subheader -->
+<!-- __________New Design Starts Here___________ -->
 <div [hidden]="!isDisplayForm">
 	<div class="m-content">
 		<!--Begin::Section-->
 
 
-		<div class="row gridView" [style.display]="(isGridView && !isDisplayDetail) ? 'flex' : 'none'">
-			<div class="col-md-6">
-				<div class="body organ1 serviceCard">
-					<div class="row" style="margin:0px;">
-						<div class="card-left col-lg-3" id="">
-							<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-								<input class="chkboxes" type="checkbox">
+		<div class="row gridView" [style.display]="(!isDisplayDetail) ? 'flex' : 'none'">
+			<div class="col-xl-3 col-lg-4">
+				<div class="m-portlet m-portlet--full-height">
+					<div class="m-portlet__body">
+	
+						<select class="form-control m-input">
+							<option>
+								All
+							</option>
+							<option>
+								Hair
+							</option>
+	
+							<option>
+								Health
+							</option>
+							<option>
+								Shopping
+							</option>
+							<option>
+								Electronics
+							</option>
+							<option>
+								Cleaning
+							</option>
+						</select>
+	
+						<br>
+	
+						<label>
+							Sort By
+						</label>
+						<select class="form-control m-input">
+							<option>
+								Recommendations
+							</option>
+							<option>
+								Price Low To High
+							</option>
+	
+							<option>
+								Price High To Low
+							</option>
+							<option>
+								Rating
+							</option>
+							<option>
+								Comments
+							</option>
+	
+						</select>
+	
+						<br>
+	
+						<label>
+							Search by Business Name:
+						</label>
+						<input class="form-control" type="text">
+	
+						<br>
+	
+						<label>
+							Select The Date:
+						</label>
+						<input class="form-control" type="date">
+	
+						<br>
+	
+						<label>
+							Select The Time:
+						</label>
+						<select class="form-control m-input">
+							<option>Any Time</option>
+							<option>08-09AM</option>
+							<option>09-10AM</option>
+							<option>10-11AM</option>
+							<option>11-12PM</option>
+							<option>12-01PM</option>
+							<option>01-02PM</option>
+							<option>02-03PM</option>
+						</select>
+	
+						<br>
+	
+						<label>
+							Serach by Location
+						</label>
+						<input class="form-control" type="text">
+	
+						<br>
+	
+						<label>
+							Budget
+						</label>
+						<div class="m-radio-list">
+							<label class="m-radio">
+								<input name="example_1" type="radio"> Any
 								<span></span>
 							</label>
-							<div class="leftCardEditDelete">
-								<span>
-									<a href="#">
-										<i class="fa fa-edit"></i>
-									</a>
-									<a href="#">
-										<i class="fa fa-trash"></i>
-									</a>
-								</span>
-							</div>
-
-							<div class="row onepersonrow">
-
-								<div class="col-md-12">
-									<img class="personimage" src="assets/demo/default/media/img/car.png">
-									<p class="personname">Handy Autos</p>
-									<p class="persontype">Car</p>
-								</div>
-							</div>
-
-
-
-							<p class="personappartmentno">
-								<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
-							<p class="personbuildingname">
-								<i class="fa fa-money"></i> $60 - $200</p>
-							<p class="personaddress">
-								<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-							<a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
-								<i class="la la-comments"></i> Message</a>
-
+							<label class="m-radio">
+								<input name="example_1" type="radio"> $0 - $30
+								<span></span>
+							</label>
+	
+							<label class="m-radio">
+								<input name="example_1" type="radio"> $30 - $60
+								<span></span>
+							</label>
+	
+	
+							<label class="m-radio">
+								<input name="example_1" type="radio"> $60 - $120
+								<span></span>
+							</label>
 						</div>
-						<div class="card-right col-lg-9">
-							<h6 class="text-muted pull-left">
-								<i class="fa fa-cog"></i> Service Details</h6>
-							<button class="btn btn-link personMoreDetailsButton pull-right" style="padding:0px;" (click)="isDisplayDetail=true;">More Details</button>
-							<div class="clearfix"></div>
-							<div class="row services-categories">
-								<div class="col-md-12 category-list">
-									<h6 class="service-heading">Maintenance &amp; Repair</h6>
-									<div class="row service-item">
-										<div class="col-md-6">
-											Oil &amp; Oil Filter Change
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$120.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book </a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-
-
-									<div class="row service-item">
-										<div class="col-md-6">
-											Spark Plugs Changing
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$60.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-
-									<div class="row service-item">
-										<div class="col-md-6">
-											Gearbox
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$500.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-
-
-									<div class="row service-item">
-										<div class="col-md-6">
-											Suspension
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$200.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-
-								</div>
-
-
-
-
-
-							</div>
-
-						</div>
+	
+	
 					</div>
 				</div>
 			</div>
-
-
-			<div class="col-md-6">
-				<div class="body organ1 serviceCard">
-					<div class="row" style="margin:0px;">
-						<div class="card-left col-lg-3" id="">
-							<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-								<input class="chkboxes" type="checkbox">
-								<span></span>
-							</label>
-							<div class="leftCardEditDelete">
-								<span>
-									<a href="#">
-										<i class="fa fa-edit"></i>
-									</a>
-									<a href="#">
-										<i class="fa fa-trash"></i>
-									</a>
-								</span>
-							</div>
-
-							<div class="row onepersonrow">
-
-								<div class="col-md-12">
-									<img class="personimage" src="assets/demo/default/media/img/hair.png">
-									<p class="personname">Mont Hair</p>
-									<p class="persontype">Hair Saloon</p>
+			<div class="col-xl-9 col-lg-8" [hidden]="isGridView">
+				<div class="m-portlet m-portlet--full-height">
+	
+					<div class="m-portlet__body">
+						<!-- admin Code here -->
+						<div class="row">
+							<div class="col-md-12">
+								<div class="m-widget3">
+									<div class="m-widget3__item">
+										<div class="m-widget3__header">
+											<div class="m-widget3__user-img">
+												<img alt="" class="m-widget3__img personimage" src="assets/demo/default/media/img/car.png" style="width: 2.8rem;">
+											</div>
+											<div class="m-widget3__info">
+												<span class="m-widget3__username">
+													Handy Autos
+												</span>
+	
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-th"></i> Car
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-clock-o"></i> 6:00 - 23:00
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-money"></i> $60 - $200
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+												</span>
+	
+											</div>
+											<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;">
+												<i class="la la-comments"></i> Message</a>
+										</div>
+										<div class="m-widget3__body">
+											<div class="row services-categories">
+												<div class="col-md-12 category-list">
+													<h6 class="service-heading">Maintenance &amp; Repair</h6>
+													<div class="row service-item">
+														<div class="col-md-6">
+															Oil &amp; Oil Filter Change
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$120.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+	
+	
+													<div class="row service-item">
+														<div class="col-md-6">
+															Spark Plugs Changing
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$60.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+	
+													<div class="row service-item">
+														<div class="col-md-6">
+															Gearbox
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$500.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+	
+	
+													<div class="row service-item">
+														<div class="col-md-6">
+															Suspension
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$200.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+	
+												</div>
+	
+	
+	
+	
+	
+											</div>
+										</div>
+									</div>
+									<div class="m-widget3__item">
+										<div class="m-widget3__header">
+											<div class="m-widget3__user-img">
+												<img alt="" class="m-widget3__img personimage" src="assets/demo/default/media/img/hair.png">
+											</div>
+											<div class="m-widget3__info">
+												<span class="m-widget3__username">
+													Mont Hair
+												</span>
+	
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-th"></i> Saloon
+												</span>
+												<br>
+	
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-clock-o"></i> 6:00 - 23:00
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-money"></i> $100 - $200
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+												</span>
+	
+											</div>
+											<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;">
+												<i class="la la-comments"></i> Message</a>
+										</div>
+										<div class="m-widget3__body">
+											<div class="row services-categories">
+												<div class="col-md-12 category-list">
+													<h6 class="service-heading">Hair</h6>
+													<div class="row service-item">
+														<div class="col-md-6">
+															Hair Cutting
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$60.50
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+													<div class="row service-item">
+														<div class="col-md-6">
+															Fancy Cutting
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$100.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+													<div class="row service-item">
+														<div class="col-md-6">
+															Head Shaving
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$50
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="m-widget3__item">
+										<div class="m-widget3__header">
+											<div class="m-widget3__user-img">
+												<img alt="" class="m-widget3__img personimage" src="assets/demo/default/media/img/doctor.jpg">
+											</div>
+											<div class="m-widget3__info">
+												<span class="m-widget3__username">
+													Jane Clinic
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-th"></i>Health
+												</span>
+												<br>
+	
+	
+	
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-clock-o"></i> 6:00 - 23:00
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-money"></i> $60 - $200
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+												</span>
+	
+											</div>
+											<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;">
+												<i class="la la-comments"></i> Message</a>
+										</div>
+										<div class="m-widget3__body">
+											<div class="row services-categories">
+												<div class="col-md-12 category-list">
+													<h6 class="service-heading">Checkup Services</h6>
+													<div class="row service-item">
+														<div class="col-md-6">
+															Fever
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$60.50
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+													<div class="row service-item">
+														<div class="col-md-6">
+															Dental
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$100.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+													<div class="row service-item">
+														<div class="col-md-6">
+															Overall Body
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$200
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="m-widget3__item">
+										<div class="m-widget3__header">
+											<div class="m-widget3__user-img">
+												<img alt="" class="m-widget3__img personimage" src="assets/demo/default/media/img/broom.jpg">
+											</div>
+											<div class="m-widget3__info">
+												<span class="m-widget3__username">
+													Chris Shining
+												</span>
+	
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-th"></i>Cleaning
+												</span>
+	
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-clock-o"></i> 8:00 - 18:00
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-money"></i> $120 - $160
+												</span>
+												<br>
+												<span class="m-widget3__time personappartmentno">
+													<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+												</span>
+	
+											</div>
+											<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;">
+												<i class="la la-comments"></i> Message</a>
+										</div>
+										<div class="m-widget3__body">
+											<div class="row services-categories">
+												<div class="col-md-12 category-list">
+													<h6 class="service-heading">Room Cleaning</h6>
+													<div class="row service-item">
+														<div class="col-md-6">
+															One Room With Bath
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$120.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+	
+	
+													<div class="row service-item">
+														<div class="col-md-6">
+															Multiple Rooms With Baths
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$260
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+	
+													<div class="row service-item">
+														<div class="col-md-6">
+															One Room Office with Bath
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$500.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+	
+	
+													<div class="row service-item">
+														<div class="col-md-6">
+															Multi Room Office with Baths
+														</div>
+														<div class="col-md-3">
+															<span class="m--font-success">
+																$800.00
+															</span>
+														</div>
+														<div class="col-md-3">
+															<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book</a>
+														</div>
+														<div class="col-md-12">
+															<hr>
+														</div>
+	
+													</div>
+	
+												</div>
+	
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-
-
-
-							<p class="personappartmentno">
-								<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
-							<p class="personbuildingname">
-								<i class="fa fa-money"></i> $100 - $200</p>
-							<p class="personaddress">
-								<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-							<a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
-								<i class="la la-comments"></i> Message</a>
-
 						</div>
-						<div class="card-right col-lg-9">
-							<h6 class="text-muted pull-left">
-								<i class="fa fa-cog"></i> Service Details</h6>
-							<button class="btn btn-link personMoreDetailsButton pull-right" style="padding:0px;" (click)="isDisplayDetail=true;">More Details</button>
-							<div class="clearfix"></div>
-							<div class="row services-categories">
-								<div class="col-md-12 category-list">
-									<h6 class="service-heading">Hair</h6>
-									<div class="row service-item">
-										<div class="col-md-6">
-											Hair Cutting
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$60.50
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book </a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-									<div class="row service-item">
-										<div class="col-md-6">
-											Fancy Cutting
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$100.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book </a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-									<div class="row service-item">
-										<div class="col-md-6">
-											Head Shaving
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$50
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book </a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-								</div>
-							</div>
-
-						</div>
+						<!-- admin code end here -->
 					</div>
 				</div>
+	
 			</div>
-
-			<div class="col-md-6">
-				<div class="body organ1 serviceCard">
-					<div class="row" style="margin:0px;">
-						<div class="card-left col-lg-3" id="">
-							<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-								<input class="chkboxes" type="checkbox">
-								<span></span>
-							</label>
-							<div class="leftCardEditDelete">
-								<span>
-									<a href="#">
-										<i class="fa fa-edit"></i>
-									</a>
-									<a href="#">
-										<i class="fa fa-trash"></i>
-									</a>
-								</span>
-							</div>
-
-							<div class="row onepersonrow">
-								<div class="col-md-12">
-									<img class="personimage" src="assets/demo/default/media/img/broom.jpg">
-									<p class="personname">Chris Shining</p>
-									<p class="persontype">Cleaning</p>
+			<div class="col-xl-9 col-lg-8" [hidden]="!isGridView">
+				<div class="row">
+	
+					<div class="col-md-12">
+						<div class="body organ1 serviceCard">
+							<div class="row" style="margin:0px;">
+								<div class="card-left col-lg-3" id="">
+									<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox">
+										<span></span>
+									</label>
+	
+									<div class="row onepersonrow">
+	
+										<div class="col-md-12">
+											<img class="personimage" src="assets/demo/default/media/img/car.png">
+											<p class="personname">Handy Autos</p>
+											<p class="persontype">Car</p>
+										</div>
+									</div>
+	
+	
+	
+									<p class="personappartmentno">
+										<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
+									<p class="personbuildingname">
+										<i class="fa fa-money"></i> $60 - $200</p>
+									<p class="personaddress">
+										<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+									<a href="javascript:;" class="btn btn-default chatServiceButton">
+										<i class="la la-comments"></i> Message</a>
+	
+								</div>
+								<div class="card-right col-lg-9">
+									<h6 class="text-muted pull-left">
+										<i class="fa fa-cog"></i> Service Details</h6>
+									<button class="btn btn-link personMoreDetailsButton pull-right" style="padding:0px;" (click)="isDisplayDetail=true;">More Details</button>
+									<div class="clearfix"></div>
+									<div class="row services-categories">
+										<div class="col-md-12 category-list">
+											<h6 class="service-heading">Maintenance &amp; Repair</h6>
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input #tref type="checkbox" value="true">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Oil &amp; Oil Filter Change
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$120.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+	
+	
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Spark Plugs Changing
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$60.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+	
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Gearbox
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$500.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+	
+	
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Suspension
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$200.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-
-
-
-							<p class="personappartmentno">
-								<i class="fa fa-clock-o"></i> 9:00 - 18:00</p>
-							<p class="personbuildingname">
-								<i class="fa fa-money"></i> $120 - $160</p>
-							<p class="personaddress">
-								<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-							<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;">
-								<i class="la la-comments"></i> Message</a>
-
-						</div>
-						<div class="card-right col-lg-9">
-							<h6 class="text-muted pull-left">
-								<i class="fa fa-cog"></i> Service Details</h6>
-							<button class="btn btn-link personMoreDetailsButton pull-right" style="padding:0px;" (click)="isDisplayDetail=true;">More Details</button>
-							<div class="clearfix"></div>
-							<div class="row services-categories">
-								<div class="col-md-12 category-list">
-									<h6 class="service-heading">Room Cleaning</h6>
-									<div class="row service-item">
-										<div class="col-md-6">
-											One Room With Bath
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$120.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book </a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-
-
-									<div class="row service-item">
-										<div class="col-md-6">
-											Multiple Rooms With Baths
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$260
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-
-									<div class="row service-item">
-										<div class="col-md-6">
-											One Room Office with Bath
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$500.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-
-
-									<div class="row service-item">
-										<div class="col-md-6">
-											Multi Room Office with Baths
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$800.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
 						</div>
 					</div>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<div class="body organ1 serviceCard">
-					<div class="row" style="margin:0px;">
-						<div class="card-left col-lg-3" id="">
-							<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-								<input class="chkboxes" type="checkbox">
-								<span></span>
-							</label>
-							<div class="leftCardEditDelete">
-								<span>
-									<a href="#">
-										<i class="fa fa-edit"></i>
-									</a>
-									<a href="#">
-										<i class="fa fa-trash"></i>
-									</a>
-								</span>
-							</div>
-							<div class="row onepersonrow">
-
-								<div class="col-md-12">
-									<img class="personimage" src="assets/demo/default/media/img/doctor.jpg">
-									<p class="personname">Jane Clinic</p>
-									<p class="persontype">Health</p>
+	
+					<div class="col-md-12">
+						<div class="body organ1 serviceCard">
+							<div class="row" style="margin:0px;">
+								<div class="card-left col-lg-3" id="">
+									<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox">
+										<span></span>
+									</label>
+	
+									<div class="row onepersonrow">
+	
+										<div class="col-md-12">
+											<img class="personimage" src="assets/demo/default/media/img/hair.png">
+											<p class="personname">Mont Hair</p>
+											<p class="persontype">Hair Saloon</p>
+										</div>
+									</div>
+	
+	
+	
+									<p class="personappartmentno">
+										<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
+									<p class="personbuildingname">
+										<i class="fa fa-money"></i> $100 - $200</p>
+									<p class="personaddress">
+										<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+									<a href="javascript:;" class="btn btn-default chatServiceButton">
+										<i class="la la-comments"></i> Message</a>
+	
+								</div>
+								<div class="card-right col-lg-9">
+									<h6 class="text-muted pull-left">
+										<i class="fa fa-cog"></i> Service Details</h6>
+									<button class="btn btn-link personMoreDetailsButton pull-right" style="padding:0px;" (click)="isDisplayDetail=true;">More Details</button>
+									<div class="clearfix"></div>
+									<div class="row services-categories">
+										<div class="col-md-12 category-list">
+											<h6 class="service-heading">Hair</h6>
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Hair Cutting
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$60.50
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-default">Book </a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Fancy Cutting
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$100.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book </a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Head Shaving
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$50
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book </a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+										</div>
+									</div>
+	
 								</div>
 							</div>
-
-
-
-							<p class="personappartmentno">
-								<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
-							<p class="personbuildingname">
-								<i class="fa fa-money"></i> $60 - $200</p>
-							<p class="personaddress">
-								<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-							<a class="btn btn-default btn-sm chatServiceButton" href="javascript:;">
-								<i class="la la-comments"></i> Message</a>
-
-						</div>
-						<div class="card-right col-lg-9">
-							<h6 class="text-muted pull-left">
-								<i class="fa fa-cog"></i> Service Details</h6>
-							<button class="btn btn-link personMoreDetailsButton pull-right" style="padding:0px;" (click)="isDisplayDetail=true;">More Details</button>
-							<div class="clearfix"></div>
-							<div class="row services-categories">
-								<div class="col-md-12 category-list">
-									<h6 class="service-heading">Checkup Services</h6>
-									<div class="row service-item">
-										<div class="col-md-6">
-											Fever
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$60.50
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-									<div class="row service-item">
-										<div class="col-md-6">
-											Dental
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$100.00
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-									<div class="row service-item">
-										<div class="col-md-6">
-											Overall Body
-										</div>
-										<div class="col-md-3">
-											<span class="m--font-success">
-												$200
-											</span>
-										</div>
-										<div class="col-md-3">
-											<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
-										</div>
-										<div class="col-md-12">
-											<hr>
-										</div>
-
-									</div>
-								</div>
-							</div>
-
-
 						</div>
 					</div>
+	
+					<div class="col-md-12">
+						<div class="body organ1 serviceCard">
+							<div class="row" style="margin:0px;">
+								<div class="card-left col-lg-3" id="">
+									<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox">
+										<span></span>
+									</label>
+	
+									<div class="row onepersonrow">
+										<div class="col-md-12">
+											<img class="personimage" src="assets/demo/default/media/img/broom.jpg">
+											<p class="personname">Chris Shining</p>
+											<p class="persontype">Cleaning</p>
+										</div>
+									</div>
+	
+	
+	
+									<p class="personappartmentno">
+										<i class="fa fa-clock-o"></i> 9:00 - 18:00</p>
+									<p class="personbuildingname">
+										<i class="fa fa-money"></i> $120 - $160</p>
+									<p class="personaddress">
+										<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+									<a class="btn btn-default chatServiceButton" href="javascript:;">
+										<i class="la la-comments"></i> Message</a>
+	
+								</div>
+								<div class="card-right col-lg-9">
+									<h6 class="text-muted pull-left">
+										<i class="fa fa-cog"></i> Service Details</h6>
+									<button class="btn btn-link personMoreDetailsButton pull-right" style="padding:0px;" (click)="isDisplayDetail=true;">More Details</button>
+									<div class="clearfix"></div>
+									<div class="row services-categories">
+										<div class="col-md-12 category-list">
+											<h6 class="service-heading">Room Cleaning</h6>
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													One Room With Bath
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$120.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-default">Book </a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+	
+	
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Multiple Rooms With Baths
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$260
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+	
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													One Room Office with Bath
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$500.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-default">Book</a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+	
+	
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Multi Room Office with Baths
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$800.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a data-toggle="modal" data-target="#addBookingModal" class="btn btn-sm btn-primary">Book</a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+	
+										</div>
+	
+									</div>
+	
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<div class="col-md-12">
+						<div class="body organ1 serviceCard">
+							<div class="row" style="margin:0px;">
+								<div class="card-left col-lg-3" id="">
+									<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox">
+										<span></span>
+									</label>
+	
+									<div class="row onepersonrow">
+	
+										<div class="col-md-12">
+											<img class="personimage" src="assets/demo/default/media/img/doctor.jpg">
+											<p class="personname">Jane Clinic</p>
+											<p class="persontype">Health</p>
+										</div>
+									</div>
+	
+	
+	
+									<p class="personappartmentno">
+										<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
+									<p class="personbuildingname">
+										<i class="fa fa-money"></i> $60 - $200</p>
+									<p class="personaddress">
+										<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+									<a class="btn btn-default chatServiceButton" href="javascript:;">
+										<i class="la la-comments"></i> Message</a>
+	
+								</div>
+								<div class="card-right col-lg-9">
+									<h6 class="text-muted pull-left">
+										<i class="fa fa-cog"></i> Service Details</h6>
+									<button class="btn btn-link personMoreDetailsButton pull-right" style="padding:0px;" (click)="isDisplayDetail=true;">More Details</button>
+									<div class="clearfix"></div>
+									<div class="row services-categories">
+										<div class="col-md-12 category-list">
+											<h6 class="service-heading">Checkup Services</h6>
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Fever
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$60.50
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Dental
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$100.00
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a class="btn btn-sm btn-default" data-target="#addBookingModal" data-toggle="modal">Book </a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+											<div class="row service-item">
+												<div class="col-md-1">
+													<span style="width: 40px;">
+														<label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand custom_margin_bottom">
+															<input type="checkbox" value="187">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<div class="col-md-5 custom_padding_left">
+													Overall Body
+												</div>
+												<div class="col-md-3">
+													<span class="m--font-success">
+														$200
+													</span>
+												</div>
+												<div class="col-md-3">
+													<a class="btn btn-sm btn-primary" data-target="#addBookingModal" data-toggle="modal">Book </a>
+												</div>
+												<div class="col-md-12">
+													<hr>
+												</div>
+	
+											</div>
+										</div>
+									</div>
+	
+	
+								</div>
+							</div>
+						</div>
+					</div>
+	
 				</div>
 			</div>
 		</div>
-		<div class="row justify-content-md-center servicesListForm marginTopNegative14" style="padding: 0px 10px;" [style.display]="(!isGridView && !isDisplayDetail) ? 'flex' : 'none'">
+		<!-- <div class="row justify-content-md-center servicesListForm marginTopNegative14" style="padding: 0px 10px;" [style.display]="(!isGridView && !isDisplayDetail) ? 'flex' : 'none'">
 
 			<div class="m-portlet m-portlet--full-height">
 
@@ -1121,7 +1713,7 @@
 			</div>
 
 
-		</div>
+		</div> -->
 
 
 		<div class="row detailSection" [style.display]="isDisplayDetail ? 'flex' : 'none'">
