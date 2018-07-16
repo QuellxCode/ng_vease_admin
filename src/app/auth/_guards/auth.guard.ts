@@ -15,8 +15,6 @@ export class AuthGuard implements CanActivate {
         return this._userService.verify().map(
             data => {
                 if (currentUser) {
-                    console.log('logged in so true');
-                    // logged in so return true
                     return true;
                 }
                 // error when verify so redirect to login page with the return url

@@ -9,12 +9,15 @@ declare let mLayout: any;
 })
 export class HeaderNavComponent implements OnInit, AfterViewInit {
 
-
+    name: string;
+    email: string;
     constructor() {
 
     }
     ngOnInit() {
-
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.name = currentUser.data.name;
+        this.email = currentUser.data.email;
     }
     ngAfterViewInit() {
 
