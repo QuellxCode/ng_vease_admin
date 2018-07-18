@@ -1,22 +1,29 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { ScriptLoaderService } from '../../../../_services/script-loader.service';
-
+import * as $ from 'jquery';
+import 'datatables.net';
+import 'datatables.net-bs4';
+import { DataTable } from 'primeng/primeng';
 @Component({
     selector: 'app-disputes',
     templateUrl: './disputes.component.html',
     styleUrls: ['./disputes.component.css']
 
 })
-export class DisputesComponent {
+export class DisputesComponent implements AfterViewInit, OnInit {
     complaints = true;
     cardClassActive = false;
+    search: boolean = true;
 
     firstRowActive=false;
     secondRowActive=false;
     disputeRightSideActive = false;
     feedBack = false;
-
-    constructor(private _script: ScriptLoaderService) {
+    clients: any[];
+    dataTable: any;
+    constructor(private _script: ScriptLoaderService, private http: HttpClient, private chRef: ChangeDetectorRef) {
 
     }
 
@@ -26,7 +33,22 @@ export class DisputesComponent {
             ['assets/app/js/services.js']);
     }
 
+    ngOnInit(){
+            const table: any = $('table');
+            this.dataTable = table.DataTable();
 
+
+            // $(document).ready(function() {
+            // const table: any = $('#datatable');
+            //     var users = table.DataTable({
+            //         "dom": "t"
+            //     });
+            //     $('#customSearchBox').keyup(function(){
+            //         table.search($(this).val()).draw() ;
+            //     })
+            // } );
+
+    }
     activeRow(index:number)
     {
         this.disputeRightSideActive=true;

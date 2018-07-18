@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
 import { DisputesComponent } from "./disputes.component";
-
+import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
     {
         'path': '',
@@ -21,7 +21,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes), LayoutModule
+        CommonModule, RouterModule.forChild(routes), LayoutModule, HttpClientModule
     ], exports: [
         RouterModule,
     ], declarations: [

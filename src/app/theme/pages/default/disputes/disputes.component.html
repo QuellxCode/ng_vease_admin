@@ -3,6 +3,17 @@
         <div class="mr-auto">
             <h3 class="m-subheader__title">
                 Resolution Center
+        <!-- <small class="fa fa-search text-muted stats-icons" style=" margin-left: 0px; font-size: 0.9rem" (click)="search=!search" *ngIf="search">
+            <a style="cursor:pointer;">
+            </a>
+        </small>
+        <small *ngIf="!search" class="input-group" >
+                        <div class="input-group-prepend">
+                                <span style="width: 14.3px;
+                                height: 15px;" class="input-group-text fa fa-search text-muted stats-icons" id="basic-addon1" (click)="search=!search" style=" margin-left: 0px; font-size: 0.9rem"></span>
+                              </div>
+                <input type="text" id="customSearchBox" class="form-control m-input filterStyle customFilterStyle">
+        </small> -->
                 <search-button style="display: inline-block; font-size: 0.9rem !important;"></search-button>
             </h3>
 
@@ -105,7 +116,47 @@
             <h3 class="m-subheader__title titleComplaints titles">
                 Dispute Table
             </h3>
-            <div class="m-section">
+            <table class="table table-hover" cellspacing="0" id="datatable">
+                <thead>
+                    <tr class="active">
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Service
+                        </th>
+                        <th>
+                            Customer
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="custom-hover" (click)="activeRow(1)" [ngClass]="firstRowActive == true ? 'active-row-class': '' ">
+                        <th scope="row">
+                            1
+                        </th>
+                        <td>
+                            Oil & Oil Filter Changing
+                        </td>
+                        <td>
+                            Jhon Doe
+                        </td>
+                    </tr>
+                    <tr class="custom-hover" (click)="activeRow(2)" [ngClass]="secondRowActive == true ? 'active-row-class': '' ">
+                        <th scope="row">
+                            2
+                        </th>
+                        <td>
+                            Fancy Cutting
+                        </td>
+                        <td>
+                            Max Khan
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+            <!-- <div class="m-section">
                 <div class="m-section__content">
                     <table class="table table-striped m-table">
                         <thead>
@@ -147,12 +198,10 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div> -->
 
         </div>
-        <div class="col-md-7 titleComplaints" [hidden]="disputeRightSideActive">
-            <img src="./assets/app/media/img/dispute.png" class="mx-auto d-block">
-        </div>
+
 
         <div class="col-md-4 titleComplaints" [hidden]="!disputeRightSideActive">
             <!-- _______scroable goes here_______ -->
