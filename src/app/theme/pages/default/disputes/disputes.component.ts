@@ -34,19 +34,21 @@ export class DisputesComponent implements AfterViewInit, OnInit {
     }
 
     ngOnInit(){
-            const table: any = $('table');
-            this.dataTable = table.DataTable();
+            // const table: any = $('table');
+            // this.dataTable = table.DataTable();
 
-
-            // $(document).ready(function() {
-            // const table: any = $('#datatable');
-            //     var users = table.DataTable({
-            //         "dom": "t"
-            //     });
-            //     $('#customSearchBox').keyup(function(){
-            //         table.search($(this).val()).draw() ;
-            //     })
-            // } );
+            $(document).ready(function() {
+            const table: any = $('#datatable');
+                var users = table.DataTable({
+                    "dom": "t"
+                }
+            );
+            console.log('called1');
+                $('#customSearchBox').keyup(function(){
+                    users.search($(this).val()).draw() ;
+                    console.log('called');
+                })
+            } );
 
     }
     activeRow(index:number)

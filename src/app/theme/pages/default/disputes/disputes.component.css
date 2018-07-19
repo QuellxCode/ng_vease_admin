@@ -70,3 +70,21 @@
 .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-text {
     padding-left: 15px;
 }
+
+.customFilterStyle {
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom-color: black;
+    background-color: #F2F3F8;
+    outline: none;
+}
+
+.cursoreClose {
+padding: 0px;
+margin: 0px;
+}
+
+.esclate {
+    font-size: 0.875rem;
+}

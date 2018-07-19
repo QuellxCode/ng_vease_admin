@@ -9,7 +9,6 @@ import { AgmCoreModule, AgmMap } from '@agm/core';
 import { CalendarModule } from 'angular-calendar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchButtonComponent } from '../../../../theme/layouts/searchButton/searchButton.component';
 
 const routes: Routes = [
     {

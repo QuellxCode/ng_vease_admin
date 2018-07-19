@@ -14,7 +14,6 @@ import { HrefPreventDefaultDirective } from '../../_directives/href-prevent-defa
 import { UnwrapTagDirective } from '../../_directives/unwrap-tag.directive';
 import { AsideNavSettingsComponent } from './aside-nav-settings/aside-nav-settings.component';
 import { SettingsComponent } from '../pages/CusomComponents/settings/settings.component';
-import { SearchButtonComponent } from './searchButton/searchButton.component';
 @NgModule({
     declarations: [
         LayoutComponent,
@@ -30,7 +29,6 @@ import { SearchButtonComponent } from './searchButton/searchButton.component';
         HrefPreventDefaultDirective,
         UnwrapTagDirective,
         SettingsComponent,
-        SearchButtonComponent
     ],
     exports: [
         LayoutComponent,
@@ -45,7 +43,6 @@ import { SearchButtonComponent } from './searchButton/searchButton.component';
         ScrollTopComponent,
         TooltipsComponent,
         HrefPreventDefaultDirective,
-        SearchButtonComponent
     ],
     imports: [
         CommonModule,
