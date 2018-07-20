@@ -43,10 +43,8 @@ export class DisputesComponent implements AfterViewInit, OnInit {
                     "dom": "t"
                 }
             );
-            console.log('called1');
                 $('#customSearchBox').keyup(function(){
                     users.search($(this).val()).draw() ;
-                    console.log('called');
                 })
             } );
 
