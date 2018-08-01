@@ -66,7 +66,7 @@
                         <a class="nav-link" data-toggle="pill" href="#support-tab" role="tab">Dispute</a>
                         <a class="nav-link" data-toggle="pill" href="#payment-tab" role="tab">Payment</a>
                         <a class="nav-link" data-toggle="pill" href="#taxes-tab" role="tab">Taxes</a>
-                        <a class="nav-link" data-toggle="pill" href="#pricing-tab" role="tab">Pricing</a>
+                        <!-- <a class="nav-link" data-toggle="pill" href="#pricing-tab" role="tab">Pricing</a> -->
 
 
 
@@ -84,9 +84,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#company_location" role="tab" data-toggle="tab">Location(s)</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" href="#company_timings" role="tab" data-toggle="tab" id="timingsandcalendar">Timings &amp; Calendar</a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="#company_schedule" role="tab" data-toggle="tab">Company Schedule</a>
                                 </li>
@@ -360,7 +360,7 @@
                                     </div>
 
                                 </div>
-                                <div class="tab-pane fade" id="company_timings">
+                                <!-- <div class="tab-pane fade" id="company_timings">
 
 
 
@@ -407,10 +407,9 @@
 
 
 
-                                </div>
+                                </div> -->
                                 <div class="tab-pane" id="company_schedule">
                                     <div class="row " *ngIf="!isDisplayScheduleEditAndSee">
-
                                         <div class="col-xl-12">
                                             <button style="margin-bottom:15px;" class="btn btn-default" (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee">
                                                 <i class="fa fa-user-plus"></i> Add New Schedule </button>
@@ -461,11 +460,36 @@
                                     </div>
 
                                     <div class="row" *ngIf="isDisplayScheduleEditAndSee">
+                                            <button class="btn btn-link" (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee; editScheduleIndex=undefined;"
+                                            style="padding-left:0px;">
+                                            <i class="fa fa-chevron-left"></i> Back </button>
+                                                    <div class="col-md-12">
+                                                        <h6>Location</h6>
+                                                        <div class="m-form__group form-group">
+                                                            <select class="form-control m-input" type="text">
+                                                                <option>Main Location</option>
+                                                                <option>Second Location</option>
+                                                                <option>Third Location</option>
+                                                                <option>Last Location</option>
+            
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                                    <div class="col-md-12">
+                                                        <h6>Timings</h6>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+                                                    </div>
+                                                    <div class="col-sm-1" style="padding-top:50px;">
+                                                        To
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <ngb-timepicker [(ngModel)]="time2"></ngb-timepicker>
+                                                    </div>
                                         <div class="col-md-12">
 
-                                            <button class="btn btn-link" (click)="isDisplayScheduleEditAndSee=!isDisplayScheduleEditAndSee; editScheduleIndex=undefined;"
-                                                style="padding-left:0px;">
-                                                <i class="fa fa-chevron-left"></i> Back </button>
+                                           
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group m-form__group">
@@ -1562,7 +1586,7 @@
                                 </div>
                             </div>
 
-
+<!-- ____________This pricing was removed as told by moiz nadeem to waleed starts_____________ -->
                             <div class="row" *ngIf="isPricingAddEditOpen">
                                 <div class="col-md-12">
 
@@ -1608,6 +1632,7 @@
 
                                 </div>
                             </div>
+<!-- ____________This pricing was removed as told by moiz nadeem to waleed starts_____________ -->
 
                         </div>
 
