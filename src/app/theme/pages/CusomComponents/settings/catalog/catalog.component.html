@@ -5,7 +5,7 @@
 
 			<div class="col-md-6">
 				<h3 class="m-subheader__title" style="display:inline-block">
-					Catalog
+					Services
 					<small>
 						<a href="javascript:;" style="text-decoration: none;color:grey;">
 							<i style="font-size: 0.9rem;" class="fa fa-bar-chart"></i>
@@ -54,7 +54,7 @@
 		<li class="m-nav__item">
 			<a class="m-nav__link" href="" ng-reflect-href="">
 				<span class="m-nav__link-text">
-					Catalog
+					Services
 				</span>
 			</a>
 		</li>
@@ -384,7 +384,7 @@
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="nav-item">
 							<a class="nav-link active show" data-toggle="tab" href="#serviceform_newcatalog" ng-reflect-href="#serviceform_newcatalog">
-								New Catalog Item
+								New Service Item
 							</a>
 						</li>
 						<li class="nav-item">
@@ -394,7 +394,7 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" data-toggle="tab" href="#serviceform_tasks" ng-reflect-href="#serviceform_tasks">
-								Steps to process
+								Services Steps
 							</a>
 						</li>
 						<li class="nav-item">
@@ -509,26 +509,26 @@
 										<textarea class="form-control m-input" rows="3" #catalogServiceDescription></textarea>
 									</div>
 									<div class="form-group m-form__group">
-											<label>Select Location:</label>
-											<select class="form-control m-input m-input--square">
-												<option value="Default Location">
-													Default Location
-												</option>
-												<option value="1st Location">
-													1st Location
-												</option>
-												<option value="2nd Location">
-													2nd Location
-												</option>
-												<option value="3rd Location">
-													3rd Location
-												</option>
-												<option value="4th Location">
-													4th Location
-												</option>
-	
-											</select>
-										</div>
+										<label>Select Location:</label>
+										<select class="form-control m-input m-input--square">
+											<option value="Default Location">
+												Default Location
+											</option>
+											<option value="1st Location">
+												1st Location
+											</option>
+											<option value="2nd Location">
+												2nd Location
+											</option>
+											<option value="3rd Location">
+												3rd Location
+											</option>
+											<option value="4th Location">
+												4th Location
+											</option>
+
+										</select>
+									</div>
 
 									<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value);">Save</button>
 
@@ -684,67 +684,67 @@
 								<div class="col-md-12">
 
 									<button class="btn btn-primary" (click)="addCatalog(catalogServiceName.value , catalogServiceDescription.value , catalogServicePrice.value)">
-									Save </button>
+										Save </button>
 								</div>
 							</div>
 						</div>
 						<div class="tab-pane" id="serviceform_pricing" role="serviceform_tasks">
-						<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group m-form__group">
-										<label>
-											Service Name:
-										</label>
-										<input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].serviceName : ''" class="form-control m-input"
-											placeholder="Service Name" type="text" #pricingService>
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group m-form__group">
+											<label>
+												Service Name:
+											</label>
+											<input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].serviceName : ''" class="form-control m-input"
+											    placeholder="Service Name" type="text" #pricingService>
+										</div>
+
+
+										<div class="form-group m-form__group">
+											<label>
+												Category:
+											</label>
+											<select class="form-control m-input" type="text">
+												<option>Category 1</option>
+												<option>Category 2</option>
+												<option>Category 3</option>
+												<option>Category 4</option>
+												<!-- <option >UAE</option> -->
+											</select>
+										</div>
+
 									</div>
 
 
-									<div class="form-group m-form__group">
-										<label>
-											Category:
-										</label>
-										<select  class="form-control m-input" type="text">
-											<option >Category 1</option>
-											<option >Category 2</option>
-											<option >Category 3</option>
-											<option >Category 4</option>
-											<!-- <option >UAE</option> -->
-										</select>
+									<div class="col-md-6">
+										<div class="form-group m-form__group">
+											<label>
+												Price:
+											</label>
+											<input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].price : ''" class="form-control m-input" min="0"
+											    type="number" #pricingPrice>
+										</div>
+										<div class="form-group m-form__group">
+											<label>
+												Subcategory:
+											</label>
+											<select class="form-control m-input" type="text">
+												<option>Subcategory 1</option>
+												<option>SubCategory 2</option>
+												<option>SubCategory 3</option>
+												<option>SubCategory 4</option>
+												<!-- <option >UAE</option> -->
+											</select>
+										</div>
 									</div>
-
 								</div>
 
+								<button class="btn btn-primary" style="margin-bottom:14px;" (click)="addPricing(pricingService.value, pricingCategory.value, pricingPrice.value)">
+									Save Pricing
+								</button>
 
-								<div class="col-md-6">
-									<div class="form-group m-form__group">
-										<label>
-											Price:
-										</label>
-										<input [value]="(editPricingIndex!=undefined) ? pricing[editPricingIndex].price : ''" class="form-control m-input" min="0"
-											type="number" #pricingPrice>
-									</div>
-									<div class="form-group m-form__group">
-										<label>
-											Subcategory:
-										</label>
-										<select  class="form-control m-input" type="text">
-											<option >Subcategory 1</option>
-											<option >SubCategory 2</option>
-											<option >SubCategory 3</option>
-											<option >SubCategory 4</option>
-											<!-- <option >UAE</option> -->
-										</select>
-									</div>
-								</div>
 							</div>
-
-							<button class="btn btn-primary" style="margin-bottom:14px;" (click)="addPricing(pricingService.value, pricingCategory.value, pricingPrice.value)">
-								Save Pricing
-							</button>
-
-						</div>
 						</div>
 					</div>
 				</div>
