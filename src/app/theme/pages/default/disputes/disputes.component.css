@@ -1,4 +1,3 @@
-
 .complaintsCard {
     margin-bottom: 5px;
     margin-left: 15px;
@@ -10,35 +9,33 @@
 }
 
 .titleComplaints {
-    /* margin-left: 15px; */
     margin-bottom: 15px;
-    /* margin-top: 10px; */
 }
 
-.custom-image-setting-icon{
+.custom-image-setting-icon {
     width: 25px;
     height: 25px;
 }
 
-.custom-float-right{
+.custom-float-right {
     float: right;
 }
 
-.custom-badge-setting{
+.custom-badge-setting {
     height: 10px;
-    float:right;
+    float: right;
     margin-bottom: 3px;
 }
 
-.custom-hover:hover{
-    background-color: lightyellow; 
+.custom-hover:hover {
+    background-color: lightyellow;
 }
 
-.active-row-class{
-    background-color: white !important; 
+.active-row-class {
+    background-color: white !important;
 }
 
-.custom-image-setting{
+.custom-image-setting {
     width: 45px;
     height: 45px;
 }
@@ -55,16 +52,17 @@
     margin-left: 15px;
 }
 
-.disputeImg{
+.disputeImg {
     float: right;
     margin-top: 12px;
 }
+
 .m-timeline-2:before {
     left: 1rem;
 }
 
 .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-text {
-    padding-left:  15px;
+    padding-left: 15px;
 }
 
 .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-text {
@@ -81,8 +79,8 @@
 }
 
 .cursoreClose {
-padding: 0px;
-margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .esclate {

@@ -161,7 +161,7 @@
                                                         <label>
                                                             Company Location:
                                                         </label>
-                                                        <select class="form-control form-control-sm m-input" type="text"  formControlName="companyLocation">
+                                                        <select class="form-control form-control-sm m-input" type="text" formControlName="companyLocation">
                                                             <option *ngFor="let item of companyLocations" [value]="item">{{item}}</option>
                                                         </select>
                                                     </div>
@@ -176,20 +176,23 @@
                                                         <label for="label3">
                                                             Facebook:
                                                         </label>
-                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Facebook Link" type="text" formControlName="facebook">
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Facebook Link" type="text"
+                                                            formControlName="facebook">
                                                     </div>
                                                     <div class="form-group m-form__group">
-                                                            <label for="label3">
-                                                                Twitter:
-                                                            </label>
-                                                            <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Facebook Link" type="text" formControlName="twitter">
-                                                        </div>
+                                                        <label for="label3">
+                                                            Twitter:
+                                                        </label>
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Facebook Link" type="text"
+                                                            formControlName="twitter">
+                                                    </div>
 
                                                     <div class="form-group m-form__group">
                                                         <label for="label3">
                                                             Instagram:
                                                         </label>
-                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Instagram Link" type="text" formControlName="instagram">
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Instagram Link" type="text"
+                                                            formControlName="instagram">
                                                     </div>
                                                     <div class="form-group m-form__group">
                                                         <label for="exampleTextarea">
@@ -203,7 +206,8 @@
                                                         <label for="label3">
                                                             Linkedin:
                                                         </label>
-                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Linkedin Link" type="text" formControlName="linkedIn">
+                                                        <input aria-describedby="emailHelp" class="form-control form-control-sm m-input" placeholder="Linkedin Link" type="text"
+                                                            formControlName="linkedIn">
                                                     </div>
 
 
@@ -249,7 +253,7 @@
                                                             File Browser
                                                         </label>
                                                         <div class="custom-file">
-                                                            <input class="custom-file-input" id="customFile" type="file"  (change)="handleFileInput($event.target.files)">
+                                                            <input class="custom-file-input" id="customFile" type="file" (change)="handleFileInput($event.target.files)">
                                                             <label class="custom-file-label" for="customFile">
                                                                 Choose file
                                                             </label>
@@ -465,15 +469,15 @@
                                             </div>
                                             <div class="col-lg-6 m--align-right">
                                                 <!-- <button class="btn btn-primary m-btn m-btn--custom m-btn--icon" type="submit" data-wizard-action="submit">Submit</button> -->
-                                                        <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
-                                                                <span>
-                                                                    <i class="la la-check"></i>
-                                                                    &nbsp;&nbsp;
-                                                                    <span>
-                                                                        Submit
-                                                                    </span>
-                                                                </span>
-                                                            </a>
+                                                <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
+                                                    <span>
+                                                        <i class="la la-check"></i>
+                                                        &nbsp;&nbsp;
+                                                        <span>
+                                                            Submit
+                                                        </span>
+                                                    </span>
+                                                </a>
                                                 <button class="btn btn-success m-btn m-btn--custom m-btn--icon" data-wizard-action="next">Save & Continue</button>
                                             </div>
                                         </div>

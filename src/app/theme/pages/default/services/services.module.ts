@@ -7,12 +7,8 @@ import { DefaultComponent } from '../default.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
-/*import { AgmCoreModule, AgmMap } from '@agm/core';
-import { CalendarModule } from 'angular-calendar';
-*/
-import { Server_Services } from '../../../../services/serverServices.services';
-
-
+// _____________Services________________
+import { CreateService } from '../../../../services/defaultServices/companyServices.services';
 const routes: Routes = [
     {
         "path": "",
@@ -30,7 +26,6 @@ const routes: Routes = [
         ServicesComponent
     ],
     imports: [
-        /*CalendarModule.forRoot(),*/
         CommonModule,
         RouterModule.forChild(routes),
         LayoutModule,
@@ -44,7 +39,7 @@ const routes: Routes = [
     exports: [
         RouterModule
     ],
-    providers: [Server_Services]
+    providers: [CreateService]
 })
 export class ServiceModule {
 

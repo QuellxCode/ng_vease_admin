@@ -8,13 +8,10 @@ import { Helpers } from '../../../helpers';
     encapsulation: ViewEncapsulation.None,
 })
 export class QuickSidebarComponent implements OnInit {
-
-
     constructor() {
 
     }
     ngOnInit() {
 
     }
-
 }

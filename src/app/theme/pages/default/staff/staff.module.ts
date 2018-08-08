@@ -5,6 +5,8 @@ import { StaffComponent } from './staff.component';
 import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
 
+import { StaffServices } from '../../../../services/defaultServices/staffServices.services';
+
 const routes: Routes = [
     {
         "path": "",
@@ -24,7 +26,8 @@ const routes: Routes = [
         RouterModule
     ], declarations: [
         StaffComponent
-    ]
+    ],
+    providers: [StaffServices]
 })
 export class StaffModule {
 

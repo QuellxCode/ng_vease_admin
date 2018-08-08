@@ -1,56 +1,57 @@
-.socialmediaiconssection .fa
-{
+.socialmediaiconssection .fa {
     margin-right: 20px;
     font-size: 26px;
 }
-.fa-facebook
-{
-    color:#3B5998;;
+
+.fa-facebook {
+    color: #3B5998;
+    ;
 }
-.fa-twitter
-{
+
+.fa-twitter {
     color: #55ACEE;
 }
+
 .fa-linkedin {
     color: #007bb5;
-    
 }
 
 .fa-yahoo {
     color: #430297;
-   }
-.fa-skype
-{
-    color:#00aff0
 }
-   .fa-google
-   {
-       color:#dd4b39;
-   }
-   .fa-youtube
-   {
-       color:#bb0000;
-   }
-   .fa-medium
-   {
-       color:green;
-   }
-   .m-wizard__form-step
-   {
-       margin-top: 15px;
-   }
-   .country {
-       display: none;
-   }
-   [type="checkbox"]
-{
-    vertical-align:middle;
+
+.fa-skype {
+    color: #00aff0
+}
+
+.fa-google {
+    color: #dd4b39;
+}
+
+.fa-youtube {
+    color: #bb0000;
+}
+
+.fa-medium {
+    color: green;
+}
+
+.m-wizard__form-step {
+    margin-top: 15px;
+}
+
+.country {
+    display: none;
+}
+
+[type="checkbox"] {
+    vertical-align: middle;
 }
 
 .shipping_checkbox {
     margin-left: 15px;
 }
 
-.billAddressing{
+.billAddressing {
     padding-top: 33px;
 }

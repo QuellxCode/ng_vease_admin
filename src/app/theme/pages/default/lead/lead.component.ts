@@ -10,7 +10,7 @@ declare var $: any;
     selector: 'app-lead',
     templateUrl: './lead.component.html',
     styleUrls: ['./lead.component.css', '../../../../../../node_modules/dragula/dist/dragula.css',
-                '../../../../../assets/vendors/base/vendors.bundle.css', '../../../../../assets/demo/default/base/style.bundle.css']
+        '../../../../../assets/vendors/base/vendors.bundle.css', '../../../../../assets/demo/default/base/style.bundle.css']
 
 })
 export class LeadComponent implements OnInit, AfterViewInit {
@@ -24,27 +24,11 @@ export class LeadComponent implements OnInit, AfterViewInit {
     zoom = 10;
     @ViewChild('search') public searchElementRef: ElementRef;
     constructor(private dragulaService: DragulaService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _script: ScriptLoaderService) {
-
-        // dragulaService.setOptions('bag-task1', {
-        //     revertOnSpill: true
-        //
-        // });
         const bag: any = this.dragulaService.find('bag-task1');
         if (bag !== undefined) this.dragulaService.destroy('bag-task1');
         this.dragulaService.setOptions('bag-task1', {
             revertOnSpill: true
         });
-
-        // dragulaService.setOptions('bag-task2', {
-        //     revertOnSpill: true,
-        //     moves: function (el, source, handle, sibling) {
-        //         return true; // elements are always draggable by default
-        //     },
-        //     accepts: function (el, target, source, sibling) {
-        //         return true; // elements can be dropped in any of the `containers` by default
-        //     },
-        //
-        // });
     }
 
     public searchControl: FormControl;
@@ -60,10 +44,6 @@ export class LeadComponent implements OnInit, AfterViewInit {
             autocomplete.addListener('place_changed', () => {
                 this.ngZone.run(() => {
                     const place: google.maps.places.PlaceResult = autocomplete.getPlace();
-                    //  this.clientPlacess = place;
-                    // console.log(this.clientCity);
-
-                    //    for country
                     var address_components = autocomplete.getPlace().address_components;
 
                     if (place.geometry === undefined || place.geometry === null) {
@@ -75,7 +55,6 @@ export class LeadComponent implements OnInit, AfterViewInit {
                     this.lati = this.lat;
                     this.lng = this.lang;
                     this.zoom = 15;
-
                 });
             });
         });
@@ -83,7 +62,7 @@ export class LeadComponent implements OnInit, AfterViewInit {
 
 
         var text, counter = 0;
-        $(document).on('click', '#add-service-request', function() {
+        $(document).on('click', '#add-service-request', function () {
             counter = counter + 1;
             text = $(this).closest('.m-portlet__head').next().find('.m-widget4').append(`
             <div class="m-widget4__item">
@@ -110,16 +89,15 @@ export class LeadComponent implements OnInit, AfterViewInit {
         });
 
     }
-    ngAfterViewInit () {
+    ngAfterViewInit() {
         this._script.loadScripts('app-lead',
             ['assets/app/js/bootstrap-datetimepicker.js']);
     }
-     rescheduleCompanyName;
-     reschedulePrice;
+    rescheduleCompanyName;
+    reschedulePrice;
 
     onReschedule(name, price) {
         this.rescheduleCompanyName = name;
         this.reschedulePrice = price;
-        // this.onBookClass = 'btn btn-primary';
     }
 }

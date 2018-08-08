@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import { AuthenticationService } from '../auth/_services/authentication.service';
+import { AuthenticationService } from '../../auth/_services/authentication.service';
 @Injectable()
 
-export class Server_Services {
+export class CreateService {
     constructor(private http: Http, private authenticationService: AuthenticationService) { }
 
     private getCatagoriesURL = ' http://www.sharjeelkhan.ca/vease/vease-app/api/v1/category-list';
@@ -21,11 +21,9 @@ export class Server_Services {
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'Bearer ' + this.userToken);
         var options = new RequestOptions({ headers: headers });
-        // console.log(options);
         return this.http.get(this.getCatagoriesURL, options)
             .map((response) => {
                 const data = response.json();
-                //  console.log(data.data);
                 return data;
             });
     }
@@ -40,7 +38,6 @@ export class Server_Services {
         return this.http.get(this.getCatagoriesURL, options)
             .map((response) => {
                 const data = response.json();
-                // console.log(data.data);
                 return data;
             });
     }

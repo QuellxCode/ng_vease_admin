@@ -9,7 +9,6 @@ import { Helpers } from '../../../helpers';
 })
 export class ScrollTopComponent implements OnInit {
 
-
     constructor() {
 
     }

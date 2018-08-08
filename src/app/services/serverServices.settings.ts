@@ -16,7 +16,6 @@ export class Settings_Services {
 
     createPermission(name) {
         var headers = new Headers();
-        // console.log(this.userToken);
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'Bearer ' + this.userToken);
         var options = new RequestOptions({ headers: headers });
@@ -31,7 +30,6 @@ export class Settings_Services {
 
     getPermission() {
         var headers = new Headers();
-        // console.log(this.userToken);
         headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'Bearer ' + this.userToken);
         var options = new RequestOptions({ headers: headers });

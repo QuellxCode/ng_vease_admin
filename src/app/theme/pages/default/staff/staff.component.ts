@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit } from '@angular/core';
 import { Helpers } from '../../../../helpers';
 import { ScriptLoaderService } from '../../../../_services/script-loader.service';
+import { StaffServices } from '../../../../services/defaultServices/staffServices.services';
 
 @Component({
     selector: "app-staff",
@@ -9,40 +10,23 @@ import { ScriptLoaderService } from '../../../../_services/script-loader.service
 })
 export class StaffComponent implements OnInit, AfterViewInit {
 
-    //@ViewChild(AgmMap) agmMap: AgmMap;
     isGridView = true;
     viewName = "List View";
     isDisplayDetail = false;
     viewDate: Date = new Date();
 
 
-    constructor(private _script: ScriptLoaderService) {
+    constructor(private _script: ScriptLoaderService, private staffServices: StaffServices) { }
+    ngOnInit() { }
 
-    }
-    ngOnInit() {
-
-    }
     ngAfterViewInit() {
-
         this._script.loadScripts('app-staff',
             ['//www.amcharts.com/lib/3/plugins/tools/polarScatter/polarScatter.min.js',
                 '//www.amcharts.com/lib/3/plugins/export/export.min.js',
                 'assets/app/js/staff.js']);
-
-
-
-
     }
 
-    adjustRadiusMap() {
-        /*
-        setTimeout(() => {
-            this.agmMap.triggerResize();
-        }, 2000);
-    */
-    }
-
-
+    adjustRadiusMap() { }
 
     changeView() {
         this.isGridView = !this.isGridView;
@@ -53,8 +37,4 @@ export class StaffComponent implements OnInit, AfterViewInit {
             this.viewName = "Grid View";
         }
     }
-
-
-
-
 }

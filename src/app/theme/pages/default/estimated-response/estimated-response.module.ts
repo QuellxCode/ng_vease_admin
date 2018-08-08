@@ -35,7 +35,4 @@ const routes: Routes = [
     ],
     providers: []
 })
-export class EstimateResponseModule {
-
-
-}
+export class EstimateResponseModule { }

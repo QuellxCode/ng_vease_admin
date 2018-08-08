@@ -29,12 +29,8 @@ import {
     transition
 } from '@angular/animations';
 
-//import { Server_Services } from '../../../../services/serverServices.services';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-
-// serverServices for posting the data to server
 
 const colors: any = {
     red: {
@@ -95,11 +91,6 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
 
     requestForms: FormGroup;
 
-
-
-
-
-
     constructor(private _script: ScriptLoaderService, private modal: NgbModal) {
 
     }
@@ -151,10 +142,6 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
     activeDayIsOpen: boolean = true;
     broadcastServiceRequest(recipient, serviceCategory, value, contactNumber, message) {
 
-
-
-
-        // After the data submission empty all input fields....
         recipient.value = '';
         serviceCategory.value = '';
         value = '';

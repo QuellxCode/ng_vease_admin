@@ -17,8 +17,8 @@ export class DisputesComponent implements AfterViewInit, OnInit {
     cardClassActive = false;
     search: boolean = true;
 
-    firstRowActive=false;
-    secondRowActive=false;
+    firstRowActive = false;
+    secondRowActive = false;
     disputeRightSideActive = false;
     feedBack = false;
     clients: any[];
@@ -33,32 +33,28 @@ export class DisputesComponent implements AfterViewInit, OnInit {
             ['assets/app/js/services.js']);
     }
 
-    ngOnInit(){
-            // const table: any = $('table');
-            // this.dataTable = table.DataTable();
-
-            $(document).ready(function() {
+    ngOnInit() {
+        $(document).ready(function () {
             const table: any = $('#datatable');
-                var users = table.DataTable({
-                    "dom": "t"
-                }
+            var users = table.DataTable({
+                "dom": "t"
+            }
             );
-                $('#customSearchBox').keyup(function(){
-                    users.search($(this).val()).draw() ;
-                })
-            } );
+            $('#customSearchBox').keyup(function () {
+                users.search($(this).val()).draw();
+            })
+        });
 
     }
-    activeRow(index:number)
-    {
-        this.disputeRightSideActive=true;
+    activeRow(index: number) {
+        this.disputeRightSideActive = true;
 
-        if(index==1){
-            this.secondRowActive=false;
-            this.firstRowActive=true;
-        }else{
-            this.firstRowActive=false;
-            this.secondRowActive=true;
+        if (index == 1) {
+            this.secondRowActive = false;
+            this.firstRowActive = true;
+        } else {
+            this.firstRowActive = false;
+            this.secondRowActive = true;
         }
     }
 }

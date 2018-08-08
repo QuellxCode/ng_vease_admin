@@ -36,10 +36,6 @@ const routes: Routes = [
     ], declarations: [
         LeadComponent,
         WizardLeadForm
-
     ],
 })
-export class LeadModule {
-
-
-}
+export class LeadModule { }

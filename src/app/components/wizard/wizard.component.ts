@@ -48,11 +48,9 @@ export class WizardComponent implements OnInit, AfterViewInit {
                 this.ngZone.run(() => {
                     const place: google.maps.places.PlaceResult = autocomplete.getPlace();
                     this.clientPlacess = place;
-                    // console.log(this.clientCity);
 
                     //    for country
                     var address_components = autocomplete.getPlace().address_components;
-                    // console.log(address_components);
                     for (var j = 0; j < address_components.length; j++) {
 
                         this.clientCity = address_components[0].long_name;
