@@ -6,7 +6,6 @@ import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
 
 import { StaffServices } from '../../../../services/defaultServices/staffServices.services';
-
 const routes: Routes = [
     {
         "path": "",
@@ -25,7 +24,7 @@ const routes: Routes = [
     ], exports: [
         RouterModule
     ], declarations: [
-        StaffComponent
+        StaffComponent,
     ],
     providers: [StaffServices]
 })
