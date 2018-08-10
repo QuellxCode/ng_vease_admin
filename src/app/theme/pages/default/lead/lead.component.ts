@@ -62,7 +62,7 @@ export class LeadComponent implements OnInit, AfterViewInit {
 
 
         var text, counter = 0;
-        $(document).on('click', '#add-service-request', function () {
+        $(document).on('click', '#add-service-request', function() {
             counter = counter + 1;
             text = $(this).closest('.m-portlet__head').next().find('.m-widget4').append(`
             <div class="m-widget4__item">

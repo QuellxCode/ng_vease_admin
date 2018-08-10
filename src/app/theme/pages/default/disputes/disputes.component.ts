@@ -34,13 +34,13 @@ export class DisputesComponent implements AfterViewInit, OnInit {
     }
 
     ngOnInit() {
-        $(document).ready(function () {
+        $(document).ready(function() {
             const table: any = $('#datatable');
             var users = table.DataTable({
                 "dom": "t"
             }
             );
-            $('#customSearchBox').keyup(function () {
+            $('#customSearchBox').keyup(function() {
                 users.search($(this).val()).draw();
             })
         });

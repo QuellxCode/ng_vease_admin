@@ -8,7 +8,6 @@
     height: 90%;
 }
 
-
 .custom-font-size {
     font-size: 15px;
 }
@@ -89,7 +88,6 @@
     }
 }
 
-
 .custom-border-bottom:hover {
     text-decoration: none;
 }
@@ -105,15 +103,17 @@
 
 .checked {
     color: orange;
-  }
+}
 
 .custom-margin-right-forty {
     margin-right: 40px;
 }
+
 .stats-icons[_ngcontent-c3] {
     font-size: 0.8rem;
     cursor: pointer;
 }
+
 
 /* Condo */
 
@@ -170,6 +170,7 @@
     border-right: 2px solid rgba(6, 138, 205, 0.3);
     box-shadow: -3px 1px 15px 1px rgba(69, 65, 78, 0.08);
 }
+
 .card-left p {
     color: black;
 }
@@ -205,18 +206,26 @@
     z-index: 999;
 }
 
-.persontype, .personname {
+.persontype,
+.personname {
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.personappartmentno, .personbuildingname, .personaddress, .persontype, .agreementtype {
+.personappartmentno,
+.personbuildingname,
+.personaddress,
+.persontype,
+.agreementtype {
     margin-bottom: 0px;
     font-size: 11px;
     color: #6f727d !important;
 }
 
-.personappartmentno i, .personbuildingname i, .personaddress i, .agreementtype i {
+.personappartmentno i,
+.personbuildingname i,
+.personaddress i,
+.agreementtype i {
     width: 22px;
 }
 
@@ -258,13 +267,15 @@
     font-size: 12px;
 }
 
-.singlepersonrow, .twopersonrow {
+.singlepersonrow,
+.twopersonrow {
     padding: 0px;
     margin-top: -10px;
     margin-bottom: 10px;
 }
 
-.twopersonrow .personname, .twopersonrow .persontype {
+.twopersonrow .personname,
+.twopersonrow .persontype {
     margin-left: -7px;
 }
 
@@ -289,6 +300,7 @@
     margin-right: 0px;
     z-index: 999;
 }
+
 .breadcrumb-header {
     margin-top: -30px;
     margin-bottom: -15px;
@@ -307,6 +319,7 @@
     color: grey;
     cursor: pointer;
 }
+
 .service-item hr {
     margin: 5px 0px 7px 0px;
 }
@@ -377,6 +390,7 @@ agm-map {
     cursor: inherit;
     display: block;
 }
+
 @media(max-width: 767px) {
     .custom-margin-right-book-button {
         margin-right: 0px;
@@ -406,4 +420,25 @@ agm-map {
 
 .detailBtn {
     color: black;
+}
+
+.btnGroupMap {
+    float: right;
+}
+
+.ordersNo {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.reportFontSize {
+    font-size: 1.3rem;
+}
+
+.btnSmall {
+    font-size: 0.8rem;
+}
+
+.marginBottom {
+    margin-bottom: 0px;
 }

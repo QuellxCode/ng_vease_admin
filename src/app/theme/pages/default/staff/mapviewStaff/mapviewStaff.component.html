@@ -15,17 +15,100 @@
                     </a>
                 </small>
             </h3>
+            <div class="input-group mb-3" style="max-width: 40%;
+									 										margin-left: 20%;
+																			position: absolute;
+																			margin-top: -25px;">
+                <div class="input-group-prepend">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Location 1</a>
+                        <a class="dropdown-item" href="#">Location 2</a>
+                        <a class="dropdown-item" href="#">Location 3</a>
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <div class="input-group-append">
+                    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
         </div>
         <button class="btn btn-link detailBtn" [routerLink]="['/services']">
-            <i class="fa fa-cog"></i> Services
+            <i class="fa fa-th"></i> Grid View
         </button>
+        <!-- _________Filters Tab Starts______________ -->
+        <div class="m-portlet__head-tools">
+            <ul class="m-portlet__nav marginBottom">
+                <li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                    <a class="m-portlet__nav-link m-dropdown__toggle dropdown-toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand" href="#">
+                                    All
+                                </a>
+                    <div class="m-dropdown__wrapper">
+                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 37px;"></span>
+                        <div class="m-dropdown__inner">
+                            <div class="m-dropdown__body">
+                                <div class="m-dropdown__content">
+                                    <ul class="m-nav">
+                                        <li class="m-nav__section m-nav__section--first">
+                                            <span class="m-nav__section-text">
+                                                            Filter
+                                                        </span>
+                                        </li>
+                                        <li class="m-nav__item">
+                                            <a class="m-nav__link" href="" id="add-service-request">
+                                                <i class="m-nav__link-icon flaticon-add"></i>
+                                                <span class="m-nav__link-text">
+                                                                Completed
+                                                            </span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav__item">
+                                            <a class="m-nav__link" href="">
+                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                <span class="m-nav__link-text">
+                                                                Rejected
+                                                            </span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav__item">
+                                            <a class="m-nav__link" href="">
+                                                <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                <span class="m-nav__link-text">
+                                                                Reported
+                                                            </span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li class="m-nav__item">
+                                            <a class="m-nav__link" href="">
+                                                <i class="m-nav__link-icon flaticon-calendar-2"></i>
+                                                <span class="m-nav__link-text">
+                                                                Date
+                                                            </span>
+                                            </a>
+                                        </li>
+                                        <!---->
+                                        <li class="m-nav__separator m-nav__separator--fit"></li>
+                                        <li class="m-nav__item">
+                                            <a class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm" href="#">
+                                                            Cancel
+                                                        </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- ____________Fiters Tab Ends________ -->
     </div>
 </div>
 <div class="m-subheader breadcrumsubheader">
     <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
         <li class="m-nav__item m-nav__item--home">
-            <a class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard"
-                href="/dashboard">
+            <a class="m-nav__link m-nav__link--icon" ng-reflect-href="#" routerlink="/dashboard" ng-reflect-router-link="/dashboard" href="/dashboard">
                 <i class="m-nav__link-icon la la-home"></i>
             </a>
         </li>
@@ -33,9 +116,9 @@
             -
         </li>
         <li class="m-nav__item">
-            <a class="m-nav__link" href="" ng-reflect-href="" [routerLink]="['/services']">
+            <a class="m-nav__link" href="" ng-reflect-href="" [routerLink]="['/staff']">
                 <span class="m-nav__link-text">
-                    Services
+                    Staff
                 </span>
             </a>
         </li>
@@ -64,59 +147,38 @@
                     <div class="row">
                         <div class="col-sm-12" style="padding-right: 0px">
                             <div class="row">
-                                <div class="col-sm-3" style="padding: 0px;">
+                                <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem;">
+                                    <form _ngcontent-c1="" class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
+                                        <div _ngcontent-c1="" class="input-group mb-3">
+                                            <input _ngcontent-c1="" class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">
+                                            <div _ngcontent-c1="" class="input-group-append custom-pointer">
+
+
+                                            </div>
+                                        </div>
+                                    </form>
                                     <div style="margin-top: 8px;">
-                                        <h5>
-                                            Room Cleaning
-                                            <a class="custom-float-right" href="" style="font-size: 11px;" (click)="sideInfoPop('service')" title="Click to view Company Services">
+                                        <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox">
+										<span></span>
+                                    </label>
+                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
                                                 Customers
-                                            </a>
-                                            <a class="custom-float-right" href="" style="font-size: 11px; margin-right: 5px" (click)="sideInfoPop('history')" title="Click to view Order History">
-                                                OrderHistory
-                                            </a>
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
+                                        </div>
+                                        <h5>
+                                            Jhon Doe
                                         </h5>
                                         <span (click)="sideInfoPop('info')" title="Click to See the Info">
                                             <p class="custom-margin-bottom-zero">
                                                 <span class="checked"> 5.0 </span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                (25) Cleaning
-                                            </p>
-                                            <p class="custom-margin-bottom-zero">
-                                                1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
-                                            </p>
-                                            <p class="custom-margin-bottom-zero">
-                                                +1 416-488-5254
-                                            </p>
-                                            <p class="custom-margin-bottom-zero">
-                                                <span style="color:red">Close</span>
-                                                <span> 6:00 </span>
-                                                <span> - </span>
-                                                <span>Open</span>
-                                                <span> 23:00 </span>
-                                            </p>
-                                        </span>
-                                    </div>
-                                    <hr>
-
-                                    <div>
-                                        <h5>
-                                            Car Detaling
-                                            <a class="custom-float-right" href="" style="font-size: 11px;">
-                                                Services
-                                            </a>
-                                        </h5>
-                                        <p class="custom-margin-bottom-zero">
-                                            <span class="checked"> 3.0 </span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            (12) AUTO
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span> (25) Cleaning
                                         </p>
                                         <p class="custom-margin-bottom-zero">
                                             1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
@@ -125,7 +187,46 @@
                                             +1 416-488-5254
                                         </p>
                                         <p class="custom-margin-bottom-zero">
-                                            <span style="color:red">Close</span>
+                                            <span style="color:red">Offline</span>
+                                            <span> 6:00 </span>
+                                            <span> - </span>
+                                            <span>Open</span>
+                                            <span> 23:00 </span>
+                                        </p>
+                                        </span>
+                                    </div>
+                                    <hr>
+
+                                    <div>
+                                        <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox">
+										<span></span>
+                                    </label>
+                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
+                                                Customers
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
+                                        </div>
+                                        <h5>
+                                            James Anderson
+                                        </h5>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span class="checked"> 3.0 </span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span> (12) AUTO
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            +1 416-488-5254
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span style="color:green">Active</span>
                                             <span> 6:00 </span>
                                             <span> - </span>
                                             <span>Open</span>
@@ -135,14 +236,18 @@
                                     <hr>
 
                                     <div style="margin-top: 15px;">
+                                        <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox">
+										<span></span>
+                                    </label>
+                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
+                                                Customers
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
+                                        </div>
                                         <h5>
-                                            Hair Styling
-                                            <a class="custom-float-right" href="" style="font-size: 11px;">
-                                                Services
-                                            </a>
-                                            <a class="custom-float-right" href="" style="font-size: 11px;">
-                                                OrderHistory &nbsp;
-                                            </a>
+                                            Max Smith
                                         </h5>
                                         <p class="custom-margin-bottom-zero">
                                             <span class="checked"> 4.0 </span>
@@ -150,8 +255,7 @@
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            (7) HAIR
+                                            <span class="fa fa-star"></span> (7) HAIR
                                         </p>
                                         <p class="custom-margin-bottom-zero">
                                             1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
@@ -160,18 +264,25 @@
                                             +1 416-488-5254
                                         </p>
                                         <p class="custom-margin-bottom-zero">
-                                            <span style="color:red">Close</span>
+                                            <span style="color:green">Active</span>
                                             <span> 6:00 </span>
                                             <span> - </span>
                                             <span>Open</span>
                                             <span> 23:00 </span>
                                         </p>
                                         <hr>
+                                        <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox">
+										<span></span>
+                                    </label>
+                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
+                                                Customers
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
+                                        </div>
                                         <h5>
-                                            Mont Hair
-                                            <a class="custom-float-right" href="" style="font-size: 11px;">
-                                                Services
-                                            </a>
+                                            Rich Piana
                                         </h5>
                                         <p class="custom-margin-bottom-zero">
                                             <span class="checked"> 4.0 </span>
@@ -179,8 +290,7 @@
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            (17) Hair Cutting
+                                            <span class="fa fa-star"></span> (17) Hair Cutting
                                         </p>
                                         <p class="custom-margin-bottom-zero">
                                             1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
@@ -189,7 +299,7 @@
                                             +1 416-488-5254
                                         </p>
                                         <p class="custom-margin-bottom-zero">
-                                            <span style="color:red">Close</span>
+                                            <span style="color:red">Offline</span>
                                             <span> 6:00 </span>
                                             <span> - </span>
                                             <span>Open</span>
@@ -241,8 +351,7 @@
                                         </agm-marker>
 
 
-                                        <agm-circle [latitude]="43.677718" [longitude]="-79.62482" [radius]="15000" [fillColor]="'lightgreen'" [circleDraggable]="true"
-                                            [editable]="true">
+                                        <agm-circle [latitude]="43.677718" [longitude]="-79.62482" [radius]="15000" [fillColor]="'lightgreen'" [circleDraggable]="true" [editable]="true">
                                         </agm-circle>
                                     </agm-map>
                                 </div>
@@ -256,7 +365,7 @@
                                                 margin-top: 5px;" *ngIf="showServices">
                                     <div class="container" style="padding: 10px">
                                         <h4>
-                                            Room Cleaning
+                                            Jhon Doe
                                             <span class="custom-float-right custom-pointer" (click)="showServices=false;">
                                                 <i class="fa fa-times"></i>
                                             </span>
@@ -268,8 +377,7 @@
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            (7) One Room With Bath
+                                            <span class="fa fa-star"></span> (7) One Room With Bath
                                         </p>
                                         <p class="custom-margin-bottom-zero">
                                             <strong>
@@ -328,7 +436,7 @@
                                                 margin-top: 5px;" *ngIf="showOrderHistory">
                                     <div class="container" style="padding: 10px">
                                         <h4>
-                                            Room Cleaning
+                                            Jhon Doe
                                             <span class="custom-float-right custom-pointer" (click)="showOrderHistory=false;">
                                                 <i class="fa fa-times"></i>
                                             </span>
@@ -340,8 +448,7 @@
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            (7) One Room With Bath
+                                            <span class="fa fa-star"></span> (7) One Room With Bath
                                         </p>
                                         <p class="custom-margin-bottom-zero">
                                             <strong>
@@ -403,10 +510,8 @@
                                                         <p class="custom-margin-bottom-zero">
                                                             <strong>
                                                                 Detail:
-                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                            elit. Dolorem cumque exercitationem inventore ea, repellendus
-                                                            corrupti placeat sed deserunt debitis, harum sint repellat aliquam
-                                                            temporibus saepe illo ad quasi soluta quod.
+                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem cumque exercitationem inventore ea, repellendus corrupti
+                                                            placeat sed deserunt debitis, harum sint repellat aliquam temporibus saepe illo ad quasi soluta quod.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -441,10 +546,8 @@
                                                         <p class="custom-margin-bottom-zero">
                                                             <strong>
                                                                 Detail:
-                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                            elit. Dolorem cumque exercitationem inventore ea, repellendus
-                                                            corrupti placeat sed deserunt debitis, harum sint repellat aliquam
-                                                            temporibus saepe illo ad quasi soluta quod.
+                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem cumque exercitationem inventore ea, repellendus corrupti
+                                                            placeat sed deserunt debitis, harum sint repellat aliquam temporibus saepe illo ad quasi soluta quod.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -479,10 +582,8 @@
                                                         <p class="custom-margin-bottom-zero">
                                                             <strong>
                                                                 Detail:
-                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                            elit. Dolorem cumque exercitationem inventore ea, repellendus
-                                                            corrupti placeat sed deserunt debitis, harum sint repellat aliquam
-                                                            temporibus saepe illo ad quasi soluta quod.
+                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem cumque exercitationem inventore ea, repellendus corrupti
+                                                            placeat sed deserunt debitis, harum sint repellat aliquam temporibus saepe illo ad quasi soluta quod.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -513,8 +614,7 @@
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            (7) One Room With Bath
+                                            <span class="fa fa-star"></span> (7) One Room With Bath
                                         </p>
                                         <p class="custom-margin-bottom-zero">
                                             <strong>
@@ -544,9 +644,7 @@
                                             About Us
                                         </h5>
                                         <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab commodi ipsam, officiis, eligendi cumque architecto rem eum nobis
-                                            exercitationem culpa quibusdam enim? Tempore rerum doloremque eveniet explicabo
-                                            totam nisi dolor.
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab commodi ipsam, officiis, eligendi cumque architecto rem eum nobis exercitationem culpa quibusdam enim? Tempore rerum doloremque eveniet explicabo totam nisi dolor.
                                         </p>
                                         <h5 style="font-weight: 600;
                                                                 font-size: 15px;">
@@ -621,9 +719,7 @@
 
 
                                                     <div class="col-md-6 ReviewText">
-                                                        <p>Gel manicure lasted pretty long - already 1 month plus. However,
-                                                            would appreciate if they provided free gel removal if they want
-                                                            returning customers.</p>
+                                                        <p>Gel manicure lasted pretty long - already 1 month plus. However, would appreciate if they provided free gel removal if they want returning customers.</p>
                                                     </div>
 
                                                     <div class="col-md-2 ReviewStars" style="padding-right: 0px;">
@@ -650,8 +746,7 @@
 
 
                                                     <div class="col-md-6 ReviewText">
-                                                        <p>Overall is good, the staff there also very nice &amp; also very beautiful
-                                                            ^.^
+                                                        <p>Overall is good, the staff there also very nice &amp; also very beautiful ^.^
                                                         </p>
                                                     </div>
 
@@ -680,9 +775,7 @@
 
 
                                                     <div class="col-md-6 ReviewText">
-                                                        <p>Gel manicure lasted pretty long - already 1 month plus. However,
-                                                            would appreciate if they provided free gel removal if they want
-                                                            returning customers.</p>
+                                                        <p>Gel manicure lasted pretty long - already 1 month plus. However, would appreciate if they provided free gel removal if they want returning customers.</p>
                                                     </div>
 
                                                     <div class="col-md-2 ReviewStars" style="padding-right: 0px;">

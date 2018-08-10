@@ -88,6 +88,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     }
 
     getSubCatogery(id) {
+       
         this.createServices.getSubCategories(id)
             .subscribe(
             (data) => {

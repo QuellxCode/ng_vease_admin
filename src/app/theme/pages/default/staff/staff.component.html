@@ -1,68 +1,70 @@
 <!-- BEGIN: Subheader -->
 <div class="m-subheader" appunwraptag="" *ngIf="!isDisplayDetail">
-	<div class="d-flex align-items-center">
-		<div class="mr-auto">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
 
 
-			<h3 class="m-subheader__title" style="display:inline-block">
-				Staff
+            <h3 class="m-subheader__title" style="display:inline-block">
+                Staff
 
-				<small>
+                <small>
 					<a (click)="adjustRadiusMap()" id="adjustRadius" style="cursor:pointer;">
 						<i class="fa fa-map-marker"></i>
 					</a>
 				</small>
-				<small>
+                <small>
 					<a style="cursor:pointer;">
 						<i class="fa fa-search"></i>
 					</a>
 				</small>
-			</h3>
-		</div>
-		<button class="btn btn-link pull-right btn-changeview" (click)="changeView()">
+            </h3>
+        </div>
+        <button class="btn btn-link pull-right btn-changeview" (click)="changeView()">
 			<i class="fa" [class.hidden]="!isGridView" [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}"></i> {{viewName}} </button>
 
+        <button class="btn btn-link" routerLink="/staff/mapView">
+			<i class="fa fa-map-marker"></i> Map View
+		</button>
 
-
-	</div>
+    </div>
 
 </div>
 
 <div class="m-subheader breadcrumsubheader" style="margin-top: -14px !important;" *ngIf="!isDisplayDetail">
-	<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-		<li class="m-nav__item m-nav__item--home">
-			<a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
-				<i class="m-nav__link-icon la la-home"></i>
-			</a>
-		</li>
-		<li class="m-nav__separator">
-			-
-		</li>
+    <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+            <a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
+                <i class="m-nav__link-icon la la-home"></i>
+            </a>
+        </li>
+        <li class="m-nav__separator">
+            -
+        </li>
 
-		<li class="m-nav__item">
-			<a class="m-nav__link" href="" ng-reflect-href="">
-				<span class="m-nav__link-text">
+        <li class="m-nav__item">
+            <a class="m-nav__link" href="" ng-reflect-href="">
+                <span class="m-nav__link-text">
 					Staff
 				</span>
-			</a>
-		</li>
-	</ul>
+            </a>
+        </li>
+    </ul>
 </div>
 <hr class="customhr" *ngIf="!isDisplayDetail" />
 
 
 <!-- END: Subheader -->
 <div class="m-content">
-	<!--Begin::Section-->
+    <!--Begin::Section-->
 
 
-	<div class="row gridView" [style.display]="(!isDisplayDetail) ? 'flex' : 'none'">
+    <div class="row gridView" [style.display]="(!isDisplayDetail) ? 'flex' : 'none'">
 
-		<div class="col-xl-3 col-lg-4">
-			<div class="m-portlet m-portlet--full-height">
-				<div class="m-portlet__body">
+        <div class="col-xl-3 col-lg-4">
+            <div class="m-portlet m-portlet--full-height">
+                <div class="m-portlet__body">
 
-					<select class="form-control m-input">
+                    <select class="form-control m-input">
 						<option>
 							All
 						</option>
@@ -84,12 +86,12 @@
 						</option>
 					</select>
 
-					<br>
+                    <br>
 
-					<label>
+                    <label>
 						Sort By
 					</label>
-					<select class="form-control m-input">
+                    <select class="form-control m-input">
 						<option>
 							Recommendations
 						</option>
@@ -109,26 +111,26 @@
 
 					</select>
 
-					<br>
+                    <br>
 
-					<label>
+                    <label>
 						Search by Business Name:
 					</label>
-					<input class="form-control" type="text">
+                    <input class="form-control" type="text">
 
-					<br>
+                    <br>
 
-					<label>
+                    <label>
 						Select The Date:
 					</label>
-					<input class="form-control" type="date">
+                    <input class="form-control" type="date">
 
-					<br>
+                    <br>
 
-					<label>
+                    <label>
 						Select The Time:
 					</label>
-					<select class="form-control m-input">
+                    <select class="form-control m-input">
 						<option>Any Time</option>
 						<option>08-09AM</option>
 						<option>09-10AM</option>
@@ -139,57 +141,57 @@
 						<option>02-03PM</option>
 					</select>
 
-					<br>
+                    <br>
 
-					<label>
+                    <label>
 						Serach by Location
 					</label>
-					<input class="form-control" type="text">
+                    <input class="form-control" type="text">
 
-					<br>
+                    <br>
 
-					<label>
+                    <label>
 						Budget
 					</label>
-					<div class="m-radio-list">
-						<label class="m-radio">
+                    <div class="m-radio-list">
+                        <label class="m-radio">
 							<input name="example_1" type="radio"> Any
 							<span></span>
 						</label>
-						<label class="m-radio">
+                        <label class="m-radio">
 							<input name="example_1" type="radio"> $0 - $30
 							<span></span>
 						</label>
 
-						<label class="m-radio">
+                        <label class="m-radio">
 							<input name="example_1" type="radio"> $30 - $60
 							<span></span>
 						</label>
 
 
-						<label class="m-radio">
+                        <label class="m-radio">
 							<input name="example_1" type="radio"> $60 - $120
 							<span></span>
 						</label>
-					</div>
+                    </div>
 
 
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-9 col-lg-8" [hidden]="!isGridView">
-			<!-- admin Code here -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="body organ1 serviceCard">
-						<div class="row" style="margin:0px;">
-							<div class="card-left col-lg-3" id="">
-								<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-8" [hidden]="!isGridView">
+            <!-- admin Code here -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="body organ1 serviceCard">
+                        <div class="row" style="margin:0px;">
+                            <div class="card-left col-lg-3" id="">
+                                <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
 									<input class="chkboxes" type="checkbox">
 									<span></span>
 								</label>
-								<div class="leftCardEditDelete">
-									<span>
+                                <div class="leftCardEditDelete">
+                                    <span>
 										<a href="#">
 											<i class="fa fa-edit"></i>
 										</a>
@@ -197,140 +199,140 @@
 											<i class="fa fa-trash"></i>
 										</a>
 									</span>
-								</div>
+                                </div>
 
-								<div class="row onepersonrow">
+                                <div class="row onepersonrow">
 
-									<div class="col-md-12">
-										<img class="personimage" src="assets/app/media/img/users/100_2.jpg">
-										<p class="personname">Ms. Ken</p>
-										<p class="persontype">HR Personel</p>
-									</div>
-								</div>
-
-
-
-								<p class="personappartmentno">
-									<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
-								<p class="personaddress">
-									<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-								<a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
-									<i class="la la-comments"></i> Message</a>
-
-							</div>
-							<div class="card-right col-lg-9">
-								<div class="row card-right-header">
-									<div class="col-md-5">
-										<h6 class="text-muted pull-left">
-											<i class="fa fa-cog"></i> Staff Details</h6>
-									</div>
-									<div class="col-md-4">
-										<p class="pull-left topdate"> 22-10-2018</p>
-									</div>
-									<div class="col-md-3">
-										<button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
-
-									</div>
-								</div>
-								<div class="row services-categories">
-									<div class="col-md-12 category-list">
-
-										<div class="row service-item">
+                                    <div class="col-md-12">
+                                        <img class="personimage" src="assets/app/media/img/users/100_2.jpg">
+                                        <p class="personname">Ms. Ken</p>
+                                        <p class="persontype">HR Personel</p>
+                                    </div>
+                                </div>
 
 
-											<div class="col-md-12" class="m-chart-staff">
-												<!--div id="SchedulesTasksPieChart"  style="height: 300px; width:100%;">
+
+                                <p class="personappartmentno">
+                                    <i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
+                                <p class="personaddress">
+                                    <i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+                                <a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
+                                    <i class="la la-comments"></i> Message</a>
+
+                            </div>
+                            <div class="card-right col-lg-9">
+                                <div class="row card-right-header">
+                                    <div class="col-md-5">
+                                        <h6 class="text-muted pull-left">
+                                            <i class="fa fa-cog"></i> Staff Details</h6>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="pull-left topdate"> 22-10-2018</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
+
+                                    </div>
+                                </div>
+                                <div class="row services-categories">
+                                    <div class="col-md-12 category-list">
+
+                                        <div class="row service-item">
+
+
+                                            <div class="col-md-12" class="m-chart-staff">
+                                                <!--div id="SchedulesTasksPieChart"  style="height: 300px; width:100%;">
 																						
 																			</div-->
-												<div class="m-widget14">
-													<div class="row  align-items-center">
-														<div class="col">
-															<div id="m_chart_staff_2" class="m-widget14__chart">
-																<!--div class="m-widget14__stat">
+                                                <div class="m-widget14">
+                                                    <div class="row  align-items-center">
+                                                        <div class="col">
+                                                            <div id="m_chart_staff_2" class="m-widget14__chart">
+                                                                <!--div class="m-widget14__stat">
 																							990
 																						</div-->
-															</div>
-														</div>
-														<div class="col">
-															<div class="m-widget14__legends">
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-accent"></span>
-																	<span class="m-widget14__legend-text">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="m-widget14__legends">
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-accent"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		30% Earning
 																	</span>
-																</div>
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-warning"></span>
-																	<span class="m-widget14__legend-text">
+                                                                </div>
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-warning"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		29% Expense
 																	</span>
-																</div>
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-brand"></span>
-																	<span class="m-widget14__legend-text">
+                                                                </div>
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-brand"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		70% Profit
 																	</span>
-																</div>
-															</div>
-														</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
 
-													</div>
-												</div>
+                                                    </div>
+                                                </div>
 
-												<hr class="customhr" />
-
-
+                                                <hr class="customhr" />
 
 
 
-											</div>
 
 
-											<div class="col-md-12 scheduledJobsProfit">
-												<div class="m-widget1">
-													<div class="m-widget1__item">
-														<div class="row m-row--no-padding align-items-center">
-															<div class="col">
-																<h3 class="m-widget1__title">
-																	Scheduled Jobs
-																</h3>
-																<span class="m-widget1__desc">
+                                            </div>
+
+
+                                            <div class="col-md-12 scheduledJobsProfit">
+                                                <div class="m-widget1">
+                                                    <div class="m-widget1__item">
+                                                        <div class="row m-row--no-padding align-items-center">
+                                                            <div class="col">
+                                                                <h3 class="m-widget1__title">
+                                                                    Scheduled Jobs
+                                                                </h3>
+                                                                <span class="m-widget1__desc">
 																	Weekly
 																</span>
-															</div>
-															<div class="col m--align-right">
-																<span class="m-widget1__number m--font-brand">
+                                                            </div>
+                                                            <div class="col m--align-right">
+                                                                <span class="m-widget1__number m--font-brand">
 																	15
 																</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
 
 
 
-										</div>
+                                        </div>
 
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="body organ1 serviceCard">
-						<div class="row" style="margin:0px;">
-							<div class="card-left col-lg-3" id="">
-								<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="body organ1 serviceCard">
+                        <div class="row" style="margin:0px;">
+                            <div class="card-left col-lg-3" id="">
+                                <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
 									<input class="chkboxes" type="checkbox">
 									<span></span>
 								</label>
-								<div class="leftCardEditDelete">
-									<span>
+                                <div class="leftCardEditDelete">
+                                    <span>
 										<a href="#">
 											<i class="fa fa-edit"></i>
 										</a>
@@ -338,141 +340,141 @@
 											<i class="fa fa-trash"></i>
 										</a>
 									</span>
-								</div>
+                                </div>
 
-								<div class="row onepersonrow">
+                                <div class="row onepersonrow">
 
-									<div class="col-md-12">
-										<img class="personimage" src="assets/app/media/img/users/100_1.jpg">
-										<p class="personname">Mr. John</p>
-										<p class="persontype">Manager</p>
-									</div>
-								</div>
-
-
-
-								<p class="personappartmentno">
-									<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
-								<p class="personaddress">
-									<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-								<a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
-									<i class="la la-comments"></i> Message</a>
-
-							</div>
-							<div class="card-right col-lg-9">
-								<div class="row card-right-header">
-									<div class="col-md-5">
-										<h6 class="text-muted pull-left">
-											<i class="fa fa-cog"></i> Staff Details</h6>
-									</div>
-									<div class="col-md-4">
-										<p class="pull-left topdate"> 22-10-2018</p>
-									</div>
-									<div class="col-md-3">
-										<button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
-
-									</div>
-								</div>
-
-								<div class="row services-categories">
-									<div class="col-md-12 category-list">
-
-										<div class="row service-item">
+                                    <div class="col-md-12">
+                                        <img class="personimage" src="assets/app/media/img/users/100_1.jpg">
+                                        <p class="personname">Mr. John</p>
+                                        <p class="persontype">Manager</p>
+                                    </div>
+                                </div>
 
 
 
+                                <p class="personappartmentno">
+                                    <i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
+                                <p class="personaddress">
+                                    <i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+                                <a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
+                                    <i class="la la-comments"></i> Message</a>
 
-											<div class="col-md-12" class="m-chart-staff">
-												<div class="m-widget14" style="padding: 0.2rem;">
-													<div class="row  align-items-center">
-														<div class="col">
-															<div id="m_chart_staff_1" class="m-widget14__chart">
-															</div>
-														</div>
-														<div class="col">
-															<div class="m-widget14__legends">
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-accent"></span>
-																	<span class="m-widget14__legend-text">
+                            </div>
+                            <div class="card-right col-lg-9">
+                                <div class="row card-right-header">
+                                    <div class="col-md-5">
+                                        <h6 class="text-muted pull-left">
+                                            <i class="fa fa-cog"></i> Staff Details</h6>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="pull-left topdate"> 22-10-2018</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
+
+                                    </div>
+                                </div>
+
+                                <div class="row services-categories">
+                                    <div class="col-md-12 category-list">
+
+                                        <div class="row service-item">
+
+
+
+
+                                            <div class="col-md-12" class="m-chart-staff">
+                                                <div class="m-widget14" style="padding: 0.2rem;">
+                                                    <div class="row  align-items-center">
+                                                        <div class="col">
+                                                            <div id="m_chart_staff_1" class="m-widget14__chart">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="m-widget14__legends">
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-accent"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		37% Earning
 																	</span>
-																</div>
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-warning"></span>
-																	<span class="m-widget14__legend-text">
+                                                                </div>
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-warning"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		23% Expense
 																	</span>
-																</div>
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-brand"></span>
-																	<span class="m-widget14__legend-text">
+                                                                </div>
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-brand"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		40% Profit
 																	</span>
-																</div>
-															</div>
-														</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
 
-													</div>
-												</div>
+                                                    </div>
+                                                </div>
 
-												<hr class="customhr" />
-
-
+                                                <hr class="customhr" />
 
 
 
-											</div>
 
 
-											<div class="col-md-12 scheduledJobsProfit">
-												<div class="m-widget1">
-													<div class="m-widget1__item">
-														<div class="row m-row--no-padding align-items-center">
-															<div class="col">
-																<h3 class="m-widget1__title">
-																	Scheduled Jobs
-																</h3>
-																<span class="m-widget1__desc">
+                                            </div>
+
+
+                                            <div class="col-md-12 scheduledJobsProfit">
+                                                <div class="m-widget1">
+                                                    <div class="m-widget1__item">
+                                                        <div class="row m-row--no-padding align-items-center">
+                                                            <div class="col">
+                                                                <h3 class="m-widget1__title">
+                                                                    Scheduled Jobs
+                                                                </h3>
+                                                                <span class="m-widget1__desc">
 																	Weekly
 																</span>
-															</div>
-															<div class="col m--align-right">
-																<span class="m-widget1__number m--font-brand">
+                                                            </div>
+                                                            <div class="col m--align-right">
+                                                                <span class="m-widget1__number m--font-brand">
 																	21
 																</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
 
 
 
-										</div>
+                                        </div>
 
-									</div>
-								</div>
-							</div>
-						</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
 
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="body organ1 serviceCard">
-						<div class="row" style="margin:0px;">
-							<div class="card-left col-lg-3" id="">
-								<label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="body organ1 serviceCard">
+                        <div class="row" style="margin:0px;">
+                            <div class="card-left col-lg-3" id="">
+                                <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
 									<input class="chkboxes" type="checkbox">
 									<span></span>
 								</label>
 
-								<div class="leftCardEditDelete">
-									<span>
+                                <div class="leftCardEditDelete">
+                                    <span>
 										<a href="#">
 											<i class="fa fa-edit"></i>
 										</a>
@@ -480,328 +482,328 @@
 											<i class="fa fa-trash"></i>
 										</a>
 									</span>
-								</div>
+                                </div>
 
-								<div class="row onepersonrow">
+                                <div class="row onepersonrow">
 
-									<div class="col-md-12">
-										<img class="personimage" src="./assets/app/media/img/users/100_2.jpg">
-										<p class="personname">Ms. Hina</p>
-										<p class="persontype">HRM</p>
-									</div>
-								</div>
-
-
-
-								<p class="personappartmentno">
-									<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
-								<p class="personaddress">
-									<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-								<a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
-									<i class="la la-comments"></i> Message</a>
-
-							</div>
-							<div class="card-right col-lg-9">
-								<div class="row card-right-header">
-									<div class="col-md-5">
-										<h6 class="text-muted pull-left">
-											<i class="fa fa-cog"></i> Staff Details</h6>
-									</div>
-									<div class="col-md-4">
-										<p class="pull-left topdate"> 22-10-2018</p>
-									</div>
-									<div class="col-md-3">
-										<button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
-
-									</div>
-								</div>
-								<div class="row services-categories">
-									<div class="col-md-12 category-list">
-
-										<div class="row service-item">
+                                    <div class="col-md-12">
+                                        <img class="personimage" src="./assets/app/media/img/users/100_2.jpg">
+                                        <p class="personname">Ms. Hina</p>
+                                        <p class="persontype">HRM</p>
+                                    </div>
+                                </div>
 
 
 
-											<div class="col-md-12" class="m-chart-staff">
-												<div class="m-widget14">
-													<div class="row  align-items-center">
-														<div class="col">
-															<div id="m_chart_staff_3" class="m-widget14__chart">
-															</div>
-														</div>
-														<div class="col">
-															<div class="m-widget14__legends">
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-accent"></span>
-																	<span class="m-widget14__legend-text">
+                                <p class="personappartmentno">
+                                    <i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
+                                <p class="personaddress">
+                                    <i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+                                <a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
+                                    <i class="la la-comments"></i> Message</a>
+
+                            </div>
+                            <div class="card-right col-lg-9">
+                                <div class="row card-right-header">
+                                    <div class="col-md-5">
+                                        <h6 class="text-muted pull-left">
+                                            <i class="fa fa-cog"></i> Staff Details</h6>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="pull-left topdate"> 22-10-2018</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
+
+                                    </div>
+                                </div>
+                                <div class="row services-categories">
+                                    <div class="col-md-12 category-list">
+
+                                        <div class="row service-item">
+
+
+
+                                            <div class="col-md-12" class="m-chart-staff">
+                                                <div class="m-widget14">
+                                                    <div class="row  align-items-center">
+                                                        <div class="col">
+                                                            <div id="m_chart_staff_3" class="m-widget14__chart">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="m-widget14__legends">
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-accent"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		30% Earning
 																	</span>
-																</div>
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-warning"></span>
-																	<span class="m-widget14__legend-text">
+                                                                </div>
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-warning"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		29% Expense
 																	</span>
-																</div>
-																<div class="m-widget14__legend">
-																	<span class="m-widget14__legend-bullet m--bg-brand"></span>
-																	<span class="m-widget14__legend-text">
+                                                                </div>
+                                                                <div class="m-widget14__legend">
+                                                                    <span class="m-widget14__legend-bullet m--bg-brand"></span>
+                                                                    <span class="m-widget14__legend-text">
 																		70% Profit
 																	</span>
-																</div>
-															</div>
-														</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
 
-													</div>
-												</div>
+                                                    </div>
+                                                </div>
 
-												<hr class="customhr" />
-
-
+                                                <hr class="customhr" />
 
 
 
-											</div>
 
 
-											<div class="col-md-12 scheduledJobsProfit">
-												<div class="m-widget1">
-													<div class="m-widget1__item">
-														<div class="row m-row--no-padding align-items-center">
-															<div class="col">
-																<h3 class="m-widget1__title">
-																	Scheduled Jobs
-																</h3>
-																<span class="m-widget1__desc">
+                                            </div>
+
+
+                                            <div class="col-md-12 scheduledJobsProfit">
+                                                <div class="m-widget1">
+                                                    <div class="m-widget1__item">
+                                                        <div class="row m-row--no-padding align-items-center">
+                                                            <div class="col">
+                                                                <h3 class="m-widget1__title">
+                                                                    Scheduled Jobs
+                                                                </h3>
+                                                                <span class="m-widget1__desc">
 																	Weekly
 																</span>
-															</div>
-															<div class="col m--align-right">
-																<span class="m-widget1__number m--font-brand">
+                                                            </div>
+                                                            <div class="col m--align-right">
+                                                                <span class="m-widget1__number m--font-brand">
 																	15
 																</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
 
 
 
-										</div>
+                                        </div>
 
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-
-					</div>
-				</div>
-			</div>
-			<!-- __________test_________ -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
 
-		</div>
-		<!-- ______test______ -->
-		<div class="col-xl-9 col-lg-8" [hidden]="isGridView">
-			<div class="m-portlet m-portlet--full-height">
+                    </div>
+                </div>
+            </div>
+            <!-- __________test_________ -->
 
-				<div class="m-portlet__body">
-					<div class="col-md-12">
-						<img class="personimage" src="assets/app/media/img/users/100_2.jpg">
-						<p class="personname">Ms. Ken</p>
-						<p class="persontype">HR Personel</p>
-						<p class="personappartmentno">
-							<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
-						<p class="personaddress">
-							<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-						<!-- <a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
+
+
+        </div>
+        <!-- ______test______ -->
+        <div class="col-xl-9 col-lg-8" [hidden]="isGridView">
+            <div class="m-portlet m-portlet--full-height">
+
+                <div class="m-portlet__body">
+                    <div class="col-md-12">
+                        <img class="personimage" src="assets/app/media/img/users/100_2.jpg">
+                        <p class="personname">Ms. Ken</p>
+                        <p class="persontype">HR Personel</p>
+                        <p class="personappartmentno">
+                            <i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
+                        <p class="personaddress">
+                            <i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+                        <!-- <a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
 									<i class="la la-comments"></i> Message</a> -->
-						<div class="row">
-							<div class="col-md-5">
-								<h6 class="text-muted pull-left">
-									<i class="fa fa-cog"></i> Staff Details</h6>
-							</div>
-							<div class="col-md-4">
-								<p class="pull-left topdate"> 22-10-2018</p>
-							</div>
-							<div class="col-md-3">
-								<button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h6 class="text-muted pull-left">
+                                    <i class="fa fa-cog"></i> Staff Details</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="pull-left topdate"> 22-10-2018</p>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
 
-							</div>
-						</div>
+                            </div>
+                        </div>
 
-						<div class="row">
-							<div class="col-md-12">
-								<div class="m-widget14" style="padding: 0.2rem;">
-									<div class="row">
-										<div class="col">
-											<div class="m-widget14__legends">
-												<div class="m-widget14__legend">
-													<span class="m-widget14__legend-bullet m--bg-accent"></span>
-													<span class="m-widget14__legend-text">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="m-widget14" style="padding: 0.2rem;">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="m-widget14__legends">
+                                                <div class="m-widget14__legend">
+                                                    <span class="m-widget14__legend-bullet m--bg-accent"></span>
+                                                    <span class="m-widget14__legend-text">
 														37% Earning
 													</span>
-												</div>
-												<div class="m-widget14__legend">
-													<span class="m-widget14__legend-bullet m--bg-warning"></span>
-													<span class="m-widget14__legend-text">
+                                                </div>
+                                                <div class="m-widget14__legend">
+                                                    <span class="m-widget14__legend-bullet m--bg-warning"></span>
+                                                    <span class="m-widget14__legend-text">
 														23% Expense
 													</span>
-												</div>
-												<div class="m-widget14__legend">
-													<span class="m-widget14__legend-bullet m--bg-brand"></span>
-													<span class="m-widget14__legend-text">
+                                                </div>
+                                                <div class="m-widget14__legend">
+                                                    <span class="m-widget14__legend-bullet m--bg-brand"></span>
+                                                    <span class="m-widget14__legend-text">
 														40% Profit
 													</span>
-												</div>
-											</div>
-										</div>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
-									</div>
-								</div>
+                                    </div>
+                                </div>
 
-								<hr class="customhr" />
-
-
+                                <hr class="customhr" />
 
 
 
-							</div>
 
 
-							<div class="col-md-12 scheduledJobsProfit">
-								<div class="m-widget1">
-									<div class="m-widget1__item">
-										<div class="row m-row--no-padding align-items-center">
-											<div class="col">
-												<h3 class="m-widget1__title">
-													Scheduled Jobs
-												</h3>
-												<span class="m-widget1__desc">
+                            </div>
+
+
+                            <div class="col-md-12 scheduledJobsProfit">
+                                <div class="m-widget1">
+                                    <div class="m-widget1__item">
+                                        <div class="row m-row--no-padding align-items-center">
+                                            <div class="col">
+                                                <h3 class="m-widget1__title">
+                                                    Scheduled Jobs
+                                                </h3>
+                                                <span class="m-widget1__desc">
 													Weekly
 												</span>
-											</div>
-											<div class="col m--align-right">
-												<span class="m-widget1__number m--font-brand">
+                                            </div>
+                                            <div class="col m--align-right">
+                                                <span class="m-widget1__number m--font-brand">
 													21
 												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
 
 
 
-						</div>
-					</div>
-					<!-- ___Second Card___ -->
-					<div class="col-md-12">
-						<img class="personimage" src="assets/app/media/img/users/100_2.jpg">
-						<p class="personname">Ms. Ken</p>
-						<p class="persontype">HR Personel</p>
-						<p class="personappartmentno">
-							<i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
-						<p class="personaddress">
-							<i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
-						<!-- <a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
+                        </div>
+                    </div>
+                    <!-- ___Second Card___ -->
+                    <div class="col-md-12">
+                        <img class="personimage" src="assets/app/media/img/users/100_2.jpg">
+                        <p class="personname">Ms. Ken</p>
+                        <p class="persontype">HR Personel</p>
+                        <p class="personappartmentno">
+                            <i class="fa fa-clock-o"></i> 6:00 - 23:00</p>
+                        <p class="personaddress">
+                            <i class="fa fa-map-marker"></i> 1620 Orr Rd, Mississauga, ON L5J 4T2, Canada</p>
+                        <!-- <a href="javascript:;" class="btn btn-default btn-sm chatServiceButton">
 				<i class="la la-comments"></i> Message</a> -->
-						<div class="row">
-							<div class="col-md-5">
-								<h6 class="text-muted pull-left">
-									<i class="fa fa-cog"></i> Staff Details</h6>
-							</div>
-							<div class="col-md-4">
-								<p class="pull-left topdate"> 22-10-2018</p>
-							</div>
-							<div class="col-md-3">
-								<button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h6 class="text-muted pull-left">
+                                    <i class="fa fa-cog"></i> Staff Details</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="pull-left topdate"> 22-10-2018</p>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-link personMoreDetailsButton pull-right" (click)="isDisplayDetail=true;" style="padding:0px;">More Details</button>
 
-							</div>
-						</div>
+                            </div>
+                        </div>
 
-						<div class="row">
-							<div class="col-md-12">
-								<div class="m-widget14" style="padding: 0.2rem;">
-									<div class="row">
-										<div class="col">
-											<div class="m-widget14__legends">
-												<div class="m-widget14__legend">
-													<span class="m-widget14__legend-bullet m--bg-accent"></span>
-													<span class="m-widget14__legend-text">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="m-widget14" style="padding: 0.2rem;">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="m-widget14__legends">
+                                                <div class="m-widget14__legend">
+                                                    <span class="m-widget14__legend-bullet m--bg-accent"></span>
+                                                    <span class="m-widget14__legend-text">
 														37% Earning
 													</span>
-												</div>
-												<div class="m-widget14__legend">
-													<span class="m-widget14__legend-bullet m--bg-warning"></span>
-													<span class="m-widget14__legend-text">
+                                                </div>
+                                                <div class="m-widget14__legend">
+                                                    <span class="m-widget14__legend-bullet m--bg-warning"></span>
+                                                    <span class="m-widget14__legend-text">
 														23% Expense
 													</span>
-												</div>
-												<div class="m-widget14__legend">
-													<span class="m-widget14__legend-bullet m--bg-brand"></span>
-													<span class="m-widget14__legend-text">
+                                                </div>
+                                                <div class="m-widget14__legend">
+                                                    <span class="m-widget14__legend-bullet m--bg-brand"></span>
+                                                    <span class="m-widget14__legend-text">
 														40% Profit
 													</span>
-												</div>
-											</div>
-										</div>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
-									</div>
-								</div>
+                                    </div>
+                                </div>
 
-								<hr class="customhr" />
-
-
+                                <hr class="customhr" />
 
 
 
-							</div>
 
 
-							<div class="col-md-12 scheduledJobsProfit">
-								<div class="m-widget1">
-									<div class="m-widget1__item">
-										<div class="row m-row--no-padding align-items-center">
-											<div class="col">
-												<h3 class="m-widget1__title">
-													Scheduled Jobs
-												</h3>
-												<span class="m-widget1__desc">
+                            </div>
+
+
+                            <div class="col-md-12 scheduledJobsProfit">
+                                <div class="m-widget1">
+                                    <div class="m-widget1__item">
+                                        <div class="row m-row--no-padding align-items-center">
+                                            <div class="col">
+                                                <h3 class="m-widget1__title">
+                                                    Scheduled Jobs
+                                                </h3>
+                                                <span class="m-widget1__desc">
 													Weekly
 												</span>
-											</div>
-											<div class="col m--align-right">
-												<span class="m-widget1__number m--font-brand">
+                                            </div>
+                                            <div class="col m--align-right">
+                                                <span class="m-widget1__number m--font-brand">
 													21
 												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
 
 
 
-						</div>
-					</div>
-				</div>
-			</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
 
-		</div>
+        </div>

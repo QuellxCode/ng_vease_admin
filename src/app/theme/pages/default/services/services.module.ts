@@ -38,7 +38,7 @@ const routes: Routes = [
         ReactiveFormsModule,
         AgmCoreModule.forRoot({
             apiKey: "AIzaSyCQlMMVsJXt25cmmii1rx_Ghn0bjRRNdtc"
-          }),
+        }),
     ],
     exports: [
         RouterModule

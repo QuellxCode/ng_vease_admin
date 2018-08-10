@@ -148,7 +148,7 @@ export class EstimateResponseComponent implements OnInit, AfterViewInit {
         contactNumber.value = '';
         message = '';
     }
-    onSubmit() {    }
+    onSubmit() { }
 
     handleFileInput(files: FileList) {
         this.fileToUpload = files.item(0);
