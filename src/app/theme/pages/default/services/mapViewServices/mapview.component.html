@@ -145,10 +145,21 @@
                         <div class="col-sm-12" style="padding-right: 0px">
                             <div class="row">
                                 <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem; overflow-y: scroll; height: 43rem;">
-                                    <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                    <div *ngIf="!deselectAll" style="margin-bottom: 10px;">
+                                        <button class="btn btn-sm btn-primary" (click)="selectAll()"><i   class="fa fa-check">
+																 
+															 </i> Select All</button>
+                                    </div>
+                                    <div *ngIf="deselectAll" style="margin-bottom: 10px;">
+                                        <button class="btn btn-sm btn-primary" (click)="selectAll()">
+                                            <i   class="fa fa-check">
+																 
+															 </i> Deselect All</button>
+                                    </div>
+                                    <!-- <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
 																					<input type="checkbox" (change)="selectAll($event)" > Select All
 																					<span></span>
-																				</label>
+																				</label> -->
                                     <form class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
                                         <div class="input-group mb-3">
                                             <input class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">

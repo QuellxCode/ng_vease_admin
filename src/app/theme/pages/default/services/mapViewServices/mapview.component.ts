@@ -70,11 +70,12 @@ export class MapViewServicesComponent implements AfterViewInit {
             this.showInfo = true;
         }
     }
-    t= false;
-    selectAll(e) {
+     t= false;
+     deselectAll: boolean = false;
+    selectAll() {
+        this.deselectAll = !this.deselectAll;
     //    console.log(e.target.checked);
-       this.t = e.target.checked;
+       this.t = this.deselectAll;
     //    console.log(this.t);
     }
-
 }
