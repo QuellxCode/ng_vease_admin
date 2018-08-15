@@ -15,10 +15,7 @@
                     </a>
                 </small>
             </h3>
-            <div class="input-group mb-3" style="max-width: 40%;
-									 										margin-left: 20%;
-																			position: absolute;
-																			margin-top: -25px;">
+            <div class="input-group mb-3 categoryStyle">
                 <div class="input-group-prepend">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location</button>
                     <div class="dropdown-menu">
@@ -58,7 +55,7 @@
                                             <a class="m-nav__link" href="" id="add-service-request">
                                                 <i class="m-nav__link-icon flaticon-add"></i>
                                                 <span class="m-nav__link-text">
-                                                                Completed
+                                                                All
                                                             </span>
                                             </a>
                                         </li>
@@ -137,7 +134,7 @@
 </div>
 <!-- ___________________map view starts_________________________ -->
 
-<div class="m-content">
+<div class="m-content marginOnBottom">
     <!--Begin::Section-->
     <div class="row detailSection">
         <div class="col-md-12">
@@ -147,11 +144,11 @@
                     <div class="row">
                         <div class="col-sm-12" style="padding-right: 0px">
                             <div class="row">
-                                <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem;">
-                                    <form _ngcontent-c1="" class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
-                                        <div _ngcontent-c1="" class="input-group mb-3">
-                                            <input _ngcontent-c1="" class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">
-                                            <div _ngcontent-c1="" class="input-group-append custom-pointer">
+                                <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem; overflow-y: scroll; height: 43rem;">
+                                    <form class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">
+                                            <div class="input-group-append custom-pointer">
 
 
                                             </div>
@@ -162,15 +159,18 @@
 										<input class="chkboxes" type="checkbox">
 										<span></span>
                                     </label>
-                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
+                                        <div class="row">
+                                            <div class="col-md-8 namePlace">
+                                                <h5>
+                                                    Jhon Doe
+                                                </h5>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="m-widget3__user-img text-right">
+                                                    <img alt="" class="m-widget3__img imgShape" src="./assets/app/media/img/users/user1.jpg">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h5>
-                                            Jhon Doe
-                                        </h5>
                                         <span (click)="sideInfoPop('info')" title="Click to See the Info">
                                             <p class="custom-margin-bottom-zero">
                                                 <span class="checked"> 5.0 </span>
@@ -194,6 +194,18 @@
                                             <span> 23:00 </span>
                                         </p>
                                         </span>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
                                     </div>
                                     <hr>
 
@@ -202,15 +214,18 @@
 										<input class="chkboxes" type="checkbox">
 										<span></span>
                                     </label>
-                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
+                                        <div class="row">
+                                            <div class="col-md-8 namePlace">
+                                                <h5>
+                                                    James Anderson
+                                                </h5>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="m-widget3__user-img text-right">
+                                                    <img alt="" class="m-widget3__img imgShape" src="./assets/app/media/img/users/user2.jpg">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h5>
-                                            James Anderson
-                                        </h5>
                                         <p class="custom-margin-bottom-zero">
                                             <span class="checked"> 3.0 </span>
                                             <span class="fa fa-star checked"></span>
@@ -232,6 +247,18 @@
                                             <span>Open</span>
                                             <span> 23:00 </span>
                                         </p>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
                                     </div>
                                     <hr>
 
@@ -240,15 +267,18 @@
 										<input class="chkboxes" type="checkbox">
 										<span></span>
                                     </label>
-                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
+                                        <div class="row">
+                                            <div class="col-md-8 namePlace">
+                                                <h5>
+                                                    Max Smith
+                                                </h5>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="m-widget3__user-img text-right">
+                                                    <img alt="" class="m-widget3__img imgShape" src="./assets/app/media/img/users/user3.jpg">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h5>
-                                            Max Smith
-                                        </h5>
                                         <p class="custom-margin-bottom-zero">
                                             <span class="checked"> 4.0 </span>
                                             <span class="fa fa-star checked"></span>
@@ -270,20 +300,35 @@
                                             <span>Open</span>
                                             <span> 23:00 </span>
                                         </p>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
                                         <hr>
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
 										<input class="chkboxes" type="checkbox">
 										<span></span>
                                     </label>
-                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
+                                        <div class="row">
+                                            <div class="col-md-8 namePlace">
+                                                <h5>
+                                                    Rich Piana
+                                                </h5>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="m-widget3__user-img text-right">
+                                                    <img alt="" class="m-widget3__img imgShape" src="./assets/app/media/img/users/user4.jpg">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h5>
-                                            Rich Piana
-                                        </h5>
                                         <p class="custom-margin-bottom-zero">
                                             <span class="checked"> 4.0 </span>
                                             <span class="fa fa-star checked"></span>
@@ -305,7 +350,18 @@
                                             <span>Open</span>
                                             <span> 23:00 </span>
                                         </p>
-
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
                                         <hr>
                                     </div>
                                 </div>

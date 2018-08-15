@@ -442,3 +442,27 @@ agm-map {
 .marginBottom {
     margin-bottom: 0px;
 }
+
+.categoryStyle {
+    max-width: 40%;
+    margin-left: 20%;
+    position: absolute;
+    margin-top: -25px;
+}
+
+.marginOnBottom {
+    padding-bottom: 0px;
+}
+
+.imgShape {
+    width: 3.2rem;
+    border-radius: 50%;
+}
+
+.namePlace {
+    padding-top: 10px;
+}
+
+.marginOnBottom {
+    padding-bottom: 0px;
+}

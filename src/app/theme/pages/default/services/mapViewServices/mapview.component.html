@@ -15,6 +15,20 @@
                     </a>
                 </small>
             </h3>
+            <div class="input-group mb-3 categoryStyle">
+                <div class="input-group-prepend">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">AUTO</a>
+                        <a class="dropdown-item" href="#">PERSONAL</a>
+                        <a class="dropdown-item" href="#">CLEANING</a>
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <div class="input-group-append">
+                    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
         </div>
         <button class="btn btn-link detailBtn" [routerLink]="['/services']">
             <i class="fa fa-th"></i> Grid View
@@ -41,7 +55,7 @@
                                             <a class="m-nav__link" href="" id="add-service-request">
                                                 <i class="m-nav__link-icon flaticon-add"></i>
                                                 <span class="m-nav__link-text">
-                                                                Completed
+                                                                All
                                                             </span>
                                             </a>
                                         </li>
@@ -120,7 +134,7 @@
 </div>
 <!-- ___________________map view starts_________________________ -->
 
-<div class="m-content">
+<div class="m-content marginOnBottom">
     <!--Begin::Section-->
     <div class="row detailSection">
         <div class="col-md-12">
@@ -130,11 +144,11 @@
                     <div class="row">
                         <div class="col-sm-12" style="padding-right: 0px">
                             <div class="row">
-                                <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem;">
-                                    <form _ngcontent-c1="" class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
-                                        <div _ngcontent-c1="" class="input-group mb-3">
-                                            <input _ngcontent-c1="" class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">
-                                            <div _ngcontent-c1="" class="input-group-append custom-pointer">
+                                <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem; overflow-y: scroll; height: 43rem;">
+                                    <form class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">
+                                            <div class="input-group-append custom-pointer">
 
 
                                             </div>
@@ -145,20 +159,8 @@
 										<input class="chkboxes" type="checkbox">
 										<span></span>
                                     </label>
-                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
-                                        </div>
                                         <h5>
                                             Room Cleaning
-                                            <!-- <a class="custom-float-right" href="" style="font-size: 11px;" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </a>
-                                            <a class="custom-float-right" href="" style="font-size: 11px; margin-right: 5px" (click)="sideInfoPop('history')" title="Click to view Order History">
-                                                OrderHistory
-                                            </a> -->
                                         </h5>
                                         <span (click)="sideInfoPop('info')" title="Click to See the Info">
                                             <p class="custom-margin-bottom-zero">
@@ -183,6 +185,18 @@
                                             <span> 23:00 </span>
                                         </p>
                                         </span>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
                                     </div>
                                     <hr>
                                     <div>
@@ -190,17 +204,8 @@
 										<input class="chkboxes" type="checkbox">
 										<span></span>
                                     </label>
-                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
-                                        </div>
                                         <h5>
                                             Car Detaling
-                                            <!-- <a class="custom-float-right" href="" style="font-size: 11px;">
-                                                Services
-                                            </a> -->
                                         </h5>
                                         <p class="custom-margin-bottom-zero">
                                             <span class="checked"> 3.0 </span>
@@ -223,6 +228,18 @@
                                             <span>Open</span>
                                             <span> 23:00 </span>
                                         </p>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
                                     </div>
                                     <hr>
 
@@ -231,20 +248,8 @@
 										<input class="chkboxes" type="checkbox">
 										<span></span>
                                     </label>
-                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
-                                        </div>
                                         <h5>
                                             Hair Styling
-                                            <!-- <a class="custom-float-right" href="" style="font-size: 11px;">
-                                                Services
-                                            </a>
-                                            <a class="custom-float-right" href="" style="font-size: 11px;">
-                                                OrderHistory &nbsp;
-                                            </a> -->
                                         </h5>
 
                                         <p class="custom-margin-bottom-zero">
@@ -268,22 +273,25 @@
                                             <span>Open</span>
                                             <span> 23:00 </span>
                                         </p>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
                                         <hr>
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
 										<input class="chkboxes" type="checkbox">
 										<span></span>
                                     </label>
-                                        <div class="btn-group btnGroupMap" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary btn-sm btnSmall" (click)="sideInfoPop('service')" title="Click to view Company Services">
-                                                Customers
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-sm btnSmall" (click)="sideInfoPop('history')" title="Click to view Order History"> Orders</button>
-                                        </div>
                                         <h5>
                                             Mont Hair
-                                            <!-- <a class="custom-float-right" href="" style="font-size: 11px;">
-                                                Services
-                                            </a> -->
                                         </h5>
                                         <p class="custom-margin-bottom-zero">
                                             <span class="checked"> 4.0 </span>
@@ -306,7 +314,18 @@
                                             <span>Open</span>
                                             <span> 23:00 </span>
                                         </p>
-
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
                                         <hr>
                                     </div>
                                 </div>

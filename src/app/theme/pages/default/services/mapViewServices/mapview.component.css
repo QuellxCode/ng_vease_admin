@@ -441,4 +441,16 @@ agm-map {
 
 .marginBottom {
     margin-bottom: 0px;
+    padding-left: 0px;
+}
+
+.categoryStyle {
+    max-width: 40%;
+    margin-left: 20%;
+    position: absolute;
+    margin-top: -25px;
+}
+
+.marginOnBottom {
+    padding-bottom: 0px;
 }
