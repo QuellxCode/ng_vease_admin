@@ -59,18 +59,26 @@
     z-index: 999;
 }
 
-.persontype, .personname {
+.persontype,
+.personname {
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
-.personappartmentno, .personbuildingname, .personaddress, .persontype, .agreementtype {
+.personappartmentno,
+.personbuildingname,
+.personaddress,
+.persontype,
+.agreementtype {
     margin-bottom: 0px;
     font-size: 11px;
     color: #6f727d !important;
 }
 
-.personappartmentno i, .personbuildingname i, .personaddress i, .agreementtype i {
+.personappartmentno i,
+.personbuildingname i,
+.personaddress i,
+.agreementtype i {
     width: 22px;
 }
 
@@ -112,13 +120,15 @@
     font-size: 12px;
 }
 
-.singlepersonrow, .twopersonrow {
+.singlepersonrow,
+.twopersonrow {
     padding: 0px;
     margin-top: -10px;
     margin-bottom: 10px;
 }
 
-.twopersonrow .personname, .twopersonrow .persontype {
+.twopersonrow .personname,
+.twopersonrow .persontype {
     margin-left: -7px;
 }
 
@@ -337,6 +347,13 @@ agm-map {
 
 .gridView {
     padding: 0px 30px;
+}
+
+.categoryStyle {
+    max-width: 40%;
+    margin-left: 12%;
+    position: absolute;
+    margin-top: -25px;
 }
 
 @media (max-width: 991px) {

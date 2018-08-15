@@ -27,7 +27,6 @@ export class MapViewServicesComponent implements AfterViewInit {
     showOrderHistory = false;
     showInfo = false;
 
-
     lang: any;
     lat: any;
     lati: number = 51.678418;
@@ -70,6 +69,12 @@ export class MapViewServicesComponent implements AfterViewInit {
             this.showOrderHistory = false;
             this.showInfo = true;
         }
+    }
+    t= false;
+    selectAll(e) {
+    //    console.log(e.target.checked);
+       this.t = e.target.checked;
+    //    console.log(this.t);
     }
 
 }

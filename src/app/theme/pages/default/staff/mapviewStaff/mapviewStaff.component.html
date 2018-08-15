@@ -4,7 +4,7 @@
         <div class="mr-auto" style="width:60%;">
             <h3 class="m-subheader__title" style="display:inline-block">
                 Map View
-                <small>
+                <!-- <small>
                     <a (click)="adjustRadiusMap()" id="adjustRadius" style="cursor:pointer;">
                         <i class="fa fa-map-marker"></i>
                     </a>
@@ -13,7 +13,7 @@
                     <a style="cursor:pointer;">
                         <i class="fa fa-search"></i>
                     </a>
-                </small>
+                </small> -->
             </h3>
             <div class="input-group mb-3 categoryStyle">
                 <div class="input-group-prepend">
@@ -30,6 +30,9 @@
                 </div>
             </div>
         </div>
+        <button class="btn btn-link btnLinkColor" routerLink="/staff/rescheduleStaff">
+			<i class="fa fa-calendar"></i> Reschedule
+		</button>
         <button class="btn btn-link detailBtn" [routerLink]="['/services']">
             <i class="fa fa-th"></i> Grid View
         </button>
@@ -145,6 +148,10 @@
                         <div class="col-sm-12" style="padding-right: 0px">
                             <div class="row">
                                 <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem; overflow-y: scroll; height: 43rem;">
+                                    <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+																					<input type="checkbox" (change)="selectAll($event)" > Select All
+																					<span></span>
+																				</label>
                                     <form class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
                                         <div class="input-group mb-3">
                                             <input class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">
@@ -156,7 +163,7 @@
                                     </form>
                                     <div style="margin-top: 8px;">
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-										<input class="chkboxes" type="checkbox">
+										<input class="chkboxes" type="checkbox" [checked]="t">
 										<span></span>
                                     </label>
                                         <div class="row">
@@ -195,13 +202,13 @@
                                         </p>
                                         </span>
                                         <p class="text-right">
-                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Order History" (click)="sideInfoPop('service')">
 															 <i   class="fa fa-user">
 																 
 															 </i>
 															 Customers
 														</button>
-                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Company Services" (click)="sideInfoPop('history')">
 															 <i   class="fa fa-list"></i>
 															 Orders
 														</button>
@@ -211,7 +218,7 @@
 
                                     <div>
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-										<input class="chkboxes" type="checkbox">
+										<input class="chkboxes" type="checkbox" [checked]="t">
 										<span></span>
                                     </label>
                                         <div class="row">
@@ -264,7 +271,7 @@
 
                                     <div style="margin-top: 15px;">
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-										<input class="chkboxes" type="checkbox">
+										<input class="chkboxes" type="checkbox" [checked]="t">
 										<span></span>
                                     </label>
                                         <div class="row">
@@ -314,7 +321,7 @@
                                         </p>
                                         <hr>
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-										<input class="chkboxes" type="checkbox">
+										<input class="chkboxes" type="checkbox" [checked]="t">
 										<span></span>
                                     </label>
                                         <div class="row">
@@ -531,7 +538,7 @@
 
                                         <h5 style="font-weight: 600;
                                                                 font-size: 15px;">
-                                            Order History
+                                            Orders
                                         </h5>
 
                                         <div id="accordion">

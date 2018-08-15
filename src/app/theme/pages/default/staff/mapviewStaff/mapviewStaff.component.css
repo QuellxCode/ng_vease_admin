@@ -445,7 +445,7 @@ agm-map {
 
 .categoryStyle {
     max-width: 40%;
-    margin-left: 20%;
+    margin-left: 12%;
     position: absolute;
     margin-top: -25px;
 }
@@ -465,4 +465,8 @@ agm-map {
 
 .marginOnBottom {
     padding-bottom: 0px;
+}
+
+.btnLinkColor {
+    color: black;
 }

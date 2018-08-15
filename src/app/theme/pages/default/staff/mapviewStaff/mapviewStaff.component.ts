@@ -72,4 +72,11 @@ export class MapViewStaffComponent implements AfterViewInit {
         }
     }
 
+     t= false;
+    selectAll(e) {
+    //    console.log(e.target.checked);
+       this.t = e.target.checked;
+    //    console.log(this.t);
+    }
+
 }

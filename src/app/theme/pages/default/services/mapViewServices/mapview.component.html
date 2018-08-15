@@ -4,7 +4,7 @@
         <div class="mr-auto" style="width:60%;">
             <h3 class="m-subheader__title" style="display:inline-block">
                 Map View
-                <small>
+                <!-- <small>
                     <a (click)="adjustRadiusMap()" id="adjustRadius" style="cursor:pointer;">
                         <i class="fa fa-map-marker"></i>
                     </a>
@@ -13,7 +13,7 @@
                     <a style="cursor:pointer;">
                         <i class="fa fa-search"></i>
                     </a>
-                </small>
+                </small> -->
             </h3>
             <div class="input-group mb-3 categoryStyle">
                 <div class="input-group-prepend">
@@ -145,6 +145,10 @@
                         <div class="col-sm-12" style="padding-right: 0px">
                             <div class="row">
                                 <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem; overflow-y: scroll; height: 43rem;">
+                                    <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+																					<input type="checkbox" (change)="selectAll($event)" > Select All
+																					<span></span>
+																				</label>
                                     <form class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
                                         <div class="input-group mb-3">
                                             <input class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">
@@ -156,7 +160,7 @@
                                     </form>
                                     <div style="margin-top: 8px;">
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-										<input class="chkboxes" type="checkbox">
+										<input class="chkboxes" type="checkbox" [checked]="t">
 										<span></span>
                                     </label>
                                         <h5>
@@ -186,13 +190,13 @@
                                         </p>
                                         </span>
                                         <p class="text-right">
-                                            <button class="btn btn-sm btn-primary" title="Click to view Order History" (click)="sideInfoPop('service')">
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Order History" (click)="sideInfoPop('service')">
 															 <i   class="fa fa-user">
 																 
 															 </i>
 															 Customers
 														</button>
-                                            <button class="btn btn-sm btn-primary" title="Click to view Company Services" (click)="sideInfoPop('history')">
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Company Services" (click)="sideInfoPop('history')">
 															 <i   class="fa fa-list"></i>
 															 Orders
 														</button>
@@ -201,9 +205,10 @@
                                     <hr>
                                     <div>
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-										<input class="chkboxes" type="checkbox">
+										<input class="checkbox" type="checkbox" [checked]="t">
 										<span></span>
                                     </label>
+                                        <!-- <input type="checkbox" (change)="test($event)"> -->
                                         <h5>
                                             Car Detaling
                                         </h5>
@@ -245,7 +250,7 @@
 
                                     <div style="margin-top: 15px;">
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-										<input class="chkboxes" type="checkbox">
+										<input class="chkboxes" type="checkbox" [checked]="t">
 										<span></span>
                                     </label>
                                         <h5>
@@ -287,7 +292,7 @@
                                         </p>
                                         <hr>
                                         <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
-										<input class="chkboxes" type="checkbox">
+										<input class="chkboxes" type="checkbox" [checked]="t">
 										<span></span>
                                     </label>
                                         <h5>

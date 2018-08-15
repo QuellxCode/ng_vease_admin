@@ -1,0 +1,571 @@
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title cursoreClose">
+                Staff Reschedule
+            </h3>
+
+            <small class="fa fa-search text-muted stats-icons" style=" margin-left: 0px; font-size: 0.9rem" (click)="search=!search">
+                <a style="cursor:pointer;">
+                </a>
+            </small>
+            <input type="text" id="customSearchBox" class="m-input filterStyle customFilterStyle" [hidden]="search">
+        </div>
+
+        <div>
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                    <i class="la la-plus m--hide"></i>
+                    <i class="la la-ellipsis-h"></i>
+                </a>
+                <div class="m-dropdown__wrapper">
+                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                    <div class="m-dropdown__inner">
+                        <div class="m-dropdown__body">
+                            <div class="m-dropdown__content">
+                                <ul class="m-nav">
+                                    <li class="m-nav__section m-nav__section--first m--hide">
+                                        <span class="m-nav__section-text">
+                                            Quick Actions
+                                        </span>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="javascript:;" class="m-nav__link" data-toggle="modal" data-target="#c_modal_support">
+                                            <i class="m-nav__link-icon fa fa-plus"></i>
+                                            <span class="m-nav__link-text">
+                                                New Ticket
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                            <span class="m-nav__link-text">
+                                                Messages
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                            <span class="m-nav__link-text">
+                                                FAQ
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                            <span class="m-nav__link-text">
+                                                Support
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                    <li class="m-nav__item">
+                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                            Submit
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-subheader breadcrumsubheader">
+    <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+            <a class="m-nav__link m-nav__link--icon" routerLink="/dashboard" ng-reflect-href="#">
+                <i class="m-nav__link-icon la la-home"></i>
+            </a>
+        </li>
+        <li class="m-nav__separator">
+            -
+        </li>
+        <li class="m-nav__item">
+            <a class="m-nav__link" href="" ng-reflect-href="" [routerLink]="['/staff']">
+                <span class="m-nav__link-text">
+                    Staff </span>
+            </a>
+        </li>
+        <li class="m-nav__separator">
+            -
+        </li>
+        <li class="m-nav__item">
+            <a class="m-nav__link" href="" ng-reflect-href="">
+                <span class="m-nav__link-text">
+                    Staff Reschedule </span>
+            </a>
+        </li>
+    </ul>
+</div>
+<hr class="customhr" />
+
+
+<div class="m-content" style="padding-top: 0px">
+
+    <!-- ___________complaints ______________ -->
+    <div class="row" [hidden]="!complaints">
+
+
+        <div class="col-md-5">
+            <h3 class="m-subheader__title titleComplaints titles">
+                Reschedule List
+            </h3>
+            <table class="table table-hover" cellspacing="0" id="datatable">
+                <thead>
+                    <tr class="active">
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Staff
+                        </th>
+                        <th>
+                            Service
+                        </th>
+                        <th>
+                            Customer
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="custom-hover" (click)="activeRow(1)" [ngClass]="firstRowActive == true ? 'active-row-class': '' ">
+                        <th scope="row">
+                            1
+                        </th>
+                        <td>
+                            Jhon Doe
+                        </td>
+                        <td>
+                            Oil & Oil Filter Changing
+                        </td>
+                        <td>
+                            Wasim Badami
+                        </td>
+                    </tr>
+                    <tr class="custom-hover" (click)="activeRow(2)" [ngClass]="secondRowActive == true ? 'active-row-class': '' ">
+                        <th scope="row">
+                            2
+                        </th>
+                        <td>
+                            Rich Piana
+                        </td>
+                        <td>
+                            Fancy Cutting
+                        </td>
+                        <td>
+                            Max Khan
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="col-md-4 titleComplaints" [hidden]="!disputeRightSideActive">
+            <!-- _______scroable goes here_______ -->
+            <!--Begin::Timeline 2 -->
+            <h3 class="m-subheader__title titleComplaints titles">
+                Handle Reschedule
+            </h3>
+            <div class="tab-pane" id="finance-tab">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#general_finance" role="tab" data-toggle="tab">Details</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#invoices_finance" role="tab" data-toggle="tab" (click)="feedBack = true">Feedback</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#invoices_finance" role="tab" data-toggle="tab">Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#invoices_employee" role="tab" data-toggle="tab">Customer</a>
+                    </li>
+
+
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="general_finance">
+                        <div class="m-timeline-2" style="left:2.89rem;">
+                            <div class="m-timeline-2__items  m--padding-top-25 m--padding-bottom-30">
+
+
+                                <div class="m-timeline-2__item job-width" [hidden]="!firstRowActive">
+
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Jhon Doe
+                                                        </span>
+                                                    </div><br>
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Oil & Oil Filter Changing
+                                                        </span>
+                                                    </div><br>
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Customer: Wasim Badami
+                                                        </span>
+                                                    </div>
+                                                    <div class="m-widget3__info">
+                                                        <br>
+
+                                                        <p class="card-job-title purple">
+                                                            <span class="card-job-pay m-link m--font-bolder m-widget4__number" style="float: right;">
+                                                                $120.00
+                                                            </span>
+                                                        </p>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor sit amet,consectetuer edipiscing
+                                                        elit
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <div class="m-timeline-2__item job-width" [hidden]="!secondRowActive">
+
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Rich Piana
+                                                        </span>
+                                                    </div><br>
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Fancy Cutting
+                                                        </span>
+                                                    </div><br>
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Customer: Max Khan
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor sit amet,consectetuer edipiscing
+                                                        elit
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <!--Job width-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="invoices_finance">
+                        <div class="m-timeline-2" style="left:2.89rem;">
+                            <div class="m-timeline-2__items  m--padding-top-25 m--padding-bottom-30">
+
+
+                                <div class="m-timeline-2__item job-width" [hidden]="!firstRowActive">
+
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Jhon Doe
+                                                        </span>
+                                                        <a class="btn btn-link btn-sm chatServiceButton pull-right" href="" ng-reflect-href="">
+
+                                                            <i class="la la-comments"></i> Message</a>
+                                                    </div>
+                                                    <div class="m-widget3__info">
+                                                        <br>
+
+                                                        <p class="card-job-title purple">Subject line for Reschedule
+                                                            <br>
+
+                                                        </p>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor sit amet,consectetuer edipiscing
+                                                        elit
+                                                    </p>
+                                                    <button class="btn btn-primary pull-right esclate" data-target="#esclateModal" data-toggle="modal">Notify</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <div class="m-timeline-2__item job-width" [hidden]="!secondRowActive">
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Rich Piana
+                                                        </span>
+                                                        <a class="btn btn-link btn-sm chatServiceButton pull-right" href="" ng-reflect-href="">
+                                                            <i class="la la-comments"></i> Message</a>
+                                                    </div>
+                                                    <div class="m-widget3__info">
+                                                        <br>
+
+                                                        <p class="card-job-title purple">Money Refund
+                                                            <br>
+
+                                                        </p>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor sit amet,consectetuer edipiscing
+                                                        elit
+                                                    </p>
+                                                    <button class="btn btn-primary pull-right esclate" data-target="#esclateModal" data-toggle="modal">Notify</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <!--Job width-->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- __________For Customer Tab______________ -->
+
+                    <div class="tab-pane " id="invoices_employee">
+                        <div class="m-timeline-2" style="left:2.89rem;">
+                            <div class="m-timeline-2__items  m--padding-top-25 m--padding-bottom-30">
+
+
+                                <div class="m-timeline-2__item job-width" [hidden]="!firstRowActive">
+
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Wasim Badami
+                                                        </span>
+                                                        <a class="btn btn-link btn-sm chatServiceButton pull-right" href="" ng-reflect-href="">
+
+                                                            <i class="la la-comments"></i> Message</a>
+                                                    </div>
+                                                    <div class="m-widget3__info">
+                                                        <br>
+
+                                                        <p class="card-job-title purple">Service Name
+                                                            <br>
+
+                                                        </p>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor sit amet,consectetuer edipiscing
+                                                        elit
+                                                    </p>
+                                                    <!-- <button class="btn btn-primary pull-right esclate" data-target="#esclateModal" data-toggle="modal">Notify</button> -->
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <div class="m-timeline-2__item job-width" [hidden]="!secondRowActive">
+                                    <div class="m-timeline-2__item-text  m--padding-top-5">
+                                        <div class="card-content">
+                                            <div class="m-widget3__item">
+                                                <div class="m-widget3__header">
+                                                    <div class="m-widget3__user-img">
+                                                        <span>
+                                                            Max Khan
+                                                        </span>
+                                                        <a class="btn btn-link btn-sm chatServiceButton pull-right" href="" ng-reflect-href="">
+                                                            <i class="la la-comments"></i> Message</a>
+                                                    </div>
+                                                    <div class="m-widget3__info">
+                                                        <br>
+
+                                                        <p class="card-job-title purple">Service Name
+                                                            <br>
+
+                                                        </p>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="m-widget3__body">
+                                                    <p class="m-widget3__text card-job-description">
+                                                        Detail Goes Here.....
+                                                        <br> Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat. Lorem ipsum dolor sit amet,consectetuer edipiscing
+                                                        elit
+                                                    </p>
+                                                    <!-- <button class="btn btn-primary pull-right esclate" data-target="#esclateModal" data-toggle="modal">Notify</button> -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <!--Timeline 2 text-->
+                                </div>
+                                <!--Job width-->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!--End::Timeline 2 -->
+            <!--End: TimeLine Scrolable-->
+            <!--End: TimeLine Scrolable-->
+        </div>
+        <div class="col-md-3" [hidden]="!feedBack">
+            <label class="m--font-danger" style="font-weight: 500; margin-top: 100px;">
+                <span>*Choose Below Option Accordingly</span>
+            </label>
+            <div class="form-group m-form__group">
+                <label for="exampleSelect1">
+                    Assign Employee
+                </label>
+                <select name="status" id="order_status" class="form-control m-input m-input--air">
+                    <option value="ORDERED">Rich Piana</option>
+                    <option value="RECEIVED">Jhon Doe</option>
+                    <option value="ASSIGNED">Naveed Khan</option>
+                    <option value="PROCESSING">Wasim Badami</option>
+                    <option value="REACHED">Junaid Zahid</option>
+                    <option value="PICKEDUP">Buraq Obama</option>
+                    <option value="ARRIVED">Farhan Abbasi</option>
+                    <option value="COMPLETED">Kamran Akmal</option>
+                    <!-- <option value="CANCELLED" selected="selected">CANCELLED</option> -->
+                </select>
+            </div>
+            <div class="form-group m-form__group">
+                <div class="form-group">
+                    <label for="comment">Description:</label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+                <span class="m-form__help">
+                    We'll never share your order id with anyone else.
+                </span>
+            </div>
+            <button class="btn btn-primary m-btn m-btn--custom" type="button">
+                Submit
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="esclateModal" tabindex="-1" role="dialog" aria-labelledby="esclateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-group ng-untouched ng-pristine ng-valid" novalidate="">
+                    <div class="form-group m-form__group">
+                        <label>
+                            Date
+                        </label>
+                        <input class="form-control  m-input m-input--air" placeholder="" readonly="" type="text" value="7/13/2018">
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label>
+                           Request id
+                        </label>
+                        <input class="form-control  m-input m-input--air" placeholder="" readonly="" type="text" value="83752">
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label>
+                            Permission
+                        </label>
+                        <select class="form-control m-input m-input--air" #idSelect>
+                            <option value="1">
+                                Granted
+                            </option>
+                            <option value="0">
+                                Denied
+                            </option>
+                            <!-- <option>
+                                Low Qaulity
+                            </option> -->
+                        </select>
+                    </div>
+
+                    <div class="form-group m-form__group">
+                        <label>
+                            Comments
+                        </label>
+                        <textarea class="form-control m-input m-input--air"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="sendFeedBack(idSelect.value)">Send Feedback</button>
+            </div>
+        </div>
+    </div>
+</div>

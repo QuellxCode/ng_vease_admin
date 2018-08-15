@@ -21,8 +21,8 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     viewName = "List View";
     isDisplayDetail = false;
     viewDate: Date = new Date();
-    catogries: any[];
-    subCatogries: any[];
+    // catogries: any[];
+    // subCatogries: any[];
     // isDisplayForm = true;
     private latitude: any;
     private longitude: any;
@@ -87,15 +87,15 @@ export class ServicesComponent implements OnInit, AfterViewInit {
         }
     }
 
-    getSubCatogery(id) {
+    // getSubCatogery(id) {
        
-        this.createServices.getSubCategories(id)
-            .subscribe(
-            (data) => {
-                this.subCatogries = data.data;
-            }
-            );
-    }
+    //     this.createServices.getSubCategories(id)
+    //         .subscribe(
+    //         (data) => {
+    //             this.subCatogries = data.data;
+    //         }
+    //         );
+    // }
 
     // changeViewForm() {
     //     this.isDisplayForm = !this.isDisplayForm;

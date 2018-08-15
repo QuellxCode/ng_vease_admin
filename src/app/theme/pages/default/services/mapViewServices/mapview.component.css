@@ -454,3 +454,7 @@ agm-map {
 .marginOnBottom {
     padding-bottom: 0px;
 }
+
+.btnLinkColor {
+    color: black;
+}

@@ -18,11 +18,28 @@
 					</a>
 				</small>
             </h3>
+            <div class="input-group mb-3 categoryStyle">
+                <div class="input-group-prepend">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Location 1</a>
+                        <a class="dropdown-item" href="#">Location 2</a>
+                        <a class="dropdown-item" href="#">Location 3</a>
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <div class="input-group-append">
+                    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
         </div>
+        <button class="btn btn-link" routerLink="/staff/rescheduleStaff">
+			<i class="fa fa-calendar"></i> Reschedule
+		</button>
         <button class="btn btn-link pull-right btn-changeview" (click)="changeView()">
 			<i class="fa" [class.hidden]="!isGridView" [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}"></i> {{viewName}} </button>
 
-        <button class="btn btn-link" routerLink="/staff/mapView">
+        <button class="btn btn-link" routerLink="./mapView">
 			<i class="fa fa-map-marker"></i> Map View
 		</button>
 
