@@ -2,7 +2,8 @@
     <div class="d-flex align-items-center">
         <div class="mr-auto">
             <h3 class="m-subheader__title cursoreClose">
-                Staff Reschedule
+                Notification Center
+
             </h3>
 
             <small class="fa fa-search text-muted stats-icons" style=" margin-left: 0px; font-size: 0.9rem" (click)="search=!search">
@@ -30,41 +31,11 @@
                                         </span>
                                     </li>
                                     <li class="m-nav__item">
-                                        <a href="javascript:;" class="m-nav__link" data-toggle="modal" data-target="#c_modal_support">
-                                            <i class="m-nav__link-icon fa fa-plus"></i>
+                                        <a routerLink="/notificationCenter/history" class="m-nav__link">
+                                            <i class="m-nav__link-icon fa fa-gear"></i>
                                             <span class="m-nav__link-text">
-                                                New Ticket
+                                                History
                                             </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                            <span class="m-nav__link-text">
-                                                Messages
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-info"></i>
-                                            <span class="m-nav__link-text">
-                                                FAQ
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                            <span class="m-nav__link-text">
-                                                Support
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__separator m-nav__separator--fit"></li>
-                                    <li class="m-nav__item">
-                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                            Submit
                                         </a>
                                     </li>
                                 </ul>
@@ -87,18 +58,9 @@
             -
         </li>
         <li class="m-nav__item">
-            <a class="m-nav__link" href="" ng-reflect-href="" [routerLink]="['/staff']">
-                <span class="m-nav__link-text">
-                    Staff </span>
-            </a>
-        </li>
-        <li class="m-nav__separator">
-            -
-        </li>
-        <li class="m-nav__item">
             <a class="m-nav__link" href="" ng-reflect-href="">
                 <span class="m-nav__link-text">
-                    Staff Reschedule </span>
+                    Notification Center </span>
             </a>
         </li>
     </ul>
@@ -112,7 +74,7 @@
     <div class="row" [hidden]="!complaints">
 
 
-        <div class="col-md-5">
+        <div class="col-md-6">
             <h3 class="m-subheader__title titleComplaints titles">
                 Reschedule List
             </h3>
@@ -131,6 +93,9 @@
                         <th>
                             Customer
                         </th>
+                        <th>
+                            Type
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -146,7 +111,10 @@
                             Oil & Oil Filter Changing
                         </td>
                         <td>
-                            Wasim Badami
+                            Phil Heath
+                        </td>
+                        <td>
+                            Reschedule
                         </td>
                     </tr>
                     <tr class="custom-hover" (click)="activeRow(2)" [ngClass]="secondRowActive == true ? 'active-row-class': '' ">
@@ -162,13 +130,16 @@
                         <td>
                             Max Khan
                         </td>
+                        <td>
+                            Short Leave
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
 
-        <div class="col-md-4 titleComplaints" [hidden]="!disputeRightSideActive">
+        <div class="col-md-6 titleComplaints" [hidden]="!disputeRightSideActive">
             <!-- _______scroable goes here_______ -->
             <!--Begin::Timeline 2 -->
             <h3 class="m-subheader__title titleComplaints titles">
@@ -216,7 +187,7 @@
                                                     </div><br>
                                                     <div class="m-widget3__user-img">
                                                         <span>
-                                                            Customer: Wasim Badami
+                                                            Customer: Phil Heath
                                                         </span>
                                                     </div>
                                                     <div class="m-widget3__info">
@@ -392,7 +363,7 @@
                                                 <div class="m-widget3__header">
                                                     <div class="m-widget3__user-img">
                                                         <span>
-                                                            Wasim Badami
+                                                            Phil Heath
                                                         </span>
                                                         <a class="btn btn-link btn-sm chatServiceButton pull-right" href="" ng-reflect-href="">
 
@@ -477,7 +448,7 @@
             <!--End: TimeLine Scrolable-->
             <!--End: TimeLine Scrolable-->
         </div>
-        <div class="col-md-3" [hidden]="!feedBack">
+        <!-- <div class="col-md-3" [hidden]="!feedBack">
             <label class="m--font-danger" style="font-weight: 500; margin-top: 100px;">
                 <span>*Choose Below Option Accordingly</span>
             </label>
@@ -494,7 +465,6 @@
                     <option value="PICKEDUP">Buraq Obama</option>
                     <option value="ARRIVED">Farhan Abbasi</option>
                     <option value="COMPLETED">Kamran Akmal</option>
-                    <!-- <option value="CANCELLED" selected="selected">CANCELLED</option> -->
                 </select>
             </div>
             <div class="form-group m-form__group">
@@ -509,7 +479,7 @@
             <button class="btn btn-primary m-btn m-btn--custom" type="button">
                 Submit
             </button>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -541,16 +511,13 @@
                         <label>
                             Permission
                         </label>
-                        <select class="form-control m-input m-input--air" #idSelect>
+                        <select class="form-control m-input m-input--air">
                             <option value="1">
                                 Granted
                             </option>
                             <option value="0">
                                 Denied
                             </option>
-                            <!-- <option>
-                                Low Qaulity
-                            </option> -->
                         </select>
                     </div>
 
@@ -564,7 +531,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="sendFeedBack(idSelect.value)">Send Feedback</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Send Feedback</button>
             </div>
         </div>
     </div>

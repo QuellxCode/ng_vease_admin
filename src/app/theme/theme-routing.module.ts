@@ -48,7 +48,11 @@ const routes: Routes = [
             {
                 "path": "disputes",
                 "loadChildren": ".\/pages\/default\/disputes\/disputes.module#DisputesModule"
-            }
+            },
+            {
+                "path": "notificationCenter",
+                "loadChildren": ".\/pages\/default\/notificationCenter\/notificationCenter.module#NotificationCenterModule"
+            },
         ]
 
     },

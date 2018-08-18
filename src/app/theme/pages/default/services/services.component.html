@@ -30,10 +30,10 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-link" routerLink="/services/mapView">
+        <button class="btn btn-link" (click)="isMapDetail=!isMapDetail" *ngIf="!isMapDetail">
 			<i class="fa fa-map-marker"></i> Map View
 		</button>
-        <button class="btn btn-link pull-right" (click)="changeView()">
+        <button class="btn btn-link pull-right" (click)="changeView(); isMapDetail=false">
 			<i class="fa" [class.hidden]="!isGridView" [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}"></i> {{viewName}} </button>
 
     </div>
@@ -64,7 +64,7 @@
 <hr class="customhr" *ngIf="!isDisplayDetail" />
 
 <!-- __________New Design Starts Here___________ -->
-<div>
+<div *ngIf="!isMapDetail">
     <div class="m-content">
         <!--Begin::Section-->
 
@@ -1186,97 +1186,730 @@
         </div>
     </div>
 </div>
-<!-- ____________________Create Services from removed starts_____________ -->
+<!-- ___________________map view starts_________________________ -->
 
-<!-- <div [hidden]="isDisplayForm" class="marginTopNegative14">
-
-	<div class="m-portlet m-portlet--mobile">
-
-		<div class="m-portlet__head">
-			<a href="javascript:;" class="btn btn-link" style="padding-left:0px;" (click)="changeViewForm()">
-				<i class="fa fa-chevron-left"></i> Back
-			</a>
-			<h6>
-				Create a Service
-			</h6>
-		</div>
-		<div class="m-portlet__body">
-			<form [formGroup]="servicesForm" (ngSubmit)="onSubmit(search.value)">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group m-form__group">
-							<label class="form-control-label" for="service-recipient-name">
-								Name:
-							</label>
-							<input class="form-control" id="service-recipient-name" type="text" #name formControlName="name">
-						</div>
-						<div class="form-group">
-							<label class="form-control-label" for="service-details-name">
-								Details:
-							</label>
-							<input class="form-control" id="service-recipient-name" type="text" #details formControlName="details">
-						</div>
-
-						<div class="form-group">
-							<label class="form-control-label" for="broadcast-category-name">
-								Service Category:
-							</label>
-							<select class="form-control" id="broadcast-category-name" #item type="text" (change)="getSubCatogery(item.value)" formControlName="category">
-								<option></option>
-								<option *ngFor="let item of catogries" value="{{item.id}}">{{item.name}}</option>
-							</select>
-						</div>
+<div class="m-content marginOnBottom" *ngIf="isMapDetail">
+    <!--Begin::Section-->
+    <div class="row detailSection">
+        <div class="col-md-12">
+            <div class="m-portlet">
+                <div class="m-portlet__body">
+                    <div class="row">
+                        <div class="col-sm-12" style="padding-right: 0px">
+                            <div class="row">
+                                <div class="col-sm-3" style="padding: 0px; font-size: 0.8rem; overflow-y: scroll; height: 43rem;">
+                                    <div *ngIf="!deselectAll" style="margin-bottom: 10px;">
+                                        <button class="btn btn-sm btn-primary" (click)="selectAll()"><i   class="fa fa-check">
+																 
+															 </i> Select All</button>
+                                    </div>
+                                    <div *ngIf="deselectAll" style="margin-bottom: 10px;">
+                                        <button class="btn btn-sm btn-primary" (click)="selectAll()">
+                                            <i   class="fa fa-check">
+																 
+															 </i> Deselect All</button>
+                                    </div>
+                                    <!-- <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+																					<input type="checkbox" (change)="selectAll($event)" > Select All
+																					<span></span>
+																				</label> -->
+                                    <form class="ng-tns-c1-0 ng-untouched ng-pristine ng-valid" novalidate="" style="padding: 13px 15px 1px 15px; background-color: #dbdbdb;">
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" placeholder="Serach Service" style="border-radius: 15px;" type="text">
+                                            <div class="input-group-append custom-pointer">
 
 
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div style="margin-top: 8px;">
+                                        <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox" [checked]="t">
+										<span></span>
+                                    </label>
+                                        <h5>
+                                            Room Cleaning
+                                        </h5>
+                                        <span (click)="sideInfoPop('info')" title="Click to See the Info">
+                                            <p class="custom-margin-bottom-zero">
+                                                <span class="checked"> 5.0 </span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span> (25) Cleaning
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            +1 416-488-5254
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span style="color:red">Close</span>
+                                            <span> 6:00 </span>
+                                            <span> - </span>
+                                            <span>Open</span>
+                                            <span> 23:00 </span>
+                                        </p>
+                                        </span>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Order History" (click)="sideInfoPop('service')">
+															 <i   class="fa fa-user">
+																 
+															 </i>
+															 Customers
+														</button>
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Company Services" (click)="sideInfoPop('history')">
+															 <i   class="fa fa-list"></i>
+															 Orders
+														</button>
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="checkbox" type="checkbox" [checked]="t">
+										<span></span>
+                                    </label>
+                                        <!-- <input type="checkbox" (change)="test($event)"> -->
+                                        <h5>
+                                            Car Detaling
+                                        </h5>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span class="checked"> 3.0 </span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span> (12) AUTO
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            +1 416-488-5254
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span style="color:red">Close</span>
+                                            <span> 6:00 </span>
+                                            <span> - </span>
+                                            <span>Open</span>
+                                            <span> 23:00 </span>
+                                        </p>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Order History" (click)="sideInfoPop('service')">
+                                                <i   class="fa fa-user">
+                                                    
+                                                </i>
+                                                Customers
+                                           </button>
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Company Services" (click)="sideInfoPop('history')">
+                                                <i   class="fa fa-list"></i>
+                                                Orders
+                                           </button>
+                                        </p>
+                                    </div>
+                                    <hr>
+
+                                    <div style="margin-top: 15px;">
+                                        <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox" [checked]="t">
+										<span></span>
+                                    </label>
+                                        <h5>
+                                            Hair Styling
+                                        </h5>
+
+                                        <p class="custom-margin-bottom-zero">
+                                            <span class="checked"> 4.0 </span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span> (7) HAIR
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            +1 416-488-5254
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span style="color:red">Close</span>
+                                            <span> 6:00 </span>
+                                            <span> - </span>
+                                            <span>Open</span>
+                                            <span> 23:00 </span>
+                                        </p>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Order History" (click)="sideInfoPop('service')">
+                                                <i   class="fa fa-user">
+                                                    
+                                                </i>
+                                                Customers
+                                           </button>
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Company Services" (click)="sideInfoPop('history')">
+                                                <i   class="fa fa-list"></i>
+                                                Orders
+                                           </button>
+                                        </p>
+                                        <hr>
+                                        <label class="m-checkbox m-checkbox--solid m-checkbox--single m-checkbox--brand">
+										<input class="chkboxes" type="checkbox" [checked]="t">
+										<span></span>
+                                    </label>
+                                        <h5>
+                                            Mont Hair
+                                        </h5>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span class="checked"> 4.0 </span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span> (17) Hair Cutting
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            +1 416-488-5254
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span style="color:red">Close</span>
+                                            <span> 6:00 </span>
+                                            <span> - </span>
+                                            <span>Open</span>
+                                            <span> 23:00 </span>
+                                        </p>
+                                        <p class="text-right">
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Order History" (click)="sideInfoPop('service')">
+                                                <i   class="fa fa-user">
+                                                    
+                                                </i>
+                                                Customers
+                                           </button>
+                                            <button class="btn btn-sm btn-link btnLinkColor" title="Click to view Company Services" (click)="sideInfoPop('history')">
+                                                <i   class="fa fa-list"></i>
+                                                Orders
+                                           </button>
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
 
 
-						<div class="form-group">
-							<label class="form-control-label" for="broadcast-subcategory-name">
-								Service Sub-Category:
-							</label>
-							<select class="form-control" id="broadcast-subcategory-name" #subCatogery type="text" formControlName="subCategory">
-								<option *ngFor="let item of subCatogries" value="{{item.id}}">{{item.name}}</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
 
-						<div class="form-group">
-							<label class="form-control-label" for="services-price-name">
-								Price:
-							</label>
-							<input class="form-control" id="services-price-number" type="number" #price formControlName="price">
-						</div>
+                                <div class="col-sm-9" style="padding-right: 0px">
+                                    <agm-map [latitude]="43.589045" [longitude]="-79.64412" [zoom]="10" #AgmMap>
+                                        <agm-marker [latitude]="43.589045" [longitude]="-79.64412">
+                                            <agm-info-window>
+                                                <strong>Category</strong>: Food
+                                                <br>
+                                                <strong>Subcategory</strong>: Seafood
+                                                <br>
+                                                <strong>Name</strong>: Mississaga Sea Restaraunt
+                                                <br>
+                                                <strong>Contact</strong>: 019182010
+                                            </agm-info-window>
+                                        </agm-marker>
+
+                                        <agm-marker [latitude]="43.758931" [longitude]="-79.398645">
+                                            <agm-info-window>
+                                                <strong>Category</strong>: Games
+                                                <br>
+                                                <strong>Subcategory</strong>: Video
+                                                <br>
+                                                <strong>Name</strong>: North York Fun Games
+                                                <br>
+                                                <strong>Contact</strong>: 019182010
+                                            </agm-info-window>
+                                        </agm-marker>
+
+                                        <agm-marker [latitude]="43.677718" [longitude]="-79.62482">
+                                            <agm-info-window>
+                                                <strong>Category</strong>: Shipping
+                                                <br>
+                                                <strong>Subcategory</strong>: Luggage
+                                                <br>
+                                                <strong>Name</strong>: Mississaga International Airport Cargo
+                                                <br>
+                                                <strong>Contact</strong>: 019182010
+                                            </agm-info-window>
+                                        </agm-marker>
 
 
-						<div class="form-group">
-							<label class="form-control-label" for="service-locatoin-name">
-								Location:
-							</label>
-							<input placeholder="search for location" id="location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
-							    class="form-control" #search>
-						</div>
-						<div class="form-group form-inline" style="padding-top: 35px;">
-							<label class="form-control-label" for="service-publish-name">
-								Publish this service online:
-							</label>
-							<input style="margin-left: 25px;" class="form-control form-check-label" value="" id="service-publish-name" type="checkbox"
-							    #publish formControlName="publish">
-						</div>
+                                        <agm-circle [latitude]="43.677718" [longitude]="-79.62482" [radius]="15000" [fillColor]="'lightgreen'" [circleDraggable]="true" [editable]="true">
+                                        </agm-circle>
+                                    </agm-map>
+                                </div>
 
-					</div>
+                                <!-- side info popup start -->
+                                <div style=" position: absolute;
+                                            margin-left: 27%;
+                                            background-color: white;
+                                            width: 35%;
+                                            height: 98%;
+                                            margin-top: 5px;" *ngIf="showServices">
+                                    <div class="container" style="padding: 10px">
+                                        <h4>
+                                            Customers Report
+                                            <span class="custom-float-right custom-pointer" (click)="showServices=false;">
+                                                <i class="fa fa-times"></i>
+                                            </span>
+
+                                        </h4>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span class="checked"> 4.0 </span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Address:
+                                            </strong>1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Phone:
+                                            </strong>+1 416-488-5254
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Hours:
+                                            </strong>
+                                            <span style="color:red">Close</span>
+                                            <span> 6:00 </span>
+                                            <span> - </span>
+                                            <span>Open</span>
+                                            <span> 23:00 </span>
+                                        </p>
+
+                                        <br>
+
+                                        <h5 style="font-weight: 600;
+                                                            font-size: 18px;">
+                                            Stats
+                                        </h5>
+                                        <div class="row m-row--no-padding align-items-center">
+                                            <div class="col">
+                                                <h3 class="m-widget1__title reportFontSize">
+                                                    Orders
+                                                </h3>
+                                                <span class="m-widget1__desc">
+										Weekly Customer Orders
+									</span>
+                                            </div>
+                                            <div class="col m--align-right">
+                                                <span class="m-widget1__number m--font-danger ordersNo">
+										+1,800
+									</span>
+                                            </div>
+                                        </div>
+                                        <hr style="margin: 5px;">
+                                        <div class="row m-row--no-padding align-items-center">
+                                            <div class="col">
+                                                <h3 class="m-widget1__title reportFontSize">
+                                                    Issue Reports
+                                                </h3>
+                                                <span class="m-widget1__desc">
+										System bugs and issues
+									</span>
+                                            </div>
+                                            <div class="col m--align-right">
+                                                <span class="m-widget1__number m--font-success ordersNo">
+										-27,49%
+									</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- side-info popup end -->
+
+                                <!-- Order History info popup start -->
+                                <div style=" position: absolute;
+                                            margin-left: 27%;
+                                            background-color: white;  
+                                            width: 35%;
+                                            height: 98%;
+                                            margin-top: 5px;" *ngIf="showOrderHistory">
+                                    <div class="container" style="padding: 10px">
+                                        <h4>
+                                            Room Cleaning
+                                            <span class="custom-float-right custom-pointer" (click)="showOrderHistory=false;">
+                                                <i class="fa fa-times"></i>
+                                            </span>
+
+                                        </h4>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span class="checked"> 4.0 </span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span> (7) One Room With Bath
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Address:
+                                            </strong>1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Phone:
+                                            </strong>+1 416-488-5254
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Hours:
+                                            </strong>
+                                            <span style="color:red">Close</span>
+                                            <span> 6:00 </span>
+                                            <span> - </span>
+                                            <span>Open</span>
+                                            <span> 23:00 </span>
+                                        </p>
+
+                                        <br>
+
+                                        <h5 style="font-weight: 600;
+                                                            font-size: 15px;">
+                                            Ongoing Orders
+                                        </h5>
+
+                                        <div id="accordion">
+                                            <div class="card">
+                                                <div class="card-header" id="headingOne" style="padding: 0px;">
+                                                    <h5 class="mb-0">
+                                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                            <span>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </span>One Room With Bath
+                                                        </button>
+                                                        <span class="custom-float-right" style="    font-size: 11px;
+                                                                      margin: 11px;
+                                                                      font-weight: 700;">
+                                                            $120.00
+                                                        </span>
+                                                    </h5>
+                                                </div>
+
+                                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Address:
+                                                            </strong>1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                                        </p>
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Date:
+                                                            </strong> 07 / 11 /2017
+                                                        </p>
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Detail:
+                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem cumque exercitationem inventore ea, repellendus corrupti
+                                                            placeat sed deserunt debitis, harum sint repellat aliquam temporibus saepe illo ad quasi soluta quod.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" id="headingTwo" style="padding: 0px;">
+                                                    <h5 class="mb-0">
+                                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                            <span>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </span>Multiple Rooms With Baths
+                                                        </button>
+                                                        <span class="custom-float-right" style="    font-size: 11px;
+                                                                      margin: 11px;
+                                                                      font-weight: 700;">
+                                                            $260
+                                                        </span>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Address:
+                                                            </strong>1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                                        </p>
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Date:
+                                                            </strong> 07 / 11 /2017
+                                                        </p>
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Detail:
+                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem cumque exercitationem inventore ea, repellendus corrupti
+                                                            placeat sed deserunt debitis, harum sint repellat aliquam temporibus saepe illo ad quasi soluta quod.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" id="headingThree" style="padding: 0px;">
+                                                    <h5 class="mb-0">
+                                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                            <span>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </span>One Room Office with Bath
+                                                        </button>
+                                                        <span class="custom-float-right" style="    font-size: 11px;
+                                                                      margin: 11px;
+                                                                      font-weight: 700;">
+                                                            $500.00
+                                                        </span>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Address:
+                                                            </strong>1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                                        </p>
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Date:
+                                                            </strong> 07 / 11 /2017
+                                                        </p>
+                                                        <p class="custom-margin-bottom-zero">
+                                                            <strong>
+                                                                Detail:
+                                                            </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem cumque exercitationem inventore ea, repellendus corrupti
+                                                            placeat sed deserunt debitis, harum sint repellat aliquam temporibus saepe illo ad quasi soluta quod.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Order-History popup end -->
+
+                                <!-- Info popup start -->
+                                <div style=" position: absolute;
+                                            margin-left: 27%;
+                                            background-color: white;  
+                                            width: 35%;
+                                            height: 98%;
+                                            margin-top: 5px; overflow-y: scroll;" *ngIf="showInfo">
+                                    <div class="container" style="padding: 10px">
+                                        <h4>
+                                            Room Cleaning
+                                            <span class="custom-float-right custom-pointer" (click)="showInfo=false;">
+                                                <i class="fa fa-times"></i>
+                                            </span>
+
+                                        </h4>
+                                        <p class="custom-margin-bottom-zero">
+                                            <span class="checked"> 4.0 </span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span> (7) One Room With Bath
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Address:
+                                            </strong>1620 Orr Rd, Mississauga, ON L5J 4T2, Canada
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Phone:
+                                            </strong>+1 416-488-5254
+                                        </p>
+                                        <p class="custom-margin-bottom-zero">
+                                            <strong>
+                                                Hours:
+                                            </strong>
+                                            <span style="color:red">Close</span>
+                                            <span> 6:00 </span>
+                                            <span> - </span>
+                                            <span>Open</span>
+                                            <span> 23:00 </span>
+                                        </p>
+
+                                        <br>
+
+                                        <h5 style="font-weight: 600;
+                                                            font-size: 15px;">
+                                            About Us
+                                        </h5>
+                                        <p>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab commodi ipsam, officiis, eligendi cumque architecto rem eum nobis exercitationem culpa quibusdam enim? Tempore rerum doloremque eveniet explicabo totam nisi dolor.
+                                        </p>
+                                        <h5 style="font-weight: 600;
+                                                            font-size: 15px;">
+                                            Statistics
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-content">
+                                                        <div class="card-body">
+                                                            <div class="media d-flex">
+                                                                <div class="media-body text-left">
+                                                                    <h4>255</h4>
+                                                                    <span> All Orders</span>
+                                                                </div>
+                                                                <div class="align-self-center">
+                                                                    <i class="icon-rocket danger font-large-2 float-right"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" style="padding: 0px;">
+                                                <div class="card" style="padding-right: 0px;
+                                                                    padding-left: 10px;">
+                                                    <div class="card-content">
+                                                        <div class="card-body">
+                                                            <div class="media d-flex">
+                                                                <div class="media-body text-left">
+                                                                    <h4>278</h4>
+                                                                    <span>Rejected Orders</span>
+                                                                </div>
+                                                                <div class="align-self-center">
+                                                                    <i class="icon-rocket danger font-large-2 float-right"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-content">
+                                                        <div class="card-body">
+                                                            <div class="media d-flex">
+                                                                <div class="media-body text-left">
+                                                                    <h4>150</h4>
+                                                                    <span>Completed</span>
+                                                                </div>
+                                                                <div class="align-self-center">
+                                                                    <i class="icon-rocket danger font-large-2 float-right"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h5 style="font-weight: 600;
+                                                            font-size: 15px; margin-top: 10px;">
+                                            Reviews(3)
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col reviewsSection">
+
+                                                <div class="row TheReview">
+                                                    <div class="col-md-2 ReviewerImage">
+                                                        <img alt="" class="m--img-rounded m--marginless m--img-centered" src="./assets/app/media/img/users/user4.jpg">
+                                                        <p>Jane Khan</p>
+                                                    </div>
 
 
-				</div>
-				<div>
-					<button class="btn btn-primary" type="submit" [disabled]="!servicesForm.valid">
-						Submit
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
+                                                    <div class="col-md-6 ReviewText">
+                                                        <p>Gel manicure lasted pretty long - already 1 month plus. However, would appreciate if they provided free gel removal if they want returning customers.</p>
+                                                    </div>
 
-</div> -->
+                                                    <div class="col-md-2 ReviewStars" style="padding-right: 0px;">
+                                                        <div class="custom-float-right">
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span _ class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star"></span>
+                                                        </div>
+                                                    </div>
 
-<!-- ____________________Create Services from removed ends_____________ -->
+                                                    <div class="col-md-2 ReviewStars">
+                                                        <p>11/04/18</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row TheReview">
+                                                    <div class="col-md-2 ReviewerImage">
+                                                        <img alt="" class="m--img-rounded m--marginless m--img-centered" src="./assets/app/media/img/users/user2.jpg">
+                                                        <p>Kane - The Boxer</p>
+                                                    </div>
+
+
+                                                    <div class="col-md-6 ReviewText">
+                                                        <p>Overall is good, the staff there also very nice &amp; also very beautiful ^.^
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="col-md-2 ReviewStars" style="padding-right: 0px;">
+                                                        <div class="custom-float-right">
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span _ class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star "></span>
+                                                            <span class="fa fa-star"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2 ReviewStars">
+                                                        <p>11/04/18</p>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="row TheReview">
+                                                    <div class="col-md-2 ReviewerImage">
+                                                        <img alt="" class="m--img-rounded m--marginless m--img-centered" src="./assets/app/media/img/users/user4.jpg">
+                                                        <p>Jane Khan</p>
+                                                    </div>
+
+
+                                                    <div class="col-md-6 ReviewText">
+                                                        <p>Gel manicure lasted pretty long - already 1 month plus. However, would appreciate if they provided free gel removal if they want returning customers.</p>
+                                                    </div>
+
+                                                    <div class="col-md-2 ReviewStars" style="padding-right: 0px;">
+                                                        <div class="custom-float-right">
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span _ class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2 ReviewStars">
+                                                        <p>11/04/18</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Info popup end -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ______________________map view ends________________________ -->
+
+<!-- ____________Map View Ends______________ -->

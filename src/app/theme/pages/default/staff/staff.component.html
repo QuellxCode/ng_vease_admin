@@ -33,9 +33,6 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-link" routerLink="/staff/rescheduleStaff">
-			<i class="fa fa-calendar"></i> Reschedule
-		</button>
         <button class="btn btn-link pull-right btn-changeview" (click)="changeView()">
 			<i class="fa" [class.hidden]="!isGridView" [ngClass]="{'fa-list' : isGridView , 'fa-th' : !isGridView}"></i> {{viewName}} </button>
 

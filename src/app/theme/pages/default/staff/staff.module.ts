@@ -4,12 +4,11 @@ import { Routes, RouterModule } from "@angular/router";
 import { StaffComponent } from "./staff.component";
 import { LayoutModule } from "../../../layouts/layout.module";
 import { DefaultComponent } from "../default.component";
-import { AgmCoreModule, AgmMap } from "@agm/core";
+import { AgmCoreModule } from "@agm/core";
 
 import { StaffServices } from "../../../../services/defaultServices/staffServices.services";
 // import { } from './../'
 import { MapViewStaffComponent } from "./mapviewStaff/mapviewStaff.component";
-import { RescheduleComponent } from './reschedule/reschedule.component';
 const routes: Routes = [
   {
     path: "",
@@ -22,11 +21,6 @@ const routes: Routes = [
       {
         path: "mapView",
         component: MapViewStaffComponent
-      }
-      ,
-      {
-        path: "rescheduleStaff",
-        component: RescheduleComponent
       }
     ]
   }
@@ -41,7 +35,7 @@ const routes: Routes = [
     })
   ],
   exports: [RouterModule],
-  declarations: [StaffComponent, RescheduleComponent, MapViewStaffComponent],
+  declarations: [StaffComponent, MapViewStaffComponent],
   providers: [StaffServices]
 })
 export class StaffModule {}

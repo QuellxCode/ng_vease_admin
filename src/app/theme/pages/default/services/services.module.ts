@@ -6,7 +6,6 @@ import { LayoutModule } from '../../../layouts/layout.module';
 import { DefaultComponent } from '../default.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule, AgmMap } from '@agm/core';
-import { MapViewServicesComponent } from './mapViewServices/mapview.component';
 // _____________Services________________
 import { CreateService } from '../../../../services/defaultServices/companyServices.services';
 const routes: Routes = [
@@ -17,18 +16,13 @@ const routes: Routes = [
             {
                 "path": "",
                 "component": ServicesComponent
-            },
-            {
-                'path': 'mapView',
-                'component': MapViewServicesComponent,
-            },
+            }
         ]
     }
 ];
 @NgModule({
     declarations: [
         ServicesComponent,
-        MapViewServicesComponent
     ],
     imports: [
         CommonModule,

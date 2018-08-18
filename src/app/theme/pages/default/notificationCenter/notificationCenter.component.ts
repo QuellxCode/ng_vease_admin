@@ -1,18 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
-import { ScriptLoaderService } from '../../../../../_services/script-loader.service';
+import { ScriptLoaderService } from '../../../../_services/script-loader.service';
 import * as $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs4';
-import { DataTable } from 'primeng/primeng';
 @Component({
-    selector: 'app-reschedule',
-    templateUrl: './reschedule.component.html',
-    styleUrls: ['./reschedule.component.css']
+    selector: 'app-notificationCenter',
+    templateUrl: './notificationCenter.component.html',
+    styleUrls: ['./notificationCenter.component.css']
 
 })
-export class RescheduleComponent implements AfterViewInit, OnInit {
+export class NotificationCenterComponent implements AfterViewInit, OnInit {
     complaints = true;
     cardClassActive = false;
     search: boolean = true;
@@ -29,7 +27,7 @@ export class RescheduleComponent implements AfterViewInit, OnInit {
 
     ngAfterViewInit() {
 
-        this._script.loadScripts('app-reschedule',
+        this._script.loadScripts('app-notificationCenter',
             ['assets/app/js/services.js']);
     }
 
