@@ -55,15 +55,4 @@ export class NotificationCenterComponent implements AfterViewInit, OnInit {
             this.secondRowActive = true;
         }
     }
-
-    sendFeedBack(permission) {
-     console.log(permission);   
-     if (permission == 1) {
-            this.feedBack = true;
-        }
-
-        else {
-            this.feedBack = false;
-        }
-    }
 }
