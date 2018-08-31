@@ -50,7 +50,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
                 '//www.amcharts.com/lib/3/plugins/export/export.min.js',
                 'assets/app/js/services.js']);
     }
-    
+
     changeView() {
         this.isGridView = !this.isGridView;
         if (this.isGridView) {
@@ -82,12 +82,12 @@ export class ServicesComponent implements OnInit, AfterViewInit {
             this.showInfo = true;
         }
     }
-     t= false;
-     deselectAll: boolean = false;
+    t = false;
+    deselectAll: boolean = false;
     selectAll() {
         this.deselectAll = !this.deselectAll;
-    //    console.log(e.target.checked);
-       this.t = this.deselectAll;
-    //    console.log(this.t);
+        //    console.log(e.target.checked);
+        this.t = this.deselectAll;
+        //    console.log(this.t);
     }
 }

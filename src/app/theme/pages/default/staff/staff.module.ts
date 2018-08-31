@@ -10,32 +10,32 @@ import { StaffServices } from "../../../../services/defaultServices/staffService
 // import { } from './../'
 import { MapViewStaffComponent } from "./mapviewStaff/mapviewStaff.component";
 const routes: Routes = [
-  {
-    path: "",
-    component: DefaultComponent,
-    children: [
-      {
+    {
         path: "",
-        component: StaffComponent
-      },
-      {
-        path: "mapView",
-        component: MapViewStaffComponent
-      }
-    ]
-  }
+        component: DefaultComponent,
+        children: [
+            {
+                path: "",
+                component: StaffComponent
+            },
+            {
+                path: "mapView",
+                component: MapViewStaffComponent
+            }
+        ]
+    }
 ];
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    LayoutModule,
-    AgmCoreModule.forRoot({
-      apiKey: "AIzaSyCQlMMVsJXt25cmmii1rx_Ghn0bjRRNdtc"
-    })
-  ],
-  exports: [RouterModule],
-  declarations: [StaffComponent, MapViewStaffComponent],
-  providers: [StaffServices]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        LayoutModule,
+        AgmCoreModule.forRoot({
+            apiKey: "AIzaSyCQlMMVsJXt25cmmii1rx_Ghn0bjRRNdtc"
+        })
+    ],
+    exports: [RouterModule],
+    declarations: [StaffComponent, MapViewStaffComponent],
+    providers: [StaffServices]
 })
-export class StaffModule {}
+export class StaffModule { }

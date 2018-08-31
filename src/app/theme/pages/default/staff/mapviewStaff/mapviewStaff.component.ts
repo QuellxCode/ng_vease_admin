@@ -72,13 +72,13 @@ export class MapViewStaffComponent implements AfterViewInit {
         }
     }
 
-     t= false;
-     deselectAll: boolean = false;
+    t = false;
+    deselectAll: boolean = false;
     selectAll() {
         this.deselectAll = !this.deselectAll;
-    //    console.log(e.target.checked);
-       this.t = this.deselectAll;
-    //    console.log(this.t);
+        //    console.log(e.target.checked);
+        this.t = this.deselectAll;
+        //    console.log(this.t);
     }
 
 }
